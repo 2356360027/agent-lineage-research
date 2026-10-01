@@ -1,0 +1,10 @@
+{
+  "protocol": "output-format-probe-v2",
+  "reliabilities": [0.526, 0.548, 0.574, 0.602, 0.638, 0.674, 0.716, 0.758, 0.802, 0.844, 0.886, 0.934],
+  "arms": ["joint", "probability_only", "answer_only"],
+  "repetitions": 3,
+  "seed": 14602837,
+  "temperature": 0.7,
+  "top_p": 0.9,
+  "max_tokens": 256
+}
