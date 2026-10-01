@@ -1,0 +1,19 @@
+{
+  "protocol": "comprehension-holdout-v1",
+  "source_reliabilities": [0.61, 0.74, 0.86, 0.93],
+  "observation_reliabilities": [0.68, 0.82, 0.97],
+  "repetitions": 3,
+  "seed": 81327046,
+  "temperature": 0.7,
+  "top_p": 0.9,
+  "max_tokens": 256,
+  "criteria": {
+    "overall_mae_max": 0.05,
+    "stratum_mae_max": 0.075,
+    "stratum_direction_min": 0.95,
+    "stratum_probability_direction_min": 0.95,
+    "stratum_inconsistency_max": 0.02,
+    "complement_symmetry_max": 0.05,
+    "recoding_discrepancy_max": 0.05
+  }
+}
