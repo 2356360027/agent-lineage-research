@@ -1,0 +1,10 @@
+{
+  "protocol": "stage-diagnostic-v1",
+  "seed": 59283147,
+  "cells": 12,
+  "temperature": 0.0,
+  "top_p": 1.0,
+  "max_tokens": 512,
+  "calls": 144,
+  "numeric_tolerance": 0.0001
+}
