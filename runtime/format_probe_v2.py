@@ -74,6 +74,10 @@ def outcome(raw, arm, model):
 
 
 class Client(LoopbackClient):
+    def __init__(self, config, endpoint, directory, evaluator=outcome):
+        super().__init__(config, endpoint, directory)
+        self.evaluator = evaluator
+
     def call(self, key, messages, seed, arm):
         payload = request(self.config, messages, seed); path = self.directory / (key + '.json')
         check(not path.exists(), 'Existing call; no overwrite or retry')
@@ -86,7 +90,7 @@ class Client(LoopbackClient):
             with urllib.request.urlopen(req, timeout=180) as response:
                 rec['raw_text'] = response.read().decode()
             raw = json.loads(rec['raw_text']); rec['raw_response'] = raw; rec['usage'] = raw.get('usage')
-            result = outcome(raw, arm, self.config['model']); rec['outcome'] = result
+            result = self.evaluator(raw, arm, self.config['model']); rec['outcome'] = result
             rec['status'] = 'ok' if result['format_valid'] else 'format_violation'
             return result
         except Exception as exc:
@@ -97,8 +101,9 @@ class Client(LoopbackClient):
 
 
 class Audit:
-    def __init__(self, directory, cfg):
+    def __init__(self, directory, cfg, evaluator=outcome):
         self.directory = directory; self.cfg = cfg; self.calls = []; self.keys = set()
+        self.evaluator = evaluator
 
     def call(self, key, messages, seed, arm):
         check(key not in self.keys, 'Duplicate call'); self.keys.add(key)
@@ -108,7 +113,7 @@ class Audit:
         check(rec['arm'] == arm, 'Arm mismatch')
         check(json.loads(rec['raw_text']) == rec['raw_response'], 'Raw mismatch')
         check(rec['usage'] == rec['raw_response'].get('usage'), 'Usage mismatch')
-        result = outcome(rec['raw_response'], arm, self.cfg['model'])
+        result = self.evaluator(rec['raw_response'], arm, self.cfg['model'])
         check(rec['outcome'] == result, 'Outcome mismatch')
         check(rec['status'] == ('ok' if result['format_valid'] else 'format_violation'), 'Unresolved/status mismatch')
         self.calls.append(rec); return result

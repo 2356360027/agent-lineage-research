@@ -1,0 +1,12 @@
+{
+  "protocol": "readiness-pipeline-v1",
+  "single_reliabilities": [0.517, 0.533, 0.557, 0.581, 0.613, 0.629, 0.653, 0.677, 0.701, 0.719, 0.737, 0.761, 0.779, 0.797, 0.811, 0.829, 0.853, 0.871, 0.893, 0.911, 0.929, 0.947, 0.961, 0.977],
+  "double_cells": 12,
+  "communication_cells": 12,
+  "repetitions": 3,
+  "seed": 25108369,
+  "temperature": 0.7,
+  "top_p": 0.9,
+  "max_tokens": 256,
+  "gate": {"mae_max": 0.05, "stratum_mae_max": 0.075, "direction_min": 0.95, "inconsistency_max": 0.02, "complement_max": 0.05}
+}
