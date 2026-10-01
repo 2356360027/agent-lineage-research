@@ -1,0 +1,11 @@
+{
+  "protocol": "id-wording-v1",
+  "seed": 48172639,
+  "cells": 12,
+  "repetitions": 2,
+  "temperature": 0.7,
+  "top_p": 0.9,
+  "max_tokens": 256,
+  "families": [["O0", "O1"], ["oak", "pine"], ["cedar", "birch"]],
+  "calls": 672
+}
