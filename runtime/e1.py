@@ -184,10 +184,14 @@ def main():
                       "config_hash": digest(config)}, indent=2))
     if not args.execute:
         return
-    if not re.fullmatch(r"[0-9a-f]{40}", config["revision"]):
-        parser.error("Pin an exact model commit before execution")
-    if "@sha256:" not in config["server_image"]:
-        parser.error("Pin the vLLM Docker image digest before execution")
+    if config.get('deployment') == 'native':
+        from .native import verify
+        verify(config)
+    else:
+        if not re.fullmatch(r"[0-9a-f]{40}", config["revision"]):
+            parser.error("Pin an exact model commit before execution")
+        if "@sha256:" not in config["server_image"]:
+            parser.error("Pin the vLLM Docker image digest before execution")
     directory = Path(args.output) / f"shard-{args.shard:03d}"
     directory.mkdir(parents=True, exist_ok=True)
     lock = directory / ".running.lock"
@@ -211,6 +215,7 @@ def main():
             for rep in range(config["repetitions"]):
                 result = run_item(client, config, index, rep)
                 save(directory / f"result-{index}-{rep}.json", result)
+                print(f"Completed item={index} repetition={rep}", flush=True)
         print("Completed worker. Score separately with python -m runtime.score.")
     finally:
         lock.unlink()

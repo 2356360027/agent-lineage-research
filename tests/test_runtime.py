@@ -5,6 +5,7 @@ from pathlib import Path
 from unittest.mock import patch
 from runtime.e1 import Client, messages, parse, run_item, world
 from runtime.score import summarize
+from runtime.native import fingerprint
 
 
 def response():
@@ -22,6 +23,19 @@ class Fixture:
 
 
 class Tests(unittest.TestCase):
+    def test_model_fingerprint(self):
+        with tempfile.TemporaryDirectory() as d:
+            root = Path(d)
+            for name in ['config.json', 'tokenizer_config.json', 'tokenizer.json']:
+                (root / name).write_text('{}')
+            (root / 'model.safetensors.index.json').write_text(json.dumps({'weight_map': {'a': 'part.safetensors'}}))
+            with self.assertRaises(ValueError): fingerprint(root)
+            (root / 'part.safetensors').write_bytes(b'test fixture only')
+            first = fingerprint(root)
+            self.assertEqual(first, fingerprint(root))
+            (root / 'part.safetensors').write_bytes(b'changed')
+            self.assertNotEqual(first, fingerprint(root))
+
     def test_world_reproducible(self):
         self.assertEqual(world(4, 7), world(4, 7))
 
