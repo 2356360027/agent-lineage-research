@@ -1,0 +1,9 @@
+{
+  "protocol": "tool-relay-v1",
+  "seed": 71405382,
+  "cells": 12,
+  "temperature": 0.0,
+  "top_p": 1.0,
+  "max_tokens": 768,
+  "calls": 168
+}
