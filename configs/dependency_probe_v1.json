@@ -1,0 +1,14 @@
+{
+  "protocol": "dependency-probe-v1",
+  "explore": {"world_seed": 4319017, "items": 40, "repetitions": 3},
+  "validate": {"world_seed": 8726029, "items": 160, "repetitions": 3},
+  "arms": ["hidden", "natural", "injected_zero", "injected_one", "hidden_repeat"],
+  "temperature": 0.7,
+  "top_p": 0.9,
+  "max_tokens": 256,
+  "bootstrap_seed": 386103,
+  "bootstrap_resamples": 20000,
+  "primary_endpoints": ["natural_minus_hidden_oracle_squared_error", "injected_one_minus_zero_probability"],
+  "interval_policy": "Two-sided 97.5 percent item-bootstrap percentile intervals for each of two primary endpoints; exploratory/approximate, not exact tests.",
+  "validation_policy": "Fresh worlds, frozen protocol; do not inspect validation outputs until all planned items finish. Any prompt or outcome change requires a new protocol."
+}
