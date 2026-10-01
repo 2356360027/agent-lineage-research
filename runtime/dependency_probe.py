@@ -65,9 +65,15 @@ def configure(native, design, stage):
                 max_tokens=design['max_tokens'], status=f'DEPENDENCY_PROBE_{stage.upper()}')
 
 
-def check_server(cfg, model_list):
+def check_server(cfg, model_list, resolve_paths=True):
     matches = [m for m in model_list['data'] if m['id'] == cfg['model']]
-    if len(matches) != 1 or Path(matches[0]['root']).resolve() != Path(cfg['model_path']).resolve():
+    if len(matches) != 1:
+        raise ValueError('Live model endpoint/path mismatch')
+    # Resolve the model alias only on the serving machine. Offline analysis may
+    # run on another OS without that symlink; compare the recorded API root there.
+    matched = (Path(matches[0]['root']).resolve() == Path(cfg['model_path']).resolve()
+               if resolve_paths else matches[0]['root'] == cfg['served_model_metadata']['root'])
+    if not matched:
         raise ValueError('Live model endpoint/path mismatch')
     if matches[0].get('max_model_len') != cfg['server_settings_reported']['max_model_len']:
         raise ValueError('Live context length mismatch')

@@ -64,7 +64,8 @@ def summarize(root):
     for path,m in zip(paths,manifests):
         directory=path.parent
         check(directory.name==f"shard-{m['shard']:03d}",'Worker directory mismatch')
-        check_server(cfg,json.loads((directory/'server_metadata.json').read_text(encoding='utf-8')))
+        check_server(cfg,json.loads((directory/'server_metadata.json').read_text(encoding='utf-8')),
+                     resolve_paths=False)
         expected_items=list(range(m['shard'],cfg['items'],spec['shards']))
         check(len(list(directory.glob('result-*.json')))==len(expected_items),'Worker results missing/extra')
         check(len(list(directory.glob('i*.json')))==len(expected_items)*(3+R*len(cfg['arms'])),'Call records missing/extra')

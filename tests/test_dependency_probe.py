@@ -22,6 +22,7 @@ def design_fixture():
 def config_fixture(design):
     return configure({'deployment':'native','model':'UNIT_TEST_ONLY',
         'model_path':str(Path('UNIT_TEST_NO_WEIGHTS').resolve()),
+        'served_model_metadata':{'root':str(Path('UNIT_TEST_NO_WEIGHTS').resolve())},
         'server_settings_reported':{'max_model_len':4096}},design,'explore')
 
 
@@ -100,6 +101,15 @@ class ProbeTests(unittest.TestCase):
         check_server(cfg,models)
         models['data'][0]['max_model_len']=8192
         with self.assertRaises(ValueError): check_server(cfg,models)
+
+    def test_offline_server_metadata_does_not_resolve_remote_symlink(self):
+        cfg=config_fixture(design_fixture())
+        cfg['model_path']='/server/canonical/model'
+        cfg['served_model_metadata']['root']='/server/model-alias'
+        models=server_fixture(cfg);models['data'][0]['root']='/server/model-alias'
+        check_server(cfg,models,resolve_paths=False)
+        models['data'][0]['root']='/server/wrong-alias'
+        with self.assertRaises(ValueError): check_server(cfg,models,resolve_paths=False)
 
     def test_oracle_and_cluster_interval(self):
         self.assertAlmostEqual(oracle([{'value':1,'reliability':.8}]),.8)
