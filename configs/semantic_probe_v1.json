@@ -1,0 +1,12 @@
+{
+  "protocol": "semantic-probe-v1",
+  "world_seed": 19264073,
+  "items": 30,
+  "repetitions": 3,
+  "temperature": 0.7,
+  "top_p": 0.9,
+  "max_tokens": 256,
+  "bootstrap_seed": 708431,
+  "bootstrap_resamples": 20000,
+  "primary_endpoints": ["explicit_verdict_sensitivity", "explicit_minus_legacy_sensitivity"]
+}
