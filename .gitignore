@@ -3,6 +3,7 @@
 !/.gitignore
 !/.gitattributes
 !/EXPERIMENT_START.md
+!/EXPERIMENT_DEPENDENCY_PROBE.md
 !/runtime/
 !/configs/
 !/scripts/
