@@ -1,0 +1,15 @@
+# Allow-list: do not publish manuscript, old figures, raw runs or credentials.
+/*
+!/.gitignore
+!/.gitattributes
+!/EXPERIMENT_START.md
+!/runtime/
+!/configs/
+!/scripts/
+!/tests/
+__pycache__/
+*.pyc
+.env*
+*.pem
+*.key
+runtime/runs/

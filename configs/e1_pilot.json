@@ -1,0 +1,13 @@
+{
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "revision": "SET_EXACT_HUGGINGFACE_COMMIT",
+  "server_image": "SET_VLLM_IMAGE_DIGEST",
+  "dtype": "bfloat16",
+  "seed": 20261001,
+  "items": 20,
+  "repetitions": 1,
+  "temperature": 0.7,
+  "top_p": 0.9,
+  "max_tokens": 256,
+  "status": "EXPLORATORY_PILOT_NOT_CONFIRMATORY"
+}
