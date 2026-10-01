@@ -1,0 +1,11 @@
+{
+  "protocol": "timing-probe-v1",
+  "world_seed": 31620487,
+  "items": 40,
+  "temperature": 0.7,
+  "top_p": 0.9,
+  "max_tokens": 256,
+  "bootstrap_seed": 116309,
+  "bootstrap_resamples": 20000,
+  "primary_endpoints": ["gate_minus_open_oracle_error", "evidence_new_minus_repeat_brier"]
+}
