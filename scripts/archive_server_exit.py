@@ -20,7 +20,7 @@ CODE_DIRS = ('agent-lineage-research', 'dependency-probe-1fc99df',
     'format-diagnostic-v1', 'format-diagnostic-v2', 'readiness-pipeline-v1',
     'order-diagnostic-v1', 'id-wording-v1', 'stage-diagnostic-v1', 'scaffold-v1',
     'tool-relay-v1', 'duplicate-control-v1', 'lineage-utility-v1',
-    'origin-representation-v1', 'prompt-id-bridge-v1', 'tool-input-audit-v1', 'tool-input-repair-v1', 'anchored-communication-v1', 'decision-interface-v1', 'interface-replication-v1')
+    'origin-representation-v1', 'prompt-id-bridge-v1', 'tool-input-audit-v1', 'tool-input-repair-v1', 'anchored-communication-v1', 'decision-interface-v1', 'interface-replication-v1', 'routing-timing-v2')
 MODEL_FILES = ('config.json','configuration.json','generation_config.json',
     'merges.txt','model.safetensors.index.json','tokenizer.json',
     'tokenizer_config.json','vocab.json','LICENSE','README.md')
