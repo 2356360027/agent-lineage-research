@@ -20,6 +20,7 @@
   "postfailure_cpu_audit": {
     "status": "SOFTWARE_FIXTURES_ONLY_NO_INFERENCE",
     "initial_diagnostic_error": "Used unavailable GrammarMatcher.accept_string; AttributeError retained in log, then inspected token API instead.",
+    "subsequent_negative_fixture_failure": "Corrected token-based check raised AssertionError because the maxItems=0 schema accepted the tested nonempty unseen-ID array. That failed diagnostic log was retained before the full non-asserting schema audit.",
     "frozen_empty_schema_accepts_tested_unseen_id": true,
     "frozen_full_schemas_accept_tested_nine_valid_ids": 8,
     "empty_array_const_and_enum_reject_tested_nonempty_arrays": true,
