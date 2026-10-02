@@ -1,0 +1,29 @@
+{
+  "classification":"POST_HOC_OFFLINE_AUDIT_NOT_NEW_MODEL_EXPERIMENT",
+  "run":"anchored-communication-001",
+  "parent_result_commit":"4eb1158d652ad3aff70747732cda121c17ed1d79",
+  "original_results_changed":false,
+  "new_inference_calls":0,
+  "scope":"384 archived call files hashed; all 240 final raw responses independently parsed and compared with recorded assessments; calculator selection and Decimal arithmetic independently checked for all finals; group counts compared with frozen summary. Initial lineage was independently verified in the preceding archive audit.",
+  "findings":[
+    {"name":"no_peer_probability_error","count":4,"denominator":48,"meaning":"Correct task posterior was available in calculator content, but final reported probability differed by more than 1e-4. No arithmetic or raw-response parsing discrepancy found in this audit."},
+    {"name":"no_peer_MAP_disagreement","count":3,"denominator":48,"meaning":"All three reported the correct posterior yet answered the lower-probability state under symmetric MAP decision loss."},
+    {"name":"no_peer_MAP_disagreement_repeats_initial_answer","count":2,"denominator":3,"meaning":"One case differs from the initial answer, so initial-answer persistence alone cannot descriptively account for all three. Agreement is not evidence of a cognitive cause."},
+    {"name":"simple_probability_fingerprints","matches":0,"denominator":4,"candidates":["all messages treated as independent","previous probability","complement of target"],"tolerance":0.0001,"meaning":"No baseline probability error exactly matches these three candidates within tolerance. These candidates are not exhaustive and do not rule out approximate arithmetic or context effects."},
+    {"name":"output_field_order","answer_first":240,"final_calls":240,"meaning":"Field order was not experimentally crossed; it cannot be assigned a causal role from this batch."}
+  ],
+  "measurement_design_limitation":"The frozen prompt specified the probability target but only required answer to be 0 or 1. It did not explicitly instruct a symmetric-loss MAP decision or tie rule. Consequently MAP disagreement is a scored convention, not established violation of an explicit decision instruction. This qualification does not remove the independent 44/48 posterior capability failure.",
+  "prior_art":[
+    {"title":"From Evidence to Belief: A Bayesian Epistemology Approach to Language Models","url":"https://arxiv.org/html/2504.19622v1","read_scope":"Abstract, sections 3.1-3.3 and 4.1 excerpts","relevance":"Evidence type, response accuracy and elicited confidence need not change together. Their natural QA evidence perturbations differ from our exact synthetic probability task; no direct reproduction claim."},
+    {"title":"ADVICE: Answer-Dependent Verbalized Confidence Estimation","url":"https://arxiv.org/html/2510.10913v1","read_scope":"Abstract, sections 3.1-3.2 excerpts and prompt templates","relevance":"Answer-dependent confidence is prior art, so generic answer/confidence disconnection is not automatically novel. Crucially their confidence in a selected answer differs from our P(Y=1); their desired answer dependence must not be imposed on our fixed-event probability."}
+  ],
+  "proposed_design_changes_not_run":[
+    "Make event probability and decision distinct: p_state_1 always refers to Y=1; answer maximizes expected accuracy with equal error costs. Explicitly define p=0.5 tie behavior.",
+    "Preserve raw answer and probability as separate outcomes. Any deterministic MAP decoder is a labeled external baseline, not a repaired model answer.",
+    "If authorized, isolate explicit decision instruction from output-field ordering; do not change both and attribute the result to one.",
+    "Before attributing a peer effect, retain within-batch no-peer reconsideration and fixed evidence/calculator controls. Do not infer the effect of own prior from its correlation with a final answer.",
+    "A return to the original DICE utility claim still requires strong deduplication controls, delayed-release ablation, second-model replication and natural-task evaluation. Interface correctness alone is not an algorithmic contribution."
+  ],
+  "decision":"DISCUSS_BEFORE_MORE_INFERENCE",
+  "raw_logs_public":false
+}
