@@ -1,0 +1,31 @@
+{
+  "kind":"RESEARCH_DECISION_RECORD_NOT_EXPERIMENT_RESULTS",
+  "date":"2026-10-02",
+  "manuscript_reviewed":["manuscript/sections_v7/00_abstract.tex","manuscript/sections_v7/05_protocol.tex","manuscript/sections_v7/06_evaluation.tex"],
+  "evidence_boundary":[
+    "The v7 manuscript honestly specifies a protocol and software checks, not established behavioral or accuracy gains.",
+    "The earlier timing pilot's primary gate-minus-open posterior-error contrast was unfavorable. Its results must not be replaced by later auxiliary diagnostics.",
+    "The earlier routing pilot did not establish primary utility gains. Its CPU equivalence check makes trusted-ID recipient bookkeeping a conventional baseline, not independent novelty.",
+    "The tool-input diagnostic isolates arithmetic from selected-input validity; it does not measure free-form debate, information independence or natural-task transfer."
+  ],
+  "related_work":[
+    {"url":"https://arxiv.org/html/2305.11738v4","read_scope":"abstract, introduction, sections 3.3 and appendix D.2.2 excerpts","implication":"External-feedback correction and damaging originally correct answers are established concerns. Include valid-input regression controls; do not label deterministic repair a novel correction framework."},
+    {"url":"https://aclanthology.org/2024.findings-emnlp.289/","read_scope":"abstract","implication":"Self-verification for tool selection and parameters is prior art. A real implementation comparison needs paper and code review, not a renamed generic prompt."},
+    {"url":"https://arxiv.org/html/2606.00820v1","read_scope":"abstract, introduction, method 3.1","implication":"Peer-induced answer changes need a no-peer reconsideration counterfactual. Reduced peer adoption is not itself utility. Treat as a preprint, not evidence of acceptance."},
+    {"url":"https://arxiv.org/abs/2607.01661","read_scope":"abstract only","implication":"Information asymmetry and evidence routing already appear in InfoDelphi. Full methods review is needed before claiming an evidence-routing contribution or choosing its adaptation."},
+    {"url":"https://arxiv.org/html/2607.24117v1","read_scope":"abstract and sections 4.3-4.4 excerpts","implication":"Claim-chain provenance and conservative routing have related prior work. Registry identity does not prove statistical independence in real data."}
+  ],
+  "next_method_requirements_before_confirmatory_run":[
+    "Separate evidence identity (same measured event) from source identity (different events can have a common source). Never deduplicate all same-source content.",
+    "Preserve exposure history and receiver-specific novelty, but compare to the same canonical deterministic ledger as a strong baseline.",
+    "Do not supply ground-truth labels or oracle effectiveness weights to the proposed method. Distinguish a task-specific calculator from a scoring-only oracle.",
+    "Use actual regenerated peer outputs for natural communication; label injected verdicts separately as interventions.",
+    "Match permitted evidence, maximum calls and terminal schema; report realized tokens and time rather than asserting equal realized cost.",
+    "Include no-peer reconsideration, independent aggregation, and a single-agent union-evidence utility reference.",
+    "Freeze a ledger-by-verdict-release factorial for mechanism attribution. A combined P-minus-baseline gain alone cannot identify the cause.",
+    "Define a new held-out evaluation only after developmental choices, including prompts, are frozen. Repeated calls do not increase independent task count.",
+    "Do not enlarge model runs just to consume server balance; prioritize experiments that distinguish plausible explanations."
+  ],
+  "claim_not_yet_supported":"A novel DICE algorithm that improves independence and task utility beyond strong simple baselines on natural tasks.",
+  "discussion_trigger":"If progress remains confined to deterministic tool input validation or gate utility remains unsupported, discuss whether to narrow the paper to a controlled diagnostic study before further scaling or changing its headline claims."
+}
