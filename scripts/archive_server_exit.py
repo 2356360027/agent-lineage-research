@@ -20,7 +20,7 @@ CODE_DIRS = ('agent-lineage-research', 'dependency-probe-1fc99df',
     'format-diagnostic-v1', 'format-diagnostic-v2', 'readiness-pipeline-v1',
     'order-diagnostic-v1', 'id-wording-v1', 'stage-diagnostic-v1', 'scaffold-v1',
     'tool-relay-v1', 'duplicate-control-v1', 'lineage-utility-v1',
-    'origin-representation-v1', 'prompt-id-bridge-v1', 'tool-input-audit-v1', 'tool-input-repair-v1', 'anchored-communication-v1', 'decision-interface-v1')
+    'origin-representation-v1', 'prompt-id-bridge-v1', 'tool-input-audit-v1', 'tool-input-repair-v1', 'anchored-communication-v1', 'decision-interface-v1', 'interface-replication-v1')
 MODEL_FILES = ('config.json','configuration.json','generation_config.json',
     'merges.txt','model.safetensors.index.json','tokenizer.json',
     'tokenizer_config.json','vocab.json','LICENSE','README.md')
@@ -46,7 +46,7 @@ def main():
             if (root/small).is_file():chosen.add(root/small)
     prefixes=('dependency-','semantic-','timing-','routing-','comprehension-',
         'format-','readiness-','order-','id-wording-','stage-','scaffold-',
-        'tool-relay-','duplicate-control-','lineage-utility-','origin-representation-','prompt-id-bridge-','tool-input-audit-','tool-input-repair-','anchored-communication-','decision-interface-')
+        'tool-relay-','duplicate-control-','lineage-utility-','origin-representation-','prompt-id-bridge-','tool-input-audit-','tool-input-repair-','anchored-communication-','decision-interface-','interface-replication-')
     chosen.update(x for x in base.glob('*.tar.gz') if x.name.startswith(prefixes))
     model=base/'model-cache/Qwen/Qwen2.5-7B-Instruct'
     for name in MODEL_FILES:
