@@ -1,0 +1,53 @@
+{
+  "run":"decision-interface-001",
+  "classification":"EXPLORATORY_FACTORIAL_DIAGNOSTIC_NOT_DICE_CONFIRMATION",
+  "frozen_code_commit":"64c97710ebf882e00aa60e405c1ab56d8a7e395e",
+  "design_sha256":"33f69bc55a5aee6b28457fb163659650240201da8f48b212d97861c45399f5d6",
+  "source_archive_sha256":"f55efa07f7ff936e731285e81a7bfac53438a295cd6a5eecd81c2ebba5172ff3",
+  "private_archive_sha256":"f5b4236345ad09cd39b1fc193acc039a3f492c637a9572cb506d84b4cfc39454",
+  "model":"Qwen/Qwen2.5-7B-Instruct",
+  "model_content_sha256":"d6d12ae13c606e1d3fdc29eb937828be32b1b09a755f1632b4e59654f228ff1e",
+  "started_hk":"2026-10-02T21:06:41+08:00",
+  "finished_hk":"2026-10-02T21:13:58+08:00",
+  "completed_calls":528,
+  "independent_cells":12,
+  "initial_calls":144,
+  "initial_correct":144,
+  "initial_invalid":0,
+  "final_invalid":1,
+  "experiment_exit_code":0,
+  "score_exit_code":0,
+  "software_tests":{"local":86,"server":86},
+  "preflight_issue":"An installed scripts package shadowed the repository namespace. Fixed before inference by explicit scripts/__init__.py. Initial failed test log retained; corrected full suite passed. No inference retry.",
+  "usage":{"complete":true,"prompt_tokens":338702,"completion_tokens":19602,"sum_call_seconds":366.4912400841713},
+  "no_peer_descriptive_counts":[
+    {"rule":"unspecified","order":"answer_first","scheduled":48,"posterior_correct":35,"map_consistent":46,"format_invalid":1},
+    {"rule":"unspecified","order":"probability_first","scheduled":48,"posterior_correct":46,"map_consistent":46,"format_invalid":0},
+    {"rule":"explicit","order":"answer_first","scheduled":48,"posterior_correct":48,"map_consistent":47,"format_invalid":0},
+    {"rule":"explicit","order":"probability_first","scheduled":48,"posterior_correct":48,"map_consistent":42,"format_invalid":0}
+  ],
+  "count_interpretation":"Counts aggregate relations and complements for readability, not 48 independent samples. Primary paired effects are separated by relation and averaged within 12 independent cells. Invalid calls are not imputed as numerical predictions or omitted from scheduled counts.",
+  "primary_descriptive_contrasts":[
+    {"name":"copy:rule:mae","complete_cells":11,"complete_mean":null},
+    {"name":"copy:rule:answer_probability_consistent","complete_cells":11,"complete_mean":null},
+    {"name":"copy:order:mae","complete_cells":11,"complete_mean":null},
+    {"name":"copy:order:answer_probability_consistent","complete_cells":11,"complete_mean":null},
+    {"name":"independent:rule:mae","complete_cells":12,"complete_mean":-0.006618293909142337},
+    {"name":"independent:rule:answer_probability_consistent","complete_cells":12,"complete_mean":-0.0625},
+    {"name":"independent:order:mae","complete_cells":12,"complete_mean":-0.006618278227475248},
+    {"name":"independent:order:answer_probability_consistent","complete_cells":12,"complete_mean":-0.10416666666666667}
+  ],
+  "contrast_directions":"Rule = explicit minus unspecified, averaged over requested order. Order = probability_first minus answer_first, averaged over rule. All primary contrasts use no_peer only.",
+  "secondary_natural_minus_no_peer_fixed_explicit_probability_first":[
+    {"relation":"copy","mae_delta":0.005811976627909718,"oracle_map_direction_delta":-0.041666666666666664,"complete_cells":12},
+    {"relation":"independent","mae_delta":0.0,"oracle_map_direction_delta":0.0,"complete_cells":12}
+  ],
+  "engineering_gate":{"passed":false,"fixed_arm":"explicit:probability_first:no_peer","calls":48,"correct_posterior":48,"map_consistent":42,"correct_min":0.95,"consistent_min":0.95},
+  "error_audit":{"invalid_cause":"One unknown citation ID in copy/unspecified/answer_first/no_peer. Output retained; four primary contrasts incomplete and kept null. No truncation or infrastructure failure.","fixed_gate_inconsistencies":"All six raw answers are 0 despite reported p_state_1 > 0.5 and an explicit threshold instruction. This is an observed decision inconsistency, not evidence of a latent reasoning mechanism.","field_order":"All 383 format-valid final outputs followed requested key order; the one invalid output remains invalid, not rescued."},
+  "verification":{"remote_local_archive_sha256_match":true,"source_archive_sha256_match":true,"exact_frozen_replay":["summary","cell_metrics","paired_contrasts","audit_input_hashes"],"independent_arithmetic_peer_lineage_and_group_counts":528,"independent_primary_contrasts":8},
+  "decision":"DISCUSS_BEFORE_MORE_INFERENCE",
+  "interpretation":"Explicit rules in this sample aligned reported posteriors with the exact calculator but did not guarantee consistent decisions. Probability-first was not uniformly superior. The exploratory explicit/answer-first arm cannot retroactively replace the failed prespecified gate. Natural peer effects remain small or sparse in the fixed secondary arm; zero observed difference does not establish equivalence.",
+  "next_proposal_not_run":"If authorized, independently replicate a prospectively selected explicit/answer-first interface on unseen cells with explicit/probability-first retained as a comparator, or use an explicitly labeled deterministic decision baseline while evaluating raw model decisions separately. Neither path confirms DICE; strong routing baselines and held-out utility tests remain required.",
+  "limitations":["12 independent synthetic cells and one model","Correct calculator and complete trusted origins provided","No native autonomous tool use","One incomplete cell affects four primary contrasts","No p-values, equivalence, field-order cognitive mechanism or natural prevalence claims","No changes to previous results, no invalid-output repair, no resampling"],
+  "raw_data_public":false
+}
