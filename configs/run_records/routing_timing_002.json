@@ -1,0 +1,981 @@
+{
+  "run": "routing-timing-002",
+  "classification": "EXPLORATORY_ROUTING_TIMING_COMPONENT_NOT_DICE_CONFIRMATION",
+  "frozen_code_commit": "dac9b09395946cd73b739e6c11dc706252134e21",
+  "design_sha256": "b2e6a0cddc35b52b01d7b789f4f68aa9072ef7a53648b44e90d68fba003afc38",
+  "source_archive_sha256": "534e68aedcb199d322d35526d9e16f0db64a8be3c260796480d349009777736c",
+  "private_archive_sha256": "6722fc136c85f80f8bc0107a12fa5abac3e49df732884348eedc69e3a238cbe7",
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "model_content_sha256": "d6d12ae13c606e1d3fdc29eb937828be32b1b09a755f1632b4e59654f228ff1e",
+  "started_hk": "2026-10-02T22:35:18+08:00",
+  "finished_hk": "2026-10-02T23:03:46+08:00",
+  "run_and_scoring_wall_seconds": 1708,
+  "wall_time_scope": "Model fingerprinting, inference and scoring; excludes software preflight, transfers, backup and idle rental time. Not a cloud billing receipt.",
+  "experiment_exit_code": 0,
+  "score_exit_code": 0,
+  "completed_calls": 2208,
+  "independent_cells": 12,
+  "invalid_calls": 26,
+  "design_scope": "12 fresh conditional synthetic cells, two label complements, copy/independent origin relations. Five routing/timing methods, single-union, private-initial ensemble, separately executed noninteracting union calls and an unassisted union probe. All treatments use frozen S0 peer answers, not adaptive regenerated debate. Known exact calculator and trusted provenance.",
+  "sample_scope": "48 cases per job are clustered within 12 independent cells; they are not 48 independent task samples. There are no sampled outcome labels, so oracle-MAP direction is not empirical accuracy.",
+  "software_tests": {
+    "local_new_module": 4,
+    "local_full_suite_before_tokenizer_regression": 93,
+    "local_tokenizer_regression": 1,
+    "remote_new_module": 4,
+    "remote_tokenizer_regression": 1,
+    "private_backup_synthetic_tests_normal": 11,
+    "private_backup_synthetic_tests_optimized": 11
+  },
+  "preflight_note": "A tokenizer-only CLI variable-shadowing error was repaired before inference. Original source archive and failure metadata preserved. Runtime prompts, design and seeds did not change.",
+  "usage": {
+    "complete": true,
+    "prompt_tokens": 1476356,
+    "completion_tokens": 80688,
+    "sum_call_seconds": 1513.2470546513796
+  },
+  "realized_resources_by_job": {
+    "dedup_delay": {
+      "calls": 336,
+      "prompt_tokens": 242705,
+      "completion_tokens": 12333,
+      "seconds": 231.58161783218384
+    },
+    "dedup_never": {
+      "calls": 336,
+      "prompt_tokens": 239238,
+      "completion_tokens": 12334,
+      "seconds": 231.29293951392174
+    },
+    "dedup_open": {
+      "calls": 336,
+      "prompt_tokens": 245997,
+      "completion_tokens": 12159,
+      "seconds": 228.42091714590788
+    },
+    "initial": {
+      "calls": 144,
+      "prompt_tokens": 67228,
+      "completion_tokens": 5015,
+      "seconds": 93.727653414011
+    },
+    "private_ensemble": {
+      "calls": 48,
+      "prompt_tokens": 16524,
+      "completion_tokens": 2168,
+      "seconds": 40.087456434965134
+    },
+    "raw_delay": {
+      "calls": 336,
+      "prompt_tokens": 247732,
+      "completion_tokens": 12733,
+      "seconds": 239.08012637495995
+    },
+    "raw_open": {
+      "calls": 336,
+      "prompt_tokens": 251062,
+      "completion_tokens": 12587,
+      "seconds": 236.3363099321723
+    },
+    "single_union": {
+      "calls": 96,
+      "prompt_tokens": 42274,
+      "completion_tokens": 2696,
+      "seconds": 51.145996280014515
+    },
+    "unassisted_union": {
+      "calls": 48,
+      "prompt_tokens": 20486,
+      "completion_tokens": 1616,
+      "seconds": 30.22524918615818
+    },
+    "union_ensemble": {
+      "calls": 192,
+      "prompt_tokens": 103110,
+      "completion_tokens": 7047,
+      "seconds": 131.34878853708506
+    }
+  },
+  "resource_contract": {
+    "logical_calls_per_method": 10,
+    "single_union_calls": 2,
+    "private_ensemble_calls": 4,
+    "union_ensemble_calls": 4,
+    "unassisted_union_calls": 1,
+    "note": "Shared S0 calls reused across methods but charged logically to every method. Utility controls are lower-call references, not equal-realized-compute baselines. Per-call raw token/time records retained."
+  },
+  "groups": {
+    "copy:raw_open": {
+      "scheduled": 24,
+      "valid": 23,
+      "invalid": 1,
+      "mae": {
+        "mean": 0.001122079096905787,
+        "denominator": 23
+      },
+      "direction": {
+        "mean": 1,
+        "denominator": 23
+      },
+      "probability_direction": {
+        "mean": 1,
+        "denominator": 23
+      },
+      "pipeline_valid": 24,
+      "posterior_correct": 22,
+      "map_consistent": 23
+    },
+    "copy:raw_delay": {
+      "scheduled": 24,
+      "valid": 23,
+      "invalid": 1,
+      "mae": {
+        "mean": 2.964882101352334e-7,
+        "denominator": 23
+      },
+      "direction": {
+        "mean": 1,
+        "denominator": 23
+      },
+      "probability_direction": {
+        "mean": 1,
+        "denominator": 23
+      },
+      "pipeline_valid": 24,
+      "posterior_correct": 23,
+      "map_consistent": 23
+    },
+    "copy:dedup_open": {
+      "scheduled": 24,
+      "valid": 24,
+      "invalid": 0,
+      "mae": {
+        "mean": 0.002844057715497851,
+        "denominator": 24
+      },
+      "direction": {
+        "mean": 1,
+        "denominator": 24
+      },
+      "probability_direction": {
+        "mean": 1,
+        "denominator": 24
+      },
+      "pipeline_valid": 24,
+      "posterior_correct": 22,
+      "map_consistent": 24
+    },
+    "copy:dedup_delay": {
+      "scheduled": 24,
+      "valid": 24,
+      "invalid": 0,
+      "mae": {
+        "mean": 2.855889779616409e-7,
+        "denominator": 24
+      },
+      "direction": {
+        "mean": 1,
+        "denominator": 24
+      },
+      "probability_direction": {
+        "mean": 1,
+        "denominator": 24
+      },
+      "pipeline_valid": 24,
+      "posterior_correct": 24,
+      "map_consistent": 24
+    },
+    "copy:dedup_never": {
+      "scheduled": 24,
+      "valid": 24,
+      "invalid": 0,
+      "mae": {
+        "mean": 2.855889779616409e-7,
+        "denominator": 24
+      },
+      "direction": {
+        "mean": 1,
+        "denominator": 24
+      },
+      "probability_direction": {
+        "mean": 1,
+        "denominator": 24
+      },
+      "pipeline_valid": 24,
+      "posterior_correct": 24,
+      "map_consistent": 24
+    },
+    "copy:single_union": {
+      "scheduled": 24,
+      "valid": 12,
+      "invalid": 12,
+      "mae": {
+        "mean": 2.811991407965693e-7,
+        "denominator": 12
+      },
+      "direction": {
+        "mean": 1,
+        "denominator": 12
+      },
+      "probability_direction": {
+        "mean": 1,
+        "denominator": 12
+      },
+      "pipeline_valid": 24,
+      "posterior_correct": 12,
+      "map_consistent": 12
+    },
+    "copy:private_ensemble": {
+      "scheduled": 24,
+      "valid": 24,
+      "invalid": 0,
+      "mae": {
+        "mean": 0.24455750056066983,
+        "denominator": 24
+      },
+      "direction": {
+        "mean": 0.4583333333333333,
+        "denominator": 24
+      },
+      "probability_direction": {
+        "mean": 0.5,
+        "denominator": 24
+      },
+      "pipeline_valid": 24,
+      "posterior_correct": 0,
+      "map_consistent": 21
+    },
+    "copy:union_ensemble": {
+      "scheduled": 24,
+      "valid": 24,
+      "invalid": 0,
+      "mae": {
+        "mean": 2.855889779616409e-7,
+        "denominator": 24
+      },
+      "direction": {
+        "mean": 1,
+        "denominator": 24
+      },
+      "probability_direction": {
+        "mean": 1,
+        "denominator": 24
+      },
+      "pipeline_valid": 24,
+      "posterior_correct": 24,
+      "map_consistent": 24
+    },
+    "copy:unassisted_union": {
+      "scheduled": 24,
+      "valid": 24,
+      "invalid": 0,
+      "mae": {
+        "mean": 0.2516994982154689,
+        "denominator": 24
+      },
+      "direction": {
+        "mean": 0.5,
+        "denominator": 24
+      },
+      "probability_direction": {
+        "mean": 0.5,
+        "denominator": 24
+      },
+      "pipeline_valid": 24,
+      "posterior_correct": 0,
+      "map_consistent": 24
+    },
+    "independent:raw_open": {
+      "scheduled": 24,
+      "valid": 24,
+      "invalid": 0,
+      "mae": {
+        "mean": 2.863339901383021e-7,
+        "denominator": 24
+      },
+      "direction": {
+        "mean": 0.9583333333333334,
+        "denominator": 24
+      },
+      "probability_direction": {
+        "mean": 1,
+        "denominator": 24
+      },
+      "pipeline_valid": 24,
+      "posterior_correct": 24,
+      "map_consistent": 23
+    },
+    "independent:raw_delay": {
+      "scheduled": 24,
+      "valid": 24,
+      "invalid": 0,
+      "mae": {
+        "mean": 2.863339901383021e-7,
+        "denominator": 24
+      },
+      "direction": {
+        "mean": 0.9583333333333334,
+        "denominator": 24
+      },
+      "probability_direction": {
+        "mean": 1,
+        "denominator": 24
+      },
+      "pipeline_valid": 24,
+      "posterior_correct": 24,
+      "map_consistent": 23
+    },
+    "independent:dedup_open": {
+      "scheduled": 24,
+      "valid": 24,
+      "invalid": 0,
+      "mae": {
+        "mean": 2.863339901383021e-7,
+        "denominator": 24
+      },
+      "direction": {
+        "mean": 0.9583333333333334,
+        "denominator": 24
+      },
+      "probability_direction": {
+        "mean": 1,
+        "denominator": 24
+      },
+      "pipeline_valid": 24,
+      "posterior_correct": 24,
+      "map_consistent": 23
+    },
+    "independent:dedup_delay": {
+      "scheduled": 24,
+      "valid": 24,
+      "invalid": 0,
+      "mae": {
+        "mean": 2.7244510124747184e-7,
+        "denominator": 24
+      },
+      "direction": {
+        "mean": 0.9583333333333334,
+        "denominator": 24
+      },
+      "probability_direction": {
+        "mean": 1,
+        "denominator": 24
+      },
+      "pipeline_valid": 24,
+      "posterior_correct": 24,
+      "map_consistent": 23
+    },
+    "independent:dedup_never": {
+      "scheduled": 24,
+      "valid": 24,
+      "invalid": 0,
+      "mae": {
+        "mean": 2.590221962539436e-7,
+        "denominator": 24
+      },
+      "direction": {
+        "mean": 0.9583333333333334,
+        "denominator": 24
+      },
+      "probability_direction": {
+        "mean": 1,
+        "denominator": 24
+      },
+      "pipeline_valid": 24,
+      "posterior_correct": 24,
+      "map_consistent": 23
+    },
+    "independent:single_union": {
+      "scheduled": 24,
+      "valid": 12,
+      "invalid": 12,
+      "mae": {
+        "mean": 2.8633399013859123e-7,
+        "denominator": 12
+      },
+      "direction": {
+        "mean": 0.9166666666666666,
+        "denominator": 12
+      },
+      "probability_direction": {
+        "mean": 1,
+        "denominator": 12
+      },
+      "pipeline_valid": 24,
+      "posterior_correct": 12,
+      "map_consistent": 11
+    },
+    "independent:private_ensemble": {
+      "scheduled": 24,
+      "valid": 24,
+      "invalid": 0,
+      "mae": {
+        "mean": 0.2404394521901669,
+        "denominator": 24
+      },
+      "direction": {
+        "mean": 0.625,
+        "denominator": 24
+      },
+      "probability_direction": {
+        "mean": 0.7083333333333334,
+        "denominator": 24
+      },
+      "pipeline_valid": 24,
+      "posterior_correct": 0,
+      "map_consistent": 21
+    },
+    "independent:union_ensemble": {
+      "scheduled": 24,
+      "valid": 24,
+      "invalid": 0,
+      "mae": {
+        "mean": 2.863339901383021e-7,
+        "denominator": 24
+      },
+      "direction": {
+        "mean": 0.9583333333333334,
+        "denominator": 24
+      },
+      "probability_direction": {
+        "mean": 1,
+        "denominator": 24
+      },
+      "pipeline_valid": 24,
+      "posterior_correct": 24,
+      "map_consistent": 23
+    },
+    "independent:unassisted_union": {
+      "scheduled": 24,
+      "valid": 24,
+      "invalid": 0,
+      "mae": {
+        "mean": 0.1772801412314548,
+        "denominator": 24
+      },
+      "direction": {
+        "mean": 0.7083333333333334,
+        "denominator": 24
+      },
+      "probability_direction": {
+        "mean": 0.7083333333333334,
+        "denominator": 24
+      },
+      "pipeline_valid": 24,
+      "posterior_correct": 0,
+      "map_consistent": 24
+    }
+  },
+  "contrasts": {
+    "delay_with_dedup:mae": {
+      "classification": "primary_descriptive",
+      "per_cell": {
+        "0": 0,
+        "1": 0,
+        "2": -8.33333333449815e-8,
+        "3": 0,
+        "4": 0,
+        "5": -0.00965075,
+        "6": 0,
+        "7": -0.007411882759119338,
+        "8": 0,
+        "9": 0,
+        "10": 0,
+        "11": 0
+      },
+      "complete_cells": 12,
+      "complete_mean": -0.0014218930077043903,
+      "descriptive_interval": {
+        "mean": -0.0014218930077043903,
+        "level": 0.95,
+        "item_bootstrap_percentile_interval": [
+          -0.003461435967557613,
+          0
+        ]
+      }
+    },
+    "delay_with_dedup:direction": {
+      "classification": "primary_descriptive",
+      "per_cell": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0,
+        "10": 0,
+        "11": 0
+      },
+      "complete_cells": 12,
+      "complete_mean": 0,
+      "descriptive_interval": {
+        "mean": 0,
+        "level": 0.95,
+        "item_bootstrap_percentile_interval": [
+          0,
+          0
+        ]
+      }
+    },
+    "dedup_with_open:mae": {
+      "classification": "primary_descriptive",
+      "per_cell": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0.003200500000000002,
+        "6": null,
+        "7": 0.007411882759119338,
+        "8": 0,
+        "9": 0,
+        "10": 0,
+        "11": 0
+      },
+      "complete_cells": 11,
+      "complete_mean": null,
+      "descriptive_interval": null
+    },
+    "dedup_with_open:direction": {
+      "classification": "primary_descriptive",
+      "per_cell": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": null,
+        "7": 0,
+        "8": 0,
+        "9": 0,
+        "10": 0,
+        "11": 0
+      },
+      "complete_cells": 11,
+      "complete_mean": null,
+      "descriptive_interval": null
+    },
+    "routing_timing_interaction:mae": {
+      "classification": "primary_descriptive",
+      "per_cell": {
+        "0": 0,
+        "1": 0,
+        "2": -8.33333333449815e-8,
+        "3": 0,
+        "4": 0,
+        "5": -0.003200500000000002,
+        "6": null,
+        "7": -0.007411882759119338,
+        "8": 0,
+        "9": 0,
+        "10": 0,
+        "11": 0
+      },
+      "complete_cells": 11,
+      "complete_mean": null,
+      "descriptive_interval": null
+    },
+    "routing_timing_interaction:direction": {
+      "classification": "primary_descriptive",
+      "per_cell": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": null,
+        "7": 0,
+        "8": 0,
+        "9": 0,
+        "10": 0,
+        "11": 0
+      },
+      "complete_cells": 11,
+      "complete_mean": null,
+      "descriptive_interval": null
+    },
+    "delay_vs_never:mae": {
+      "classification": "secondary_descriptive",
+      "per_cell": {
+        "0": 0,
+        "1": 1.216216216209931e-7,
+        "2": -4.108419165982369e-8,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0,
+        "10": 0,
+        "11": 0
+      },
+      "complete_cells": 12,
+      "complete_mean": 6.711452496764118e-9,
+      "descriptive_interval": {
+        "mean": 6.711452496764118e-9,
+        "level": 0.95,
+        "item_bootstrap_percentile_interval": [
+          -1.0271047914955922e-8,
+          3.0405405405248276e-8
+        ]
+      }
+    },
+    "delay_vs_never:direction": {
+      "classification": "secondary_descriptive",
+      "per_cell": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0,
+        "10": 0,
+        "11": 0
+      },
+      "complete_cells": 12,
+      "complete_mean": 0,
+      "descriptive_interval": {
+        "mean": 0,
+        "level": 0.95,
+        "item_bootstrap_percentile_interval": [
+          0,
+          0
+        ]
+      }
+    },
+    "delay_vs_union_ensemble:mae": {
+      "classification": "secondary_descriptive",
+      "per_cell": {
+        "0": 0,
+        "1": 0,
+        "2": -8.33333333449815e-8,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0,
+        "10": 0,
+        "11": 0
+      },
+      "complete_cells": 12,
+      "complete_mean": -6.944444445415125e-9,
+      "descriptive_interval": {
+        "mean": -6.944444445415125e-9,
+        "level": 0.95,
+        "item_bootstrap_percentile_interval": [
+          -2.0833333336245374e-8,
+          0
+        ]
+      }
+    },
+    "delay_vs_union_ensemble:direction": {
+      "classification": "secondary_descriptive",
+      "per_cell": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0,
+        "10": 0,
+        "11": 0
+      },
+      "complete_cells": 12,
+      "complete_mean": 0,
+      "descriptive_interval": {
+        "mean": 0,
+        "level": 0.95,
+        "item_bootstrap_percentile_interval": [
+          0,
+          0
+        ]
+      }
+    },
+    "delay_vs_single_union:mae": {
+      "classification": "secondary_descriptive",
+      "per_cell": {
+        "0": null,
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null,
+        "5": null,
+        "6": null,
+        "7": null,
+        "8": null,
+        "9": null,
+        "10": null,
+        "11": null
+      },
+      "complete_cells": 0,
+      "complete_mean": null,
+      "descriptive_interval": null
+    },
+    "delay_vs_single_union:direction": {
+      "classification": "secondary_descriptive",
+      "per_cell": {
+        "0": null,
+        "1": null,
+        "2": null,
+        "3": null,
+        "4": null,
+        "5": null,
+        "6": null,
+        "7": null,
+        "8": null,
+        "9": null,
+        "10": null,
+        "11": null
+      },
+      "complete_cells": 0,
+      "complete_mean": null,
+      "descriptive_interval": null
+    },
+    "delay_vs_private_ensemble:mae": {
+      "classification": "secondary_descriptive",
+      "per_cell": {
+        "0": -0.13624379470847617,
+        "1": -0.24115938095238093,
+        "2": -0.19708033333333336,
+        "3": -0.3892903318109174,
+        "4": -0.10478380553261768,
+        "5": -0.23072352300086935,
+        "6": -0.22875250000000003,
+        "7": -0.5032550267656872,
+        "8": -0.1189262893696464,
+        "9": -0.24761681820834242,
+        "10": -0.21043659095729716,
+        "11": -0.301709973660977
+      },
+      "complete_cells": 12,
+      "complete_mean": -0.24249819735837877,
+      "descriptive_interval": {
+        "mean": -0.24249819735837877,
+        "level": 0.95,
+        "item_bootstrap_percentile_interval": [
+          -0.3065306349942917,
+          -0.1854368025357379
+        ]
+      }
+    },
+    "delay_vs_private_ensemble:direction": {
+      "classification": "secondary_descriptive",
+      "per_cell": {
+        "0": 0,
+        "1": 0.5,
+        "2": 0.25,
+        "3": 1,
+        "4": 0,
+        "5": 0.5,
+        "6": 0.5,
+        "7": 1,
+        "8": 0,
+        "9": 0.5,
+        "10": 0.5,
+        "11": 0.5
+      },
+      "complete_cells": 12,
+      "complete_mean": 0.4375,
+      "descriptive_interval": {
+        "mean": 0.4375,
+        "level": 0.95,
+        "item_bootstrap_percentile_interval": [
+          0.2708333333333333,
+          0.625
+        ]
+      }
+    }
+  },
+  "frozen_readiness": {
+    "all_format_valid": false,
+    "union_correct": true,
+    "union_map_consistent": true
+  },
+  "reference_calls": 48,
+  "reference_correct": 48,
+  "reference_map_consistent": 47,
+  "primary_complete": false,
+  "developmental_gain_rule_passed": false,
+  "decision": "DISCUSS_BEFORE_MORE_INFERENCE",
+  "format_diagnostic": {
+    "classification": "POST_COMPLETION_FORMAT_DIAGNOSTIC_NOT_REPAIRED_RESULTS",
+    "by_job": {
+      "single_union": 24,
+      "raw_delay": 1,
+      "raw_open": 1
+    },
+    "by_stage": {
+      "adjudicator": 26
+    },
+    "by_violation": {
+      "Final schema": 26
+    },
+    "observed_shape": "All 26 invalid responses were the empty JSON object {} with finish_reason=stop, despite valid terminal assessments being present.",
+    "posthoc_label_pattern": {
+      "single_union_terminal_answer_0": {"scheduled":25,"adjudicator_empty_object":24,"adjudicator_valid":1},
+      "single_union_terminal_answer_1": {"scheduled":23,"adjudicator_empty_object":0,"adjudicator_valid":23},
+      "other_two_invalids": "Both had three available terminal assessments with answer 0.",
+      "interpretation": "Observed label-associated adjudicator failures, not proof of an internal mechanism. Do not replace empty outputs, invert probabilities, discard zero-label cases, or infer general label bias from this one narrow pilot. Further causal diagnosis would require a separately frozen experiment and user discussion."
+    },
+    "scope": "All occurred in the common LLM adjudicator: 24/48 single-union adjudications, one raw-open and one raw-delay. Initial/communication assessments were valid. No invalid output was salvaged or silently retried. Do not equate format failure with inability to solve the underlying task."
+  },
+  "exploratory_decomposition": {
+    "classification": "EXPLORATORY_PLANNED_AFTER_PROTOCOL_REVIEW_BEFORE_FINAL_EFFECTS",
+    "formula": "system MAE = arithmetic terminal-mean MAE + signed adjudicator-added MAE; same full-pipeline eligibility and all four cases per cell. These are descriptive diagnostics, not replacement primary outcomes.",
+    "contrasts": {
+      "delay_with_dedup": {
+        "complete_cells": 12,
+        "eligible_cases": 48,
+        "complete_mean": {
+          "system_mae": -0.0014218930077043903,
+          "terminal_mean_mae": -0.00502349048987561,
+          "adjudicator_added_mae": 0.00360159748217122,
+          "system_direction": 0,
+          "terminal_mean_map_direction": 0,
+          "adjudicator_added_direction": 0
+        }
+      },
+      "dedup_with_open": {
+        "complete_cells": 11,
+        "eligible_cases": 47,
+        "complete_mean": null
+      },
+      "routing_timing_interaction": {
+        "complete_cells": 11,
+        "eligible_cases": 47,
+        "complete_mean": null
+      },
+      "delay_vs_never": {
+        "complete_cells": 12,
+        "eligible_cases": 48,
+        "complete_mean": {
+          "system_mae": 6.711452496764118e-9,
+          "terminal_mean_mae": 0,
+          "adjudicator_added_mae": 6.711452496764118e-9,
+          "system_direction": 0,
+          "terminal_mean_map_direction": 0,
+          "adjudicator_added_direction": 0
+        }
+      },
+      "delay_vs_union_ensemble": {
+        "complete_cells": 12,
+        "eligible_cases": 48,
+        "complete_mean": {
+          "system_mae": -6.944444445415125e-9,
+          "terminal_mean_mae": -3.018239697581693e-8,
+          "adjudicator_added_mae": 2.32379525304018e-8,
+          "system_direction": 0,
+          "terminal_mean_map_direction": 0,
+          "adjudicator_added_direction": 0
+        }
+      },
+      "delay_vs_single_union": {
+        "complete_cells": 0,
+        "eligible_cases": 24,
+        "complete_mean": null
+      },
+      "delay_vs_private_ensemble": {
+        "complete_cells": 12,
+        "eligible_cases": 48,
+        "complete_mean": {
+          "system_mae": -0.24249819735837877,
+          "terminal_mean_mae": -0.1772747459997695,
+          "adjudicator_added_mae": -0.06522345135860927,
+          "system_direction": 0.4375,
+          "terminal_mean_map_direction": 0.20833333333333334,
+          "adjudicator_added_direction": 0.22916666666666666
+        }
+      }
+    }
+  },
+  "verification": {
+    "remote_local_archive_sha256_match": true,
+    "source_archive_sha256_match": true,
+    "original_manifest_files_verified": 2240,
+    "exact_frozen_replay": [
+      "summary",
+      "paired_contrasts",
+      "audit_input_hashes"
+    ],
+    "cell_metrics_bitwise_equal": false,
+    "cell_metrics_only_differences": [
+      {
+        "path": "/system/222/excess_expected_brier",
+        "local": 0.05754835484176085,
+        "remote": 0.057548354841760845,
+        "absolute_difference": 6.938893903907228e-18,
+        "ulps": 1
+      },
+      {
+        "path": "/system/430/excess_expected_brier",
+        "local": 0.0010512128552646266,
+        "remote": 0.0010512128552646269,
+        "absolute_difference": 2.168404344971009e-19,
+        "ulps": 1
+      }
+    ],
+    "numeric_diagnosis": "Remote Python 3.12.12 Linux reproduces archived delta**2; remote delta*delta matches local Python 3.13.9 Windows squares at both entries. Independent 200-digit Decimal audit agrees with local multiplication. These are two one-ULP floating-power rounding differences in secondary squared error fields, not changed probabilities, primary MAE, direction or data.",
+    "strict_verifier_note": "Correctly failed exact cell_metrics equality; unchanged. Do not claim all four artifacts are bitwise identical.",
+    "independent_check_scope": "Reparsed every valid output among 2208 raw records; checked recorded calculator/routing/peer/control inputs, system metrics, group counts/means, missingness eligibility, 14 metric contrasts, realized calls/tokens/time. Frozen replay separately covers invalidity classification, task generation, prompts, intervals, pooling, readiness and decision.",
+    "experimental_outputs_changed": false
+  },
+  "interpretation": [
+    "The complete primary delay-with-dedup system MAE contrast is -0.001421893 (descriptive interval [-0.003461436,0]), with zero oracle-MAP direction difference. Improvement falls short of the prespecified developmental threshold 0.01. This threshold is not a significance test.",
+    "Dedup-with-open and factorial interaction have 11/12 complete cells. Their full means and intervals remain null, not zero and not replaced with complete-case estimates.",
+    "Terminal-pool decomposition shows -0.005023490 MAE change and +0.003601597 adjudicator-added error change for delayed versus open dedup. This secondary diagnostic cannot rescue the frozen gate.",
+    "Delayed release and never releasing reports show only rounding-scale system differences here, as does delayed dedup versus lower-call noninteracting union reference. These observations do not establish population equivalence.",
+    "The single-union system comparison has zero complete cells because 24 adjudicator outputs are invalid, although all 48 underlying assisted assessments have correct posterior probabilities and 47 have MAP-consistent answers.",
+    "Unassisted union posterior correctness is 0/48 at tolerance 1e-4 in this numeric task. This limits transfer of calculator-assisted results; it is not a general claim about model reasoning.",
+    "Advantage over private-initial ensemble bundles evidence access, calculator assistance, pooling assumptions and adjudicator behavior. It does not isolate a routing-method contribution.",
+    "This batch does not validate the original full DICE algorithm or a top-tier publication claim. Previous unfavorable/failed batches are preserved separately and not pooled."
+  ],
+  "next_action": "Discuss paper claims and experimental redesign with user before any new inference. No new batch launched. Proposed—not executed—direction: retain this task as a diagnostic, separately test actual evidence reuse on verifiable natural tasks with strong single-union and dedup baselines and explicitly isolated aggregation.",
+  "limitations": [
+    "One model, 12 conditional synthetic cells, no real-task or cross-model transfer",
+    "Exact posterior calculator creates strong ceiling effects",
+    "Source-ID deduplication within rendered snapshots is not a novel persistent-ledger algorithm",
+    "No general derivation verifier, unknown-ancestry or same-root distinct-content tests",
+    "Frozen S0 reports, not adaptive multi-round debate",
+    "Temperature-zero identical-prompt union calls do not demonstrate independent errors or diverse self-consistency",
+    "Utility references use fewer logical calls; not equal-realized-compute baselines",
+    "No sampled labels: squared posterior distance is conditional excess expected Brier, not empirical Brier",
+    "Invalid outcomes prevent some full paired estimates; no imputation or removal",
+    "No native implementation/replication of published MAD or InfoDelphi systems"
+  ],
+  "literature_recheck": [
+    {
+      "url": "https://arxiv.org/html/2606.00820v1",
+      "read_scope": "counterfactual decomposition, deployment results and discussion",
+      "implication": "Separate no-peer instability from operational peer effects; reduction in peer adoption need not improve task accuracy. Our pilot is not a replication."
+    },
+    {
+      "url": "https://arxiv.org/abs/2508.17536",
+      "read_scope": "abstract",
+      "implication": "Voting/aggregation is a strong alternative explanation for reported debate gains; preserve noninteracting controls. The theoretical statement has assumptions and is not a universal impossibility claim."
+    },
+    {
+      "url": "https://arxiv.org/html/2607.01661v1",
+      "read_scope": "Prior scoped sections 3.1-3.3,5.2 and E.2",
+      "implication": "Evidence partitioning/routing is established related work; routing alone is not a novelty claim."
+    }
+  ],
+  "raw_data_public": false
+}
