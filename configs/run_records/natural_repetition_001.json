@@ -1,0 +1,72 @@
+{
+  "kind": "COMPLETED_DEVELOPMENTAL_DIAGNOSTIC_NOT_METHOD_VALIDATION",
+  "run": "natural-repetition-001",
+  "freeze_record": "configs/run_records/natural_repetition_001_freeze.json",
+  "frozen_code_commit": "5363d9de1d4cd614436626cf44c279a6cd7c7c1a",
+  "pre_inference_freeze_commit": "931800f",
+  "launch_start_utc": "2026-10-02T18:08:39Z",
+  "launch_end_utc": "2026-10-02T18:11:29Z",
+  "experiment_exit_code": 0,
+  "score_exit_code": 0,
+  "planned_questions": 20,
+  "completed_questions": 20,
+  "planned_calls": 220,
+  "completed_calls": 220,
+  "infrastructure_failures": 0,
+  "format_valid_calls": 153,
+  "format_invalid_calls": 67,
+  "format_violation_counts": {
+    "Citation type/count/visibility": 46,
+    "Unexpected schema": 20,
+    "Answer length/type": 1
+  },
+  "finish_reason_stop_calls": 220,
+  "maximum_actual_prompt_tokens": 2979,
+  "posthoc_interface_audit": {
+    "classification": "POSTHOC_DIAGNOSTIC_NOT_REPAIRED_PRIMARY_RESULTS",
+    "prompt_parser_ambiguity": "Prompts displayed sentence IDs inside square brackets while validation required the unwrapped ID string; the output instruction did not explicitly illustrate that distinction.",
+    "citation_failures_with_only_display_brackets": 38,
+    "empty_json_outputs": 20,
+    "empty_question_only_outputs": 15,
+    "overlong_answer_outputs": 1,
+    "genuine_source_visibility_problem_calls": 4,
+    "paired_validity_counts": {"both_valid": 39, "once_valid_replay_invalid": 8, "once_invalid_replay_valid": 7, "both_invalid": 6},
+    "answer_f1_contributions_on_all_60_pair_denominator": {"both_valid": 0.005, "once_valid_replay_invalid": -0.13333333333333333, "once_invalid_replay_valid": 0.06111111111111111, "both_invalid": 0.0},
+    "interpretation": "The observed aggregate decline is driven by validity-discordant pairs, not demonstrated deterioration among valid answer pairs. This decomposition is descriptive and post-treatment, not an alternative efficacy estimate. No wrapper removal, field insertion, rescoring replacement or output retry was applied. Question-only performance is too format-limited to diagnose memorization."
+  },
+  "reserved_completion_tokens": 256,
+  "model_context_limit": 4096,
+  "aggregate_metrics": {
+    "once": {"answer_em": 0.4666666666666667, "answer_f1": 0.5202208419599724, "support_f1": 0.3938095238095238, "joint_f1": 0.3329120879120879, "valid_outputs": 47, "outputs": 60},
+    "replay": {"answer_em": 0.36666666666666664, "answer_f1": 0.4529986197377502, "support_f1": 0.3651587301587301, "joint_f1": 0.2929120879120879, "valid_outputs": 46, "outputs": 60},
+    "single_union": {"answer_em": 0.55, "answer_f1": 0.6066666666666667, "support_f1": 0.4517857142857143, "joint_f1": 0.3921978021978022, "valid_outputs": 17, "outputs": 20},
+    "question_only": {"answer_em": 0.0, "answer_f1": 0.02, "support_f1": 0.0, "joint_f1": 0.0, "valid_outputs": 5, "outputs": 20}
+  },
+  "metric_policy": "Prespecified all-planned pipeline metrics: invalid complete outputs receive zero, not repaired or discarded. Agents are averaged within question; controls are not compute matched.",
+  "primary_descriptive_contrasts": {
+    "replay_minus_once_answer_f1": {"mean": -0.06722222222222222, "question_bootstrap_95pct_interval": [-0.23333333333333334, 0.09722222222222222], "negative_questions": 6, "zero_questions": 12, "positive_questions": 2},
+    "replay_minus_once_joint_f1": {"mean": -0.04, "question_bootstrap_95pct_interval": [-0.14698412698412697, 0.06968253968253968], "negative_questions": 6, "zero_questions": 11, "positive_questions": 3}
+  },
+  "bootstrap": {"unit": "question", "independent_questions": 20, "resamples": 2000, "seed": 10103026, "interpretation": "Unadjusted descriptive intervals, not confirmatory tests or equivalence evidence."},
+  "dedup_baseline": "Exact source-sentence dedup yields the once prompt/seed by construction. Alias with zero extra calls; not an independent measured arm or method novelty.",
+  "measured_resources": {
+    "prompt_tokens": 355695,
+    "completion_tokens": 6213,
+    "recorded_run_elapsed_seconds": 141.97752118110657,
+    "launch_to_exit_seconds": 170,
+    "billing_note": "Observed process/API durations are not a rental invoice. Idle time, setup, downloads and verification are not included in inference elapsed time. No estimated or inflated expense is reported as measured."
+  },
+  "verification": {
+    "remote_local_archive_sha256": "8b7502e672f722ca590718b988eb1eca06a2684d2e2173bd35623f5f58643a98",
+    "frozen_source_archive_sha256": "2da74190347b45586332553072e5736205848fd47232adb645685d6523075fbb",
+    "local_frozen_replay_summary_exact": true,
+    "local_frozen_replay_per_question_exact": true,
+    "local_frozen_replay_input_hashes_exact": true,
+    "full_frozen_software_suite_tests": 138,
+    "full_frozen_software_suite_passed": true,
+    "full_test_log_sha256": "83fa32143138d3707cdf66cbd66d77178e7509f1af566a0d82205fab660062a5",
+    "software_fixture_note": "Software fixture outputs are not scientific observations. A development-time concurrent source edit caused an earlier source-integrity test failure; after freezing, the complete 138-test rerun passed."
+  },
+  "decision": "No automatic additional inference. Resolve the identified displayed-ID versus parser interface ambiguity before a separately frozen fresh-question diagnostic, without repairing this batch. This small diagnostic does not establish systematic repetition harm, DICE efficacy, statistical independence, or useful computation reuse. Single-union had higher observed mean utility; retain this unfavorable comparison.",
+  "raw_data_policy": "Raw requests, responses, gold, candidate contexts, source snapshot and logs are retained in private local backup, not uploaded to the public repository."
+}
