@@ -2,12 +2,12 @@
 import argparse
 import json
 from pathlib import Path
-from transformers import AutoTokenizer
 from runtime import routing_timing_v2 as m
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('--native-config',required=True);p.add_argument('--output',required=True);a=p.parse_args()
-    cfg=json.loads(Path(a.native_config).read_text());t=AutoTokenizer.from_pretrained(cfg['model_path'],local_files_only=True)
+    from transformers import AutoTokenizer
+    p=argparse.ArgumentParser();p.add_argument('--native-config',required=True);p.add_argument('--output',required=True);args=p.parse_args()
+    cfg=json.loads(Path(args.native_config).read_text());t=AutoTokenizer.from_pretrained(cfg['model_path'],local_files_only=True)
     initial=[dict(format_valid=True,assessment=dict(answer=k%2,p_state_1=.2+k*.2,citations=[]),violation=None) for k in range(3)]
     sizes=[]
     def record(prompt):sizes.append(len(t.apply_chat_template(prompt,tokenize=True,add_generation_prompt=True)))
@@ -26,7 +26,7 @@ def main():
     result=dict(prompts=len(sizes),min_fixture_prompt=min(sizes),max_fixture_prompt=max(sizes),artifact_reserve=2048,
                 output_budget=512,context=cfg['server_settings_reported']['max_model_len'],scope='Tokenizer-only software fixtures; no model inference')
     assert max(sizes)+2048+512<=result['context'],'Context reserve insufficient'
-    with Path(a.output).open('x') as handle:json.dump(result,handle,indent=2)
+    with Path(args.output).open('x') as handle:json.dump(result,handle,indent=2)
     print(json.dumps(result))
 
 if __name__=='__main__':main()
