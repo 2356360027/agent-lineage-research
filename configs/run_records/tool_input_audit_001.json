@@ -1,0 +1,42 @@
+{
+  "run": "tool-input-audit-001",
+  "classification": "EXPLORATORY_SYNTHETIC_DIAGNOSTIC_NOT_CONFIRMATORY",
+  "frozen_code_commit": "168c08fa474ed6dd1c61f57033e75a2d45f7d50c",
+  "design_sha256": "d9b86b27e7f8e6e06404a23214613440ef02d174ddb46f1e83897d536aaa6870",
+  "source_archive_sha256": "e5ba99027652f9ab7e408e1895d0dc421ea21550a0732213d1ce8dfa5118f08f",
+  "private_results_archive_sha256": "c269087196adeddcdfd9a8d3586b4ca3f76369d305eee4f4a1cb9ce8b9be2281",
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "model_content_sha256": "d6d12ae13c606e1d3fdc29eb937828be32b1b09a755f1632b4e59654f228ff1e",
+  "migration": "Model file content and four key package versions exactly matched prior server. Seven engineering smoke calls passed and are excluded from diagnostic counts.",
+  "software_tests": {"local":69,"server":69},
+  "started_hk": "2026-10-02T18:18:52+08:00",
+  "finished_hk": "2026-10-02T18:21:48+08:00",
+  "completed_calls":192,
+  "independent_task_cells":12,
+  "invalid_calls":0,
+  "prompt_tokens":100828,
+  "completion_tokens":7421,
+  "sum_call_seconds":138.39983421564102,
+  "posterior_correct_absolute_tolerance":0.0001,
+  "results": [
+    {"prompt":"legacy","relation":"copy","tool_inputs":"valid","n":24,"correct_posterior":17,"tool_agreement":17,"mae":0.025398223235393477},
+    {"prompt":"legacy","relation":"copy","tool_inputs":"duplicated","n":24,"correct_posterior":0,"tool_agreement":24,"mae":0.18861015296426697},
+    {"prompt":"legacy","relation":"independent","tool_inputs":"valid","n":24,"correct_posterior":24,"tool_agreement":24,"mae":0.0000002589127121348349},
+    {"prompt":"legacy","relation":"independent","tool_inputs":"omitted","n":24,"correct_posterior":0,"tool_agreement":20,"mae":0.18025379759700666},
+    {"prompt":"current","relation":"copy","tool_inputs":"valid","n":24,"correct_posterior":24,"tool_agreement":24,"mae":0.0000012072835545018136},
+    {"prompt":"current","relation":"copy","tool_inputs":"duplicated","n":24,"correct_posterior":0,"tool_agreement":24,"mae":0.1886101205238798},
+    {"prompt":"current","relation":"independent","tool_inputs":"valid","n":24,"correct_posterior":24,"tool_agreement":24,"mae":0.0000002589127121348349},
+    {"prompt":"current","relation":"independent","tool_inputs":"omitted","n":24,"correct_posterior":0,"tool_agreement":24,"mae":0.18861124030534}
+  ],
+  "answer_probability_contradictions":1,
+  "verification": "Archive hash matched; summary, row metrics, paired contrasts and input hashes replayed exactly locally. Separate arithmetic/provenance audit passed for all 192 calls. Migration smoke summary also replayed exactly.",
+  "interpretation": "Lower error with correct calculator inputs does not establish robust input validation. Both instruction bundles failed to recover the correct posterior in all 96 wrong-input calls; 92 matched the incorrect tool posterior. These observations do not establish an internal trust mechanism.",
+  "limitations": [
+    "One model and 12 synthetic cells; complements and prompt variants are paired, not independent samples.",
+    "Trusted origin metadata is given by the experiment, not discovered from natural documents.",
+    "Input length differs across selection conditions; the intervention is a selection-error bundle.",
+    "No significance, general multi-agent independence or DICE efficacy claim.",
+    "Programmatic provenance validation is a conventional exact reference, not a novel learned algorithm or measured model reasoning."
+  ],
+  "privacy": "Aggregate record only. Raw responses, server connection details, private configs and full logs are not published."
+}
