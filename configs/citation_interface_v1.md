@@ -1,5 +1,10 @@
 # Citation-interface diagnostic, prospective v1
 
+**Historical failed protocol:** `citation-interface-001` was rejected on its
+first request by the serving V1 engine. Do not launch this v1 protocol again.
+See [failure record](run_records/citation_interface_001.json). The design below
+is retained as the pre-attempt plan, not a claim of successful execution.
+
 This is an engineering prerequisite for a natural-task multi-agent study, **not
 DICE validation, a new method, or evidence of statistical independence**.
 
