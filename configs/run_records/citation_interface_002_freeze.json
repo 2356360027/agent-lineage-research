@@ -1,0 +1,35 @@
+{
+  "run_id": "citation-interface-002",
+  "status": "FROZEN_BEFORE_MODEL_INFERENCE",
+  "source_commit": "e69cb7a6f1be63436fc330c3baa8fb0ed73111cd",
+  "source_archive_sha256": "6f17ed1fec924d53885750f593201c131abed1502078583d69062924548efb04",
+  "plan_sha256": "cd54ddf413b297d19e7da01afae86a3ebac4938076a408491f43155373c20d26",
+  "source_sha256": "6a00a6f878518cf7274ef937bac26fe16d97baa86a294dcadecabd7457f743b5",
+  "design_sha256": "4d8fefe49c29548f916694d4d4906d707d385bd80f36132bd64bca64fbe66047",
+  "candidate_file_sha256": "88ea379601922af674c22ab1bbf0bfe6fbf51c63f2dc4af5c425ddbb74fd4598",
+  "model_content_sha256": "d6d12ae13c606e1d3fdc29eb937828be32b1b09a755f1632b4e59654f228ff1e",
+  "engine": "vLLM 0.8.3 V1; xgrammar 0.1.17; engine unchanged",
+  "preflight": {
+    "grammars": 9,
+    "recorded_token_fixtures": 527,
+    "all_passed": true,
+    "model_calls": 0
+  },
+  "software_tests": {
+    "related_tests": 92,
+    "passed": 92,
+    "seconds": 7.413,
+    "scope": "citation V1/V2, grammar, runner and scoring; not whole repository"
+  },
+  "questions": 8,
+  "planned_calls": 64,
+  "maximum_selected_prompt_plus_reserved_tokens": 2768,
+  "primary_endpoints": [
+    "explicit_minus_original_format_valid_json_object_full",
+    "guided_minus_json_format_valid_explicit_full"
+  ],
+  "decision_rule": "Full explicit/generic JSON >=7/8 format-valid and zero bracket_only_mismatch is engineering readiness only, not efficacy.",
+  "candidate_reuse": "Same label-free candidates as failed citation-interface-001 (one rejected HTTP request, zero model completions); no output-based selection or pooling.",
+  "integrity": "No retries, truncation, output repair, effect-based stopping, imputation or changed seeds. Failed infrastructure calls block scoring.",
+  "public_sync": "Local pre-inference commit only; GitHub authentication unresolved; not public preregistration."
+}
