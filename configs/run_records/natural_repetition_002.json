@@ -46,6 +46,8 @@
   "source_archive_sha256": "2560b17e096f84b8d8d0d67890ebf8476ec1e6c9f1ca4bfdc20591c5f1c44854",
   "local_frozen_replay_exact": {"summary": true, "per_question_rows": true, "input_hashes": true},
   "scope": "Fresh evidence-presentation diagnostic after private assessments; no peer-verdict manipulation, confidence measurement or DICE efficacy claim",
+  "system_warning": "All conditions explicitly state repeated IDs are not independent confirmations; IDs remain visible. The null result does not test hidden ancestry or absence of this warning.",
+  "independent_readonly_audit": "598 archive members, 597 manifest hashes, 167 frozen source files, all 544 raw outcomes and 96 matched-token recipient pairs verified; independent output/group metrics agree within 1e-12 and both primary bootstrap intervals exactly match. No second model run.",
   "decision": "No consistent degradation detected; stop automatic scale-up and discuss manuscript claims or a new explicitly authorized intervention. Small descriptive intervals crossing zero do not prove no effect.",
   "prior_comparison": "Do not pool with earlier runs or attribute different directions solely to syntax clarification; fresh questions also changed.",
   "public_sync": "Local result commit only at creation; GitHub authentication unresolved. No raw questions, labels, prompts, responses or logs published."
