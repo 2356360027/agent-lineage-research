@@ -1,0 +1,52 @@
+{
+  "run_id": "natural-repetition-002",
+  "status": "COMPLETED_SCORED_BACKED_UP_AND_FROZEN_REPLAY_VERIFIED",
+  "protocol": "natural-context-repetition-v2",
+  "source_commit": "899270d99dbff522aaf58164d05b8a4287863017",
+  "pre_inference_freeze_commit": "ef8193c",
+  "plan_sha256": "6bd694316138b16fa71b310f70e75ab376a8ead2dad7a73afeaa9da4452e19d2",
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "questions": 32,
+  "actual_calls": 544,
+  "failed_calls": 0,
+  "retries": 0,
+  "all_calls_format_valid_count": 540,
+  "all_calls_format_violation_count": 4,
+  "groups": {
+    "once": {"all_planned_outputs": 96, "format_valid_count": 96, "f1": 0.6205616324488874, "sp_f1": 0.5131696428571428, "joint_f1": 0.33377699616973566},
+    "replay": {"all_planned_outputs": 96, "format_valid_count": 95, "f1": 0.6317884843007392, "sp_f1": 0.4973214285714286, "joint_f1": 0.3363374267039565},
+    "position": {"all_planned_outputs": 96, "format_valid_count": 96, "f1": 0.6336659482492816, "sp_f1": 0.5198495370370371, "joint_f1": 0.3635939873840026},
+    "padding": {"all_planned_outputs": 96, "format_valid_count": 96, "f1": 0.6131211562584111, "sp_f1": 0.5029844576719577, "joint_f1": 0.32558345360119306},
+    "single_union": {"all_planned_outputs": 32, "format_valid_count": 31, "f1": 0.6452756734006734, "sp_f1": 0.5418154761904762, "joint_f1": 0.3641204070319924},
+    "question_only": {"all_planned_outputs": 32, "format_valid_count": 32, "f1": 0.03125, "sp_f1": 0.0, "joint_f1": 0.0}
+  },
+  "primary_descriptive_contrasts": {
+    "raw_replay_minus_once_answer_f1": {"mean": 0.011226851851851847, "item_bootstrap_percentile_interval": [-0.04224537037037038, 0.06608796296296296]},
+    "raw_replay_minus_once_joint_f1": {"mean": 0.002560430534220865, "item_bootstrap_percentile_interval": [-0.04066873613244581, 0.043403844512715485]}
+  },
+  "secondary_control_contrasts": {
+    "replay_minus_position_answer_f1": {"mean": -0.00187746394854238, "item_bootstrap_percentile_interval": [-0.07205104263927793, 0.07010582010582012]},
+    "replay_minus_position_joint_f1": {"mean": -0.027256560680046123, "item_bootstrap_percentile_interval": [-0.07313949718798263, 0.016947751322751323]},
+    "replay_minus_padding_answer_f1": {"mean": 0.01866732804232804, "item_bootstrap_percentile_interval": [-0.030109126984126988, 0.06840277777777778]},
+    "replay_minus_padding_joint_f1": {"mean": 0.01075397310276343, "item_bootstrap_percentile_interval": [-0.03710091991341991, 0.05611367612375677]}
+  },
+  "bootstrap": {"unit": "question", "level": 0.95, "resamples": 2000, "seed": 10103028, "interpretation": "Unadjusted descriptive intervals, not confirmatory significance or equivalence tests"},
+  "usage_complete": true,
+  "prompt_tokens": 968152,
+  "completion_tokens": 10230,
+  "recorded_run_elapsed_seconds": 260.5381762981415,
+  "sum_call_seconds": 244.71124198287725,
+  "launch_start_utc": "2026-10-03T10:01:39Z",
+  "launch_end_utc": "2026-10-03T10:06:54Z",
+  "launch_elapsed_seconds": 315,
+  "timing_basis": "Recorded request/run/launcher times, not total rental or billed GPU-hours; prior preparation and idle time excluded",
+  "backup_archive_sha256": "2ddc97d3cf2b34a5e7581f8451d1b340e74d45c0b9b12c71e77351e132dbf3dd",
+  "backup_members": 598,
+  "backup_compressed_bytes": 3122240,
+  "source_archive_sha256": "2560b17e096f84b8d8d0d67890ebf8476ec1e6c9f1ca4bfdc20591c5f1c44854",
+  "local_frozen_replay_exact": {"summary": true, "per_question_rows": true, "input_hashes": true},
+  "scope": "Fresh evidence-presentation diagnostic after private assessments; no peer-verdict manipulation, confidence measurement or DICE efficacy claim",
+  "decision": "No consistent degradation detected; stop automatic scale-up and discuss manuscript claims or a new explicitly authorized intervention. Small descriptive intervals crossing zero do not prove no effect.",
+  "prior_comparison": "Do not pool with earlier runs or attribute different directions solely to syntax clarification; fresh questions also changed.",
+  "public_sync": "Local result commit only at creation; GitHub authentication unresolved. No raw questions, labels, prompts, responses or logs published."
+}
