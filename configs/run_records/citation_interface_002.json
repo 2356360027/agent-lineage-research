@@ -1,0 +1,191 @@
+{
+  "run_id": "citation-interface-002",
+  "protocol": "citation-interface-v2",
+  "status": "COMPLETED_SCORED_BACKED_UP_AND_FROZEN_REPLAY_VERIFIED",
+  "source_commit": "e69cb7a6f1be63436fc330c3baa8fb0ed73111cd",
+  "pre_inference_freeze_commit": "1840192",
+  "model": "Qwen/Qwen2.5-7B-Instruct",
+  "questions": 8,
+  "calls": 64,
+  "failed_calls": 0,
+  "retries": 0,
+  "all_calls_format_valid_count": 57,
+  "all_calls_diagnostic_counts": {
+    "answer_type": 4,
+    "bracket_only_mismatch": 3,
+    "bracket_wrapped_id": 3,
+    "citation_type": 4,
+    "citation_visibility": 3,
+    "empty_object": 4,
+    "unexpected_schema": 4
+  },
+  "groups": {
+    "full__original__json_object": {
+      "all_planned_outputs": 8,
+      "format_valid_count": 5,
+      "em": 0.125,
+      "f1": 0.125,
+      "sp_f1": 0.22321428571428573,
+      "joint_f1": 0.03571428571428572,
+      "diagnostic_counts": {
+        "bracket_only_mismatch": 3,
+        "bracket_wrapped_id": 3,
+        "citation_visibility": 3
+      }
+    },
+    "full__original__guided_grammar": {
+      "all_planned_outputs": 8,
+      "format_valid_count": 8,
+      "em": 0.375,
+      "f1": 0.375,
+      "sp_f1": 0.4357142857142857,
+      "joint_f1": 0.18571428571428572,
+      "diagnostic_counts": {}
+    },
+    "full__explicit__json_object": {
+      "all_planned_outputs": 8,
+      "format_valid_count": 8,
+      "em": 0.25,
+      "f1": 0.25,
+      "sp_f1": 0.4041666666666667,
+      "joint_f1": 0.13333333333333333,
+      "diagnostic_counts": {}
+    },
+    "full__explicit__guided_grammar": {
+      "all_planned_outputs": 8,
+      "format_valid_count": 8,
+      "em": 0.25,
+      "f1": 0.25,
+      "sp_f1": 0.4041666666666667,
+      "joint_f1": 0.13333333333333333,
+      "diagnostic_counts": {}
+    },
+    "question_only__original__json_object": {
+      "all_planned_outputs": 8,
+      "format_valid_count": 4,
+      "em": 0.125,
+      "f1": 0.125,
+      "sp_f1": 0,
+      "joint_f1": 0,
+      "diagnostic_counts": {
+        "answer_type": 4,
+        "citation_type": 4,
+        "empty_object": 4,
+        "unexpected_schema": 4
+      }
+    },
+    "question_only__original__guided_grammar": {
+      "all_planned_outputs": 8,
+      "format_valid_count": 8,
+      "em": 0.125,
+      "f1": 0.125,
+      "sp_f1": 0,
+      "joint_f1": 0,
+      "diagnostic_counts": {}
+    },
+    "question_only__explicit__json_object": {
+      "all_planned_outputs": 8,
+      "format_valid_count": 8,
+      "em": 0.125,
+      "f1": 0.125,
+      "sp_f1": 0,
+      "joint_f1": 0,
+      "diagnostic_counts": {}
+    },
+    "question_only__explicit__guided_grammar": {
+      "all_planned_outputs": 8,
+      "format_valid_count": 8,
+      "em": 0.125,
+      "f1": 0.125,
+      "sp_f1": 0,
+      "joint_f1": 0,
+      "diagnostic_counts": {}
+    }
+  },
+  "primary_descriptive_contrasts": {
+    "explicit_minus_original_format_valid_json_object_full": {
+      "mean": 0.375,
+      "level": 0.95,
+      "item_bootstrap_percentile_interval": [
+        0.125,
+        0.75
+      ],
+      "questions": 8,
+      "bootstrap_unit": "question",
+      "bootstrap_seed": 10103027,
+      "bootstrap_resamples": 2000,
+      "plus_group": "full__explicit__json_object",
+      "minus_group": "full__original__json_object",
+      "metric": "format_valid_count",
+      "interpretation": "Descriptive unadjusted interval; no p-value or efficacy test"
+    },
+    "guided_minus_json_format_valid_explicit_full": {
+      "mean": 0,
+      "level": 0.95,
+      "item_bootstrap_percentile_interval": [
+        0,
+        0
+      ],
+      "questions": 8,
+      "bootstrap_unit": "question",
+      "bootstrap_seed": 10103027,
+      "bootstrap_resamples": 2000,
+      "plus_group": "full__explicit__guided_grammar",
+      "minus_group": "full__explicit__json_object",
+      "metric": "format_valid_count",
+      "interpretation": "Descriptive unadjusted interval; no p-value or efficacy test"
+    }
+  },
+  "interface_readiness": {
+    "kind": "INTERFACE_READINESS_ONLY_NOT_METHOD_EFFICACY",
+    "group": "full__explicit__json_object",
+    "planned_questions": 8,
+    "minimum_format_valid": 7,
+    "maximum_bracket_only_mismatch": 0,
+    "observed_format_valid": 8,
+    "observed_bracket_only_mismatch": 0,
+    "passes": true,
+    "interpretation": "Predefined format-readiness check only; does not establish answer quality, communication benefit, DICE effectiveness, or automatically authorize/launch another experiment."
+  },
+  "usage": {
+    "complete": true,
+    "prompt_tokens": 70768,
+    "completion_tokens": 1024,
+    "sum_call_seconds": 33.67870085686445,
+    "recorded_run_elapsed_seconds": 35.117533922195435,
+    "launch_start_utc": "2026-10-03T09:19:17Z",
+    "launch_end_utc": "2026-10-03T09:20:23Z",
+    "basis": "Measured API tokens/timestamps, not billed duration; excludes unrelated idle server time, preparation and transfer."
+  },
+  "backup": {
+    "archive_sha256": "3bb93cd59c3c4e16cee1df679e8af037035303a99ac3d3004de7b1a6d115fde7",
+    "source_archive_sha256": "6f17ed1fec924d53885750f593201c131abed1502078583d69062924548efb04",
+    "archive_members": 93,
+    "all_member_hashes_match": true,
+    "local_frozen_summary_equal": true,
+    "local_frozen_rows_equal": true,
+    "local_frozen_input_hashes_equal": true
+  },
+  "interpretation": "Prompt syntax clarification passed the small engineering gate; not evidence of communication or DICE efficacy. Full explicit answer F1=0.25 remains low; n=8 diagnostic cannot support population quality claims.",
+  "limitations": [
+    "Prospective interface diagnostic, not DICE method validation or a publishable novelty claim.",
+    "Retains original messages/generic JSON payload; explicit prompt adds ID syntax and empty-answer example together.",
+    "Actual unchanged vLLM 0.8.3 V1 engine uses xgrammar. Request must exactly match its backend; no fallback selected.",
+    "Guided grammar enforces two required fields, visible bare canonical IDs, zero to eight citations. Allows both key orders and JSON whitespace, but canonical unescaped key/ID spellings only.",
+    "Visible-ID membership does not establish evidential support. Answer UTF-8 byte count and factual correctness remain separate checks.",
+    "Finite CPU fixtures exercise installed V1 admission/compiler and tokenizer, not a proof of all token paths or full live request admission.",
+    "Invalid complete outputs score zero; pending/failed calls block full scoring. No repair, retries, truncation, sample change, or effect-based stopping.",
+    "Eight questions are independent units, not 64 calls; bootstrap intervals descriptive and unadjusted.",
+    "Sampling is fresh from the prior 200-question frame, not demonstrably unseen during model pretraining.",
+    "Failed v1 preserved separately; no pooling with earlier natural-repetition results."
+  ],
+  "public_sync": "Local commit only; public GitHub push pending authentication. Raw logs and labels remain private.",
+  "exploratory_raw_output_audit": {
+    "independent_backup_audit": "93 members byte-identical;92 manifest hashes;157 code files;4 installed V1 source hashes;frozen replay exact.",
+    "full_explicit_generic_vs_grammar_identical_raw_content": 8,
+    "full_original_generic_vs_grammar_identical_answer_fields": 8,
+    "original_generic_invalid_ids_only_bracket_wrapped": 3,
+    "raw_answer_prompt_comparison": {"unchanged": 7, "changed": 1, "correct_to_wrong": 1, "wrong_to_correct": 0, "correct_to_correct": 2, "wrong_to_wrong": 5, "basis": "Exploratory raw answer fields with Hotpot normalization; not a replacement for official all-planned scores."},
+    "limit": "Raw-text diagnostic only; no output repair or unofficial rescoring. Grammar recorded-fixture audit is not an independent local compiler rerun."
+  }
+}
