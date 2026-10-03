@@ -1,0 +1,53 @@
+{
+  "protocol": "citation-interface-v2",
+  "stage": "prospective_developmental_interface_diagnostic",
+  "seed": 31032028,
+  "candidate_items": 64,
+  "items": 8,
+  "actual_calls_per_item": 8,
+  "temperature": 0,
+  "top_p": 1,
+  "max_tokens": 256,
+  "max_answer_utf8_bytes": 160,
+  "max_citations": 8,
+  "guided_backend": "xgrammar",
+  "bootstrap_seed": 10103027,
+  "bootstrap_resamples": 2000,
+  "primary_descriptive_endpoints": [
+    "explicit_minus_original_format_valid_json_object_full",
+    "guided_minus_json_format_valid_explicit_full"
+  ],
+  "sampling": "Exclude all 200 candidates from natural-repetition-v1, then order the remaining HotpotQA validation IDs by SHA256([seed,id]); first 64 candidates, first 8 passing complete-context tokenizer eligibility. No label or outcome selection. Reuses the same label-free eight questions as failed citation-interface-001: one HTTP 400, zero model completions, no scientific outcomes available before v2.",
+  "factors": {
+    "context": [
+      "full",
+      "question_only"
+    ],
+    "prompt": [
+      "original",
+      "explicit"
+    ],
+    "decoder": [
+      "json_object",
+      "guided_grammar"
+    ]
+  },
+  "limits": [
+    "Prospective interface diagnostic, not DICE method validation or a publishable novelty claim.",
+    "Retains original messages/generic JSON payload; explicit prompt adds ID syntax and empty-answer example together.",
+    "Actual unchanged vLLM 0.8.3 V1 engine uses xgrammar. Request must exactly match its backend; no fallback selected.",
+    "Guided grammar enforces two required fields, visible bare canonical IDs, zero to eight citations. Allows both key orders and JSON whitespace, but canonical unescaped key/ID spellings only.",
+    "Visible-ID membership does not establish evidential support. Answer UTF-8 byte count and factual correctness remain separate checks.",
+    "Finite CPU fixtures exercise installed V1 admission/compiler and tokenizer, not a proof of all token paths or full live request admission.",
+    "Invalid complete outputs score zero; pending/failed calls block full scoring. No repair, retries, truncation, sample change, or effect-based stopping.",
+    "Eight questions are independent units, not 64 calls; bootstrap intervals descriptive and unadjusted.",
+    "Sampling is fresh from the prior 200-question frame, not demonstrably unseen during model pretraining.",
+    "Failed v1 preserved separately; no pooling with earlier natural-repetition results."
+  ],
+  "interface_readiness": {
+    "group": "full__explicit__json_object",
+    "minimum_format_valid_count": 7,
+    "maximum_bracket_only_mismatch": 0,
+    "interpretation": "Engineering threshold only; does not establish answer quality, method efficacy, or trigger an automatic new batch."
+  }
+}
