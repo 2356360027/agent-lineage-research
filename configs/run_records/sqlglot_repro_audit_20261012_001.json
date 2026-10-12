@@ -1,0 +1,16 @@
+{
+  "status": "COMPLETED_COMPONENT_AUDIT_NOT_METHOD_VALIDATION",
+  "run": "runtime/runs/sqlglot-repro-audit-20261012-001",
+  "design_sha256": "96b574932b16fee9e087a1440bd83a1cb41b6ee3749ba75d96ce478bad6da801",
+  "summary_sha256": "dce089a7d662d90e9bff958532643fc4933f3fd2b7c48807115a92f653bc51fb",
+  "artifact_manifest_sha256": "19ee0a47e745964aaaf5d5d37022336d8dca4476329fd4b9fdff5fa72f789188",
+  "upstream": "SQLGlot 30.22.0, MIT",
+  "wheel_sha256": "90aa461490fcd95d14ec3842a97506ae20f6d3e9313307ad31be793d479cca65",
+  "bird_programs": 12,
+  "authored_control_pairs": 8,
+  "sql_execution_statuses": {"EXECUTED": 131, "SOFT_TIMEOUT": 1},
+  "independent_task_count_claimed": false,
+  "model_calls": 0,
+  "database_bytes_unchanged": true,
+  "interpretation": "SQL program differential diagnostics; no NL correctness, cache algorithm advantage, training, or population rate established"
+}
