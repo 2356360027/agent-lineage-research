@@ -350,3 +350,56 @@ admission, model/resource authorization and a frozen inference protocol are
 still required. This check supplies no evidence of cache-induced intent drift
 or improvement over strong baselines; the protective contract preview remains
 unchanged.
+
+## CoSQL interface and measurement rules (2026-10-12)
+
+The [official CoSQL page](https://yale-lily.github.io/cosql) and its associated
+[UnifiedSKG loader](https://github.com/xlang-ai/UnifiedSKG/blob/main/tasks/cosql.py)
+currently point to different Drive file IDs. Different IDs do not establish
+different contents, and an upstream code revision does not pin an archive.
+The official archive probe timed out; no archive bytes or data hashes were
+obtained. No login, password submission, or alternate archive download occurred.
+
+The inspected loader emits cumulative utterances, SQL, and a special final row,
+but omits dialogue roles/acts. Do not use that flattened interface as proof of
+human clarification. In the [original paper](https://aclanthology.org/D19-1204.pdf),
+AFFIRM is a general user affirmation and CONFIRM_SQL is a system request for
+confirmation, not a completed human approval. Raw role/clarification/SQL chains
+must be examined before selecting tasks. Adding historical gold SQL/caches is
+our adaptation, not the original SQL-state-tracking protocol. The inspected
+loader URL is mutable main; neither its immutable revision nor data package
+was acquired in this review.
+
+`configs/cache_intent_measurement_v1.md` now separates ordinary execution,
+instrumented contracts, contract-first and independent verification. It is a
+development specification, not a preregistration or model-run authorization.
+`runtime/cache_intent_judgment.py` mechanically derives indicators from supplied
+adjudications; it cannot supply those judgments or grant human approval.
+
+Key safeguards: wrong final output alone never implies C; a wrong contract with
+an aligned later program remains C even if this database masks the error; missing
+contracts cannot be inferred from SQL. A/B may overlap but exclude C at a linked
+checkpoint. Unknown labels remain unknown. Entire missing pair records stay in
+the supplied fixed denominator; the resulting bounds are not confidence intervals.
+
+Independent review identified and resolved three design/implementation risks:
+
+- One response containing contract and action cannot be split into invented
+  event indices to manufacture a forward chain. It supports a pre-result
+  contract endpoint, not forward C absent a later genuine program event.
+- Planned, unexecuted reuse cannot be labeled actual cache application; the
+  helper now rejects that contradictory label combination.
+- The previous 100-unit/20-attempt software fixture permits price to change
+  later affordability. It stays archived as a wiring check, not a clean causal
+  protocol. The new specification requires a nonbinding horizon budget before
+  inference (200 units suffices for these tools with charge <=10 and 20 attempts).
+  This proposed configuration has not been used in a model run or new tool run.
+
+```bash
+python -B -m unittest tests.test_cache_intent_judgment -q
+```
+
+33 pure in-memory software tests passed. Labels are synthetic fixtures, not
+research outcomes or completed human reviews. No new SQL/model calls or paid
+compute occurred. Human task/history review and authorized, frozen inference
+remain prerequisites; no method increment has been demonstrated.
