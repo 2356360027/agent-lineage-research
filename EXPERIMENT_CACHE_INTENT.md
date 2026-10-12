@@ -114,3 +114,61 @@ Continue to a small development task-pair design, not broad model sampling:
 
 AMBROSIA's explicit interpretations and CoSQL's affirmed clarifications remain
 useful complementary data candidates; neither has been imported in this run.
+
+## Development cache-history package (2026-10-12)
+
+Constructed six candidate histories for **two already-exposed toxicology
+targets**, not six independent research samples. The public current questions
+and evidence are unchanged. Historical requests, SQL and candidate contracts
+are researcher-constructed; human review is still pending. Adapted task material
+is attributed in `configs/cache_intent_pairs_dev_v1.json` and shared under
+CC BY-SA 4.0; this statement does not relicense unrelated source code.
+
+```bash
+python -m runtime.cache_intent_dev_package \
+  --output runtime/runs/cache-intent-dev-package-20261012-001 --execute
+```
+
+This completed once locally: six historical SQL executions plus one schema read,
+all bounded/read-only; two previously verified target outputs reused, not rerun.
+Four declared cache-only operations (two identity, two transformations) matched
+their target typed result bags on this snapshot. Two remaining histories omit
+needed information; they remain candidate information-insufficiency controls,
+not universally useless caches. Additional base-data reads may permit valid
+partial reuse. Matching results neither proves semantic equivalence nor supplies
+human approval. All four stored database hashes remained unchanged.
+
+`runtime/cache_intent_prompts.py` builds offline previews only. Each history has
+two separate paired contrasts: materialized availability false/true at fixed
+read cost, and read cost 1/8 at fixed availability. SQL cost 10 and budget 100 are
+identical across arms. They are **declared relative units**, not measured cost.
+All 12 pairs (24 envelopes) were checked for a single allowed change across the
+complete message/tool/response-format envelope. No model was called.
+
+Private wrappers contain case IDs and condition labels; future runners must
+send only the selected envelope, never the complete wrapper. Reference outputs,
+candidate contracts, applicability labels and query results are not sent.
+The explicit-contract instruction is itself a protective intervention. This is
+a preview for a pre-result diagnostic, **not ordinary agent execution**, an
+implemented cache-access permission system, or evidence of causal effect.
+
+The immutable package includes blind current-task review templates; editable
+copies are kept outside the archive in ignored `reviews/cache_intent_dev_v1/`.
+Two reviewers should complete these independently before seeing stage-two
+historical SQL/relationship suggestions. Leave original archive templates
+unchanged; blank forms and assistant judgments are not reviews.
+
+Inference remains ineligible. Before any model run, require task/history review,
+a distinct sampling/analysis plan, actual tool/cost enforcement where applicable,
+and current resource authorization. This tiny exposed package cannot establish
+generality, publication readiness or a gap over strong reuse/recompute baselines.
+
+```bash
+python -m unittest tests.test_cache_intent_dev_package \
+  tests.test_cache_intent_prompts tests.test_bird_readonly_audit \
+  tests.test_bird_fetch tests.test_arcwise_fetch tests.test_arcwise_compatibility -q
+```
+
+106 software tests passed; fixture queries are mocked or isolated as documented,
+and do not count as research samples. The public aggregate receipt is
+`configs/run_records/cache_intent_dev_package_20261012_001.json`.
