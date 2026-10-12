@@ -1,0 +1,78 @@
+# Pinned Calcite baseline contract audit
+
+This is a CPU-only audit of upstream Apache Calcite **1.40.0**, not an LLM
+experiment, new algorithm, natural workload, or full cost-based MV selection
+benchmark. The eight assistant-authored HR-style contracts have three fixed
+fixtures each. Empty and NULL fixtures are boundary controls, not independent
+real-world tasks. All historical experiments are preserved separately.
+
+## What is executed
+
+- The Java `RelBuilder` constructs Q, V and the MV scan in a common cluster.
+- V is actually executed and its rows become a `ScannableTable`.
+- Upstream aggregate reduction and six materialized-view HEP rules produce the
+  rewritten plan. No hand-written rewritten SQL is substituted for Calcite.
+- `RelRunners.run` prepares and executes each plan through Calcite JDBC.
+  Preparation is included in the recorded execution timings.
+- Independent, fixed expected rows check the materialized view, original query,
+  and rewritten query separately. A local in-memory SQLite preflight also checks
+  all 48 expected view/query outputs. This is a numeric-valued bag oracle, not a
+  cross-dialect type proof. Java value types and SQL row types are recorded too.
+- Base-table fallback is legal. Failure to select an MV with these configured
+  HEP rules does **not** prove an information-theoretic impossibility, or that
+  Calcite's complete optimizer cannot find another plan.
+
+COUNT DISTINCT and empty global aggregates must not be evaluated solely by
+comparing two outputs from Calcite's subset `Interpreter`. The implementation
+uses the full JDBC preparation path and independent oracles instead.
+
+## Reproduce locally
+
+Use a suitable installed JDK with `java` and `javac`. This run used a locally
+available JBR 25.0.3 and Java `--release 17` compilation; it is an adaptation,
+not a claim of official upstream JDK25 validation. No global environment or
+Maven settings are changed.
+
+1. Run `python -m unittest tests.test_calcite_contract_audit -v`.
+2. Run `python scripts/fetch_maven_repro.py --output runtime/runs/dependencies/NEW-MAVEN-CACHE`.
+   The task-local Maven 3.9.9 archive is pinned by SHA-512 and SHA-256 is recorded.
+3. With that Maven executable and the chosen JDK, resolve the pinned POM using
+   `dependency:build-classpath`. Pass the provided `isolated-settings.xml` as both
+   `-s` and `-gs`, a task-local `-Dmaven.repo.local=...`, and a fresh absolute
+   `-Dmdep.outputFile=...`. The runner hashes every resolved JAR. Only dependency
+   resolution requires network access.
+4. Run one command (replace the paths with the actual JDK and classpath file):
+
+```text
+python -u -m runtime.calcite_contract_audit --output runtime/runs/NEW-UNUSED-RUN --java-home PATH-TO-JDK --classpath PATH-TO-CLASSPATH-TXT
+```
+
+The output must be new and inside `runtime/runs`. Existing outputs are never
+overwritten. Source, dependency hashes and design are saved before compilation
+and query execution. Each case/state has a separate JVM, 768 MiB heap limit and
+40-second process deadline; timeouts and errors remain in the denominator. Do
+not edit running source or tests during the batch. No hidden retries, paid APIs,
+remote database mutations or cloud jobs are used.
+
+## Scope limitations
+
+- INTEGER salaries/commissions only; C6's mean happens to be exactly 180.
+  Non-integral averages, DECIMAL precision and overflow are untested.
+- No joins, constraints beyond declared nullability, changing snapshots,
+  unreliable provenance, concurrent updates, or natural historical cache data.
+- No MV build amortization, fair latency benchmark, or new-method comparison.
+- Intermediate HEP rule-event scan lists in the initial harness may omit scans
+  hidden behind `HepRelVertex`. Use the final plan and actual scan counters;
+  an empty intermediate list is not proof that a candidate is absent.
+- Tiny fixture agreement is not universal SQL equivalence. A strong baseline
+  that correctly recomputes is not an experimental failure.
+
+## Primary references
+
+- [Calcite materialized-view documentation](https://calcite.apache.org/docs/materialized_views.html)
+- [RelRunners API](https://calcite.apache.org/javadocAggregate/org/apache/calcite/tools/RelRunners.html)
+- [Fixed 1.40.0 source archive](https://repo.maven.apache.org/maven2/org/apache/calcite/calcite-core/1.40.0/calcite-core-1.40.0-sources.jar)
+  SHA-256 `0f63c2a28b43ab4d1888a73633ccf1c76513712d27f61dd489431fd2c71b6763`.
+
+Raw logs and JARs remain under ignored `runtime/runs`; do not upload them, private
+paper artifacts, databases or authentication material to the public repository.

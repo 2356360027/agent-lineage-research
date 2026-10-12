@@ -1,0 +1,30 @@
+{
+  "run_id": "calcite-mv-repro-20261012-001",
+  "status": "INTEGRATION_AUDIT_WITH_HARNESS_ERRORS_PRESERVED",
+  "backend": "Calcite 1.40.0 HEP rules and RelRunners JDBC, local CPU",
+  "model_calls": 0,
+  "expected_case_state_combinations": 24,
+  "completed_case_state_combinations": 24,
+  "paired_query_rewrite_bags_equal": 24,
+  "independent_oracle_contracts_passed": 22,
+  "materialized_views_match_independent_oracle": 24,
+  "failures": [
+    {"case": "C4", "state": "base", "cause": "Harness RelBuilder GROUP BY key ordering returned empid,deptno,s instead of the declared deptno,empid,s"},
+    {"case": "C4", "state": "all_salary_null", "cause": "Same harness column-order mistake; matching original/rewrite outputs are not proof of the intended SQL contract"}
+  ],
+  "actual_mv_execution": {"C1_view_only": 3, "C8_view_plus_base_complement": 3},
+  "cautions": [
+    "No method superiority or natural-workload accuracy claim",
+    "C5/C6 absence of MV selection is not a Calcite limitation: Q SUM was reduced to SUM0 while V retained SUM; investigate normalization before interpreting coverage",
+    "HEP rule coverage is not full cost-based materialization selection",
+    "Intermediate candidate scans may be hidden by HepRelVertex; final plan and execution counters are authoritative",
+    "Frozen tests contain a subsequently discovered missing-baseRows guard failure; all 24 actual records include baseRows, so this does not explain or change the observed 22/24",
+    "Original batch is immutable; fixes and reruns must be separately identified"
+  ],
+  "design_sha256": "d2104954fc8b043454268bc05f574df1d73bcbb24ce02da7164b0eb268836bda",
+  "summary_sha256": "90f665f2cf3e5c8147624c49185b633669e2d225fb58abc464089a98d52800e2",
+  "manifest_sha256": "9e9df86cdaaa7b6fbae2e6f048de08cb06f9271f85fd5b205e01a914a31dc6f9",
+  "input_hashes_unchanged_at_finish": true,
+  "raw_artifacts_public": false,
+  "publication_scope": "Source and sanitized run record only; raw run logs, binaries and private artifacts remain local"
+}

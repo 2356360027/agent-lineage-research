@@ -1,0 +1,949 @@
+{
+  "version": "calcite-contracts-v1",
+  "client_date": "2026-10-12",
+  "evidence_type": "ASSISTANT_AUTHORED_FINITE_RELATIONAL_FIXTURES_NOT_NATURAL_TASK_DATA",
+  "purpose": "Bounded reproduction of configured materialized-view rewriting and independently specified execution results; no LLM, no NL intent truth, no new method.",
+  "model_calls": 0,
+  "origin": "HR-style synthetic schema inspired by common examples; not claimed to be the official Calcite HrSchema dataset.",
+  "table": {
+    "name": "emps",
+    "columns": [
+      {
+        "name": "empid",
+        "sql_type": "INTEGER",
+        "nullable": false
+      },
+      {
+        "name": "deptno",
+        "sql_type": "INTEGER",
+        "nullable": true
+      },
+      {
+        "name": "salary",
+        "sql_type": "INTEGER",
+        "nullable": true
+      },
+      {
+        "name": "commission",
+        "sql_type": "INTEGER",
+        "nullable": true
+      }
+    ],
+    "unique_keys": [],
+    "foreign_keys": [],
+    "check_constraints": [],
+    "extra_constraints": "None: do not infer uniqueness, non-NULL salary, group disjointness or current exact cardinality from these small fixtures."
+  },
+  "fixtures": {
+    "base": {
+      "rows": [
+        [
+          1,
+          10,
+          100,
+          10
+        ],
+        [
+          2,
+          10,
+          200,
+          null
+        ],
+        [
+          3,
+          10,
+          null,
+          30
+        ],
+        [
+          4,
+          20,
+          300,
+          null
+        ],
+        [
+          5,
+          20,
+          300,
+          null
+        ],
+        [
+          6,
+          20,
+          0,
+          20
+        ],
+        [
+          7,
+          30,
+          100,
+          null
+        ],
+        [
+          8,
+          30,
+          null,
+          null
+        ],
+        [
+          9,
+          null,
+          50,
+          5
+        ]
+      ]
+    },
+    "empty": {
+      "rows": []
+    },
+    "all_salary_null": {
+      "rows": [
+        [
+          1,
+          10,
+          null,
+          10
+        ],
+        [
+          2,
+          10,
+          null,
+          null
+        ],
+        [
+          3,
+          20,
+          null,
+          30
+        ],
+        [
+          4,
+          null,
+          null,
+          5
+        ]
+      ]
+    }
+  },
+  "oracle": {
+    "source": "Expected rows authored and checked by direct per-row integer/NULL/grouping logic independently of Calcite Interpreter or planner outputs.",
+    "read_input": "Only the four explicitly declared columns and fixture rows.",
+    "result_semantics": "Unordered multiset of ordered columns. Duplicate output rows and NULL are retained. SQL defines no ORDER BY in these cases.",
+    "grouping_semantics": "All NULL deptno values form one group; empty input produces no GROUP BY rows.",
+    "aggregates": "COUNT(*) counts every row. COUNT(expr) excludes NULL. SUM ignores NULL and returns NULL if no non-NULL values. COUNT(DISTINCT expr) counts distinct non-NULL values. Global aggregates return one row even on empty input.",
+    "numeric_comparison": "Compare exact mathematical integer values across integral Java numeric representations while recording original classes and output field types separately. Do not stringify NULL, merge NULL and 0, drop duplicates, round arbitrary nonintegral values, or use blanket tolerances. C6's only non-NULL expected value is exactly 180.",
+    "expected_row_order": "Recorded for readability only; never require this order.",
+    "independence": "Do not generate or adjust these expected values from Calcite output."
+  },
+  "evaluation_scope": {
+    "cases": 8,
+    "fixtures": 3,
+    "case_fixture_pairs": 24,
+    "interpretation": "24 explicitly constructed cases/states, not 24 independent population samples.",
+    "common_information": "Same schema, SQL contracts, view definitions, source snapshot and base-table access for all configurations. Expected rows and theoretical labels are evaluator-only.",
+    "view_materialization": "Compute each V against its corresponding fixture and verify against expected_view_rows before evaluating rewrite outputs; do not build V from target Q answers.",
+    "capability_label_scope": "General algebraic information capability, not a demand that this Calcite rule configuration choose a view and not an assertion about every single special input. Empty/degenerate view values can certify answers in some otherwise insufficient-information cases.",
+    "negative_case_policy": "A correct base fallback is valid. A missed applicable rewrite is configuration coverage, not proof that no rewrite exists.",
+    "partial_coverage_policy": "C8 may require separately enabled union-compensation rules. If unavailable, record UNSUPPORTED_CONFIGURATION_OR_FALLBACK, not a universal planner defect.",
+    "allowed_validation_actions": "Local synthetic tables only. No model calls. Preserve all unsupported/error/timeout/mismatch outcomes.",
+    "stop_gate": "Do not promote a rewrite configuration as safe after a mismatched answer or unverified materialization. Preserve the failed case; never replace it with an easier case."
+  },
+  "limitations": [
+    "Fixed authored SQL, not natural-language parsing or BIRD gold evaluation.",
+    "INTEGER-only base measures; DECIMAL, non-integral AVG semantics and overflow need a separately frozen follow-up.",
+    "Finite result agreement is not universal query-equivalence proof.",
+    "Catalog type declarations and rule configuration are part of the contract; no hidden additional constraints.",
+    "View-only feasibility is distinct from optimizer selection and from combined view-plus-base feasibility.",
+    "No exact optimizer cost/optimality oracle or speedup guarantee is supplied.",
+    "No new algorithm or paper novelty is claimed."
+  ],
+  "cases": [
+    {
+      "id": "C1",
+      "name": "bag_preserving_filter",
+      "view_sql": "SELECT deptno, salary FROM emps",
+      "query_sql": "SELECT salary FROM emps WHERE deptno = 20",
+      "view_columns": [
+        "deptno",
+        "salary"
+      ],
+      "query_columns": [
+        {
+          "name": "salary",
+          "meaning": "Every matching employee salary; duplicate rows and NULL retained."
+        }
+      ],
+      "capability": "GENERAL_VIEW_ONLY_REWRITE_EXISTS",
+      "reason": "V contains all needed rows and columns; apply deptno = 20 and project salary without DISTINCT.",
+      "expected_query_rows": {
+        "base": [
+          [
+            300
+          ],
+          [
+            300
+          ],
+          [
+            0
+          ]
+        ],
+        "empty": [],
+        "all_salary_null": [
+          [
+            null
+          ]
+        ]
+      },
+      "expected_view_rows": {
+        "base": [
+          [
+            10,
+            100
+          ],
+          [
+            10,
+            200
+          ],
+          [
+            10,
+            null
+          ],
+          [
+            20,
+            300
+          ],
+          [
+            20,
+            300
+          ],
+          [
+            20,
+            0
+          ],
+          [
+            30,
+            100
+          ],
+          [
+            30,
+            null
+          ],
+          [
+            null,
+            50
+          ]
+        ],
+        "empty": [],
+        "all_salary_null": [
+          [
+            10,
+            null
+          ],
+          [
+            10,
+            null
+          ],
+          [
+            20,
+            null
+          ],
+          [
+            null,
+            null
+          ]
+        ]
+      }
+    },
+    {
+      "id": "C2",
+      "name": "nullable_count_is_not_row_count",
+      "view_sql": "SELECT deptno, COUNT(salary) AS n FROM emps GROUP BY deptno",
+      "query_sql": "SELECT deptno, COUNT(*) AS n FROM emps GROUP BY deptno",
+      "view_columns": [
+        "deptno",
+        "n"
+      ],
+      "query_columns": [
+        {
+          "name": "deptno",
+          "meaning": "Department grouping key; NULL is a group."
+        },
+        {
+          "name": "n",
+          "meaning": "Count every row, including NULL salary."
+        }
+      ],
+      "capability": "NO_GENERAL_VIEW_ONLY_REWRITE_FROM_THIS_INFORMATION",
+      "reason": "Adding a NULL-salary row in an existing department changes Q but not V; no exact per-group total-cardinality oracle is provided.",
+      "expected_query_rows": {
+        "base": [
+          [
+            10,
+            3
+          ],
+          [
+            20,
+            3
+          ],
+          [
+            30,
+            2
+          ],
+          [
+            null,
+            1
+          ]
+        ],
+        "empty": [],
+        "all_salary_null": [
+          [
+            10,
+            2
+          ],
+          [
+            20,
+            1
+          ],
+          [
+            null,
+            1
+          ]
+        ]
+      },
+      "expected_view_rows": {
+        "base": [
+          [
+            10,
+            2
+          ],
+          [
+            20,
+            3
+          ],
+          [
+            30,
+            1
+          ],
+          [
+            null,
+            1
+          ]
+        ],
+        "empty": [],
+        "all_salary_null": [
+          [
+            10,
+            0
+          ],
+          [
+            20,
+            0
+          ],
+          [
+            null,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "C3",
+      "name": "missing_measure",
+      "view_sql": "SELECT deptno, SUM(salary) AS s FROM emps GROUP BY deptno",
+      "query_sql": "SELECT deptno, SUM(commission) AS s FROM emps GROUP BY deptno",
+      "view_columns": [
+        "deptno",
+        "s"
+      ],
+      "query_columns": [
+        {
+          "name": "deptno",
+          "meaning": "Department grouping key; NULL is a group."
+        },
+        {
+          "name": "s",
+          "meaning": "Sum non-NULL commissions; NULL when a group has no non-NULL commission."
+        }
+      ],
+      "capability": "NO_GENERAL_VIEW_ONLY_REWRITE_FROM_THIS_INFORMATION",
+      "reason": "Changing commission while preserving salary leaves V unchanged but can change Q.",
+      "expected_query_rows": {
+        "base": [
+          [
+            10,
+            40
+          ],
+          [
+            20,
+            20
+          ],
+          [
+            30,
+            null
+          ],
+          [
+            null,
+            5
+          ]
+        ],
+        "empty": [],
+        "all_salary_null": [
+          [
+            10,
+            10
+          ],
+          [
+            20,
+            30
+          ],
+          [
+            null,
+            5
+          ]
+        ]
+      },
+      "expected_view_rows": {
+        "base": [
+          [
+            10,
+            300
+          ],
+          [
+            20,
+            600
+          ],
+          [
+            30,
+            100
+          ],
+          [
+            null,
+            50
+          ]
+        ],
+        "empty": [],
+        "all_salary_null": [
+          [
+            10,
+            null
+          ],
+          [
+            20,
+            null
+          ],
+          [
+            null,
+            null
+          ]
+        ]
+      }
+    },
+    {
+      "id": "C4",
+      "name": "lost_grouping_granularity",
+      "view_sql": "SELECT deptno, SUM(salary) AS s FROM emps GROUP BY deptno",
+      "query_sql": "SELECT deptno, empid, SUM(salary) AS s FROM emps GROUP BY deptno, empid",
+      "view_columns": [
+        "deptno",
+        "s"
+      ],
+      "query_columns": [
+        {
+          "name": "deptno",
+          "meaning": "Department grouping key."
+        },
+        {
+          "name": "empid",
+          "meaning": "Employee grouping key; no primary-key or uniqueness constraint is supplied."
+        },
+        {
+          "name": "s",
+          "meaning": "Sum non-NULL salary in the department/employee group; NULL if all NULL."
+        }
+      ],
+      "capability": "NO_GENERAL_VIEW_ONLY_REWRITE_FROM_THIS_INFORMATION",
+      "reason": "The department aggregate does not retain empid or allocation of salary among employees.",
+      "expected_query_rows": {
+        "base": [
+          [
+            10,
+            1,
+            100
+          ],
+          [
+            10,
+            2,
+            200
+          ],
+          [
+            10,
+            3,
+            null
+          ],
+          [
+            20,
+            4,
+            300
+          ],
+          [
+            20,
+            5,
+            300
+          ],
+          [
+            20,
+            6,
+            0
+          ],
+          [
+            30,
+            7,
+            100
+          ],
+          [
+            30,
+            8,
+            null
+          ],
+          [
+            null,
+            9,
+            50
+          ]
+        ],
+        "empty": [],
+        "all_salary_null": [
+          [
+            10,
+            1,
+            null
+          ],
+          [
+            10,
+            2,
+            null
+          ],
+          [
+            20,
+            3,
+            null
+          ],
+          [
+            null,
+            4,
+            null
+          ]
+        ]
+      },
+      "expected_view_rows": {
+        "base": [
+          [
+            10,
+            300
+          ],
+          [
+            20,
+            600
+          ],
+          [
+            30,
+            100
+          ],
+          [
+            null,
+            50
+          ]
+        ],
+        "empty": [],
+        "all_salary_null": [
+          [
+            10,
+            null
+          ],
+          [
+            20,
+            null
+          ],
+          [
+            null,
+            null
+          ]
+        ]
+      }
+    },
+    {
+      "id": "C5",
+      "name": "sum_count_rollup",
+      "view_sql": "SELECT deptno, COUNT(*) AS n, COUNT(salary) AS c, SUM(salary) AS s FROM emps GROUP BY deptno",
+      "query_sql": "SELECT COUNT(*) AS n, COUNT(salary) AS c, SUM(salary) AS s FROM emps",
+      "view_columns": [
+        "deptno",
+        "n",
+        "c",
+        "s"
+      ],
+      "query_columns": [
+        {
+          "name": "n",
+          "meaning": "Global row count; 0 for empty input."
+        },
+        {
+          "name": "c",
+          "meaning": "Global non-NULL salary count; 0 for empty/all-NULL input."
+        },
+        {
+          "name": "s",
+          "meaning": "Global sum ignoring NULL; NULL when no non-NULL salary exists."
+        }
+      ],
+      "capability": "GENERAL_VIEW_ONLY_REWRITE_EXISTS_WITH_EMPTY_AGGREGATE_HANDLING",
+      "reason": "SUM(n) and SUM(c), each converted from NULL to 0 on an empty view, plus SUM(s); preserve exactly one global aggregate output row.",
+      "expected_query_rows": {
+        "base": [
+          [
+            9,
+            7,
+            1050
+          ]
+        ],
+        "empty": [
+          [
+            0,
+            0,
+            null
+          ]
+        ],
+        "all_salary_null": [
+          [
+            4,
+            0,
+            null
+          ]
+        ]
+      },
+      "expected_view_rows": {
+        "base": [
+          [
+            10,
+            3,
+            2,
+            300
+          ],
+          [
+            20,
+            3,
+            3,
+            600
+          ],
+          [
+            30,
+            2,
+            1,
+            100
+          ],
+          [
+            null,
+            1,
+            1,
+            50
+          ]
+        ],
+        "empty": [],
+        "all_salary_null": [
+          [
+            10,
+            2,
+            0,
+            null
+          ],
+          [
+            20,
+            1,
+            0,
+            null
+          ],
+          [
+            null,
+            1,
+            0,
+            null
+          ]
+        ]
+      }
+    },
+    {
+      "id": "C6",
+      "name": "weighted_average_rollup",
+      "view_sql": "SELECT deptno, COUNT(*) AS n, COUNT(salary) AS c, SUM(salary) AS s FROM emps GROUP BY deptno",
+      "query_sql": "SELECT AVG(salary) AS a FROM emps WHERE deptno IN (10, 20)",
+      "view_columns": [
+        "deptno",
+        "n",
+        "c",
+        "s"
+      ],
+      "query_columns": [
+        {
+          "name": "a",
+          "meaning": "Average non-NULL salary of rows with deptno 10 or 20; NULL if no such non-NULL values."
+        }
+      ],
+      "capability": "VIEW_ONLY_REWRITE_EXISTS_SUBJECT_TO_ENGINE_AVG_RETURN_TYPE",
+      "reason": "Filter view keys to departments 10 and 20, combine salary sums and non-NULL counts, then divide using the target AVG return semantics; return NULL for zero denominator. Do not average department averages.",
+      "expected_query_rows": {
+        "base": [
+          [
+            180
+          ]
+        ],
+        "empty": [
+          [
+            null
+          ]
+        ],
+        "all_salary_null": [
+          [
+            null
+          ]
+        ]
+      },
+      "expected_view_rows": {
+        "base": [
+          [
+            10,
+            3,
+            2,
+            300
+          ],
+          [
+            20,
+            3,
+            3,
+            600
+          ],
+          [
+            30,
+            2,
+            1,
+            100
+          ],
+          [
+            null,
+            1,
+            1,
+            50
+          ]
+        ],
+        "empty": [],
+        "all_salary_null": [
+          [
+            10,
+            2,
+            0,
+            null
+          ],
+          [
+            20,
+            1,
+            0,
+            null
+          ],
+          [
+            null,
+            1,
+            0,
+            null
+          ]
+        ]
+      },
+      "oracle_detail": {
+        "base_numerator": 900,
+        "base_denominator": 5,
+        "base_exact_rational": "180/1",
+        "wrong_unweighted_department_average": 175,
+        "limitation": "All non-NULL expected answers here are integral. This batch does not test non-integral AVG rounding/truncation, DECIMAL precision, floating non-associativity or overflow."
+      }
+    },
+    {
+      "id": "C7",
+      "name": "distinct_count_is_not_additive",
+      "view_sql": "SELECT deptno, COUNT(DISTINCT salary) AS n FROM emps GROUP BY deptno",
+      "query_sql": "SELECT COUNT(DISTINCT salary) AS n FROM emps",
+      "view_columns": [
+        "deptno",
+        "n"
+      ],
+      "query_columns": [
+        {
+          "name": "n",
+          "meaning": "Number of globally distinct non-NULL salaries; 0 for empty/all-NULL input."
+        }
+      ],
+      "capability": "NO_GENERAL_VIEW_ONLY_REWRITE_FROM_THIS_INFORMATION",
+      "reason": "Per-group cardinalities omit overlap across groups; no disjointness constraint or stored value sets are available. On base, summing group distinct counts yields 6 but Q is 5.",
+      "expected_query_rows": {
+        "base": [
+          [
+            5
+          ]
+        ],
+        "empty": [
+          [
+            0
+          ]
+        ],
+        "all_salary_null": [
+          [
+            0
+          ]
+        ]
+      },
+      "expected_view_rows": {
+        "base": [
+          [
+            10,
+            2
+          ],
+          [
+            20,
+            2
+          ],
+          [
+            30,
+            1
+          ],
+          [
+            null,
+            1
+          ]
+        ],
+        "empty": [],
+        "all_salary_null": [
+          [
+            10,
+            0
+          ],
+          [
+            20,
+            0
+          ],
+          [
+            null,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "C8",
+      "name": "partial_filter_coverage_with_compensation",
+      "view_sql": "SELECT empid, deptno, salary FROM emps WHERE deptno = 10",
+      "query_sql": "SELECT empid, deptno, salary FROM emps WHERE deptno IN (10, 20)",
+      "view_columns": [
+        "empid",
+        "deptno",
+        "salary"
+      ],
+      "query_columns": [
+        {
+          "name": "empid",
+          "meaning": "Employee identifier carried through, not deduplicated."
+        },
+        {
+          "name": "deptno",
+          "meaning": "Department 10 or 20."
+        },
+        {
+          "name": "salary",
+          "meaning": "Salary including NULL; preserve multiplicity."
+        }
+      ],
+      "capability": "NO_GENERAL_VIEW_ONLY_REWRITE_BUT_VIEW_PLUS_BASE_COMPENSATION_EXISTS",
+      "reason": "V covers deptno=10 only. UNION ALL with base rows WHERE deptno=20 has disjoint coverage and answers Q; original full recomputation is also legitimate.",
+      "expected_query_rows": {
+        "base": [
+          [
+            1,
+            10,
+            100
+          ],
+          [
+            2,
+            10,
+            200
+          ],
+          [
+            3,
+            10,
+            null
+          ],
+          [
+            4,
+            20,
+            300
+          ],
+          [
+            5,
+            20,
+            300
+          ],
+          [
+            6,
+            20,
+            0
+          ]
+        ],
+        "empty": [],
+        "all_salary_null": [
+          [
+            1,
+            10,
+            null
+          ],
+          [
+            2,
+            10,
+            null
+          ],
+          [
+            3,
+            20,
+            null
+          ]
+        ]
+      },
+      "expected_view_rows": {
+        "base": [
+          [
+            1,
+            10,
+            100
+          ],
+          [
+            2,
+            10,
+            200
+          ],
+          [
+            3,
+            10,
+            null
+          ]
+        ],
+        "empty": [],
+        "all_salary_null": [
+          [
+            1,
+            10,
+            null
+          ],
+          [
+            2,
+            10,
+            null
+          ]
+        ]
+      }
+    }
+  ]
+}
