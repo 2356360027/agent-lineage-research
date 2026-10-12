@@ -300,3 +300,53 @@ Primary sources:
 - [Pinned evaluation loop](https://raw.githubusercontent.com/saparina/ambrosia/7de80a41f1ad4f01aed9bb55e734654688b572a8/src/evaluation/eval.py).
 - [Pinned family/prompt construction](https://raw.githubusercontent.com/saparina/ambrosia/7de80a41f1ad4f01aed9bb55e734654688b572a8/src/evaluation/format_prompts.py).
 - [Pinned comparison code](https://raw.githubusercontent.com/saparina/ambrosia/7de80a41f1ad4f01aed9bb55e734654688b572a8/src/evaluation/metrics.py).
+
+## Local tool environment wiring check (2026-10-12)
+
+`runtime/cache_intent_tools.py` now enforces cache availability and declared
+relative costs. Its trusted operator interface receives provenance-bound inputs
+from `runtime/cache_intent_tool_inputs.py`; it is **not** a model runner,
+semantic approval gate or new algorithm. Agent arguments cannot choose cache
+rows, database paths or costs. Keep private logs inaccessible to any future
+agent runner. Hash checks are not file locks, and SQLite defenses are not an OS
+security sandbox.
+
+Only `read_cache(cache_id)` and `run_sql(sql)` are implemented. Initial budget
+is 100 relative units, cache read costs 1 or 8, SQL costs 10, and the attempt cap
+is 20. Invalid/unavailable/unaffordable requests are free but consume an attempt.
+Admitted SQL is charged before execution, including errors/timeouts. There are
+no retries, resume or automatic cache refill. Correct recomputation is initially
+affordable, not guaranteed after arbitrary spending. Declared units must never
+be presented as measured time, API spend or monetary charges.
+
+One local wiring check used the SAME already-exposed `h200a` historical SQL in
+three sessions: unavailable/1, available/1, available/8. All six tool attempts
+and three read-only SQL calls completed as designed, charging 10/11/18 units.
+No additional target-reference query or target-answer scoring was performed;
+the historical query may itself be equivalent to the q200 target. There were
+zero model calls, human approvals and new independent research samples.
+
+The related software suite passed 180 tests (50 newly added). Review fixed
+partial completion logs being treated as resolved and finalization failure
+leaving sessions callable. Closing seals the session before writing; failures
+and partial files are retained. Consumers must verify full manifest coverage
+and hashes and reject failure markers, not rely on a success-looking summary.
+
+Receipt: `configs/run_records/cache_intent_tool_smoke_20261012_001.json`.
+Raw logs, inputs and source snapshots remain local under git-ignored
+`runtime/runs/cache-intent-tool-smoke-20261012-001`. Execution used the new
+uncommitted source bytes on top of `c8045a2`, with individual source hashes
+archived; that base commit alone is not the executed version.
+
+The CLI is plan-only without `--execute`:
+
+```bash
+python -B -m runtime.cache_intent_tool_smoke --output runtime/runs/NEW_UNIQUE_PATH
+```
+
+Explicit execution refuses an existing output directory. Do not rerun this
+already-completed check merely to increase counts. Human review, dataset
+admission, model/resource authorization and a frozen inference protocol are
+still required. This check supplies no evidence of cache-induced intent drift
+or improvement over strong baselines; the protective contract preview remains
+unchanged.
