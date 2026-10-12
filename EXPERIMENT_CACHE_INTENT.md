@@ -432,3 +432,39 @@ Keep same-request repeat controls and separately disclosed, human-reviewed
 lossless constructed histories; do not fabricate positive-reuse labels to
 balance categories. Existing q200/q234 configs, raw evidence and blank review
 forms are unchanged. No new batch is authorized by this screen.
+
+## Nonbinding budget profile implementation (2026-10-12)
+
+`runtime/cache_intent_tools.py` v2 adds an explicit trusted-operator profile
+`nonbinding-200-v1`: 200 declared relative units, maximum 20 attempts, SQL
+charge 10 and cache-read charge 1 or 8. The default `legacy-100-v1` preserves
+the earlier 100-unit behavior. Existing archived v1 source, raw records, and
+protective prompt previews are unchanged.
+
+Before attempt k <=20, remaining budget is at least 200-10*(k-1) >=10.
+Consequently every otherwise admitted action stays affordable in both price
+arms within the shared horizon. This does not guarantee valid SQL, successful
+execution, correct task interpretation, or a new attempt after the cap. These
+units are not money or measured runtime. Availability remains separate from
+price. Invalid requests still consume an attempt without a charge; admitted
+SQL failures remain charged and recorded without silent retries.
+
+Profile and initial budget now appear in public session state, the start
+receipt and close summary; journal validation and charged-cost totals use the
+selected initial budget. Unknown profile names and numeric budget overrides
+are not accepted. A future increase in the configured maximum charge/horizon
+that breaks the 200-unit bound is rejected when this profile is constructed.
+
+Verification: 14 new budget-profile tests passed with mocked backends and
+guards prohibiting SQLite connections/subprocess execution. Another 26
+existing related tests passed; those construct temporary SQLite fixtures, but
+the real isolated-worker integration test was deliberately not rerun. No
+research database queries, model calls, human approvals or paid compute were
+added. Test counts are software checks, not research sample counts.
+
+The future runner must explicitly select the nonbinding profile in both price
+arms and render matching 200-unit instructions. The old default CLI/100-unit
+preview is not a ready scientific protocol. Human task/history review, exact
+prompts and pair IDs, model/resource authorization and a frozen analysis plan
+remain prerequisites. No cache-induced intent drift or method increment has
+yet been established.

@@ -111,8 +111,17 @@ consume the common horizon. The current correct solution is one base-table SQL.
 This does not guarantee success or permission for actions after the common cap.
 If tools, charges, horizon, or required solution lengths change, recheck this
 bound. Log total charged cost and use the same predeclared soft efficiency goal;
-do not describe the effect as forced scarcity. The new configuration and its
-boundary tests are still required before any model run; none ran here.
+do not describe the effect as forced scarcity.
+
+The v2 tool component now supplies the fixed operator-selected profile
+`nonbinding-200-v1`; its 14 new mocked boundary tests passed. This is software
+verification, not a model run or a frozen inference configuration. The default
+remains `legacy-100-v1` for compatibility with the old wiring check. A future
+runner must explicitly select `nonbinding-200-v1` in BOTH cost arms and expose
+the actual 200-unit budget from `describe()` in its prompts. Do not reuse the
+frozen 100-unit protective preview as a 200-unit execution prompt. Any future
+prompt/runner must be versioned and checked against the actual session state
+before execution; no inference runner has been approved by these tests.
 
 Preserve the existing preview direction: first=1, second=8, delta=8 minus 1.
 The conjecture that cheap reuse induces drift predicts a negative delta for a

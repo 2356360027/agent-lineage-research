@@ -21,8 +21,25 @@ import time
 from runtime import bird_readonly_audit as audit
 from scripts.fetch_bird_fixed import absent, no_link_ancestors, read_json
 
-VERSION = "cache-intent-local-tools-v1"
+VERSION = "cache-intent-local-tools-v2"
 BUDGET, SQL_COST, MAX_ATTEMPTS = 100, 10, 20
+LEGACY_PROFILE = "legacy-100-v1"
+NONBINDING_PROFILE = "nonbinding-200-v1"
+
+
+def _profile_budget(profile, cache_cost):
+    """Trusted operator selection, never a model-supplied numeric override.
+
+    Keep the original wiring behavior. The second profile eliminates cost-unit
+    admission failures within the common attempt horizon, not the horizon
+    itself or SQL/environment failures. These are relative units, not money.
+    """
+    if type(profile) is not str or profile not in (LEGACY_PROFILE, NONBINDING_PROFILE):
+        raise ValueError("Unknown fixed budget profile")
+    initial = BUDGET if profile == LEGACY_PROFILE else 200
+    if profile == NONBINDING_PROFILE and initial < MAX_ATTEMPTS * max(SQL_COST, cache_cost):
+        raise ValueError("Budget profile is not nonbinding for configured charges/horizon")
+    return initial
 
 
 def valid_result(record):
@@ -81,10 +98,13 @@ class ToolSession:
     """
     def __init__(self, *, database_path, database_sha256, history_sql,
                  cached_result, input_receipt, output, materialized_available,
-                 cache_read_cost):
+                 cache_read_cost, budget_profile=LEGACY_PROFILE):
         self.database = Path(database_path)
         if type(materialized_available) is not bool or type(cache_read_cost) is not int or cache_read_cost not in (1, 8):
             raise ValueError("Expected boolean availability and read cost 1 or 8")
+        self.initial_budget = _profile_budget(budget_profile, cache_read_cost)
+        self.budget_profile = budget_profile
+        self.nonbinding_for_configured_horizon = budget_profile == NONBINDING_PROFILE
         if type(database_sha256) is not str or re.fullmatch(r"[0-9a-f]{64}", database_sha256) is None:
             raise ValueError("Invalid database fingerprint")
         if type(history_sql) is not str or not history_sql.strip():
@@ -97,7 +117,7 @@ class ToolSession:
         self.output = Path(output)
         absent(self.output)
         self.available, self.cache_cost = materialized_available, cache_read_cost
-        self.balance, self.attempts, self.sql_calls = BUDGET, 0, 0
+        self.balance, self.attempts, self.sql_calls = self.initial_budget, 0, 0
         self.closed, self.invalidated = False, False
         self.cache = deepcopy(cached_result)
         self.output.mkdir(parents=True, exist_ok=False)
@@ -117,7 +137,9 @@ class ToolSession:
         """Public state only: never expose reference SQL, outcomes or review labels."""
         return {"cache_id": "v000", "materialized_available": self.available,
                 "read_cost": self.cache_cost, "sql_call_cost": SQL_COST,
-                "initial_budget": BUDGET, "remaining_budget": self.balance,
+                "budget_profile": self.budget_profile,
+                "nonbinding_for_configured_horizon": self.nonbinding_for_configured_horizon,
+                "initial_budget": self.initial_budget, "remaining_budget": self.balance,
                 "max_attempts": MAX_ATTEMPTS, "attempts_used": self.attempts,
                 "cost_basis": "declared_relative_units", "database_sha256": self.expected_db}
 
@@ -239,7 +261,7 @@ class ToolSession:
                     pending["automatic_retry"] is not False):
                 return False
             for key in ("charge", "balance_before", "balance_after"):
-                if type(pending[key]) is not int or not 0 <= pending[key] <= BUDGET:
+                if type(pending[key]) is not int or not 0 <= pending[key] <= self.initial_budget:
                     return False
             if pending["balance_before"] - pending["balance_after"] != pending["charge"]:
                 return False
@@ -271,12 +293,17 @@ class ToolSession:
                                  "ENVIRONMENT_INVALID" if self.invalidated else "TOOL_SESSION_CLOSED",
                        "unresolved_attempts": unresolved,
                        "attempts": self.attempts, "sql_calls": self.sql_calls,
-                       "spent_declared_units": BUDGET-self.balance, "remaining_budget": self.balance,
+                       "budget_profile": self.budget_profile, "initial_budget": self.initial_budget,
+                       "nonbinding_for_configured_horizon": self.nonbinding_for_configured_horizon,
+                       "spent_declared_units": self.initial_budget-self.balance, "remaining_budget": self.balance,
                        "model_calls_by_this_component": 0, "semantic_approvals": 0, "inference_eligible": False,
                        "finalization_requires": "Full verified artifact manifest and no finalization_failure.json",
                        "warnings": ["Not a model experiment or empirical performance score.",
                                     "Declared costs are not measured runtime or financial spend.",
-                                    "Correct recomputation is affordable initially, not after arbitrary spending.",
+                                    ("Every otherwise admitted action is affordable within the common attempt horizon; "
+                                     "this does not guarantee task success or extra attempts."
+                                     if self.nonbinding_for_configured_horizon else
+                                     "Correct recomputation is affordable initially, not after arbitrary spending."),
                                     "Local SQLite defenses are not an OS security sandbox."]}
             audit.save_new(self.output / "summary.json", summary)
             audit.save_new(self.output / "artifact_hashes.json", {
