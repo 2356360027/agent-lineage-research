@@ -172,3 +172,68 @@ python -m unittest tests.test_cache_intent_dev_package \
 106 software tests passed; fixture queries are mocked or isolated as documented,
 and do not count as research samples. The public aggregate receipt is
 `configs/run_records/cache_intent_dev_package_20261012_001.json`.
+
+## Schema-description provenance and scoring witnesses (2026-10-12)
+
+The upstream `data/schemas/toxicology/database_description/` resource at the
+same pinned revision contains four CSV field descriptions. We acquired only
+these four files (1,451 response-body bytes), preserving the exact source bytes:
+
+```bash
+python -m scripts.audit_arcwise_schema \
+  --output runtime/runs/arcwise-schema-description-20261012-001 --execute
+```
+
+All four Git blob IDs and byte sizes matched the inspected upstream tree. The
+11 column names and declared types matched our previously captured legacy DDL.
+This **does not bind the database contents or binary version** to Arcwise full.
+No SQLite database was opened by this audit. The restricted DDL parser is for
+these already captured four table statements, not general SQL validation.
+
+One literal metadata observation requires review: in `molecule.csv`, the `+/-`
+value explanation is attached to the `molecule_id` record, while the `label`
+record's value-description cell is blank. We preserved this placement and did
+not correct the CSV or add it to prompts. This observation alone neither
+invalidates a target question nor establishes an error in its reference SQL.
+
+Keep three provenance claims separate: pinned question/SQL annotations, pinned
+field-description metadata, and the as-yet-unresolved official database binary
+binding. The pinned upstream README links `bird.zip` in SAR-Agent setup and
+`dev.zip` in the corrected Dev subset/re-evaluation context; neither supplies a
+unique full-498-to-binary hash binding. Paper v3 section 4.1 reports that its
+Mini-Dev and Dev database contents differ. That paper version predates the later
+Arcwise release and cannot alone certify our later JSON/binary pairing.
+
+Separately, eight in-memory software tests now include two paired-world
+counterexamples: the same ID-only cache can require different label-filtered
+answers, and the same molecule-level bond count can correspond to different
+atom-incidence counts. A richer cache or additional base-data reads can support
+valid repair/partial reuse. These are synthetic information-sufficiency and
+scoring checks, **not model outcomes or independent research samples**. Passing
+finite fixtures does not prove general query equivalence or chemical realism.
+Formal availability/cost contrasts must still keep the database identical
+across arms; changing worlds here is only a software counterexample device.
+
+```bash
+python -m unittest tests.test_arcwise_schema tests.test_cache_intent_witnesses \
+  tests.test_cache_intent_dev_package tests.test_cache_intent_prompts \
+  tests.test_bird_readonly_audit tests.test_bird_fetch tests.test_arcwise_fetch \
+  tests.test_arcwise_compatibility -q
+```
+
+130 software tests passed. No new model calls or human approvals occurred.
+Source CSVs and diagnostic artifacts remain ignored; only the aggregate receipt
+`configs/run_records/arcwise_schema_description_20261012_001.json` is public.
+Stage-two recommendation: continue task-pair review and resolve/explicitly
+document the data adaptation, not broad model sampling. Strong database reuse
+rules plus selective base reads remain a baseline, not an established gap.
+
+Sources:
+
+- [Pinned upstream README](https://raw.githubusercontent.com/uiuc-kang-lab/text_to_sql_benchmarks/fe766045c55b6875a43b30e9ac7683df5582f8cf/README.md).
+- [Pinned molecule description](https://raw.githubusercontent.com/uiuc-kang-lab/text_to_sql_benchmarks/fe766045c55b6875a43b30e9ac7683df5582f8cf/data/schemas/toxicology/database_description/molecule.csv).
+- [Original audit paper v3, section 4.1](https://arxiv.org/html/2601.08778v3).
+- [Distilled test-suite evaluation](https://aclanthology.org/2020.emnlp-main.29/)
+  and [official implementation](https://github.com/taoyds/test-suite-sql-eval)
+  motivate multi-database counterexamples. Our two fixtures are not a
+  reproduction of their distilled test suite or metric.
