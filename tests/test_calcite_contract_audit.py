@@ -36,7 +36,11 @@ class CalciteContractAuditTests(unittest.TestCase):
             "originalRows": encoded_rows(case["expected_query_rows"][state]),
             "rewrittenRows": encoded_rows(case["expected_query_rows"][state]),
             "materializedViewRows": encoded_rows(case["expected_view_rows"][state]),
-            "comparison": {"numericNormalizedBagEqual": True},
+            "querySchema": [{"name": column["name"]} for column in case["query_columns"]],
+            "rewrittenSchema": [{"name": column["name"]} for column in case["query_columns"]],
+            "viewSchema": [{"name": name} for name in case["view_columns"]],
+            "comparison": {"numericNormalizedBagEqual": True, "typedBagEqual": True,
+                           "sqlRowTypesEqualIgnoringNames": True},
             "classification": "SYNTHETIC_UNIT_TEST_REPORT",
             "rewrittenScanTables": ["MV"],
             "ruleProductions": [{"scanTables": ["MV"]}],
@@ -81,6 +85,8 @@ class CalciteContractAuditTests(unittest.TestCase):
                     self.assertTrue(result["identity_matches"])
                     self.assertTrue(result["fixture_matches"])
                     self.assertTrue(result["all_oracles_equal"])
+                    self.assertTrue(result["all_column_contracts_equal"])
+                    self.assertTrue(result["contract_passed"])
                     self.assertTrue(result["produced_mv_candidate"])
                     count += 1
         self.assertEqual(count, 24)
@@ -97,6 +103,7 @@ class CalciteContractAuditTests(unittest.TestCase):
         self.assertFalse(result["rewrittenRows_oracle_equal"])
         self.assertTrue(result["materializedViewRows_oracle_equal"])
         self.assertFalse(result["all_oracles_equal"])
+        self.assertFalse(result["contract_passed"])
 
     def test_wrong_materialization_is_detected_even_when_query_results_match(self):
         report = self.report("C7")
@@ -142,6 +149,7 @@ class CalciteContractAuditTests(unittest.TestCase):
                 result = self.assess(report)
                 self.assertFalse(result["identity_matches"])
                 self.assertTrue(result["fixture_matches"])
+                self.assertFalse(result["contract_passed"])
 
     def test_fixture_mismatch_and_duplicate_fixture_rows_are_flagged(self):
         report = self.report()
@@ -154,7 +162,69 @@ class CalciteContractAuditTests(unittest.TestCase):
     def test_absent_fixture_is_not_proof_of_empty_fixture(self):
         report = self.report("C1", "empty")
         del report["baseRows"]
-        self.assertFalse(self.assess(report, "C1", "empty")["fixture_matches"])
+        result = self.assess(report, "C1", "empty")
+        self.assertFalse(result["fixture_matches"])
+        self.assertFalse(result["contract_passed"])
+
+    def test_empty_c4_reversed_named_columns_fail_despite_equal_empty_bags(self):
+        report = self.report("C4", "empty")
+        wrong = [{"name": name} for name in ("empid", "deptno", "s")]
+        report["querySchema"] = copy.deepcopy(wrong)
+        report["rewrittenSchema"] = copy.deepcopy(wrong)
+        result = self.assess(report, "C4", "empty")
+        self.assertTrue(result["all_oracles_equal"])
+        self.assertTrue(result["comparison"]["typedBagEqual"])
+        self.assertFalse(result["query_columns_match_contract"])
+        self.assertFalse(result["rewritten_columns_match_contract"])
+        self.assertTrue(result["view_columns_match_contract"])
+        self.assertFalse(result["all_column_contracts_equal"])
+        self.assertFalse(result["contract_passed"])
+
+    def test_each_schema_field_is_required_and_preserves_column_order(self):
+        for key in ("querySchema", "rewrittenSchema", "viewSchema"):
+            for action in ("missing", "reversed"):
+                with self.subTest(field=key, action=action):
+                    report = self.report("C4", "empty")
+                    if action == "missing":
+                        del report[key]
+                    else:
+                        report[key] = list(reversed(report[key]))
+                    result = self.assess(report, "C4", "empty")
+                    self.assertTrue(result["all_oracles_equal"])
+                    self.assertFalse(result["all_column_contracts_equal"])
+                    self.assertFalse(result["contract_passed"])
+
+    def test_required_result_identity_and_comparison_fields_cannot_be_missing(self):
+        for key in ("caseId", "state", "baseRows", "originalRows", "rewrittenRows",
+                    "materializedViewRows", "comparison"):
+            with self.subTest(field=key):
+                report = self.report("C1", "empty")
+                del report[key]
+                self.assertFalse(self.assess(report, "C1", "empty")["contract_passed"])
+
+    def test_typed_bag_and_sql_types_need_explicit_true(self):
+        for key in ("typedBagEqual", "sqlRowTypesEqualIgnoringNames"):
+            for value in (False, None, "true", 1, "missing"):
+                with self.subTest(field=key, value=value):
+                    report = self.report()
+                    if value == "missing":
+                        del report["comparison"][key]
+                    else:
+                        report["comparison"][key] = value
+                    result = self.assess(report)
+                    self.assertTrue(result["all_oracles_equal"])
+                    self.assertTrue(result["all_column_contracts_equal"])
+                    self.assertFalse(result["contract_passed"])
+
+    def test_correct_base_fallback_is_not_penalized_for_no_mv_candidate(self):
+        report = self.report("C2")
+        report["rewrittenScanTables"] = ["emps"]
+        report["ruleProductions"] = []
+        report["classification"] = {"usesMaterializedViewAtExecution": False,
+                                    "readsBaseAtExecution": True}
+        result = self.assess(report, "C2")
+        self.assertFalse(result["produced_mv_candidate"])
+        self.assertTrue(result["contract_passed"])
 
     def test_mv_candidate_flag_uses_reported_scan_tables(self):
         report = self.report()

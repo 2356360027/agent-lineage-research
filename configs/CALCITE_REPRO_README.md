@@ -54,6 +54,22 @@ and query execution. Each case/state has a separate JVM, 768 MiB heap limit and
 not edit running source or tests during the batch. No hidden retries, paid APIs,
 remote database mutations or cloud jobs are used.
 
+## Recorded audit rounds
+
+The first round `calcite-mv-repro-20261012-001` is preserved, including a harness
+C4 output-column ordering error and an asymmetric aggregate-normalization setup.
+The corrected round `calcite-mv-repro-20261012-002` uses the same data and expected
+answers. It passed all 24 independent value, type and named-column checks: nine
+MV-only combinations (C1/C5/C6), three MV-plus-base combinations (C8), and twelve
+legal base fallbacks (C2/C3/C4/C7). These are baseline integration results, not
+evidence of a novel method's advantage. Sanitized records retain both rounds.
+
+The v2 runner requires `baseRows` even for empty fixtures. The Java v2 adapter
+projects C4 columns in declared SELECT order, reduces only AVG before MV matching,
+unwraps HEP vertices for logging, and restores output aliases only after checking
+SQL row types. Pre-alias plans and schemas are retained. No outputs are repaired
+by inspecting or changing returned row values.
+
 ## Scope limitations
 
 - INTEGER salaries/commissions only; C6's mean happens to be exactly 180.

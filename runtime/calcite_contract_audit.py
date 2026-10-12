@@ -105,7 +105,7 @@ def check_oracle(config):
 def assess(report, case, state, fixture):
     result = {"case": case["id"], "state": state, "reported_status": report.get("status")}
     result["identity_matches"] = report.get("caseId") == case["id"] and report.get("state") == state
-    result["fixture_matches"] = bag(decoded(report.get("baseRows", []))) == bag(fixture["rows"])
+    result["fixture_matches"] = "baseRows" in report and bag(decoded(report["baseRows"])) == bag(fixture["rows"])
     for key, expected_key in [("originalRows", "query_rows"),
                               ("rewrittenRows", "query_rows"),
                               ("materializedViewRows", "view_rows")]:
@@ -116,8 +116,14 @@ def assess(report, case, state, fixture):
     result["scan_tables"] = report.get("rewrittenScanTables")
     result["produced_mv_candidate"] = any("MV" in e.get("scanTables", []) for e in report.get("ruleProductions", []))
     result["error"] = report.get("error")
+    expected_names = [column["name"] for column in case["query_columns"]]
+    result["query_columns_match_contract"] = [c["name"] for c in report.get("querySchema", [])] == expected_names
+    result["rewritten_columns_match_contract"] = [c["name"] for c in report.get("rewrittenSchema", [])] == expected_names
+    result["view_columns_match_contract"] = [c["name"] for c in report.get("viewSchema", [])] == case["view_columns"]
+    result["all_column_contracts_equal"] = all(result[k] for k in ["query_columns_match_contract", "rewritten_columns_match_contract", "view_columns_match_contract"])
     result["contract_passed"] = (result["identity_matches"] and result["fixture_matches"]
                                  and result["all_oracles_equal"]
+                                 and result["all_column_contracts_equal"]
                                  and report.get("comparison", {}).get("typedBagEqual") is True
                                  and report.get("comparison", {}).get("sqlRowTypesEqualIgnoringNames") is True)
     return result
@@ -148,7 +154,7 @@ def run(output, java_home, classpath_file):
     javac = java_home / "bin" / ("javac.exe" if os.name == "nt" else "javac")
     binaries = {str(p): digest(p) for p in [java, javac]}
     version = invoke([str(java), "-version"], ROOT, 15, output / "java_version.json")
-    design = {"version": "calcite-hep-contract-audit-v1", "started_at": datetime.now(timezone.utc).isoformat(),
+    design = {"version": "calcite-hep-contract-audit-v2", "started_at": datetime.now(timezone.utc).isoformat(),
               "source_hashes": source_hashes, "dependencies": deps, "java_binaries": binaries,
               "classpath_file": str(classpath_file), "classpath_sha256": digest(classpath_file),
               "java_version": version["stderr"], "cases": [c["id"] for c in config["cases"]],

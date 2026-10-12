@@ -14,13 +14,14 @@ import org.apache.calcite.plan.RelOptUtil;
 import org.apache.calcite.plan.hep.HepMatchOrder;
 import org.apache.calcite.plan.hep.HepPlanner;
 import org.apache.calcite.plan.hep.HepProgramBuilder;
+import org.apache.calcite.plan.hep.HepRelVertex;
 import org.apache.calcite.rel.RelNode;
 import org.apache.calcite.rel.core.TableScan;
 import org.apache.calcite.rel.RelVisitor;
 import org.apache.calcite.rel.metadata.ChainedRelMetadataProvider;
 import org.apache.calcite.rel.metadata.DefaultRelMetadataProvider;
 import org.apache.calcite.rel.metadata.RelMetadataProvider;
-import org.apache.calcite.rel.rules.CoreRules;
+import org.apache.calcite.rel.rules.AggregateReduceFunctionsRule;
 import org.apache.calcite.rel.rules.materialize.MaterializedViewRules;
 import org.apache.calcite.rel.type.RelDataType;
 import org.apache.calcite.rel.type.RelDataTypeFactory;
@@ -30,6 +31,7 @@ import org.apache.calcite.schema.Statistic;
 import org.apache.calcite.schema.Statistics;
 import org.apache.calcite.schema.impl.AbstractTable;
 import org.apache.calcite.sql.fun.SqlStdOperatorTable;
+import org.apache.calcite.sql.SqlKind;
 import org.apache.calcite.sql.type.SqlTypeName;
 import org.apache.calcite.tools.Frameworks;
 import org.apache.calcite.tools.RelBuilder;
@@ -61,6 +63,8 @@ import java.util.Set;
  * This harness tests rule coverage; it is not the full cost-based Calcite optimizer.
  */
 public final class CalciteContractAudit {
+  private static final RelOptRule AVG_ONLY = AggregateReduceFunctionsRule.Config.DEFAULT
+      .withFunctionsToReduce(Set.of(SqlKind.AVG)).toRule();
   private static final List<RelOptRule> MV_RULES = Arrays.asList(
       MaterializedViewRules.PROJECT_AGGREGATE,
       MaterializedViewRules.AGGREGATE,
@@ -178,8 +182,10 @@ public final class CalciteContractAudit {
       case "C2": return b.aggregate(b.groupKey("deptno"), b.countStar("n")).build();
       case "C3": return b.aggregate(b.groupKey("deptno"),
           b.sum(false, "s", b.field("commission"))).build();
-      case "C4": return b.aggregate(b.groupKey("deptno", "empid"),
-          b.sum(false, "s", b.field("salary"))).build();
+      case "C4":
+        b.aggregate(b.groupKey("deptno", "empid"), b.sum(false, "s", b.field("salary")));
+        // Aggregate group sets follow input ordinals, not SELECT output order.
+        return b.project(b.field("deptno"), b.field("empid"), b.field("s")).build();
       case "C5": return b.aggregate(b.groupKey(), b.countStar("n"),
           b.count(false, "c", b.field("salary")), b.sum(false, "s", b.field("salary"))).build();
       case "C6":
@@ -261,6 +267,10 @@ public final class CalciteContractAudit {
     Set<String> names = new LinkedHashSet<>();
     new RelVisitor() {
       @Override public void visit(RelNode node, int ordinal, RelNode parent) {
+        if (node instanceof HepRelVertex vertex) {
+          visit(vertex.getCurrentRel(), ordinal, parent);
+          return;
+        }
         if (node instanceof TableScan scan) names.add(String.join(".", scan.getTable().getQualifiedName()));
         super.visit(node, ordinal, parent);
       }
@@ -315,7 +325,9 @@ public final class CalciteContractAudit {
     report.put("theoreticalBoundary", spec.boundary());
     report.put("costPlanning", map("status", "NOT_RUN", "reason", "This batch is a HEP rule-coverage and execution audit, not full Volcano cost selection."));
     report.put("rules", MV_RULES.stream().map(Object::toString).toList());
-    report.put("preprocessingRules", List.of(CoreRules.AGGREGATE_REDUCE_FUNCTIONS.toString()));
+    report.put("preprocessingRules", List.of(AVG_ONLY.toString()));
+    report.put("preprocessingFunctionsToReduce", List.of("AVG"));
+    report.put("harnessRevision", "v2: explicit C4 output projection; AVG-only reduction preserves SUM matching; unwrap HEP trace vertices");
     report.put("ruleMatchLimit", 128);
     report.put("fixtureTypeDeviation", "salary and commission are nullable INTEGER, not proposed DECIMAL(12,2); no cross-type or numeric-precision claim.");
     report.put("avgTypeLimitation", "C6 intentionally retains upstream AVG(INTEGER). The base-fixture mean is exactly 180; non-integral means, DECIMAL arithmetic, and general weighted-AVG numeric precision are not tested.");
@@ -360,7 +372,7 @@ public final class CalciteContractAudit {
       // AVG reduction is upstream code, also recorded; no handcrafted SUM/COUNT rewrite.
       Trace preprocessing = new Trace();
       start = System.nanoTime();
-      RelNode executionQuery = hep(query, List.of(CoreRules.AGGREGATE_REDUCE_FUNCTIONS),
+      RelNode executionQuery = hep(query, List.of(AVG_ONLY),
           Collections.emptyList(), preprocessing);
       report.put("preprocessingMs", (System.nanoTime() - start) / 1e6);
       report.put("preprocessingProductions", preprocessing.productions);
@@ -378,6 +390,15 @@ public final class CalciteContractAudit {
       start = System.nanoTime();
       RelNode rewritten = hep(executionQuery, MV_RULES, List.of(materialization), trace);
       report.put("planningMs", (System.nanoTime() - start) / 1e6);
+      report.put("rawRewrittenRel", RelOptUtil.toString(rewritten));
+      report.put("rawRewrittenSchema", schema(rewritten.getRowType()));
+      if (!RelOptUtil.areRowTypesEqual(query.getRowType(), rewritten.getRowType(), false)) {
+        throw new IllegalStateException("Rewritten SQL row types differ before alias restoration");
+      }
+      // MV rules may use internal aliases. Restore only the declared output names,
+      // without casting, reordering, changing expressions, or inspecting row values.
+      rewritten = builder.push(rewritten).rename(query.getRowType().getFieldNames()).build();
+      report.put("outputNameAdapter", "RelBuilder.rename after strict row-type check; raw pre-adapter plan/schema retained");
       report.put("ruleAttempts", trace.attempted);
       report.put("rewrittenRel", RelOptUtil.toString(rewritten));
       report.put("rewrittenSchema", schema(rewritten.getRowType()));

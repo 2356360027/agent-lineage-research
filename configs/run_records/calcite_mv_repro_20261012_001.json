@@ -7,6 +7,7 @@
   "completed_case_state_combinations": 24,
   "paired_query_rewrite_bags_equal": 24,
   "independent_oracle_contracts_passed": 22,
+  "posthoc_schema_audit": {"strict_contracts_passed": 21, "affected": ["C4/base", "C4/empty", "C4/all_salary_null"], "reason": "C4 empty also has reversed output schema even though its empty value bags agree. Frozen summary's 22 counts value/type equality, not independent named-column contract equality."},
   "materialized_views_match_independent_oracle": 24,
   "failures": [
     {"case": "C4", "state": "base", "cause": "Harness RelBuilder GROUP BY key ordering returned empid,deptno,s instead of the declared deptno,empid,s"},
