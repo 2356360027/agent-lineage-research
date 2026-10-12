@@ -403,3 +403,32 @@ python -B -m unittest tests.test_cache_intent_judgment -q
 research outcomes or completed human reviews. No new SQL/model calls or paid
 compute occurred. Human task/history review and authorized, frozen inference
 remain prerequisites; no method increment has been demonstrated.
+
+## Bounded native-question pair screen (2026-10-12)
+
+`configs/cache_intent_native_pair_screen_v1.json` records a static development
+screen, not an executable configuration or an approved task set. The fixed
+Arcwise full source remains 498 records; 185 belong to the four database IDs
+already present locally. Source hash, all five recorded pair ID/database links,
+and the four per-database text counts were checked. No new SQL/model calls,
+human approvals, downloads or generic screening framework were added.
+
+Only two additional current targets are shortlisted for review: Codebase
+537->555 (post count to mean score for the same display-name filter) and Debit
+1473->1480 (annual-derived mean to peak month for SME/2013). The individual
+questions are public originals, but their pairing and temporal direction are
+researcher constructed. They are development-exposed, not held-out samples.
+Nullable scores and peak-month ties remain explicit review questions.
+
+Formula_1 931->960 is held: saved old DDL declares fastestLapSpeed TEXT, while
+the historical query sorts it and the target uses AVG. This is a static type
+semantics risk, not an observed wrong answer. Original queries were not patched.
+Alternatives involving the old q200/q234 targets retain nonselection reasons.
+
+This bounded screen has not certified a nontrivial cache-only conversion between
+distinct original questions. A dataset made only of insufficient-cache cases
+would reward always recomputing and cannot evaluate retained reuse benefit.
+Keep same-request repeat controls and separately disclosed, human-reviewed
+lossless constructed histories; do not fabricate positive-reuse labels to
+balance categories. Existing q200/q234 configs, raw evidence and blank review
+forms are unchanged. No new batch is authorized by this screen.
