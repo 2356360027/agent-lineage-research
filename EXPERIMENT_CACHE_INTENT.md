@@ -237,3 +237,66 @@ Sources:
   and [official implementation](https://github.com/taoyds/test-suite-sql-eval)
   motivate multi-database counterexamples. Our two fixtures are not a
   reproduction of their distilled test suite or metric.
+
+## AMBROSIA admission and measurement review (2026-10-12)
+
+Public-code inspection at `saparina/ambrosia` revision
+`7de80a41f1ad4f01aed9bb55e734654688b572a8` identifies a Croissant `examples`
+record set, including explicit interpretations linked to their ambiguous source
+question. This is a code-interface finding, not validation of an acquired data
+archive. The official download presently redirects to a password form. No
+password was submitted, archive acquired, mirror used, or third-party code run.
+Acquisition is pending user confirmation or a user-supplied official archive.
+Respect the authors' request not to upload raw data to GitHub/Hugging Face;
+that request is distinct from the declared CC BY 4.0 license.
+
+Two adaptations must not be silent:
+
+- The official loader appends a one-table output instruction to attachment
+  questions and their family text, and rewrites the database dump. Keep original
+  and processed fields separate; review any adopted output constraint explicitly.
+- The original prompt uses a database dump containing values. Our tool-reuse
+  experiment should expose schema before result access, not quietly provide all
+  rows for free. This changes the task interface and must be called an adaptation,
+  not a reproduction of the original benchmark setting.
+
+The upstream ordinary SQLite connection, cell-flattening comparison and skipped
+error paths are not our required read-only execution or failure-accounting
+protocol. We have inspected their code, not recomputed their published scores.
+
+An explicit interpretation from the same ambiguity family is a candidate
+historical task, **not automatically a nonreusable cache**. Review complete
+result shape, inclusion relations, transformations and necessary extra base
+reads separately. Group related directions by both task family and shared
+database; do not count reversed pairs as independent samples. Ambiguous source
+questions stay in provenance, not in place of the current explicit request.
+
+Measurement decision: preserve `runtime/cache_intent_prompts.py` unchanged as
+a protective, pre-result explicit-contract diagnostic. It prohibits planning
+and tool calls; its declared costs have no implemented execution consequences.
+A null result there does not rule out task drift during actual execution, and
+a nonzero result is not evidence of operational resource pressure. Do not
+promote this preview to the sole test of the main hypothesis.
+
+Before a later inference run, specify a separate tool-enabled joint execution
+workflow and contract-first/independent-verifier controls. Without an observable
+intent statement, an ordinary workflow can establish task-fidelity failure but
+not distinguish contract drift from implementation error. If an intent statement
+is required, disclose that measurement intervention and analyze it separately.
+Same-history SQL, same schema, same correctness priority and affordable correct
+recomputation must hold in each availability/cost contrast. Any optimization
+objective and tool-cost enforcement must be fixed before seeing model outputs.
+
+Current decision: continue data/measurement adaptation, not model sampling.
+No AMBROSIA archive, semantic approval, model outcome or method increment has
+been established by this review. The protected download and human review gates
+remain open; existing frozen artifacts have not been changed.
+
+Primary sources:
+
+- [Official dataset entry and distribution request](https://ambrosia-benchmark.github.io/).
+- [Pinned README and license statement](https://raw.githubusercontent.com/saparina/ambrosia/7de80a41f1ad4f01aed9bb55e734654688b572a8/README.md).
+- [Pinned loader](https://raw.githubusercontent.com/saparina/ambrosia/7de80a41f1ad4f01aed9bb55e734654688b572a8/src/evaluation/evaluation_utils.py).
+- [Pinned evaluation loop](https://raw.githubusercontent.com/saparina/ambrosia/7de80a41f1ad4f01aed9bb55e734654688b572a8/src/evaluation/eval.py).
+- [Pinned family/prompt construction](https://raw.githubusercontent.com/saparina/ambrosia/7de80a41f1ad4f01aed9bb55e734654688b572a8/src/evaluation/format_prompts.py).
+- [Pinned comparison code](https://raw.githubusercontent.com/saparina/ambrosia/7de80a41f1ad4f01aed9bb55e734654688b572a8/src/evaluation/metrics.py).
