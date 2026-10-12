@@ -10,10 +10,19 @@ real-world tasks. All historical experiments are preserved separately.
 
 - The Java `RelBuilder` constructs Q, V and the MV scan in a common cluster.
 - V is actually executed and its rows become a `ScannableTable`.
-- Upstream aggregate reduction and six materialized-view HEP rules produce the
-  rewritten plan. No hand-written rewritten SQL is substituted for Calcite.
-- `RelRunners.run` prepares and executes each plan through Calcite JDBC.
-  Preparation is included in the recorded execution timings.
+- Default `hep` mode uses upstream AVG-only reduction and six materialized-view
+  HEP rules. Optional `volcano_base` / `volcano_mv` modes rebuild Q/V/MV in a
+  fresh cluster, reset metadata, register upstream default rules, and invoke
+  `Programs.standard()` with EnumerableConvention. The cost arms differ only
+  in the registered materialization list (zero/one); both construct the real MV.
+  No hand-written rewritten SQL is substituted for Calcite.
+- Original Q, V and HEP output use `RelRunners.run` JDBC preparation/execution.
+  The cost arms compile the actual selected EnumerableRel directly with
+  upstream `EnumerableInterpretable.toBindable`, then bind the registered
+  schema and upstream stashed parameters. Re-submitting a physical plan to
+  JDBC caused a second-planner integration failure in development; those
+  failed records remain, rather than being reported as upstream rule failures.
+  Timings include preparation or compilation and are not operator benchmarks.
 - Independent, fixed expected rows check the materialized view, original query,
   and rewritten query separately. A local in-memory SQLite preflight also checks
   all 48 expected view/query outputs. This is a numeric-valued bag oracle, not a
@@ -47,10 +56,20 @@ Maven settings are changed.
 python -u -m runtime.calcite_contract_audit --output runtime/runs/NEW-UNUSED-RUN --java-home PATH-TO-JDK --classpath PATH-TO-CLASSPATH-TXT
 ```
 
+For the fixed 48-combination cost-control batch, append:
+
+```text
+--planner-modes volcano_base volcano_mv
+```
+
+This schedules both cost modes for each of the same 24 case/state combinations,
+alternating which mode runs first. The exact schedule is frozen in `design.json`.
+It is not a timing experiment, and order balancing does not make it one.
+
 The output must be new and inside `runtime/runs`. Existing outputs are never
 overwritten. Source, dependency hashes and design are saved before compilation
 and query execution. Each case/state has a separate JVM, 768 MiB heap limit and
-40-second process deadline; timeouts and errors remain in the denominator. Do
+40-second process deadline (60 seconds for cost modes); timeouts and errors remain in the denominator. Do
 not edit running source or tests during the batch. No hidden retries, paid APIs,
 remote database mutations or cloud jobs are used.
 
@@ -70,6 +89,16 @@ unwraps HEP vertices for logging, and restores output aliases only after checkin
 SQL row types. Pre-alias plans and schemas are retained. No outputs are repaired
 by inspecting or changing returned row values.
 
+Cost modes additionally record the selected Volcano memo-root estimated cost
+and the final standard-program physical-tree cost separately: the standard
+pipeline includes post-Volcano HEP transformations. The raw selected physical
+tree is executed unchanged; alias restoration is an output-schema adapter
+only, with SQL type checks before it. The verifier checks both arm identities,
+registered MV counts, finite nonnegative estimated costs, raw results, types,
+column names and scan counters. A present MV candidate is not the same as a
+selected MV plan. The cost batch's completed results are recorded separately;
+the preceding 24-case HEP numbers must not be relabeled as cost-planner results.
+
 ## Scope limitations
 
 - INTEGER salaries/commissions only; C6's mean happens to be exactly 180.
@@ -77,6 +106,10 @@ by inspecting or changing returned row values.
 - No joins, constraints beyond declared nullability, changing snapshots,
   unreliable provenance, concurrent updates, or natural historical cache data.
 - No MV build amortization, fair latency benchmark, or new-method comparison.
+- The default Calcite 1.40 VolcanoCost ordering primarily compares estimated
+  row costs. Recorded CPU/IO values are not a calibrated latency/currency
+  objective. Both cost arms construct V for oracle checks; costs assume a
+  previously available materialization and do not include its construction.
 - Intermediate HEP rule-event scan lists in the initial harness may omit scans
   hidden behind `HepRelVertex`. Use the final plan and actual scan counters;
   an empty intermediate list is not proof that a candidate is absent.

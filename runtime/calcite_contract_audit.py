@@ -1,7 +1,7 @@
-"""Freeze and execute a bounded, local upstream Calcite HEP contract audit.
+"""Freeze and execute a bounded, local upstream Calcite contract audit.
 
-This is baseline rule coverage on authored fixtures, not new-method efficacy,
-full cost-based optimizer coverage, or an external reproduction.
+This audits configured baseline rule/cost planning on authored fixtures, not
+new-method efficacy, optimizer completeness, or an external reproduction.
 """
 from __future__ import annotations
 
@@ -12,6 +12,7 @@ from datetime import datetime, timezone
 from decimal import Decimal
 import hashlib
 import json
+import math
 import os
 from pathlib import Path
 import shutil
@@ -24,7 +25,8 @@ JAVA_SOURCE = "runtime/calcite_repro/src/main/java/research/CalciteContractAudit
 SOURCES = [JAVA_SOURCE, "runtime/calcite_contract_audit.py",
            "runtime/calcite_repro/pom.xml", "runtime/calcite_repro/isolated-settings.xml",
            "scripts/fetch_maven_repro.py", "configs/calcite_contracts_v1.json",
-           "tests/test_calcite_contract_audit.py"]
+           "tests/test_calcite_contract_audit.py", "scripts/verify_calcite_contract_audit.py"]
+PLANNER_MODES = ("hep", "volcano_base", "volcano_mv")
 
 
 def digest(path):
@@ -129,7 +131,45 @@ def assess(report, case, state, fixture):
     return result
 
 
-def run(output, java_home, classpath_file):
+def tasks(config, modes):
+    if not modes or len(set(modes)) != len(modes) or any(m not in PLANNER_MODES for m in modes):
+        raise ValueError("Choose unique supported planner modes")
+    result = []
+    for case in config["cases"]:
+        for state in config["fixtures"]:
+            # Balanced fixed ordering; timings remain diagnostic, not a benchmark.
+            ordered = list(modes) if (len(result) // len(modes)) % 2 == 0 else list(reversed(modes))
+            for mode in ordered:
+                label = case["id"] + "-" + state + ("" if mode == "hep" else "-" + mode)
+                result.append({"case": case["id"], "state": state, "mode": mode, "label": label})
+    return result
+
+
+def planner_evidence(report, mode):
+    if report.get("plannerMode") != mode:
+        return False
+    if mode == "hep":
+        return True
+    cost = report.get("costPlanning", {})
+    valid = (cost.get("status") == "PLANNED"
+             and cost.get("planner") == "org.apache.calcite.plan.volcano.VolcanoPlanner"
+             and cost.get("program") == "Programs.standard()"
+             and type(cost.get("registeredMaterializationCount")) is int
+             and cost["registeredMaterializationCount"] == (1 if mode == "volcano_mv" else 0)
+             and cost.get("materializationsEnabled") is True
+             and cost.get("freshClusterAndUnregisteredTreeVerified") is True
+             and cost.get("metadataResetBeforeStandardProgram") is True
+             and cost.get("selectedConvention") == "ENUMERABLE")
+    for field in ("selectedCost", "finalProgramCost"):
+        value = cost.get(field, {})
+        valid = valid and value.get("status") == "AVAILABLE" and value.get("infinite") is False
+        valid = valid and all(type(value.get(k)) in (int, float)
+                              and math.isfinite(value[k]) and value[k] >= 0
+                              for k in ("rows", "cpu", "io"))
+    return bool(valid)
+
+
+def run(output, java_home, classpath_file, modes=("hep",)):
     output, java_home, classpath_file = map(lambda p: Path(p).resolve(), (output, java_home, classpath_file))
     if not output.is_relative_to(ROOT / "runtime" / "runs"):
         raise ValueError("Output must be a fresh directory inside runtime/runs")
@@ -142,6 +182,8 @@ def run(output, java_home, classpath_file):
         shutil.copyfile(source, target)
         source_hashes[relative] = digest(target)
     config = json.loads((output / "source/configs/calcite_contracts_v1.json").read_text(encoding="utf-8"))
+    schedule = tasks(config, modes)
+    timeout = 60 if any(mode != "hep" for mode in modes) else 40
     checks = check_oracle(config)
     save(output / "oracle_preflight.json", {"engine": sqlite3.sqlite_version, "checks": checks,
                                            "scope": "Numeric-valued bag check only, not SQL type equivalence"})
@@ -154,14 +196,15 @@ def run(output, java_home, classpath_file):
     javac = java_home / "bin" / ("javac.exe" if os.name == "nt" else "javac")
     binaries = {str(p): digest(p) for p in [java, javac]}
     version = invoke([str(java), "-version"], ROOT, 15, output / "java_version.json")
-    design = {"version": "calcite-hep-contract-audit-v2", "started_at": datetime.now(timezone.utc).isoformat(),
+    design = {"version": "calcite-contract-audit-v3-cost-controls", "started_at": datetime.now(timezone.utc).isoformat(),
               "source_hashes": source_hashes, "dependencies": deps, "java_binaries": binaries,
               "classpath_file": str(classpath_file), "classpath_sha256": digest(classpath_file),
               "java_version": version["stderr"], "cases": [c["id"] for c in config["cases"]],
-              "states": list(config["fixtures"]), "per_case_timeout_seconds": 40,
+              "states": list(config["fixtures"]), "per_case_timeout_seconds": timeout,
+              "planner_modes": list(modes), "schedule": schedule,
               "heap_limit": "768m", "model_calls": 0, "paid_calls": 0,
-              "baseline_scope": "Upstream HEP rule coverage; cost planning NOT_RUN",
-              "no_adaptation": "Fixed 24 combinations, no silent retries, no result-based exclusions",
+              "baseline_scope": "Configured HEP and/or standard Volcano with/without registered MV; not optimizer completeness or novel method efficacy",
+              "no_adaptation": "Fixed case/state/mode schedule, no silent retries, no result-based exclusions",
               "jdk_caution": "Local JBR25 adaptation; not claiming upstream-supported JDK25 validation"}
     save(output / "design.json", design)
     classes = output / "classes"
@@ -174,32 +217,41 @@ def run(output, java_home, classpath_file):
     class_hashes = {str(p.relative_to(classes)): digest(p) for p in classes.rglob("*.class")}
     save(output / "compiled_classes.json", class_hashes)
     records = []
-    for case in config["cases"]:
-        for state, fixture in config["fixtures"].items():
-            label = case["id"] + "-" + state
-            result_path = output / (label + ".json")
-            child = invoke([str(java), "-Xmx768m", "-cp", str(classes) + os.pathsep + classpath,
-                            "research.CalciteContractAudit", "--case", case["id"],
-                            "--state", state, "--output", str(result_path)],
-                           ROOT, 40, output / (label + ".process.json"))
-            entry = {"case": case["id"], "state": state, "process_status": child["status"],
-                     "returncode": child["returncode"]}
-            if result_path.exists():
-                entry.update(assess(json.loads(result_path.read_text(encoding="utf-8")), case, state, fixture))
-            else:
-                entry["reported_status"] = "NO_REPORT"
-            records.append(entry)
-            # Coverage/progress only; complete readout is generated after all combinations.
-            print(f"Completed {len(records)}/{len(config['cases'])*len(config['fixtures'])}: {label}", flush=True)
+    cases = {case["id"]: case for case in config["cases"]}
+    for task in schedule:
+        case, state, mode, label = cases[task["case"]], task["state"], task["mode"], task["label"]
+        fixture = config["fixtures"][state]
+        result_path = output / (label + ".json")
+        child = invoke([str(java), "-Xmx768m", "-cp", str(classes) + os.pathsep + classpath,
+                        "research.CalciteContractAudit", "--case", case["id"],
+                        "--state", state, "--planner-mode", mode, "--output", str(result_path)],
+                       ROOT, timeout, output / (label + ".process.json"))
+        entry = {"case": case["id"], "state": state, "mode": mode, "process_status": child["status"],
+                 "returncode": child["returncode"]}
+        if result_path.exists():
+            report = json.loads(result_path.read_text(encoding="utf-8"))
+            entry.update(assess(report, case, state, fixture))
+            entry["planner_mode_matches"] = report.get("plannerMode") == mode
+            entry["planner_evidence_valid"] = planner_evidence(report, mode)
+            entry["contract_passed"] = entry["contract_passed"] and entry["planner_evidence_valid"]
+            entry["cost_planning"] = report.get("costPlanning")
+        else:
+            entry["reported_status"] = "NO_REPORT"
+        records.append(entry)
+        # Coverage/progress only; complete readout is generated after all combinations.
+        print(f"Completed {len(records)}/{len(schedule)}: {label}", flush=True)
     unchanged = all(digest(ROOT / p) == h and digest(output / "source" / p) == h for p, h in source_hashes.items())
     unchanged = unchanged and all(digest(d["path"]) == d["sha256"] for d in deps)
     unchanged = unchanged and all(digest(p) == h for p, h in binaries.items())
     summary = {"status": "LOCAL_BASELINE_COVERAGE_ONLY", "design_sha256": digest(output / "design.json"),
-               "input_hashes_unchanged": unchanged, "expected_combinations": 24,
+               "input_hashes_unchanged": unchanged, "expected_combinations": len(schedule),
                "observed_combinations": len(records), "model_calls": 0,
                "records": records, "status_counts": dict(Counter(r["reported_status"] for r in records)),
                "independent_contract_pass_count": sum(r.get("contract_passed", False) and r["returncode"] == 0 for r in records),
-               "warning": "Authored small fixtures, not natural tasks. HEP is not full cost selection. No novel-method effectiveness claim."}
+               "planner_modes": list(modes),
+               "mode_counts": {m: {"observed": sum(r["mode"] == m for r in records),
+                                    "passed": sum(r["mode"] == m and r.get("contract_passed", False) and r["returncode"] == 0 for r in records)} for m in modes},
+               "warning": "Authored small fixtures, not natural tasks. Cost estimates are not measured end-to-end savings. No novel-method effectiveness claim."}
     save(output / "summary.json", summary)
     manifest = {str(p.relative_to(output)): {"sha256": digest(p), "bytes": p.stat().st_size}
                 for p in sorted(output.rglob("*")) if p.is_file()}
@@ -213,5 +265,6 @@ if __name__ == "__main__":
     parser.add_argument("--output", required=True)
     parser.add_argument("--java-home", required=True)
     parser.add_argument("--classpath", required=True)
+    parser.add_argument("--planner-modes", nargs="+", choices=PLANNER_MODES, default=["hep"])
     args = parser.parse_args()
-    run(args.output, args.java_home, args.classpath)
+    run(args.output, args.java_home, args.classpath, args.planner_modes)

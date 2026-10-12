@@ -1,4 +1,4 @@
-"""Read-only independent verifier of Calcite audit v1/v2 artifacts.
+"""Read-only independent verifier of Calcite audit v1/v2/v3 artifacts.
 
 Reads files and prints JSON only. Does not import the runtime evaluator, execute
 SQL/Java, repair records, or write files. Current source drift is reported
@@ -41,6 +41,13 @@ def sha(path):
         for chunk in iter(lambda: handle.read(1024 * 1024), b""):
             h.update(chunk)
     return h.hexdigest()
+
+
+def json_decimal_text(value):
+    """Keep exact decimal evidence in CLI JSON without converting it to float."""
+    if isinstance(value, Decimal) and value.is_finite():
+        return str(value)
+    raise TypeError("Unsupported JSON output type: " + type(value).__name__)
 
 
 def within(directory, relative):
@@ -160,11 +167,14 @@ def schema_names(report, field):
     return [column["name"] for column in schema]
 
 
-def assess_raw(report, case, state, fixture, process):
+def assess_raw(report, case, state, fixture, process, mode=None):
     result = {"case": case["id"], "state": state,
               "reported_status": report.get("status"),
               "process_success": process.get("status") == "EXITED" and process.get("returncode") == 0,
               "identity_matches": report.get("caseId") == case["id"] and report.get("state") == state}
+    result["mode"] = mode or "hep"
+    result["planner_mode_matches"] = mode is None or report.get("plannerMode") == mode
+    result["planner_evidence_valid"] = cost_evidence_valid(report, mode)
     base, _ = decode(report["baseRows"])
     result["fixture_matches"] = bag(base) == bag(fixture["rows"])
     data, strict = {}, {}
@@ -191,7 +201,7 @@ def assess_raw(report, case, state, fixture, process):
         [tuple(c[k] for k in type_keys) for c in report["querySchema"]] ==
         [tuple(c[k] for k in type_keys) for c in report["rewrittenSchema"]])
     result["strict_named_contract_passed"] = all(result[k] for k in (
-        "process_success", "identity_matches", "fixture_matches", "all_values_equal_contract",
+        "process_success", "identity_matches", "planner_mode_matches", "planner_evidence_valid", "fixture_matches", "all_values_equal_contract",
         "all_named_columns_equal_contract", "original_rewritten_typed_bag_equal",
         "sql_types_equal_ignoring_names"))
     comparisons = report.get("comparison", {})
@@ -217,8 +227,69 @@ def assess_raw(report, case, state, fixture, process):
         classification.get("usesMaterializedViewAtExecution") is bool(calls["MV"]) and
         classification.get("readsBaseAtExecution") is bool(calls["emps"]))
     result["planned_scan_tables"] = report.get("rewrittenScanTables")
+    result["cost_planning"] = report.get("costPlanning")
     result["scan_interpretation"] = "Recorded table scan calls, not storage I/O, latency or global cost optimality."
     return result
+
+
+def cost_evidence_valid(report, mode):
+    if mode is None:
+        return True  # Historical HEP reports predate explicit mode identity.
+    if report.get("plannerMode") != mode:
+        return False
+    if mode == "hep":
+        return True
+    c = report.get("costPlanning", {})
+    if not isinstance(c.get("selectedPlan"), str) or not c["selectedPlan"]:
+        return False
+    if c["selectedPlan"] != report.get("selectedPlanExecutionRel"):
+        return False
+    fields = {"status": "PLANNED", "planner": "org.apache.calcite.plan.volcano.VolcanoPlanner",
+              "program": "Programs.standard()", "selectedConvention": "ENUMERABLE"}
+    if any(c.get(key) != value for key, value in fields.items()):
+        return False
+    if type(c.get("registeredMaterializationCount")) is not int or c["registeredMaterializationCount"] != int(mode == "volcano_mv"):
+        return False
+    if any(c.get(key) is not True for key in ("materializationsEnabled", "freshClusterAndUnregisteredTreeVerified", "metadataResetBeforeStandardProgram")):
+        return False
+    for field in ("selectedCost", "finalProgramCost"):
+        value = c.get(field, {})
+        if value.get("status") != "AVAILABLE" or value.get("infinite") is not False:
+            return False
+        for component in ("rows", "cpu", "io"):
+            number = value.get(component)
+            if type(number) not in (int, Decimal) or not Decimal(number).is_finite() or number < 0:
+                return False
+    return True
+
+
+def required_manifest_entries(design, schedule):
+    names = {"design.json", "summary.json", "build.json", "compiled_classes.json",
+             "oracle_preflight.json", "java_version.json"}
+    names.update(str(Path("source") / name) for name in design["source_hashes"])
+    names.update(row["label"] + suffix for row in schedule for suffix in (".json", ".process.json"))
+    return {str(Path(name)) for name in names}
+
+
+def recorded_schedule(design, config):
+    modes = design.get("planner_modes", ["hep"])
+    if not modes or len(modes) != len(set(modes)) or any(m not in ("hep", "volcano_base", "volcano_mv") for m in modes):
+        raise ValueError("Unexpected planner modes")
+    expected = {(c["id"], s, m) for c in config["cases"] for s in config["fixtures"] for m in modes}
+    schedule = design.get("schedule")
+    if schedule is None:
+        if design["version"] == "calcite-contract-audit-v3-cost-controls":
+            raise ValueError("New audit version must save its execution schedule")
+        schedule = [{"case": c["id"], "state": s, "mode": "hep", "label": c["id"] + "-" + s}
+                    for c in config["cases"] for s in config["fixtures"]]
+    actual = [(r["case"], r["state"], r["mode"]) for r in schedule]
+    if len(actual) != len(expected) or set(actual) != expected:
+        raise ValueError("Missing/duplicate/extra case-state-mode combinations")
+    for row in schedule:
+        wanted = row["case"] + "-" + row["state"] + ("" if row["mode"] == "hep" else "-" + row["mode"])
+        if row["label"] != wanted:
+            raise ValueError("Unexpected output label")
+    return schedule
 
 
 def verify(run):
@@ -227,7 +298,7 @@ def verify(run):
     design = load(run / "design.json")
     summary = load(run / "summary.json")
     config = load(run / "source/configs/calcite_contracts_v1.json")
-    if design.get("version") not in ("calcite-hep-contract-audit-v1", "calcite-hep-contract-audit-v2"):
+    if design.get("version") not in ("calcite-hep-contract-audit-v1", "calcite-hep-contract-audit-v2", "calcite-contract-audit-v3-cost-controls"):
         raise ValueError("Unsupported audit version")
     if [case["id"] for case in config["cases"]] != [f"C{i}" for i in range(1, 9)]:
         raise ValueError("Expected C1-C8 exactly")
@@ -235,6 +306,9 @@ def verify(run):
         raise ValueError("Expected the fixed three states")
     if design["cases"] != [case["id"] for case in config["cases"]] or design["states"] != list(config["fixtures"]):
         raise ValueError("Design/config schedule mismatch")
+    schedule = recorded_schedule(design, config)
+    missing_manifest_entries = sorted(required_manifest_entries(design, schedule) -
+                                      {str(Path(name)) for name in manifest})
     manifest_checks = [file_check(within(run, name), item["sha256"], item["bytes"])
                        for name, item in manifest.items()]
     frozen, current = {}, {}
@@ -247,7 +321,7 @@ def verify(run):
     classpath = file_check(Path(design["classpath_file"]), design["classpath_sha256"])
     artifact_design_hash = sha(run / "design.json") == summary["design_sha256"]
     integrity = all(item["matches"] for item in manifest_checks + list(frozen.values()) +
-                    dependencies + binaries + [classpath]) and artifact_design_hash
+                    dependencies + binaries + [classpath]) and artifact_design_hash and not missing_manifest_entries
     oracle_checks = []
     records, errors = [], []
     for case in config["cases"]:
@@ -258,18 +332,24 @@ def verify(run):
                  "matches": bag(q) == bag(case["expected_query_rows"][state])},
                 {"case": case["id"], "state": state, "kind": "view",
                  "matches": bag(v) == bag(case["expected_view_rows"][state])}])
-            try:
-                report = load(run / f"{case['id']}-{state}.json")
-                process = load(run / f"{case['id']}-{state}.process.json")
-                records.append(assess_raw(report, case, state, fixture, process))
-            except (OSError, ValueError, KeyError, TypeError) as exc:
-                errors.append({"case": case["id"], "state": state,
-                               "error_type": type(exc).__name__, "error": str(exc)})
+    cases = {case["id"]: case for case in config["cases"]}
+    for task in schedule:
+        case, state, mode = cases[task["case"]], task["state"], task["mode"]
+        fixture = config["fixtures"][state]
+        try:
+            report = load(run / (task["label"] + ".json"))
+            process = load(run / (task["label"] + ".process.json"))
+            records.append(assess_raw(report, case, state, fixture, process,
+                                     mode if "planner_modes" in design else None))
+        except (OSError, ValueError, KeyError, TypeError) as exc:
+            errors.append({"case": case["id"], "state": state, "mode": mode,
+                           "error_type": type(exc).__name__, "error": str(exc)})
     expected_ok = all(item["matches"] for item in oracle_checks)
     independent = {
         "raw_reports_verified": len(records), "raw_report_errors": len(errors),
         "process_success": sum(r["process_success"] for r in records),
         "identity_matches": sum(r["identity_matches"] for r in records),
+        "planner_evidence_valid": sum(r["planner_evidence_valid"] for r in records),
         "fixture_matches": sum(r["fixture_matches"] for r in records),
         "original_query_value_passes": sum(r["originalRows_oracle_equal"] for r in records),
         "rewritten_query_value_passes": sum(r["rewrittenRows_oracle_equal"] for r in records),
@@ -282,6 +362,9 @@ def verify(run):
         "per_case_actual_reuse_counts": {
             case["id"]: dict(Counter(r["actual_reuse_structure"] for r in records if r["case"] == case["id"]))
             for case in config["cases"]},
+        "per_mode_actual_reuse_counts": {
+            mode: dict(Counter(r["actual_reuse_structure"] for r in records if r["mode"] == mode))
+            for mode in design.get("planner_modes", ["hep"])},
         "comparisons_match_records": all(r["reported_comparison_matches_recalculation"] for r in records),
         "scan_classifications_match_counters": all(r["reported_scan_classification_matches_counters"] for r in records)}
     test_path = run / "source/tests/test_calcite_contract_audit.py"
@@ -292,16 +375,19 @@ def verify(run):
     listed_files = {str(Path(name)) for name in manifest} | {"manifest.json"}
     status = ("INTEGRITY_CHECK_FAILED" if not integrity else
               "INDEPENDENT_ORACLE_DISAGREES_WITH_CONFIG" if not expected_ok else
-              "RAW_AUDIT_INCOMPLETE" if errors or len(records) != 24 else
-              "VERIFIED_WITH_CONTRACT_FAILURES" if independent["strict_named_contract_passes"] != 24 else
+              "RAW_AUDIT_INCOMPLETE" if errors or len(records) != len(schedule) else
+              "VERIFIED_WITH_CONTRACT_FAILURES" if independent["strict_named_contract_passes"] != len(schedule) else
               "VERIFIED_ALL_FINITE_CONTRACTS")
     return {
-        "verifier": "independent-calcite-contract-verifier-v1", "run": str(run),
+        "verifier": "independent-calcite-contract-verifier-v3-plan-and-manifest", "run": str(run),
+        "expected_combinations": len(schedule),
         "verifier_sha256": sha(Path(__file__)), "status": status,
+        "json_decimal_encoding": "Exact Decimal values in CLI output are strings; original evidence is not rewritten.",
         "read_only": True, "sql_java_model_executions": 0,
         "manifest_sha256": sha(run / "manifest.json"), "manifest_files_checked": len(manifest_checks),
         "design_sha256": sha(run / "design.json"), "summary_sha256": sha(run / "summary.json"),
         "integrity_passed": integrity, "manifest_checks": manifest_checks,
+        "missing_required_manifest_entries": missing_manifest_entries,
         "frozen_source_checks": frozen, "dependency_checks": dependencies,
         "java_binary_checks": binaries, "classpath_check": classpath,
         "summary_design_hash_matches": artifact_design_hash,
@@ -330,7 +416,7 @@ def main():
     except (OSError, ValueError, KeyError, TypeError, SyntaxError) as exc:
         result = {"status": "VERIFICATION_ERROR", "read_only": True,
                   "sql_java_model_executions": 0, "error_type": type(exc).__name__, "error": str(exc)}
-    print(json.dumps(result, ensure_ascii=False, indent=2, allow_nan=False))
+    print(json.dumps(result, ensure_ascii=False, indent=2, allow_nan=False, default=json_decimal_text))
     # Observed, preserved contract failures are a valid verification outcome.
     if result["status"] not in ("VERIFIED_WITH_CONTRACT_FAILURES", "VERIFIED_ALL_FINITE_CONTRACTS"):
         raise SystemExit(2)

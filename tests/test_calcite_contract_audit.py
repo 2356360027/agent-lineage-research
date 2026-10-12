@@ -10,6 +10,7 @@ import tempfile
 import unittest
 
 from runtime import calcite_contract_audit as audit
+from scripts.verify_calcite_contract_audit import recorded_schedule, cost_evidence_valid, required_manifest_entries, json_decimal_text
 
 
 def encoded_rows(rows):
@@ -49,6 +50,85 @@ class CalciteContractAuditTests(unittest.TestCase):
     def assess(self, report, case_id="C1", state="base"):
         return audit.assess(report, self.cases[case_id], state,
                             self.config["fixtures"][state])
+
+    def test_fixed_cost_schedule_has_both_modes_once_and_balanced_order(self):
+        plan = audit.tasks(self.config, ["volcano_base", "volcano_mv"])
+        self.assertEqual(len(plan), 48)
+        self.assertEqual(len({(p["case"], p["state"], p["mode"]) for p in plan}), 48)
+        self.assertEqual(Counter(p["mode"] for p in plan[::2]), {"volcano_base": 12, "volcano_mv": 12})
+        design = {"version": "calcite-contract-audit-v3-cost-controls", "planner_modes": ["volcano_base", "volcano_mv"], "schedule": plan}
+        self.assertEqual(recorded_schedule(design, self.config), plan)
+
+    def test_schedule_rejects_duplicate_missing_and_wrong_label(self):
+        for modes in [[], ["hep", "hep"], ["unknown"]]:
+            with self.assertRaises(ValueError):
+                audit.tasks(self.config, modes)
+        plan = audit.tasks(self.config, ["volcano_base", "volcano_mv"])
+        design = {"version": "calcite-contract-audit-v3-cost-controls", "planner_modes": ["volcano_base", "volcano_mv"], "schedule": plan}
+        for bad in [plan[:-1], plan[:-1] + [plan[0]], None]:
+            with self.assertRaises(ValueError):
+                recorded_schedule({**design, "schedule": bad}, self.config)
+        wrong = copy.deepcopy(design)
+        wrong["schedule"][0]["label"] = "../invalid"
+        with self.assertRaises(ValueError):
+            recorded_schedule(wrong, self.config)
+
+    def test_legacy_hep_schedule_remains_24(self):
+        schedule = recorded_schedule({"version": "calcite-hep-contract-audit-v2"}, self.config)
+        self.assertEqual(len(schedule), 24)
+        self.assertEqual(schedule[0]["label"], "C1-base")
+
+    def test_cost_mode_requires_actual_planner_evidence(self):
+        cost = {"status": "AVAILABLE", "rows": 10, "cpu": 50, "io": 0, "infinite": False}
+        for mode, count in [("volcano_base", 0), ("volcano_mv", 1)]:
+            report = {"plannerMode": mode, "selectedPlanExecutionRel": "EnumerablePlan", "costPlanning": {
+                "status": "PLANNED", "planner": "org.apache.calcite.plan.volcano.VolcanoPlanner",
+                "program": "Programs.standard()", "registeredMaterializationCount": count,
+                "materializationsEnabled": True, "freshClusterAndUnregisteredTreeVerified": True,
+                "metadataResetBeforeStandardProgram": True, "selectedConvention": "ENUMERABLE",
+                "selectedPlan": "EnumerablePlan",
+                "selectedCost": copy.deepcopy(cost), "finalProgramCost": copy.deepcopy(cost)}}
+            for validator in (audit.planner_evidence, cost_evidence_valid):
+                self.assertTrue(validator(report, mode))
+                for key in report["costPlanning"]:
+                    if key == "selectedPlan" and validator is audit.planner_evidence:
+                        continue  # Runtime guard is distinct from the stronger post-hoc verifier.
+                    bad = copy.deepcopy(report)
+                    del bad["costPlanning"][key]
+                    self.assertFalse(validator(bad, mode), key)
+                bad = copy.deepcopy(report)
+                bad["costPlanning"]["registeredMaterializationCount"] = 1 - count
+                self.assertFalse(validator(bad, mode))
+                for value in (None, -1, "10", True):
+                    bad = copy.deepcopy(report)
+                    bad["costPlanning"]["selectedCost"]["rows"] = value
+                    self.assertFalse(validator(bad, mode))
+                self.assertFalse(validator(report, "hep"))
+            wrong = copy.deepcopy(report)
+            wrong["selectedPlanExecutionRel"] = "DifferentPlan"
+            self.assertFalse(cost_evidence_valid(wrong, mode))
+            del wrong["selectedPlanExecutionRel"]
+            self.assertFalse(cost_evidence_valid(wrong, mode))
+        self.assertTrue(cost_evidence_valid({}, None))
+        self.assertTrue(audit.planner_evidence({"plannerMode": "hep"}, "hep"))
+
+    def test_manifest_requires_all_raw_process_and_frozen_inputs(self):
+        schedule = audit.tasks(self.config, ["volcano_base", "volcano_mv"])
+        needed = required_manifest_entries({"source_hashes": {"a/source.py": "placeholder"}}, schedule)
+        self.assertEqual(len(needed), 103)  # Six metadata + one source + 96 case/process artifacts.
+        self.assertIn(str(Path("source/a/source.py")), needed)
+        for row in schedule:
+            self.assertIn(row["label"] + ".json", needed)
+            self.assertIn(row["label"] + ".process.json", needed)
+
+    def test_verifier_cli_serializes_exact_decimal_cost_without_float_loss(self):
+        value = Decimal("0.10000000000000001")
+        encoded = json.dumps({"cost": value}, default=json_decimal_text)
+        self.assertEqual(json.loads(encoded), {"cost": "0.10000000000000001"})
+        self.assertEqual(value, Decimal("0.10000000000000001"))
+        for invalid in (Decimal("NaN"), Decimal("Infinity"), object()):
+            with self.assertRaises(TypeError):
+                json.dumps({"value": invalid}, default=json_decimal_text)
 
     def test_bag_order_does_not_remove_duplicates(self):
         self.assertEqual(audit.bag([[1], [2], [1]]), audit.bag([[2], [1], [1]]))
