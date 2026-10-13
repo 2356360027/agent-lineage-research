@@ -127,3 +127,28 @@ contract is judged wrong.
 This check cannot settle the long-term goal. Its value is avoiding false
 mechanism claims from a defective measurement interface, not adding sample
 counts or relabeling an ordinary prompt fix as a research method.
+
+## Execution-readiness update: 2026-10-14
+
+The earlier preparation status above is historical. A separate client,
+`runtime.contract_interface_diagnostic`, and Linux supervisor,
+`scripts.run_contract_interface_server`, now accept only the frozen 12-call
+plan. Neither changes the old scientific runner or preparation source files.
+Default invocation remains offline. Execution requires explicit acknowledgement,
+the verified private bundle, the expected native-model manifest and a fresh
+output directory. Cleanup covers owned processes, not cloud-instance billing.
+
+108 offline software fixtures passed, including 18 new client/supervisor/bundle
+checks. Process, network and model behavior in those fixtures are mocked; these
+are not model experiments or proof of server execution. The private 16-member
+bundle is 54,120 bytes, SHA-256
+`1ce205c7a5213f424e5b97bfd5fa14b3e77f7a40645ce24d3291b9c0fe1ef370`.
+It includes the fixed requests and historical model-content reference, but no
+participant answers, credentials or weights. It must not enter public GitHub.
+
+The user has now authorized this batch only and confirmed sufficient balance
+at 2 yuan/hour. A live SSH check found the existing GPU and port idle. This
+authorizes at most 12 calls within the 600-second supervised window, not retries,
+follow-up batches or adoption of the candidate interface. Human task and output
+review remain outstanding. Actual outcome and backup verification belong in a
+separate run record; preparation alone is not execution.
