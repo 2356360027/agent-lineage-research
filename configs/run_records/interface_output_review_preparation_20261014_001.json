@@ -1,0 +1,27 @@
+{
+  "status": "BLANK_PRIVATE_INTERFACE_OUTPUT_REVIEW",
+  "date_hong_kong": "2026-10-14",
+  "source_run": "contract-interface-20261014-001",
+  "source_plan_sha256": "f10fed100719736eec657a42f212c207e7394c6014de652619db8560a06d2f94",
+  "mapped_original_calls": 12,
+  "unique_task_material_and_contract_objects": 10,
+  "independent_targets": 2,
+  "reviewer_worksheets": 2,
+  "completed_reviews": 0,
+  "semantic_labels_generated": false,
+  "perfect_blinding_claim": false,
+  "new_model_calls": 0,
+  "new_sql_calls": 0,
+  "new_fixture_tests_passed": 4,
+  "existing_renderer_regression_tests_passed": 7,
+  "previous_24_call_review_package_unchanged": true,
+  "public_raw_outputs_included": false,
+  "notes": [
+    "Two current tasks must be independently interpreted before output review.",
+    "Every original call maps exactly once; equal task material and contract share one review item.",
+    "Reviewers receive different orders without arm names, pairing, response frequency or historical SQL.",
+    "Verbatim output values may reveal condition clues; prior exposure must be recorded.",
+    "Questionnaire trial responses and assistant observations are not independent human task confirmation.",
+    "Separate from the historical 24-call review; no pooling of experimental samples."
+  ]
+}
