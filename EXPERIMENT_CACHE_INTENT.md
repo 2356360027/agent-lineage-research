@@ -1,6 +1,6 @@
 # Cache convenience and request fidelity: dataset adaptation
 
-Status (2026-10-12): **development compatibility evidence only**. No model run
+Status (2026-10-13): **development compatibility evidence only**. No model run
 has tested whether cache availability/cost changes the interpretation of an
 explicit request. Historical experiments do not establish this new hypothesis.
 
@@ -14,8 +14,11 @@ separate explanations. A changed final answer alone is not evidence of changed
 request interpretation.
 
 Public annotations reduce original task-writing work; they do not automatically
-validate researcher-constructed cache histories. No project human review has
-been completed. Model-generated judgments must not be counted as such reviews.
+validate researcher-constructed cache histories. No project independent
+task/history semantic approval has been completed. General-reader usability
+feedback has since been received; see the 2026-10-13 scope check below. It does
+not approve the current development task pairs. Model-generated judgments must
+not be counted as independent human reviews.
 
 ## Pinned candidate
 
@@ -468,3 +471,42 @@ preview is not a ready scientific protocol. Human task/history review, exact
 prompts and pair IDs, model/resource authorization and a frozen analysis plan
 remain prerequisites. No cache-induced intent drift or method increment has
 yet been established.
+
+## Questionnaire material-scope check (2026-10-13)
+
+General-reader usability feedback now exists, so “no returned materials” is
+no longer an accurate description. It is not an independent semantic approval
+of a current request/history pair. Private responses and platform metadata are
+kept outside the public repository; this section records only material scope.
+
+The ordinary B form uses legacy Mini-Dev IDs 1500, 604, 1481, 576, 1501 and 639.
+It does not cover the development targets 200/234 or the shortlisted 555/1480,
+and it does not ask reviewers to certify historical SQL/cache relationships.
+Do not fill the two-target review forms using those responses or mark any
+current candidate history approved on that basis.
+
+A read-only text crosswalk against the two previously pinned local annotation
+files found each of the six IDs exactly once, with matching database IDs. The
+form retains all six legacy English questions and evidence fields. Compared
+with Arcwise full at the revision above:
+
+| Legacy ID | Question changed | Evidence changed | SQL changed |
+|---|---|---|---|
+|1500|yes|yes|yes|
+|604|no|no|no|
+|1481|no|no|yes|
+|576|no|no|no|
+|1501|yes|yes|yes|
+|639|yes|yes|yes|
+
+“Changed” means exact source-field inequality, not an adjudication of semantic
+correctness. In particular, 1500/1501 change the requested month to August 2012,
+and 639 changes the named user. Existing ordinary-reader feedback must not be
+silently transferred to a different revision with the same numeric ID. Equal
+text fields likewise do not certify SQL, database binding or cache applicability.
+
+This was a static material/coverage check: no SQL execution, model sampling,
+paid compute, new independent research tasks or semantic approvals. Keep the
+current-request review and later historical-task/cache review separate. Continue
+staged data adaptation with the existing two-target review materials; do not
+expand the ordinary B survey or start inference as a substitute for that gate.
