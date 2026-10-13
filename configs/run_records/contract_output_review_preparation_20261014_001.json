@@ -1,0 +1,41 @@
+{
+  "status": "BLANK_PRIVATE_REVIEW_MATERIALS",
+  "date_hong_kong": "2026-10-14",
+  "source_run": "server-pilot-20261013-001",
+  "source_plan_sha256": "73fc13d1256a76281e42c3f0aca15a92ff875322e59b1bcc9ff03348cdeea5e3",
+  "mapped_original_calls": 24,
+  "unique_current_material_and_contract_objects": 11,
+  "independent_targets": 2,
+  "reviewer_worksheet_count": 2,
+  "reviewer_worksheets_filled": 0,
+  "semantic_labels_generated": false,
+  "perfect_blinding_claim": false,
+  "new_model_calls": 0,
+  "new_sql_calls": 0,
+  "questionnaire_answers_used_as_labels": false,
+  "current_fixture_suite_tests": 90,
+  "test_attempts": [
+    {
+      "environment": "managed_windows_sandbox",
+      "status": "FAILED_ENVIRONMENT_PERMISSION",
+      "tests_run": 90,
+      "reported_errors": 47,
+      "cause_observed": "PermissionError creating or cleaning temporary test files in the sandbox temporary directory."
+    },
+    {
+      "environment": "approved_escalated_local_offline_tests",
+      "status": "PASS",
+      "tests_run": 90,
+      "reported_errors": 0,
+      "reported_test_seconds": 5.177
+    }
+  ],
+  "notes": [
+    "Historical 83-test pass and current failed environment attempt are not erased.",
+    "Software fixture counts are not model calls or research samples.",
+    "Current-task interpretation must be independently recorded before viewing model outputs.",
+    "Conditions are masked but verbatim outputs may contain clues; reviewer exposure must be recorded.",
+    "No new paid batch authorization or live server state inferred from these artifacts.",
+    "Private worksheets and organizer mapping are not published."
+  ]
+}

@@ -1,8 +1,24 @@
 # Cache convenience and request fidelity: dataset adaptation
 
-Status (2026-10-13): **development compatibility evidence only**. No model run
-has tested whether cache availability/cost changes the interpretation of an
-explicit request. Historical experiments do not establish this new hypothesis.
+Status (2026-10-13, after collection and local audit): **one real, unreviewed
+contract-only pilot completed and backed up**. All 24 scheduled model calls
+completed; this is not evidence that cache convenience induces request drift or
+that a new method improves on strong baselines. Independent task/history review
+is still pending. A subsequent local audit identified field definitions absent
+from the logged text prompts; the definition-visible v2 remains an undeployed
+candidate. No additional batch is authorized by this document.
+
+Chronology: earlier dated sections below preserve the evidence and decisions at
+their own checkpoints. Their statements about no model calls, unresolved remote
+access, or inference eligibility are historical, not a claim that the completed
+pilot is still waiting to start. Formal semantic eligibility has not changed.
+See the final dated update and its public aggregate receipts for current status.
+
+Historical pre-execution status, retained for provenance:
+
+> Status (2026-10-13): **development compatibility evidence only**. No model run
+> has tested whether cache availability/cost changes the interpretation of an
+> explicit request. Historical experiments do not establish this new hypothesis.
 
 ## Current question
 
@@ -529,3 +545,74 @@ No model execution is claimed by this addition; remote authentication and
 live-backend compatibility have not been established. In particular, this
 contract-only diagnostic is not the later tool-enabled, nonbinding-budget
 experiment and cannot resolve the substantive research hypothesis by itself.
+
+## Completed real pilot and interface audit (2026-10-13, post-collection update)
+
+The preceding preparation note has been superseded by the completed, separately
+authorized `server-pilot-20261013-001` collection. The existing
+Qwen/Qwen2.5-7B-Instruct backend produced all 24 scheduled responses: 24 passed
+the eight-field structural parser, with no transport failures or unattempted
+calls. Server-reported usage was 19,320 prompt and 2,237 completion tokens. The
+client loop recorded 95.08 seconds; the supervisor recorded a 186.49-second
+window including its checks, startup and cleanup. These are recorded timings,
+not a platform bill or evidence of semantic correctness.
+
+Only two development targets and six constructed histories were involved.
+No weights were trained, no questionnaire answers were used as labels, and no
+SQL, cache reads or later program-generation events occurred. Human semantic
+approvals remain zero. This protective contract-only run does not establish the
+main hypothesis, a type-C event, or a gap over strong checking plus recomputation.
+
+The 159,058-byte result archive matched remotely and locally at SHA-256
+`148311bece032c05d4d87b58cf918338f1a31dcca76041e7dc0efc566565c45a`.
+Local reconstruction with the preserved source matched requests, assessments
+and the structural summary. Raw artifacts remain private; the public receipt is
+`configs/run_records/cache_intent_contract_pilot_20261013_001.json`.
+The supervisor recorded no cleanup errors, and the recorded post-run GPU check
+found no compute processes. The cloud instance was not shut down; this historical
+check is not a claim about its current status or whether billing has stopped.
+
+A post-outcome local audit matched all 24 logged prompts and guided schemas to
+their saved requests. Each of the eight complete field definitions appeared in
+all 24 decoding schemas but in none of the 24 logged text prompts. This is a
+measurement-interface omission, not proof that it caused particular outputs or
+that the cache hypothesis is true. Five of twelve pairs had string differences;
+those are not five semantic-drift events. The aggregate record is
+`configs/run_records/cache_intent_interface_audit_20261013_001.json`.
+
+`runtime/cache_intent_prompts_v2.py` only appends the existing eight definitions
+to the system message. It preserves the old prompt/data and is
+**candidate-only, not deployed, and effectiveness untested**. The original runner
+has not been switched to it. Any later interface comparison needs a separately
+frozen design and current authorization; do not rerun, overwrite or silently
+resume the completed batch. Task/history semantics remain pending, and the
+tool-enabled workflow and strong-baseline experiment are still separate work.
+
+## Offline next-step preparation and human-review materials (2026-10-14)
+
+The source-level visibility repair is now paired with an offline 12-request
+development plan, described in `configs/CONTRACT_INTERFACE_DIAGNOSTIC_V1.md`.
+It fixes the cache context and compares newly sampled legacy/candidate arms,
+with same paired seeds, all six histories retained and balanced arm order.
+An independent static audit reconstructed its 61,286 bytes and all request/source
+hashes. This is **prepared, not authorized, not executed**; the separate bounded
+execution adapter is not connected. No old response will be reused as its control.
+
+The first pilot's existing 24 raw responses were separately arranged into two
+private blank review worksheets. Exact duplicates are grouped only when their
+current task/evidence/schema also match: 11 reading objects, all 24 original
+calls mapped once, still only two independent targets. Conditions and history
+labels are hidden; verbatim outputs may reveal clues, so perfect blinding is not
+claimed. Reviewers must first save independent current-task interpretations.
+No semantic judgment or human approval was generated. Filled forms and the
+organizer mapping remain outside the public repository.
+
+Independent read-only checks matched both worksheets back to all raw responses.
+The current 90-test offline fixture suite initially failed on sandbox temporary
+directory permissions (47 reported errors); the approved local test rerun passed
+all 90. Both attempts are recorded in
+`configs/run_records/contract_output_review_preparation_20261014_001.json`.
+These are software checks, not additional model samples. No model/SQL/server
+operation occurred in this preparation. The stage-two decision remains **revise
+measurement and obtain independent task review**, not scale paid experiments or
+declare a method contribution. The strong-baseline gap is still unestablished.

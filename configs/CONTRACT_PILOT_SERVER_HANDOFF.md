@@ -1,5 +1,14 @@
 # Existing server handoff: private 24-call pilot
 
+Current-status addendum (2026-10-14): the original 24-call pilot completed and
+was backed up on 2026-10-13. The remote-access uncertainty below is historical.
+See `run_records/cache_intent_contract_pilot_20261013_001.json` and
+`CACHE_INTENT_CONTRACT_PILOT_README.md`. Do not rerun its fixed output path or
+assume a model/server is still running. The proposed 12-call interface diagnostic
+has a separate plan and is not executable through this frozen handoff.
+
+## Historical preparation checkpoint
+
 Prepared 2026-10-13, Hong Kong date. This is deployment software, not a model
 result. The user supplied a terminal observation: idle RTX 4090 D (24 GB), Python
 3.12.12, torch 2.6.0+cu124, vLLM 0.8.3, transformers 4.57.1, ModelScope 1.34.0;

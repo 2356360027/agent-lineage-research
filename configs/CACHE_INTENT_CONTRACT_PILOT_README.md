@@ -1,5 +1,32 @@
 # Unreviewed contract-only pilot: execution boundary
 
+## Current status (2026-10-13, after collection and local audit)
+
+`server-pilot-20261013-001` completed **24/24 real model calls**, all structurally
+valid, with no transport failures or unattempted calls. It was exploratory
+inference, not weight training or SQL execution. The result archive was downloaded,
+its remote/local SHA-256 matched, and preserved-source reconstruction matched the
+requests, assessments and structural summary. Two development targets and six
+constructed histories are not 24 independent research samples.
+
+The completed run supersedes the preparation-time remote-access blocker below;
+it does not imply that a model service is currently running. Human task/history
+review remains pending, and neither the main cache-intent hypothesis nor method
+efficacy has been established. Raw records stay private. Public receipts:
+
+- `configs/run_records/cache_intent_contract_pilot_20261013_001.json`.
+- `configs/run_records/cache_intent_interface_audit_20261013_001.json`.
+
+The subsequent offline audit found each of the eight complete field definitions
+in all 24 guided decoding schemas but absent from all 24 logged text prompts.
+The definition-visible v2 is an **undeployed candidate**, not a demonstrated fix.
+The original batch, prompts and runner remain unchanged. This document does not
+authorize another batch or a rerun of the completed one.
+
+## Historical preparation note (before the completed 2026-10-13 run)
+
+The following paragraph records the earlier checkpoint, not current run status:
+
 2026-10-13. The user selected exploratory inference, **not weight training**.
 This entry point prepares a bounded first real-model diagnostic from the existing
 development material. No model call has been made with it yet. Remote SSH
@@ -44,7 +71,7 @@ independent adjudication as specified in `cache_intent_measurement_v1.md`.
 The existing task/history approval fields remain pending; this run cannot
 approve itself or move the project past the substantive data-admission gate.
 
-## Offline preparation (no model, network or database execution)
+## Historical offline preparation (no model, network or database execution)
 
 Run from the repository root:
 
@@ -63,9 +90,15 @@ SQLite guards prevent unintended real work in the fixture suite; intended
 transport/native execution paths are mocked. The private frozen-package hash
 check ran read-only, not skipped. The plan-only command produced SHA-256
 `73fc13d1256a76281e42c3f0aca15a92ff875322e59b1bcc9ff03348cdeea5e3`.
-Actual remote JSON-schema compatibility remains untested.
+At that preparation checkpoint, actual remote JSON-schema compatibility remained
+untested. The later completed pilot established structural compatibility for its
+24 requests, not semantic accuracy or field-definition visibility in text.
 
 ## Real execution prerequisites
+
+These are retained execution safeguards, not instructions to rerun the completed
+batch. They must be rechecked for any separately authorized future experiment;
+the historical access issue has already been resolved for the recorded first run.
 
 1. Resolve SSH authentication and inspect the actual existing instance and model
    service. Do not retry a rejected credential, accept an unknown host key, or
@@ -125,3 +158,33 @@ After a successful collection, verify archive hashes and reconstruct structural
 counts from the raw responses before discussing research results. A subsequent
 tool-enabled experiment and strong-baseline comparison remain separate work;
 this entry point does not complete the long-term research goal.
+
+## Completed collection and limits (2026-10-13 update)
+
+The recorded model was Qwen/Qwen2.5-7B-Instruct. Server-reported usage was 19,320
+prompt tokens and 2,237 completion tokens; the client loop recorded 95.08 seconds,
+and the supervisor recorded 186.49 seconds including checks, startup and cleanup.
+These are recorded timings, not an independently measured bill. The downloaded
+archive was 159,058 bytes, SHA-256
+`148311bece032c05d4d87b58cf918338f1a31dcca76041e7dc0efc566565c45a`.
+Raw requests/responses, frozen source, manifests and logs were preserved and
+locally verified; they were not uploaded to the public repository.
+
+The supervisor reported no cleanup errors; a recorded follow-up GPU query found
+no compute processes. No cloud-instance shutdown was performed. That post-run
+observation is not a live-status check or confirmation that billing stopped.
+
+The post-outcome interface audit found 18 unique envelopes and 11 exact parsed
+contract objects across 24 calls. Seven of twelve output pairs were exactly equal
+and five had string differences. Those differences mix possible wording/field
+placement changes and are **not semantic labels or an intent-drift rate**. No
+later program, actual cache application or final answer was observed; downstream
+indicators remain unobserved rather than observed zero.
+
+The separate `runtime/cache_intent_prompts_v2.py` candidate exposes the existing
+field definitions by appending them to the system message only. It has not been
+deployed or substituted into this frozen runner. No claim is made that the
+omission explains every field error or that v2 fixes them. Keep the pending
+independent task/history review and any future interface comparison separate
+from this completed exploration. Do not overwrite/retry the old batch or start
+a new one without its own frozen scope and current authorization.
