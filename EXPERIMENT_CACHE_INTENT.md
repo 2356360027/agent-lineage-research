@@ -510,3 +510,22 @@ paid compute, new independent research tasks or semantic approvals. Keep the
 current-request review and later historical-task/cache review separate. Continue
 staged data adaptation with the existing two-target review materials; do not
 expand the ordinary B survey or start inference as a substitute for that gate.
+
+## Explicit unreviewed exploration request (2026-10-13)
+
+The user subsequently selected a bounded exploratory model run using existing
+material, rather than model-weight training or additional ordinary-reader survey
+collection. This is a separate, explicitly unreviewed development diagnostic;
+it does not retroactively grant human task/history approval or establish an
+intent-drift endpoint. Existing frozen records and pending review fields remain
+unchanged. Participant answers are not repurposed as training labels.
+
+`runtime/cache_intent_contract_pilot.py` adds a real inference entry point for the
+24 existing protective contract envelopes. It defaults to an offline plan and
+requires explicit execution acknowledgement, native model-file verification,
+a startup log and a new output directory. See
+`configs/CACHE_INTENT_CONTRACT_PILOT_README.md` for its limits and prerequisites.
+No model execution is claimed by this addition; remote authentication and
+live-backend compatibility have not been established. In particular, this
+contract-only diagnostic is not the later tool-enabled, nonbinding-budget
+experiment and cannot resolve the substantive research hypothesis by itself.
