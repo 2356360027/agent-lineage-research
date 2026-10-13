@@ -152,3 +152,10 @@ authorizes at most 12 calls within the 600-second supervised window, not retries
 follow-up batches or adoption of the candidate interface. Human task and output
 review remain outstanding. Actual outcome and backup verification belong in a
 separate run record; preparation alone is not execution.
+
+### Subsequent execution
+
+The separately approved batch completed on 2026-10-14. See
+`configs/run_records/contract_interface_diagnostic_20261014_001.json` for actual
+coverage, resources and backup hashes. All 12 calls completed with valid format;
+semantic correctness remains unreviewed. This does not authorize another batch.
