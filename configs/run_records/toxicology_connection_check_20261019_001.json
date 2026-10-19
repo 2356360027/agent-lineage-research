@@ -1,0 +1,28 @@
+{
+  "status": "READONLY_SNAPSHOT_CHECK_COMPLETE_NOT_SEMANTIC_APPROVAL",
+  "date_hong_kong": "2026-10-19",
+  "database_sha256": "35ef27ae6bdfda530e125ed369666ac0abb8bc8c0bcc0ad09407f547ecb61a93",
+  "database_hash_unchanged": true,
+  "sqlite_version": "3.51.0",
+  "source_sha256": "cacfeaed9d7451c889226a7cf0a9efbdb0bfbb2a63bd276c11565a9d0b74b9c8",
+  "fixed_readonly_queries": 6,
+  "completed_queries": 6,
+  "failed_queries": 0,
+  "whole_connection_rows": 18312,
+  "whole_distinct_bonds": 9156,
+  "whole_reverse_pairs": 9156,
+  "target_connection_rows": 6,
+  "target_distinct_bonds": 3,
+  "target_with_molecule_constraint_rows": 6,
+  "target_with_molecule_constraint_distinct_bonds": 3,
+  "target_missing_or_mismatched_bond_rows": 0,
+  "new_model_calls": 0,
+  "human_labels_generated": false,
+  "participant_responses_published": false,
+  "limits": [
+    "Snapshot equality is not query equivalence on all legal instances.",
+    "COUNT(*) after deduplication or on unique bond rows can be valid.",
+    "No subsequent model program was executed; no type-C event established.",
+    "Does not replace incomplete independent human task review."
+  ]
+}
