@@ -1,17 +1,20 @@
 # Cache convenience and request fidelity: dataset adaptation
 
-Status (2026-10-13, after collection and local audit): **one real, unreviewed
-contract-only pilot completed and backed up**. All 24 scheduled model calls
-completed; this is not evidence that cache convenience induces request drift or
-that a new method improves on strong baselines. Independent task/history review
-is still pending. A subsequent local audit identified field definitions absent
-from the logged text prompts; the definition-visible v2 remains an undeployed
-candidate. No additional batch is authorized by this document.
+Status (2026-10-21): **two separately archived contract-only development batches
+completed; the 12-call interface comparison now has a single-reviewer,
+post-hoc interpretation of core business semantics**. The earlier batch has
+24 calls; the later comparison has 12 newly generated calls, not reused controls.
+They are not pooled. The later comparison does not manipulate cache cost or
+availability, and neither batch contains downstream program execution.
+Task adjudication and output review have progressed, but independent historical
+task/reuse-relation admission and a frozen, authorized tool-enabled protocol
+remain separate prerequisites. No new batch is authorized by this document.
 
 Chronology: earlier dated sections below preserve the evidence and decisions at
 their own checkpoints. Their statements about no model calls, unresolved remote
 access, or inference eligibility are historical, not a claim that the completed
-pilot is still waiting to start. Formal semantic eligibility has not changed.
+pilot is still waiting to start. Frozen records retain their original review
+status; later adjudications do not retroactively make those runs preregistered.
 See the final dated update and its public aggregate receipts for current status.
 
 Historical pre-execution status, retained for provenance:
@@ -616,3 +619,39 @@ These are software checks, not additional model samples. No model/SQL/server
 operation occurred in this preparation. The stage-two decision remains **revise
 measurement and obtain independent task review**, not scale paid experiments or
 declare a method contribution. The strong-baseline gap is still unestablished.
+
+## Interface collection and post-hoc review update (2026-10-21)
+
+The previously prepared 12-request interface diagnostic was subsequently
+authorized and completed on 2026-10-14. Its public aggregate receipt is
+`configs/run_records/contract_interface_diagnostic_20261014_001.json`.
+All 12 scheduled calls passed the structural parser; the archived responses,
+requests and source were checked locally. This is not semantic approval by the
+parser. There were two development targets, six histories and ten distinct
+review objects. These are not twelve independent tasks.
+
+Current-task interpretations were discussed and adjudicated after collection.
+One completed output review was subsequently received; user clarification
+defines its overall positive label as complete core business semantics while
+allowing non-substantive placement/format differences. Under that submitted
+post-hoc rubric, all six outputs in each interface arm receive the positive
+overall label; none of the six paired overall labels changes. Field-level
+issues remain separately recorded. A uniqueness operation expressed in an
+aggregation field is not treated as absent from the whole contract merely
+because the dedicated uniqueness field does not repeat it.
+
+This is a descriptive, single-reviewer result with prior exposure to adjudication
+materials, not a preregistered blinded confirmation or evidence of inter-rater
+agreement. It does not establish field-by-field completeness, SQL correctness,
+statistical equivalence, or an effect of cache convenience. No downstream SQL
+was generated in this batch. The existing 24-call pilot is not silently assigned
+these labels. Original responses, submitted reviews and subsequent clarifications
+are preserved separately outside the public repository.
+
+Decision: do not scale the interface comparison or claim that cleaner field
+placement improved core business fidelity. Before a cost/availability study,
+independently assess the constructed history relations, bind genuine subsequent
+program events, freeze task-level scoring and resource limits, and obtain current
+execution authorization. Two repeatedly inspected development targets cannot
+become a held-out confirmation set. A gap over strong checking plus recomputation
+remains unestablished. This documentation update ran no model, SQL or cloud job.
