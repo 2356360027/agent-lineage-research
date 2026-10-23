@@ -125,3 +125,12 @@ deployment is unknown. Before any batch, specify the common context/result
 exposure policy and account for overflow separately; do not call overflow a
 semantic drift event, silently shorten prompts or drop one arm. This is an
 outstanding scientific-design gate as well as a deployment check.
+
+### Cost-identification audit
+
+See `cache_intent_cost_identification_20261024.md`. At current declared prices,
+one correct SQL costs 10 while cache-plus-one-SQL costs 11/18. Cache-only costs
+1/8 before model and verification overhead. The diagnostic does not establish
+that supplemental reuse is cheaper, nor does a cheaper wrong answer count as
+valid reuse. Keep mechanism testing, baseline correctness and measured system
+efficiency separate; do not retune prices after observing model behavior.
