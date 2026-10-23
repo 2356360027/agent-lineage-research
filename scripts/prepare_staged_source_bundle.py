@@ -29,7 +29,8 @@ BATCH_FILES = RECOVERY_FILES + ("runtime/cache_intent_batch.py",)
 DEPLOYMENT_FILES = BATCH_FILES + ("runtime/cache_intent_deployment.py", "scripts/run_contract_pilot_server.py")
 ENTRY_FILES = DEPLOYMENT_FILES + ("runtime/cache_intent_entry.py",)
 NATIVE_FILES = ENTRY_FILES + ("runtime/cache_intent_native_batch.py",)
-FILES = NATIVE_FILES + ("runtime/cache_intent_tokenizer.py",)
+TOKENIZER_FILES = NATIVE_FILES + ("runtime/cache_intent_tokenizer.py",)
+FILES = TOKENIZER_FILES + ("runtime/cache_intent_launcher.py",)
 
 
 def build(root, output):
@@ -69,6 +70,7 @@ def verify(output, expected_manifest_sha256):
             or manifest["inference_authorized"] is not False
             or type(manifest["files"]) is not dict or frozenset(manifest["files"]) not in {
                 frozenset(FILES),
+                frozenset(TOKENIZER_FILES),
                 frozenset(NATIVE_FILES),
                 frozenset(ENTRY_FILES),
                 frozenset(DEPLOYMENT_FILES),
