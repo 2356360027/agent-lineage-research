@@ -86,3 +86,40 @@ the context envelope. Only after this gate should a fixed paid development batch
 be proposed. No need to regenerate twenty more variants of the same toy paths.
 Still missing: a controlled model effect, strong-baseline residual gap, and
 independent tasks. Engineering success cannot substitute for any of those.
+
+## Subsequent implementation receipt: v2 channel, not run admission
+
+The separate `cache_intent_recovery_preview` and
+`run_recovery_trajectory` entry point now expose the proposed common reserve.
+Legacy preview/loop behavior remains available and its tests still pass.
+ToolSession recognizes a distinct 210-unit/21-attempt profile; the last attempt
+allows SQL only. At most 23 generations occur: contract, up to twenty exploration
+actions, recovery decision, and (if recovery SQL is used) a terminal response.
+Early answers/abstentions do not trigger forced recomputation. Accepted SQL is
+charged before execution, including backend errors; malformed/free rejections
+retain the existing explicit attempt-count policy.
+
+The v2 observation policy journals the original complete response first. If
+its framed token count exceeds 512, it exposes only an explicit incomplete
+status and accounting metadata, not selected rows or a semantic summary. A
+counter/exposure failure is recorded and propagated without a silent retry.
+Every eventual experimental method must share this versioned environment.
+
+Four fixed local paths (h200c/h234c, each price, twenty cache reads then SQL)
+completed through the real read-only backend with scripted generation. They
+are interface witnesses only, not model samples. Maximum observed prompt 3578
+tokens; maximum framed tool observation 97 tokens. All four result exposures
+were complete, with no rows withheld. Real database hash unchanged. This narrow
+check does NOT verify a maximum-history envelope or actual server capacity.
+
+New tests cover reserve after full exploration spend, real SQL at both prices,
+early termination, prohibited recovery/terminal actions, explicit whole-result
+withholding, invalid counters and preservation of exposure failure. Legacy tool,
+loop and integration tests also pass. A sandbox temporary-directory failure
+was preserved separately; the real SQLite fixture test subsequently passed
+under an approved local execution escalation, not by changing permissions.
+
+Remaining admission gate: verified generation/observation token accounting and
+full permitted-history bound, valid correct-route output caps for all admitted
+tasks, current serving equivalence and explicit paid-batch authorization. Do not
+describe the strong feasibility premise as fully established yet.

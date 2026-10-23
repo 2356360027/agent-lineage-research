@@ -52,7 +52,21 @@ def run_trajectory(envelope, session, generate, save):
     A write failure propagates; no subsequent backend action is taken. An
     interrupted callback leaves its pending record. Never resume automatically.
     """
-    preview.assert_initial_session(envelope, session.describe())
+    return _run(envelope,session,generate,save,preview,None)
+
+
+def run_recovery_trajectory(envelope,session,generate,save,observation_bound):
+    """V2 only; caller still owns context/model/time/resource admission."""
+    from runtime import cache_intent_recovery_preview as recovery
+    from runtime.cache_intent_observation_bound import ObservationBound
+    if not isinstance(observation_bound,ObservationBound):
+        raise TypeError("V2 requires its explicit observation policy")
+    return _run(envelope,session,generate,save,recovery,observation_bound)
+
+
+def _run(envelope,session,generate,save,protocol,observation_bound):
+    recovery = observation_bound is not None
+    protocol.assert_initial_session(envelope, session.describe())
     save("started", {"status": "STARTED", "preview": deepcopy(envelope),
                      "initial_state": session.describe(),
                      "semantic_labels_generated": False})
@@ -90,17 +104,23 @@ def run_trajectory(envelope, session, generate, save):
     if raw is None:
         return finish("INVALID_CONTRACT_RESPONSE")
     try:
-        messages = preview.next_generation_messages(envelope, raw)
+        messages = protocol.next_generation_messages(envelope, raw)
     except ValueError:
         return finish("INVALID_CONTRACT")
     contract_event = "g001"
     messages[-1]["content"] += "\n" + ACTION_INSTRUCTION
-    for number in range(1, 22):
-        terminal_only = number == 21
+    for number in range(1, 23 if recovery else 22):
+        terminal_only = number == (22 if recovery else 21)
+        recovery_only = recovery and number == 21
+        if recovery_only:
+            messages.append({"role":"user","content":
+                "Exploration ended. Reserved recovery: answer, abstain, or one run_sql action. "
+                "Ten reserved units remain available for that SQL; read_cache is not allowed. "
+                "Write your own query for the original request; no reference query is supplied."})
         if terminal_only:
             messages.append({"role": "user", "content":
                 "Tool horizon reached. Return only answer or abstain; no further tools."})
-        raw = generation(messages, "terminal" if terminal_only else "action")
+        raw = generation(messages, "terminal" if terminal_only else "recovery" if recovery_only else "action")
         if raw is None:
             return finish("INVALID_ACTION_RESPONSE")
         try:
@@ -112,6 +132,8 @@ def run_trajectory(envelope, session, generate, save):
             return finish("ANSWERED" if action["kind"] == "answer" else "ABSTAINED")
         if terminal_only:
             return finish("TOOL_HORIZON_VIOLATION")
+        if recovery_only and action["kind"] != "run_sql":
+            return finish("RECOVERY_ACTION_VIOLATION")
         attempts += 1
         arguments = {key: value for key, value in action.items() if key != "kind"}
         pending = {"generation_id": f"g{calls:03d}", "contract_event": contract_event,
@@ -129,6 +151,14 @@ def run_trajectory(envelope, session, generate, save):
             return finish("TOOL_COUNTER_MISMATCH")
         if observation.get("status") == "ENVIRONMENT_INVALID":
             return finish("ENVIRONMENT_INVALID")
+        if recovery:
+            try:
+                exposure = observation_bound.apply(observation)
+            except BaseException as exc:
+                save(f"t{attempts:03d}.exposure_failure",{"type":type(exc).__name__,"retry":False})
+                raise
+            save(f"t{attempts:03d}.exposure",exposure)
+            observation = exposure["observation"]
         messages.append({"role":"user", "content":json.dumps(
             {"tool_observation":observation}, ensure_ascii=False, allow_nan=False)})
     raise AssertionError("Unreachable")

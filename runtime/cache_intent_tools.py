@@ -25,6 +25,7 @@ VERSION = "cache-intent-local-tools-v2"
 BUDGET, SQL_COST, MAX_ATTEMPTS = 100, 10, 20
 LEGACY_PROFILE = "legacy-100-v1"
 NONBINDING_PROFILE = "nonbinding-200-v1"
+RECOVERY_PROFILE = "exploration-200-recovery-10-v2"
 
 
 def _profile_budget(profile, cache_cost):
@@ -34,9 +35,9 @@ def _profile_budget(profile, cache_cost):
     admission failures within the common attempt horizon, not the horizon
     itself or SQL/environment failures. These are relative units, not money.
     """
-    if type(profile) is not str or profile not in (LEGACY_PROFILE, NONBINDING_PROFILE):
+    if type(profile) is not str or profile not in (LEGACY_PROFILE, NONBINDING_PROFILE, RECOVERY_PROFILE):
         raise ValueError("Unknown fixed budget profile")
-    initial = BUDGET if profile == LEGACY_PROFILE else 200
+    initial = BUDGET if profile == LEGACY_PROFILE else (210 if profile == RECOVERY_PROFILE else 200)
     if profile == NONBINDING_PROFILE and initial < MAX_ATTEMPTS * max(SQL_COST, cache_cost):
         raise ValueError("Budget profile is not nonbinding for configured charges/horizon")
     return initial
@@ -104,7 +105,8 @@ class ToolSession:
             raise ValueError("Expected boolean availability and read cost 1 or 8")
         self.initial_budget = _profile_budget(budget_profile, cache_read_cost)
         self.budget_profile = budget_profile
-        self.nonbinding_for_configured_horizon = budget_profile == NONBINDING_PROFILE
+        self.nonbinding_for_configured_horizon = budget_profile in (NONBINDING_PROFILE, RECOVERY_PROFILE)
+        self.max_attempts = 21 if budget_profile == RECOVERY_PROFILE else MAX_ATTEMPTS
         if type(database_sha256) is not str or re.fullmatch(r"[0-9a-f]{64}", database_sha256) is None:
             raise ValueError("Invalid database fingerprint")
         if type(history_sql) is not str or not history_sql.strip():
@@ -135,13 +137,17 @@ class ToolSession:
 
     def describe(self):
         """Public state only: never expose reference SQL, outcomes or review labels."""
-        return {"cache_id": "v000", "materialized_available": self.available,
+        state = {"cache_id": "v000", "materialized_available": self.available,
                 "read_cost": self.cache_cost, "sql_call_cost": SQL_COST,
                 "budget_profile": self.budget_profile,
                 "nonbinding_for_configured_horizon": self.nonbinding_for_configured_horizon,
                 "initial_budget": self.initial_budget, "remaining_budget": self.balance,
-                "max_attempts": MAX_ATTEMPTS, "attempts_used": self.attempts,
+                "max_attempts": self.max_attempts, "attempts_used": self.attempts,
                 "cost_basis": "declared_relative_units", "database_sha256": self.expected_db}
+        if self.budget_profile == RECOVERY_PROFILE:
+            state.update(exploration_attempts=20, exploration_allowance=200,
+                         recovery_allowance=10, last_attempt_sql_only=True)
+        return state
 
     def _check_database(self):
         no_link_ancestors(self.database)
@@ -153,6 +159,8 @@ class ToolSession:
     def _classify(self, name, arguments):
         if type(name) is not str or type(arguments) is not dict:
             return "INVALID_REQUEST", 0
+        if self.budget_profile == RECOVERY_PROFILE and self.attempts == 20 and name != "run_sql":
+            return "RECOVERY_SQL_ONLY", 0
         if name == "read_cache":
             if arguments != {"cache_id": "v000"}:
                 return "INVALID_REQUEST", 0
@@ -172,7 +180,7 @@ class ToolSession:
     def call(self, name, arguments):
         if self.closed or self.invalidated:
             raise RuntimeError("Session closed or invalidated; never silently resume")
-        if self.attempts >= MAX_ATTEMPTS:
+        if self.attempts >= self.max_attempts:
             raise RuntimeError("Attempt limit reached; no additional calls")
         request = {"tool": name, "arguments": arguments}
         try:
