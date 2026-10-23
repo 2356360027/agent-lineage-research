@@ -5,6 +5,7 @@ case bound. Counts do not certify compatibility with a future serving template.
 """
 import argparse
 from copy import deepcopy
+import hashlib
 import json
 from pathlib import Path
 import sys
@@ -17,18 +18,37 @@ from scripts.fetch_bird_fixed import absent, no_link_ancestors, read_json
 from scripts.audit_staged_input_exposure import inspect
 
 
-def main():
-    p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument("--package", required=True)
-    p.add_argument("--manifest-sha256", required=True)
-    p.add_argument("--archive-root", required=True)
-    p.add_argument("--dependency-dir", required=True)
-    p.add_argument("--output", required=True)
-    args = p.parse_args()
-    output = Path(args.output); absent(output)
-    package = Path(args.package)
-    input_receipt, previews = inspect(package, args.manifest_sha256)
-    root = Path(args.archive_root); no_link_ancestors(root)
+def load_inputs(package, manifest_sha256, scope_input=None, scope_manifest_sha256=None):
+    """Verify original inputs and the exact optional evidence-only revision."""
+    input_receipt, previews = inspect(Path(package), manifest_sha256)
+    if bool(scope_input) != bool(scope_manifest_sha256):
+        raise ValueError("Scope input requires its independent expected manifest hash")
+    if scope_input:
+        from scripts.prepare_scope_staged_inputs import augment_pair
+        scope_root = Path(scope_input); no_link_ancestors(scope_root)
+        scope_manifest = scope_root/"artifact_hashes.json"
+        if audit.hash_file(scope_manifest) != scope_manifest_sha256:
+            raise ValueError("Scope input manifest mismatch")
+        scope_files = read_json(scope_manifest)
+        if set(scope_files) != {"receipt.json","PRIVATE_staged_previews.json","builder_source.py"}:
+            raise ValueError("Unexpected scope archive files")
+        for name, fingerprint in scope_files.items():
+            no_link_ancestors(scope_root/name)
+            if audit.hash_file(scope_root/name) != fingerprint:
+                raise ValueError("Scope input file mismatch")
+        revised = read_json(scope_root/"PRIVATE_staged_previews.json")
+        targets = {r["history_id"]:r["target_id"] for r in input_receipt["cases"]}
+        expected = [{"history_id":r["history_id"],
+                     "arms":augment_pair(r["arms"],targets[r["history_id"]])} for r in previews]
+        if audit.encoded(revised) != audit.encoded(expected):
+            raise ValueError("Scope input does not match the prescribed evidence-only change")
+        previews = revised
+    return input_receipt, previews
+
+
+def archived_counter(archive_root, dependency_dir):
+    """Archived plain-chat counter, not proof of provider equivalence."""
+    root = Path(archive_root); no_link_ancestors(root)
     model = root / "model-cache/Qwen/Qwen2.5-7B-Instruct"
     manifest = read_json(root / "MANIFEST.json")
     fingerprints = {}
@@ -38,19 +58,17 @@ def main():
         if manifest["files"][path.relative_to(root).as_posix()]["sha256"] != measured:
             raise ValueError("Archived tokenizer file mismatch")
         fingerprints[name] = measured
-    dependency = Path(args.dependency_dir).resolve(); no_link_ancestors(dependency)
+    dependency = Path(dependency_dir).resolve(); no_link_ancestors(dependency)
     sys.path.insert(0, str(dependency))
     import tokenizers
     import jinja2
     from jinja2.sandbox import ImmutableSandboxedEnvironment
     tokenizer = tokenizers.Tokenizer.from_file(str(model / "tokenizer.json"))
     tokenizer.no_truncation(); tokenizer.no_padding()
-    config = read_json(model / "tokenizer_config.json")
-    template = config["chat_template"]
+    template = read_json(model / "tokenizer_config.json")["chat_template"]
     renderer = ImmutableSandboxedEnvironment(trim_blocks=True, lstrip_blocks=True).from_string(template)
 
     def count(messages):
-        # Our adapter supports only these plain-text roles and has a system first.
         if messages[0]["role"] != "system" or any(
             set(m) != {"role", "content"} or m["role"] not in {"system","user","assistant"}
             or type(m["content"]) is not str for m in messages):
@@ -61,6 +79,28 @@ def main():
         if text != manual:
             raise ValueError("Archived template differs from independently constructed plain-role framing")
         return len(tokenizer.encode(text, add_special_tokens=False).ids)
+
+    return count, {"tokenizer_files_sha256":fingerprints,
+        "archive_manifest_sha256":audit.hash_file(root/"MANIFEST.json"),
+        "template_sha256_utf8":hashlib.sha256(template.encode("utf-8")).hexdigest(),
+        "versions":{"tokenizers":tokenizers.__version__,"jinja2":jinja2.__version__}}
+
+
+def main():
+    p = argparse.ArgumentParser(description=__doc__)
+    p.add_argument("--package", required=True)
+    p.add_argument("--manifest-sha256", required=True)
+    p.add_argument("--archive-root", required=True)
+    p.add_argument("--dependency-dir", required=True)
+    p.add_argument("--output", required=True)
+    p.add_argument("--scope-input")
+    p.add_argument("--scope-manifest-sha256")
+    args = p.parse_args()
+    output = Path(args.output); absent(output)
+    package = Path(args.package)
+    input_receipt, previews = load_inputs(package, args.manifest_sha256,
+                                         args.scope_input, args.scope_manifest_sha256)
+    count, tokenizer_receipt = archived_counter(args.archive_root, args.dependency_dir)
 
     rows = []
     contract = json.dumps(dict.fromkeys(CONTRACT_FIELDS, "unspecified"))
@@ -86,10 +126,8 @@ def main():
                 "initial_prompt_tokens":initial, "scripted_action_prompt_tokens":checkpoints,
                 "scripted_terminal_prompt_tokens":count(messages)})
     report = {"status":"OFFLINE_TOKENIZATION_NOT_MODEL_EXPERIMENT", "cases":rows,
-        "input_manifest_sha256":args.manifest_sha256, "tokenizer_files_sha256":fingerprints,
-        "archive_manifest_sha256":audit.hash_file(root/"MANIFEST.json"),
-        "template_sha256_utf8":audit.hashlib.sha256(template.encode("utf-8")).hexdigest(),
-        "versions":{"tokenizers":tokenizers.__version__,"jinja2":jinja2.__version__},
+        "input_manifest_sha256":args.manifest_sha256, **tokenizer_receipt,
+        "scope_input_manifest_sha256":args.scope_manifest_sha256,
         "source_sha256":audit.hash_file(__file__), "source_input_audit":input_receipt["source_sha256"],
         "model_calls":0, "sql_queries":0, "provider_equivalence_verified":False,
         "actual_serving_context_limit":None, "completion_reservation_used":None,

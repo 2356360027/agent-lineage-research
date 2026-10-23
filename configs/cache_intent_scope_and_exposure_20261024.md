@@ -98,3 +98,25 @@ is not redefined as an initial-prompt-fit test.
 Decision: prepare a NEW, identically scope-informed input version next; keep old
 archives untouched. Keep full-result exposure/failure policy, but do not approve
 a live run from these token counts. Server remains stopped; local-only work.
+
+## Subsequent local preparation: scope-informed v1
+
+The new version is now prepared by `scripts/prepare_scope_staged_inputs.py`.
+It verifies the pinned scope report and database hash, adds only the statement
+above to task 234 evidence, and leaves task 200 unchanged. Within each history,
+the paired initial prompts still differ only in cache read price. Six unit
+tests cover this transformation and rejection of invalid receipts. This is
+input preparation, not human approval or permission to run inference.
+
+Offline measurement of the new twelve previews gives initial lengths of
+781–894 tokens. The largest scripted terminal prompt is 3587 tokens; adding
+a hypothetical 512-token completion reservation gives 4099, exceeding the
+historical 4096-token window by 3. This is a specific engineering failure of
+that proposed combination, not an observed model failure or an upper bound.
+Do not discard the observation, truncate context, or quietly lower the output
+reservation. A future configuration must be explicitly selected and checked
+before a separately approved model batch. Actual SQL outputs may be longer.
+
+Both private artifact manifests and their member hashes were verified locally.
+Historical inputs and results remain unchanged and separate. The server is
+stopped; no SSH, model inference, or paid API was used for this preparation.
