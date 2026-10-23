@@ -1,5 +1,10 @@
 # Staged cost diagnostic: development proposal, NOT an authorized run
 
+Current local implementation: see `cache_intent_batch_preparation_20261024.md`.
+The recovery-v2 proposal supersedes the original 20-tool/22-generation limits
+below with 21 tools and 23 generations, retaining a final SQL reserve. This
+historical proposal remains for traceability; neither version authorizes a run.
+
 2026-10-24. Continues the convenience-induced request-drift question; not a
 replacement experiment about database optimization. No new algorithm selected.
 

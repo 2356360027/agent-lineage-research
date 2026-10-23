@@ -20,11 +20,12 @@ LEGACY_FILES = (
     "runtime/bird_readonly_audit.py", "runtime/native.py", "runtime/e1.py",
     "scripts/fetch_bird_fixed.py", "scripts/prepare_staged_source_bundle.py",
 )
-FILES = LEGACY_FILES + (
+RECOVERY_FILES = LEGACY_FILES + (
     "runtime/cache_intent_recovery_preview.py",
     "runtime/cache_intent_observation_bound.py",
     "runtime/cache_intent_capacity.py",
 )
+FILES = RECOVERY_FILES + ("runtime/cache_intent_batch.py",)
 
 
 def build(root, output):
@@ -64,6 +65,7 @@ def verify(output, expected_manifest_sha256):
             or manifest["inference_authorized"] is not False
             or type(manifest["files"]) is not dict or frozenset(manifest["files"]) not in {
                 frozenset(FILES),
+                frozenset(RECOVERY_FILES),
                 frozenset(LEGACY_FILES),
                 frozenset(name for name in LEGACY_FILES if name != "runtime/cache_intent_context.py")}):
         raise ValueError("Unexpected source manifest")
