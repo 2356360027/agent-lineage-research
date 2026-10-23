@@ -1,0 +1,45 @@
+{
+  "date": "2026-10-24",
+  "status": "LOCAL_PRIMARY_REVIEW_EXPORT_TESTED_NO_RESEARCH_LABELS",
+  "previous_goal_turn": "progress",
+  "previous_commit": "c52f07a",
+  "authority": "Server stopped; local preparation only",
+  "research_stage": "Development measurement preparation, not phenomenon confirmation",
+  "new_capability": "Export blank primary-endpoint review materials from a sealed staged batch without conditioning inclusion on downstream execution success",
+  "code": "scripts/prepare_staged_contract_review.py",
+  "measurement_rules": [
+    "Require externally pinned archive and plan digests; verify every manifested file and reject extras",
+    "Verify first-generation request equals the frozen pre-result contract prompt and response hash links to it",
+    "Retain all twelve planned slots, including unstarted slots and later failures",
+    "Unavailable labels remain unfilled, never converted to false or zero",
+    "Preserve raw contract text, including invalid-format and non-stop responses; do not repair it",
+    "Hide price, history ID, later outcome and pair IDs from reviewer items; preserve them in a separate organizer mapping",
+    "Do not claim complete blinding because verbatim response content may reveal condition clues",
+    "Judge whole-contract meaning, distinguish field placement from substantive omission or contradiction",
+    "Keep scripted-source markings and blank reviewer independence/exposure disclosures",
+    "Exporter saves its own source and digest with a sealed output journal"
+  ],
+  "verification": {
+    "test_output": "b16b19",
+    "status": "PASS",
+    "total_tests": 42,
+    "review_export_tests": 9,
+    "existing_judgment_and_paired_bounds_tests": 33,
+    "seconds": 0.619,
+    "integration_case": "Real scripted batch orchestration with a valid first contract followed by a deliberately wrong provider ID; export retains that contract and all twelve slots",
+    "scope": "Synthetic temporary archives, mocked replies and local file integrity checks only",
+    "model_calls": 0,
+    "network_requests": 0,
+    "human_labels_created": 0
+  },
+  "scientific_limits": [
+    "No controlled cache-price effect has been observed by this work",
+    "Blank review export does not establish request clarity, reference correctness or reviewer independence",
+    "This exports the pre-result contract endpoint only; linked program and cache-use judgments need separate evidence",
+    "The proposed diagnostic contains two exposed target tasks, not twelve independent tasks",
+    "Strong-baseline residual benefit and generalization remain unproven"
+  ],
+  "next_action": "Keep live execution gated; finish separately scoped trajectory/program evidence review and connect adjudicated labels to fixed-pair descriptive accounting without inventing labels",
+  "new_paid_batch_started": false,
+  "public_push_this_turn": false
+}
