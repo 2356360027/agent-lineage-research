@@ -3,6 +3,7 @@ from copy import deepcopy
 import unittest
 from runtime.cache_intent_staged_adapter import Adapter
 from runtime import cache_intent_staged_preview as preview
+from runtime.bird_readonly_audit import digest
 
 
 class AdapterTests(unittest.TestCase):
@@ -16,6 +17,8 @@ class AdapterTests(unittest.TestCase):
             return deepcopy(self.response)
         self.args = dict(endpoint="http://127.0.0.1:8000/v1", model="fixture", seed=17,
             max_tokens=512, max_seconds=30, directory="not-accessed", save=self.save,
+            context_check=lambda p: dict(payload_sha256=digest(p),prompt_tokens_local=12,
+                reserved_completion_tokens=512,max_model_len=4096,fits=True,truncated=False),
             transport=transport, clock=lambda:self.time)
         self.request = dict(generation_id="g001", stage="contract", contract_event=None,
                             messages=[{"role":"user", "content":"Synthetic fixture"}])
@@ -87,6 +90,29 @@ class AdapterTests(unittest.TestCase):
         adapter(self.request | {"generation_id":"g002", "stage":"action", "contract_event":"g001"})
         self.assertEqual(self.sent[1]["response_format"],{"type":"json_object"})
         self.assertEqual(self.sent[1]["seed"],self.sent[0]["seed"])
+
+    def test_context_overflow_stops_before_dispatch(self):
+        checker = self.args["context_check"]
+        adapter = Adapter(**(self.args | {"context_check":lambda p: checker(p)|{"fits":False}}))
+        with self.assertRaises(ValueError): adapter(self.request)
+        self.assertIn("http-g001.context",self.saved)
+        self.assertFalse(self.sent)
+
+    def test_provider_token_mismatch_preserved_then_stopped(self):
+        self.response["usage"] = {"prompt_tokens":999,"completion_tokens":3}
+        adapter = Adapter(**self.args)
+        with self.assertRaises(ValueError): adapter(self.request)
+        self.assertIn("http-g001.provider",self.saved)
+        with self.assertRaises(RuntimeError): adapter(self.request)
+
+    def test_context_check_time_counts_toward_deadline(self):
+        checker = self.args["context_check"]
+        def slow(p):
+            self.time = 31
+            return checker(p)
+        with self.assertRaises(TimeoutError):
+            Adapter(**(self.args | {"context_check":slow}))(self.request)
+        self.assertFalse(self.sent)
 
 
 if __name__ == "__main__": unittest.main()

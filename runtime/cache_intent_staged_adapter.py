@@ -25,7 +25,7 @@ def response_format(stage):
 
 class Adapter:
     def __init__(self, *, endpoint, model, seed, max_tokens, max_seconds,
-                 directory, save, transport=None, clock=time.monotonic):
+                 directory, save, context_check, transport=None, clock=time.monotonic):
         client.endpoint_url(endpoint)
         if type(model) is not str or not model.strip():
             raise ValueError("Explicit model ID required")
@@ -35,6 +35,9 @@ class Adapter:
             raise ValueError("Explicit completion cap 1..2048 required")
         if type(max_seconds) is not int or not 1 <= max_seconds <= 1800:
             raise ValueError("Explicit trajectory deadline 1..1800 seconds required")
+        if not callable(context_check):
+            raise ValueError("Context preflight is required")
+        self.context_check = context_check
         self.endpoint, self.model, self.seed = endpoint, model, seed
         self.max_tokens, self.max_seconds = max_tokens, max_seconds
         self.directory, self.save = Path(directory), save
@@ -76,6 +79,19 @@ class Adapter:
         if len(client.encoded(payload)) > 4*1024*1024:
             raise ValueError("Payload exceeds transport cap; no truncation")
         name = f"http-g{index:03d}"
+        context = self.context_check(deepcopy(payload))
+        self.save(name + ".context", context)
+        if (type(context) is not dict or context.get("payload_sha256") != client.sha(client.encoded(payload))
+                or context.get("truncated") is not False or context.get("fits") is not True
+                or type(context.get("prompt_tokens_local")) is not int
+                or context["prompt_tokens_local"] <= 0
+                or context.get("reserved_completion_tokens") != self.max_tokens
+                or type(context.get("max_model_len")) is not int
+                or context["prompt_tokens_local"]+self.max_tokens > context["max_model_len"]):
+            raise ValueError("Context preflight failed; retain full prompt, never truncate")
+        remaining = self.max_seconds - (self.clock() - self.start)
+        if remaining <= 0:
+            raise TimeoutError("Deadline during context preflight")
         self.save(name + ".pending", {"payload":payload, "timeout_seconds":min(180,remaining),
                   "generation_id":request["generation_id"], "automatic_retry":False})
         self.count = index
@@ -87,6 +103,9 @@ class Adapter:
             raise TimeoutError("Late response retained, no subsequent action")
         if type(raw) is not dict or raw.get("model") != self.model:
             raise ValueError("Provider model ID mismatch")
+        usage = client.valid_usage(raw)
+        if usage is not None and usage["prompt_tokens"] != context["prompt_tokens_local"]:
+            raise ValueError("Provider/local token count mismatch; do not continue")
         choices = raw.get("choices")
         if type(choices) is not list or len(choices) != 1 or type(choices[0]) is not dict:
             raise ValueError("Expected exactly one choice")
@@ -101,5 +120,5 @@ class Adapter:
         if finish != "stop":
             self.failed = True
         return {"content":message["content"], "finish_reason":finish,
-                "usage":client.valid_usage(raw), "provider_model":raw["model"],
+                "usage":usage, "provider_model":raw["model"],
                 "provider_record":name + ".provider", "request_sha256":client.sha(client.encoded(payload))}

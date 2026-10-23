@@ -109,3 +109,19 @@ preview; action responses use JSON-object format plus strict runtime checking.
 This is not a model-service compatibility test. Full source bundling, native
 fingerprint verification, context-length preflight, batch supervisor and exact
 authorized run configuration remain required; do not silently truncate prompts.
+
+### Context admission update
+
+The adapter now requires a payload-bound context-check receipt, reserves full
+completion length and refuses overflow without truncation. Provider prompt-token
+counts, when present, must match the local count or the trajectory stops with
+the raw response retained. This requires a verified tokenizer/template and
+serving configuration; dummy test counters do not validate a real deployment.
+
+IMPORTANT: the 200-unit budget proves monetary-unit affordability only. It does
+not prove context feasibility over 20 turns. Current tools permit results up to
+5 MiB, while the historical service used a 4096-token window. The current
+deployment is unknown. Before any batch, specify the common context/result
+exposure policy and account for overflow separately; do not call overflow a
+semantic drift event, silently shorten prompts or drop one arm. This is an
+outstanding scientific-design gate as well as a deployment check.

@@ -14,6 +14,7 @@ FILES = (
     "runtime/__init__.py", "scripts/__init__.py",
     "runtime/cache_intent_staged_preview.py", "runtime/cache_intent_staged_loop.py",
     "runtime/cache_intent_staged_adapter.py", "runtime/cache_intent_journal.py",
+    "runtime/cache_intent_context.py",
     "runtime/cache_intent_tools.py", "runtime/cache_intent_prompts.py",
     "runtime/cache_intent_prompts_v2.py", "runtime/cache_intent_contract_pilot.py",
     "runtime/bird_readonly_audit.py", "runtime/native.py", "runtime/e1.py",
@@ -56,18 +57,20 @@ def verify(output, expected_manifest_sha256):
     if (set(manifest) != {"purpose","inference_authorized","files"}
             or manifest["purpose"] != "SOURCE_COMPONENT_SNAPSHOT_NOT_APPROVED_RUN"
             or manifest["inference_authorized"] is not False
-            or type(manifest["files"]) is not dict or set(manifest["files"]) != set(FILES)):
+            or type(manifest["files"]) is not dict or frozenset(manifest["files"]) not in {
+                frozenset(FILES),
+                frozenset(name for name in FILES if name != "runtime/cache_intent_context.py")}):
         raise ValueError("Unexpected source manifest")
     source = output/"source"
     entries = list(source.rglob("*"))
     for path in entries:
         no_link_ancestors(path)
-    if {p.relative_to(source).as_posix() for p in entries if p.is_file()} != set(FILES):
+    if {p.relative_to(source).as_posix() for p in entries if p.is_file()} != set(manifest["files"]):
         raise ValueError("Unexpected source file set")
     for name, expected in manifest["files"].items():
         if hash_file(source/name) != expected:
             raise ValueError("Source content mismatch: " + name)
-    return {"status":"SOURCE_HASHES_VERIFIED", "files":len(FILES),
+    return {"status":"SOURCE_HASHES_VERIFIED", "files":len(manifest["files"]),
             "source_manifest_sha256":expected_manifest_sha256,
             "model_calls":0, "inference_authorized":False}
 
