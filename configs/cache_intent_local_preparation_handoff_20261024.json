@@ -1,0 +1,57 @@
+{
+  "date": "2026-10-24",
+  "previous_goal_turn": "progress",
+  "previous_progress_evidence": "7731140 implemented bounded deployment entry and mock tests",
+  "status": "LOCAL_HANDOFF_RECONCILED_LIVE_EVIDENCE_PENDING",
+  "authorization": "LOCAL_PREPARATION_ONLY_SERVER_STOPPED",
+  "code_commit": "7731140",
+  "source_snapshot": {
+    "path": "runtime/runs/staged-source-bundle-20261024-010",
+    "files": 26,
+    "sha256": "f1a48231db48270075d8c1f691c10711494d689a44384806484bfcb21f3c27c6"
+  },
+  "fixed_inputs": {
+    "path": "runtime/runs/recovery-batch-plan-20261024-002",
+    "manifest_sha256": "4374a5e72939aafec5e4a02efacd5d290a4d6da7a7fbd7b4ee1633cec07c2b21",
+    "plan_sha256": "3666fbbcbe8e16c22bc76eca6b827fd2e111905ebd35c21ca41de0999dfccdab",
+    "database_sha256": "35ef27ae6bdfda530e125ed369666ac0abb8bc8c0bcc0ad09407f547ecb61a93"
+  },
+  "latest_readonly_audit": {
+    "tool_evidence": "0892a4",
+    "source_input_database_check": "PASS",
+    "old_review_input_files_hashed": 6,
+    "new_semantic_labels": 0,
+    "new_sql_queries": 0,
+    "model_calls": 0,
+    "network_requests": 0
+  },
+  "fixed_development_limits": {
+    "targets": 2,
+    "histories": 6,
+    "trajectories": 12,
+    "generation_attempts": 276,
+    "tool_attempts": 252,
+    "worker_seconds": 1800,
+    "cleanup_backup_idle_billing_additional": true,
+    "confirmation_study": false
+  },
+  "research_gate_audit": {
+    "problem_and_literature": "Candidate distinction stated; no first-ever or method novelty established",
+    "data_adaptation": "Two exposed posthoc-resolved development targets and six reviewed constructed histories; not unused confirmation data",
+    "controlled_phenomenon": "NOT_ESTABLISHED_NO_NEW_PRICE_CONTRAST_MODEL_TRAJECTORIES",
+    "strong_baseline_residual_gap": "NOT_ESTABLISHED",
+    "new_method_increment": "NOT_ESTABLISHED",
+    "independent_confirmation": "NOT_DONE",
+    "paper_and_reproduction": "Historical records and software available; no completed evidence-supported new paper"
+  },
+  "next_decisive_action": "Separately approved fixed development model batch and primary semantic review; do not add mock tests merely to substitute for unavailable observations",
+  "required_before_next_paid_run": [
+    "Current available server, balance and price confirmed",
+    "Specific fixed batch, total time boundaries, output destination and failure treatment approved",
+    "Current host model and serving configuration pinned and verified",
+    "Actual runtime readiness and token parity pass without silent settings changes"
+  ],
+  "local_private_handoff": "reports/staged_development_20261024/HANDOFF.md",
+  "public_push_this_turn": false,
+  "goal_complete": false
+}
