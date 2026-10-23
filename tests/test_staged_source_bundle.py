@@ -39,10 +39,12 @@ from pathlib import Path
 import json, sqlite3, tempfile
 from runtime import cache_intent_staged_adapter, cache_intent_staged_loop, cache_intent_journal
 from runtime import cache_intent_staged_preview, cache_intent_tools, native, bird_readonly_audit
+from runtime import cache_intent_recovery_preview, cache_intent_observation_bound, cache_intent_capacity
 from scripts import prepare_staged_source_bundle
 modules = [cache_intent_staged_adapter,cache_intent_staged_loop,cache_intent_journal,
            cache_intent_staged_preview,cache_intent_tools,native,bird_readonly_audit,
-           prepare_staged_source_bundle]
+           prepare_staged_source_bundle,cache_intent_recovery_preview,
+           cache_intent_observation_bound,cache_intent_capacity]
 for module in modules:
     assert Path(module.__file__).resolve().is_relative_to(Path.cwd().resolve())
 with tempfile.TemporaryDirectory() as directory:
@@ -64,6 +66,11 @@ print(json.dumps({"imported_modules":len(modules),"synthetic_readonly_calls":1,"
         self.assertEqual(result.returncode,0,result.stderr)
         self.assertEqual(json.loads(result.stdout)["synthetic_readonly_calls"],1)
         bundle.verify(self.output,self.receipt["source_manifest_sha256"])
+
+    def test_required_recovery_components_present(self):
+        for name in ("cache_intent_recovery_preview", "cache_intent_observation_bound",
+                     "cache_intent_capacity"):
+            self.assertIn("runtime/"+name+".py", bundle.FILES)
 
 
 if __name__ == "__main__": unittest.main()

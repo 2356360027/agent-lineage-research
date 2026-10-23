@@ -10,7 +10,7 @@ from pathlib import Path
 from runtime.bird_readonly_audit import encoded, hash_file
 from scripts.fetch_bird_fixed import absent, no_link_ancestors, strict_json
 
-FILES = (
+LEGACY_FILES = (
     "runtime/__init__.py", "scripts/__init__.py",
     "runtime/cache_intent_staged_preview.py", "runtime/cache_intent_staged_loop.py",
     "runtime/cache_intent_staged_adapter.py", "runtime/cache_intent_journal.py",
@@ -19,6 +19,11 @@ FILES = (
     "runtime/cache_intent_prompts_v2.py", "runtime/cache_intent_contract_pilot.py",
     "runtime/bird_readonly_audit.py", "runtime/native.py", "runtime/e1.py",
     "scripts/fetch_bird_fixed.py", "scripts/prepare_staged_source_bundle.py",
+)
+FILES = LEGACY_FILES + (
+    "runtime/cache_intent_recovery_preview.py",
+    "runtime/cache_intent_observation_bound.py",
+    "runtime/cache_intent_capacity.py",
 )
 
 
@@ -59,7 +64,8 @@ def verify(output, expected_manifest_sha256):
             or manifest["inference_authorized"] is not False
             or type(manifest["files"]) is not dict or frozenset(manifest["files"]) not in {
                 frozenset(FILES),
-                frozenset(name for name in FILES if name != "runtime/cache_intent_context.py")}):
+                frozenset(LEGACY_FILES),
+                frozenset(name for name in LEGACY_FILES if name != "runtime/cache_intent_context.py")}):
         raise ValueError("Unexpected source manifest")
     source = output/"source"
     entries = list(source.rglob("*"))
