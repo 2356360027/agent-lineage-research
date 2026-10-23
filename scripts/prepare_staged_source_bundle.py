@@ -26,7 +26,8 @@ RECOVERY_FILES = LEGACY_FILES + (
     "runtime/cache_intent_capacity.py",
 )
 BATCH_FILES = RECOVERY_FILES + ("runtime/cache_intent_batch.py",)
-FILES = BATCH_FILES + ("runtime/cache_intent_deployment.py", "scripts/run_contract_pilot_server.py")
+DEPLOYMENT_FILES = BATCH_FILES + ("runtime/cache_intent_deployment.py", "scripts/run_contract_pilot_server.py")
+FILES = DEPLOYMENT_FILES + ("runtime/cache_intent_entry.py",)
 
 
 def build(root, output):
@@ -66,6 +67,7 @@ def verify(output, expected_manifest_sha256):
             or manifest["inference_authorized"] is not False
             or type(manifest["files"]) is not dict or frozenset(manifest["files"]) not in {
                 frozenset(FILES),
+                frozenset(DEPLOYMENT_FILES),
                 frozenset(BATCH_FILES),
                 frozenset(RECOVERY_FILES),
                 frozenset(LEGACY_FILES),
