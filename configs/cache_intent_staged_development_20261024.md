@@ -102,3 +102,10 @@ tests. The prior 14 budget-profile tests also pass with approved local temporary
 directory access. Scripted responses are not model calls. Model transport,
 frozen generation limits, external timeout, authorization and full run packaging
 remain outstanding. The proposal is still NOT an approved/frozen model run.
+
+The subsequent `cache_intent_staged_adapter.py` reuses the existing localhost
+transport and has nine injected-transport tests. Contract schema matches the
+preview; action responses use JSON-object format plus strict runtime checking.
+This is not a model-service compatibility test. Full source bundling, native
+fingerprint verification, context-length preflight, batch supervisor and exact
+authorized run configuration remain required; do not silently truncate prompts.
