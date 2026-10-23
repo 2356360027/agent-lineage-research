@@ -655,3 +655,19 @@ program events, freeze task-level scoring and resource limits, and obtain curren
 execution authorization. Two repeatedly inspected development targets cannot
 become a held-out confirmation set. A gap over strong checking plus recomputation
 remains unestablished. This documentation update ran no model, SQL or cloud job.
+
+## Literature-to-identification audit (2026-10-24)
+
+Primary-source sections of CostBench, Experience-Following and Useful Memories
+Become Faulty were rechecked against the staged diagnostic. The resulting matrix
+and decision are in `configs/cache_intent_literature_identification_20261024.md`.
+Generic cost-aware planning and memory-induced task-rule substitution already
+have close precedents. The remaining candidate question is a price-only effect
+on pre-result whole-contract fidelity under matched semantic information.
+
+Do not transfer completion-conditioned literature metrics to the primary price
+contrast. Keep all scheduled pairs, judge saved contracts even when later tools
+fail, preserve missing labels and report total realized costs including failures.
+The existing fixed-manifest bounds helper supports this accounting but cannot
+supply semantic truth. The audit adds no model results, no human labels, no
+paid run authorization and no claim of an independently confirmed method gap.

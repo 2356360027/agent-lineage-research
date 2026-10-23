@@ -134,3 +134,15 @@ one correct SQL costs 10 while cache-plus-one-SQL costs 11/18. Cache-only costs
 that supplemental reuse is cheaper, nor does a cheaper wrong answer count as
 valid reuse. Keep mechanism testing, baseline correctness and measured system
 efficiency separate; do not retune prices after observing model behavior.
+
+### Literature and denominator audit
+
+See `cache_intent_literature_identification_20261024.md`. Prior work already
+covers cost-sensitive planning and memory-induced replacement of task rules.
+The candidate increment is the controlled price contrast, not generic memory
+interference. Retain the entire planned allocation; do not condition the primary
+pre-result contract endpoint on later execution success. Missing judgments stay
+unknown, with fixed-manifest bounds rather than success-only comparisons.
+The proposed price-visible contract diagnostic is not a cost/cache-hidden
+contract-first baseline, and event order alone does not prove causal mediation.
+No additional conditions or paid calls are authorized by this audit.
