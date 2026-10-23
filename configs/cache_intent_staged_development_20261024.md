@@ -146,3 +146,18 @@ unknown, with fixed-manifest bounds rather than success-only comparisons.
 The proposed price-visible contract diagnostic is not a cost/cache-hidden
 contract-first baseline, and event order alone does not prove causal mediation.
 No additional conditions or paid calls are authorized by this audit.
+
+### Input exposure check and local-only resource state
+
+The frozen six-history package was inspected offline by
+`scripts/audit_staged_input_exposure.py`: all 22 listed artifacts matched,
+complete typed cache content (columns plus rows) serialized to 53–140 UTF-8
+bytes, and each canonical pair differed only in read price. These are byte
+measurements, not tokenizer counts, database revalidation or model evidence.
+No cache-row truncation/summarization is justified for these small archives.
+Arbitrary SQL output and accumulated history still require a common policy and
+actual tokenizer checks. Full-rollout feasibility remains unverified.
+
+The user confirmed the old server is stopped and requested local preparation
+only. Do not reconnect or initiate model inference. Continue local design/code
+work without treating historical balances or prior batches as current approval.
