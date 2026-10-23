@@ -1,0 +1,49 @@
+{
+  "date": "2026-10-24",
+  "status": "LOCAL_PROVISIONAL_REVIEW_IMPORT_TESTED",
+  "previous_goal_turn": "progress",
+  "previous_commit": "c1062f5",
+  "authority": "Local preparation only; server stopped",
+  "modules": [
+    "runtime/cache_intent_review_accounting.py",
+    "scripts/account_staged_primary_reviews.py"
+  ],
+  "new_capability": "Import hash-pinned review copies while preserving original task/response text and fixed denominators, then produce explicitly provisional agreement accounting",
+  "rules": [
+    "Original blank packet and submitted review files have separately pinned file digests",
+    "Only disclosure and review cells may change; task text, output text, item order and instructions cannot change",
+    "Raw supplied judgments and source digests are retained in private sealed output",
+    "Missing review, blank label, disagreement, duplicate reviewer code and inadequate disclosures remain unknown",
+    "A definitive label requires a nonempty reason and verbatim quote found in the saved contract",
+    "Internally inconsistent whole-contract and field-only/omission judgments remain unresolved pending clarification",
+    "Invalid-format or non-stop response is not promoted by reviewer agreement",
+    "All six history pairs remain in missing-label bounds, with read-price-eight minus read-price-one orientation",
+    "Agreement is provisional, not adjudication, verified human independence or task/reference admission"
+  ],
+  "verification": {
+    "tool_evidence": "7e4dd0",
+    "status": "PASS",
+    "tests": 63,
+    "review_accounting": 10,
+    "primary_review_export": 9,
+    "trace_evidence": 11,
+    "existing_judgment_and_bounds": 33,
+    "seconds": 1.506,
+    "scope": "Synthetic review labels, mocked replies, temporary archives and local file integrity checks only",
+    "actual_human_reviews_imported": 0
+  },
+  "limitations": [
+    "Hashes establish file identity, not the authenticity or quality of human review",
+    "Self-reported independence and request-review references require separate scrutiny",
+    "Two agreeing labels do not establish correct task/reference adjudication",
+    "No automatic adjudication of disagreements is implemented or implied",
+    "Provisional missing-label bounds are not confidence intervals or causal estimates",
+    "No cache-price effect or method increment is established by these tests"
+  ],
+  "next_scientific_gate": "A separately authorized fixed model batch followed by independent semantic review; no larger study or named method before measurement and strong-baseline gaps are established",
+  "model_calls": 0,
+  "network_requests": 0,
+  "new_semantic_labels": 0,
+  "new_paid_batch_started": false,
+  "public_push_this_turn": false
+}
