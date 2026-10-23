@@ -1,0 +1,77 @@
+{
+  "date": "2026-10-24",
+  "status": "LOCAL_COMPONENT_CHECKS_ONLY",
+  "previous_goal_turn": "progress",
+  "previous_commit": "03500d4",
+  "authority": "Local preparation only; server stopped",
+  "research_phase": "Development workflow admission, before controlled model experiment",
+  "components": [
+    "runtime/cache_intent_deployment.py",
+    "tests/test_cache_intent_deployment.py"
+  ],
+  "metadata_gate": {
+    "required_model": "Qwen/Qwen2.5-7B-Instruct",
+    "required_window": 32768,
+    "old_4096_window_rejected": true,
+    "reference_manifest_and_five_tokenizer_assets_bound": true,
+    "local_file_verification_reuses": "runtime.native.verify",
+    "checks_current_loaded_weights_cryptographically": false,
+    "provider_token_parity_verified": false
+  },
+  "supervisor": {
+    "platform": "Linux only",
+    "process_group_owner": "Only children created by this component",
+    "exit_observation": "waitid with WNOWAIT, before group cleanup and final reap",
+    "lost_child_ownership": "Retain failure; do not signal possibly reused PID",
+    "cleanup_helper": "scripts.run_contract_pilot_server.stop_owned_group",
+    "caller_must_enforce": [
+      "Explicit authorization before any live command",
+      "Single child owner without another reaper",
+      "Whole-deployment deadline across startup, preflight and inference",
+      "Signal handling at the eventual launcher entry point",
+      "Require both acceptable worker outcome and cleanup outcome"
+    ],
+    "limitations": [
+      "Process group control is not an OS sandbox",
+      "Cleanup has an additional grace and reap interval",
+      "Escaped process groups and remote in-flight requests are not covered",
+      "Cloud instance billing is never stopped by this component"
+    ]
+  },
+  "test_evidence": {
+    "initial_attempt": "Metadata fixture tests passed; temporary-directory permission errors blocked supervisor fixtures (4aa695)",
+    "authorized_local_retry": "9 tests passed, mocked process operations only (2a4e42)",
+    "added_wait_and_ownership_checks": "12 tests passed (2f7d24)",
+    "final_deployment_suite": "12 tests passed in 0.108s (f3df27)",
+    "isolated_source_bundle_suite": "5 tests passed, including one synthetic SQLite query (e853ce)",
+    "actual_linux_lifecycle_test": false,
+    "actual_model_file_rehash_this_turn": false,
+    "actual_model_loading_this_turn": false
+  },
+  "source_snapshots": [
+    {
+      "path": "runtime/runs/staged-source-bundle-20261024-005",
+      "files": 22,
+      "manifest_sha256": "c25a5b3ad216f133da4f5319e9190e1cb5a2de0b206c48750c15ee1d077a1a64",
+      "retained": true
+    },
+    {
+      "path": "runtime/runs/staged-source-bundle-20261024-006",
+      "files": 22,
+      "manifest_sha256": "249250d3465353594bf5fb4e407447ad763e7b671e2ad664c98d121bb36ab619",
+      "change": "Explicit process_checks_passed requires exit success and cleanup success"
+    }
+  ],
+  "model_calls": 0,
+  "research_sql_calls": 0,
+  "ssh_connections": 0,
+  "inference_authorized": false,
+  "scientific_conclusion": "No new estimate of cache-price effects or strong-baseline advantage",
+  "remaining_gates": [
+    "Wire these components into the separately authorized live launcher",
+    "Bind full deployment source and private inputs, not only component snapshots",
+    "Run actual Linux lifecycle and serving/tokenizer checks when authorized",
+    "Obtain current server and resource approval before inference"
+  ],
+  "primary_api_reference": "https://docs.python.org/3/library/os.html#os.WNOWAIT"
+}
