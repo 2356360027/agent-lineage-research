@@ -129,6 +129,54 @@ class CacheWitnessTests(unittest.TestCase):
     def query(self, conn, sql):
         return typed(conn.execute(sql).fetchall())
 
+    def scope_world(self, second_bond_molecule):
+        """DDL-valid counterexample, not a chemically realistic observation."""
+        conn = self.empty_database()
+        conn.executemany("INSERT INTO molecule VALUES (?, '+')", [("TR009",), ("OTHER",)])
+        conn.executemany("INSERT INTO atom VALUES (?, 'TR009', 'C')",
+                         [("TR009_12",), ("TR009_1",), ("TR009_2",)])
+        conn.executemany("INSERT INTO bond VALUES (?, ?, '-')",
+                         [("b1", "TR009"), ("b2", second_bond_molecule)])
+        conn.executemany("INSERT INTO connected VALUES (?, ?, ?)",
+            [("TR009_12", "TR009_1", "b1"), ("TR009_1", "TR009_12", "b1"),
+             ("TR009_2", "TR009_12", "b2")])
+        return self.freeze_valid_fixture(conn)
+
+    def scoped_count(self, conn):
+        # Test-only post-hoc scope interpretation. Never overwrite old TARGET_SQL
+        # or inject this evaluator query into agent prompts.
+        return self.query(conn, "SELECT COUNT(DISTINCT c.bond_id) FROM connected c "
+            "JOIN bond b ON b.bond_id=c.bond_id WHERE b.molecule_id='TR009' "
+            "AND (c.atom_id='TR009_12' OR c.atom_id2='TR009_12')")
+
+    def test_scope_scalar_cache_equal_but_scoped_target_differs_under_ddl(self):
+        inside, outside = self.scope_world("TR009"), self.scope_world("OTHER")
+        self.assertEqual(self.history(inside, 234, 0), typed([(2,)]))
+        self.assertEqual(self.history(inside, 234, 0), self.history(outside, 234, 0))
+        self.assertEqual(self.scoped_count(inside), typed([(2,)]))
+        self.assertEqual(self.scoped_count(outside), typed([(1,)]))
+        # Both worlds pass foreign_key_check; naming does not enforce this join.
+
+    def test_scope_id_cache_needs_membership_information_but_supports_supplement(self):
+        for owner in ("TR009", "OTHER", None):
+            with self.subTest(owner=owner):
+                conn = self.scope_world(owner)
+                ids = [r[0][1] for r in self.history(conn, 234, 1)]
+                self.assertEqual(set(ids), {"b1", "b2"})
+                placeholders = ",".join("?" for _ in ids)
+                supplemented = typed(conn.execute(
+                    f"SELECT COUNT(DISTINCT bond_id) FROM bond WHERE molecule_id=? "
+                    f"AND bond_id IN ({placeholders})", ["TR009", *ids]).fetchall())
+                self.assertEqual(supplemented, self.scoped_count(conn))
+                if owner != "TR009":
+                    self.assertNotEqual(typed([(len(ids),)]), self.scoped_count(conn))
+
+    def test_scope_zero_incidence_count_is_safe_even_without_global_invariant(self):
+        conn = self.freeze_valid_fixture(self.empty_database())
+        self.assertEqual(self.history(conn, 234, 0), typed([(0,)]))
+        self.assertEqual(self.scoped_count(conn), typed([(0,)]))
+        # Empty incidence is a boundary exception to "always needs a scope read".
+
     def target(self, conn, qid):
         return self.query(conn, TARGET_SQL[qid])
 

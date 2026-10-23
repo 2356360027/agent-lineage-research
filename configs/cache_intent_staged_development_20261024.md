@@ -161,3 +161,13 @@ actual tokenizer checks. Full-rollout feasibility remains unverified.
 The user confirmed the old server is stopped and requested local preparation
 only. Do not reconnect or initiate model inference. Continue local design/code
 work without treating historical balances or prior batches as current approval.
+
+### Scope and archived-tokenizer policy update
+
+See `cache_intent_scope_and_exposure_20261024.md`. A new development input
+version should provide the same snapshot-bound scope property to every task-234
+arm/method, without counts or reference answers. This is additional shared
+evidence relative to old inputs and must not be retroactively pooled with them.
+Retain complete results and stop/preserve on context overflow; no silent edits.
+Archived-tokenizer measurements now exist for the old previews, but full-rollout
+feasibility and compatibility with any future server remain unverified.

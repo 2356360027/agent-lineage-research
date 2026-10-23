@@ -80,6 +80,25 @@ class LoopTests(unittest.TestCase):
         self.assertEqual(result["status"], "INVALID_ACTION")
         self.assertEqual(self.session.attempts, 0)
 
+    def test_large_observation_and_contract_preserved_when_next_generation_rejects(self):
+        full_text = "synthetic-long-cell:" + "x"*100000
+        def large_result(name, arguments):
+            self.session.attempts += 1
+            return dict(status="EXECUTED", complete=True, columns=["fixture"],
+                        rows=[[["text", full_text]]])
+        self.session.call = large_result
+        with self.assertRaises(ValueError):
+            self.run_script([self.contract, self.read, ValueError("fixture context rejection")])
+        self.assertEqual(self.session.attempts, 1)
+        self.assertEqual(self.records["g001.response"]["response"]["content"], self.contract)
+        observation = self.records["t001.response"]["observation"]
+        self.assertEqual(observation["rows"][0][0][1], full_text)
+        sent = json.loads(self.requests[2]["messages"][-1]["content"])
+        self.assertEqual(sent["tool_observation"], observation)
+        self.assertIn("g003.failure", self.records)
+        self.assertNotIn("t002.pending", self.records)
+        self.assertNotIn("summary", self.records)
+
     def test_write_failure_prevents_generation(self):
         def fail(name, record):
             raise OSError("fixture")
