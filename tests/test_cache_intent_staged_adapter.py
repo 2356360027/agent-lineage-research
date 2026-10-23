@@ -143,6 +143,13 @@ class AdapterTests(unittest.TestCase):
             Adapter(**self.args,protocol="recovery-v2",text_count=lambda t:2)(self.request)
         self.assertIn("http-g001.provider",self.saved)
 
+    def test_recovery_framed_cap_checked_separately_from_raw_cap(self):
+        counter=lambda text:529 if text.startswith("<|im_start|>") else 2
+        with self.assertRaises(ValueError):
+            Adapter(**self.args,protocol="recovery-v2",text_count=counter)(self.request)
+        self.assertEqual(self.saved["http-g001.completion_context"]["assistant_frame_tokens"],529)
+        self.assertIn("http-g001.provider",self.saved)
+
     def test_recovery_does_not_accept_legacy_terminal_stage_at_22(self):
         adapter=Adapter(**self.args,protocol="recovery-v2",text_count=lambda t:2)
         for index in range(1,22):

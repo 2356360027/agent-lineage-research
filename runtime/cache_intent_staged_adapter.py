@@ -124,13 +124,17 @@ class Adapter:
                 type(message.get("content")) is not str):
             raise ValueError("Unexpected provider message")
         if self.protocol == "recovery-v2":
+            from runtime.cache_intent_capacity import frame, ASSISTANT_FRAME_CAP
             local_tokens = self.text_count(message["content"])
+            framed_tokens = self.text_count(frame("assistant",message["content"]))
             self.save(name+".completion_context", {
                 "content_sha256":client.sha(message["content"].encode("utf-8")),
                 "raw_text_tokens_local":local_tokens,"cap":self.max_tokens,
+                "assistant_frame_tokens":framed_tokens,"assistant_frame_cap":ASSISTANT_FRAME_CAP,
                 "provider_completion_tokens":None if usage is None else usage["completion_tokens"],
                 "retokenization_is_not_provider_usage":True})
             if (type(local_tokens) is not int or not 0 <= local_tokens <= self.max_tokens
+                    or type(framed_tokens) is not int or not 0 <= framed_tokens <= ASSISTANT_FRAME_CAP
                     or (usage is not None and usage["completion_tokens"] > self.max_tokens)):
                 raise ValueError("Recovery output exceeds its cap or counter is invalid; no truncation")
         # Preserve non-stop output. The loop records it as invalid, never repairs it.

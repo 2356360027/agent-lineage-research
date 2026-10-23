@@ -9,6 +9,7 @@ from unittest.mock import patch
 from runtime import bird_readonly_audit as audit
 from runtime.cache_intent_staged_adapter import Adapter
 from runtime.cache_intent_journal import Journal
+from runtime.cache_intent_capacity import RecoveryCapacity
 from scripts.fetch_bird_fixed import absent,no_link_ancestors,read_json
 from scripts.measure_staged_context_offline import archived_counters
 
@@ -37,10 +38,10 @@ def main(args):
             if len(pending)!=23: raise ValueError("Unexpected fixture schedule")
             position=0
             counts=[]
-            def context(payload):
-                n=count_chat(payload["messages"])
-                return dict(payload_sha256=audit.digest(payload),prompt_tokens_local=n,
-                    reserved_completion_tokens=512,max_model_len=32768,fits=n+512<=32768,truncated=False)
+            envelope=read_json(root/"started.json")["preview"]
+            context=RecoveryCapacity(envelope,count_chat,count_text,max_model_len=32768,
+                tokenizer_sha256=tokenizer_receipt["tokenizer_files_sha256"]["tokenizer.json"],
+                template_sha256=tokenizer_receipt["template_sha256_utf8"])
             def transport(directory,endpoint,method,timeout,request):
                 nonlocal position
                 original=read_json(pending[position])
@@ -60,12 +61,14 @@ def main(args):
                 returned=adapter(request)
                 log(request["generation_id"]+".output",returned)
             log.seal()
-            results.append({"route_id":route["route_id"],"scripted_dispatches":position,"counts":counts})
+            results.append({"route_id":route["route_id"],"scripted_dispatches":position,"counts":counts,
+                            "conditional_full_history_bound":context.bound})
     audit.save_new(output/"report.json",{"status":"SCRIPTED_ADAPTER_REPLAY_ONLY","model_calls":0,
         "sql_queries":0,"http_requests":0,"source_manifest_sha256":args.manifest_sha256,
         "source_sha256":audit.hash_file(__file__),"adapter_sha256":audit.hash_file(
             Path(__file__).parents[1]/"runtime/cache_intent_staged_adapter.py"),
-        "provider_equivalence_verified":False,"full_context_upper_bound_proved":False,
+        "provider_equivalence_verified":False,"unconditional_context_guarantee":False,
+        "capacity_source_sha256":audit.hash_file(Path(__file__).parents[1]/"runtime/cache_intent_capacity.py"),
         "tokenizer_receipt":tokenizer_receipt,"routes":results})
     with (output/"replay_source.py").open("xb") as f: f.write(Path(__file__).read_bytes())
     audit.save_new(output/"artifact_hashes.json",{p.relative_to(output).as_posix():audit.hash_file(p)
