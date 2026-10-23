@@ -18,7 +18,7 @@ from runtime.cache_intent_journal import Journal
 from scripts.fetch_bird_fixed import absent,no_link_ancestors,strict_json
 
 
-def load_archive(root,manifest_sha):
+def load_archive(root,manifest_sha,*,include_trace=False):
     root=Path(root).absolute(); no_link_ancestors(root)
     manifest=strict_json(pinned_bytes(root/"artifact_hashes.json",manifest_sha).decode("utf-8"))
     if type(manifest) is not dict or not manifest:
@@ -39,7 +39,9 @@ def load_archive(root,manifest_sha):
     for name,sha in manifest.items():
         path=root/name
         if audit.hash_file(path)!=sha: raise ValueError("Archive content changed")
-        if name.startswith("batch/") or name.endswith(("/g001.pending.json","/g001.response.json")):
+        trace_member=re.fullmatch(r"h(?:200|234)[abc]-p[18]/trace/[gt]\d{3}\.(?:pending|response|failure|exposure|exposure_failure)\.json",name)
+        if (name.startswith("batch/") or name.endswith(("/g001.pending.json","/g001.response.json"))
+                or (include_trace and trace_member)):
             raw[name]=pinned_bytes(path,sha)
     return raw,manifest
 

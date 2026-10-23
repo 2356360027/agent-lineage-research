@@ -1,0 +1,58 @@
+{
+  "date": "2026-10-24",
+  "status": "LOCAL_TRACE_EVIDENCE_RECONSTRUCTION_CHECKED",
+  "previous_goal_turn": "progress",
+  "previous_commit": "f954422",
+  "authority": "Local preparation only; server stopped",
+  "new_capability": "Link pre-result contract, generated action, tool pending/response and visible observation to subsequent saved requests without supplying semantic labels",
+  "modules": [
+    "runtime/cache_intent_trace_evidence.py",
+    "scripts/audit_staged_trace_evidence.py"
+  ],
+  "distinctions": [
+    "A generated tool action is not necessarily a recorded dispatch or completed execution",
+    "A saved request is not proof of successful server inference",
+    "A raw tool result can be withheld and therefore absent from subsequent model inputs",
+    "Reading a cache does not establish that the final answer applies it incompatibly",
+    "Forward contract visibility does not prove semantic consistency or causal mediation",
+    "Secondary full traces expose conditions; freeze primary label-masked review before consulting them"
+  ],
+  "retained_development_failure": {
+    "tool_evidence": "8fc8df",
+    "status": "ARCHIVED_TRACE_CHECK_FAILED_BEFORE_FIX",
+    "diagnosis_evidence": "54fd61",
+    "cause": "Sorted journal object keys changed reserialized observation text order relative to the original saved request string",
+    "fix": "Check new observation as strict structured JSON, preserve the actual saved request text, and require exact unchanged preceding message history",
+    "old_artifacts_modified": false,
+    "scientific_failure_claim": false
+  },
+  "tests": {
+    "status": "PASS",
+    "tool_evidence": "cdaba9",
+    "trace_evidence_tests": 11,
+    "primary_review_regression_tests": 9,
+    "total": 20,
+    "seconds": 0.854,
+    "scope": "Mocked replies, synthetic local archives, in-memory tool fixtures; no live inference"
+  },
+  "archived_scripted_trace_check": {
+    "tool_evidence": "9e1750",
+    "archive": "runtime/runs/staged-recovery-audit-20261024-001",
+    "manifest_sha256": "ad26ef33712ddcc71450ed33d308f8178ae2855d49090f7a0365f14fa38d1e55",
+    "verified_files": 651,
+    "scripted_routes_checked": 4,
+    "recorded_generations_per_route": 23,
+    "tool_pending_records_per_route": 21,
+    "all_reconstructed_terminations": "ANSWERED",
+    "scope": "Replay of saved software-test records only, not new model or SQL execution",
+    "model_quality_or_semantic_success_claim": false
+  },
+  "new_model_calls": 0,
+  "new_sql_queries": 0,
+  "network_requests": 0,
+  "semantic_labels_generated": false,
+  "scientific_status": "Cache-price-induced contract drift and incremental benefit beyond strong baselines remain untested",
+  "remaining_measurement_gate": "Independent semantic review/adjudication and hash-bound import into fixed-pair descriptive summaries; do not fill missing labels automatically",
+  "new_paid_batch_started": false,
+  "public_push_this_turn": false
+}
