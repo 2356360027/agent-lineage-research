@@ -114,6 +114,28 @@ class RecoveryTests(unittest.TestCase):
         for value in (True,0,-1,1.5):
             with self.assertRaises(ValueError): ObservationBound(lambda m:value).apply(raw)
 
+    def test_loop_and_recovery_adapter_connected_through_23rd_call(self):
+        from runtime.cache_intent_staged_adapter import Adapter
+        responses=iter([self.contract]+[self.sql]*21+[self.answer])
+        dispatched=[]
+        def transport(directory,endpoint,method,timeout,request):
+            dispatched.append(deepcopy(request))
+            return {"model":"SCRIPTED_NOT_MODEL","choices":[{
+                "message":{"content":next(responses)},"finish_reason":"stop"}],
+                "usage":{"prompt_tokens":100,"completion_tokens":10}}
+        adapter=Adapter(endpoint="http://127.0.0.1:8000/v1",model="SCRIPTED_NOT_MODEL",
+            seed=17,max_tokens=512,max_seconds=30,directory="unused-fixture",save=self.save,
+            context_check=lambda p:dict(payload_sha256=audit.digest(p),prompt_tokens_local=100,
+                reserved_completion_tokens=512,max_model_len=32768,fits=True,truncated=False),
+            protocol="recovery-v2",text_count=lambda text:10,transport=transport)
+        result=loop.run_recovery_trajectory(self.pair[0],self.session,adapter,self.save,
+                                          ObservationBound(lambda messages:100))
+        self.assertEqual(result["status"],"ANSWERED")
+        self.assertEqual(len(dispatched),23)
+        self.assertEqual(self.session.attempts,21)
+        self.assertIn("http-g023.provider",self.records)
+        self.assertEqual(self.records["g023.pending"]["stage"],"terminal")
+
 
 class RealToolReserveTests(unittest.TestCase):
     def test_real_readonly_backend_reserve_for_both_prices_and_max_spend(self):

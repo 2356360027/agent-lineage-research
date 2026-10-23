@@ -48,6 +48,12 @@ def load_inputs(package, manifest_sha256, scope_input=None, scope_manifest_sha25
 
 def archived_counter(archive_root, dependency_dir):
     """Archived plain-chat counter, not proof of provider equivalence."""
+    count, _, receipt = archived_counters(archive_root,dependency_dir)
+    return count,receipt
+
+
+def archived_counters(archive_root, dependency_dir):
+    """Same verified tokenizer for full chat and raw output retokenization."""
     root = Path(archive_root); no_link_ancestors(root)
     model = root / "model-cache/Qwen/Qwen2.5-7B-Instruct"
     manifest = read_json(root / "MANIFEST.json")
@@ -80,7 +86,12 @@ def archived_counter(archive_root, dependency_dir):
             raise ValueError("Archived template differs from independently constructed plain-role framing")
         return len(tokenizer.encode(text, add_special_tokens=False).ids)
 
-    return count, {"tokenizer_files_sha256":fingerprints,
+    def count_text(text):
+        if type(text) is not str:
+            raise TypeError("Raw text required")
+        return len(tokenizer.encode(text,add_special_tokens=False).ids)
+
+    return count, count_text, {"tokenizer_files_sha256":fingerprints,
         "archive_manifest_sha256":audit.hash_file(root/"MANIFEST.json"),
         "template_sha256_utf8":hashlib.sha256(template.encode("utf-8")).hexdigest(),
         "versions":{"tokenizers":tokenizers.__version__,"jinja2":jinja2.__version__}}

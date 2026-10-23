@@ -25,7 +25,8 @@ def response_format(stage):
 
 class Adapter:
     def __init__(self, *, endpoint, model, seed, max_tokens, max_seconds,
-                 directory, save, context_check, transport=None, clock=time.monotonic):
+                 directory, save, context_check, transport=None, clock=time.monotonic,
+                 protocol="staged-v1", text_count=None):
         client.endpoint_url(endpoint)
         if type(model) is not str or not model.strip():
             raise ValueError("Explicit model ID required")
@@ -37,6 +38,12 @@ class Adapter:
             raise ValueError("Explicit trajectory deadline 1..1800 seconds required")
         if not callable(context_check):
             raise ValueError("Context preflight is required")
+        if protocol not in ("staged-v1","recovery-v2"):
+            raise ValueError("Unknown adapter protocol")
+        if protocol == "recovery-v2" and (max_tokens != 512 or not callable(text_count)):
+            raise ValueError("Recovery v2 requires a 512 cap and verified raw-text counter")
+        self.protocol, self.text_count = protocol, text_count
+        self.max_calls = 23 if protocol == "recovery-v2" else 22
         self.context_check = context_check
         self.endpoint, self.model, self.seed = endpoint, model, seed
         self.max_tokens, self.max_seconds = max_tokens, max_seconds
@@ -46,7 +53,7 @@ class Adapter:
         self.count, self.failed = 0, False
 
     def __call__(self, request):
-        if self.failed or self.count >= 22:
+        if self.failed or self.count >= self.max_calls:
             raise RuntimeError("Adapter terminal; no retry or extra calls")
         try:
             return self._call(request)
@@ -60,7 +67,8 @@ class Adapter:
                 {"generation_id", "stage", "messages", "contract_event"}
                 or request["generation_id"] != f"g{index:03d}"):
             raise ValueError("Invalid generation sequence")
-        expected_stage = "contract" if index == 1 else "terminal" if index == 22 else "action"
+        expected_stage = ("contract" if index == 1 else "terminal" if index == self.max_calls
+                          else "recovery" if self.protocol == "recovery-v2" and index == 22 else "action")
         if (request["stage"] != expected_stage or
                 request["contract_event"] != (None if index == 1 else "g001")):
             raise ValueError("Invalid stage/contract linkage")
@@ -115,6 +123,16 @@ class Adapter:
                 message.get("function_call") or message.get("refusal") or
                 type(message.get("content")) is not str):
             raise ValueError("Unexpected provider message")
+        if self.protocol == "recovery-v2":
+            local_tokens = self.text_count(message["content"])
+            self.save(name+".completion_context", {
+                "content_sha256":client.sha(message["content"].encode("utf-8")),
+                "raw_text_tokens_local":local_tokens,"cap":self.max_tokens,
+                "provider_completion_tokens":None if usage is None else usage["completion_tokens"],
+                "retokenization_is_not_provider_usage":True})
+            if (type(local_tokens) is not int or not 0 <= local_tokens <= self.max_tokens
+                    or (usage is not None and usage["completion_tokens"] > self.max_tokens)):
+                raise ValueError("Recovery output exceeds its cap or counter is invalid; no truncation")
         # Preserve non-stop output. The loop records it as invalid, never repairs it.
         finish = choice.get("finish_reason")
         if finish != "stop":

@@ -114,5 +114,44 @@ class AdapterTests(unittest.TestCase):
             Adapter(**(self.args | {"context_check":slow}))(self.request)
         self.assertFalse(self.sent)
 
+    def test_recovery_schedule_supports_23_calls_and_rejects_24(self):
+        adapter=Adapter(**self.args,protocol="recovery-v2",text_count=lambda text:2)
+        for index in range(1,24):
+            stage="contract" if index==1 else "recovery" if index==22 else "terminal" if index==23 else "action"
+            adapter(self.request|{"generation_id":f"g{index:03d}","stage":stage,
+                                  "contract_event":None if index==1 else "g001"})
+        self.assertEqual(len(self.sent),23)
+        with self.assertRaises(RuntimeError): adapter(self.request)
+        self.assertIn("http-g023.completion_context",self.saved)
+
+    def test_recovery_requires_counter_and_fixed_cap(self):
+        with self.assertRaises(ValueError): Adapter(**self.args,protocol="recovery-v2")
+        with self.assertRaises(ValueError):
+            Adapter(**(self.args|{"max_tokens":256}),protocol="recovery-v2",text_count=lambda t:2)
+
+    def test_recovery_overlong_output_preserved_not_retried(self):
+        adapter=Adapter(**self.args,protocol="recovery-v2",text_count=lambda t:513)
+        with self.assertRaises(ValueError): adapter(self.request)
+        self.assertIn("http-g001.provider",self.saved)
+        self.assertEqual(self.saved["http-g001.completion_context"]["raw_text_tokens_local"],513)
+        with self.assertRaises(RuntimeError): adapter(self.request)
+        self.assertEqual(len(self.sent),1)
+
+    def test_recovery_provider_over_cap_rejected_even_if_retokenization_short(self):
+        self.response["usage"]={"prompt_tokens":12,"completion_tokens":513}
+        with self.assertRaises(ValueError):
+            Adapter(**self.args,protocol="recovery-v2",text_count=lambda t:2)(self.request)
+        self.assertIn("http-g001.provider",self.saved)
+
+    def test_recovery_does_not_accept_legacy_terminal_stage_at_22(self):
+        adapter=Adapter(**self.args,protocol="recovery-v2",text_count=lambda t:2)
+        for index in range(1,22):
+            adapter(self.request|{"generation_id":f"g{index:03d}",
+                "stage":"contract" if index==1 else "action",
+                "contract_event":None if index==1 else "g001"})
+        with self.assertRaises(ValueError):
+            adapter(self.request|{"generation_id":"g022","stage":"terminal","contract_event":"g001"})
+        self.assertEqual(len(self.sent),21)
+
 
 if __name__ == "__main__": unittest.main()

@@ -123,3 +123,30 @@ Remaining admission gate: verified generation/observation token accounting and
 full permitted-history bound, valid correct-route output caps for all admitted
 tasks, current serving equivalence and explicit paid-batch authorization. Do not
 describe the strong feasibility premise as fully established yet.
+
+## Adapter integration correction
+
+Further inspection found that the legacy Adapter still allowed only 22 calls
+and interpreted g022 as terminal. The v2 loop needs g022 recovery and g023
+terminal. Prior script-generated route checks bypassed that adapter; they did
+not establish end-to-end compatibility. The adapter now requires an explicit
+`protocol="recovery-v2"` selection, supports exactly that schedule, and rejects
+extra/mis-staged calls. Legacy defaults remain unchanged.
+
+V2 also requires a verified raw-text counter and a fixed 512-token output cap.
+It retains provider output before checking local retokenized length and any
+reported completion count. Over-cap output is a preserved failure, not truncated
+or retried. Missing provider usage stays unknown; retokenization is not usage.
+
+Four sealed scripted traces were replayed through the adapter using actual
+archived-tokenizer counts and an injected transport: 92 scripted dispatches,
+zero HTTP requests, zero model calls, zero SQL queries in this replay. Largest
+prompt 3578 and raw output 124 tokens. All terminal stages were accepted. New
+schedule/over-cap tests and a loop-adapter integration fixture pass. These are
+software checks, not proof of live provider compatibility or a universal bound.
+
+The tokenizer file contains an NFC normalizer and explicit byte-level splitting;
+do not assume raw content counts are automatically additive under whole-chat
+serialization. A valid capacity proof must account for framing and tokenization
+boundaries or enforce a verified compositional envelope, not extrapolate from
+these four short paths. This remains the next local gate.
