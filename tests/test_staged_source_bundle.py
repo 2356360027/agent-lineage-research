@@ -43,12 +43,13 @@ from runtime import cache_intent_recovery_preview, cache_intent_observation_boun
 from runtime import cache_intent_batch
 from runtime import cache_intent_deployment
 from runtime import cache_intent_entry
+from runtime import cache_intent_native_batch
 from scripts import prepare_staged_source_bundle
 modules = [cache_intent_staged_adapter,cache_intent_staged_loop,cache_intent_journal,
            cache_intent_staged_preview,cache_intent_tools,native,bird_readonly_audit,
            prepare_staged_source_bundle,cache_intent_recovery_preview,
            cache_intent_observation_bound,cache_intent_capacity,cache_intent_batch,
-           cache_intent_deployment,cache_intent_entry]
+           cache_intent_deployment,cache_intent_entry,cache_intent_native_batch]
 for module in modules:
     assert Path(module.__file__).resolve().is_relative_to(Path.cwd().resolve())
 with tempfile.TemporaryDirectory() as directory:
@@ -74,7 +75,7 @@ print(json.dumps({"imported_modules":len(modules),"synthetic_readonly_calls":1,"
     def test_required_recovery_components_present(self):
         for name in ("cache_intent_recovery_preview", "cache_intent_observation_bound",
                      "cache_intent_capacity", "cache_intent_batch", "cache_intent_deployment",
-                     "cache_intent_entry"):
+                     "cache_intent_entry", "cache_intent_native_batch"):
             self.assertIn("runtime/"+name+".py", bundle.FILES)
 
 

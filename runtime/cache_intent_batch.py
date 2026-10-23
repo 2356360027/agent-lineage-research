@@ -1,4 +1,4 @@
-"""Fixed development allocation and SCRIPTED-only local batch wiring.
+"""Fixed development allocation and common batch wiring.
 
 No default network transport or live CLI. This validates orchestration before a
 separately authorized live launcher exists. Scripted replies are never evidence
@@ -81,12 +81,28 @@ def scripted_batch(plan,*,expected_plan_sha256,caches,database,output,count_chat
     Tests/replays supply it; model identity is deliberately not configurable.
     No resumption, retry, reference-answer loading or semantic labels.
     """
+    return _run_batch(plan,expected_plan_sha256=expected_plan_sha256,caches=caches,
+        database=database,output=output,count_chat=count_chat,count_text=count_text,
+        tokenizer_sha256=tokenizer_sha256,template_sha256=template_sha256,
+        transport=lambda job,directory,endpoint,timeout,payload:transport(job,payload),clock=clock,
+        backend="scripted",model="SCRIPTED_NOT_MODEL",backend_receipt={"model_calls":0})
+
+
+def _run_batch(plan,*,expected_plan_sha256,caches,database,output,count_chat,count_text,
+               tokenizer_sha256,template_sha256,transport,clock=time.monotonic,
+               backend,model,backend_receipt):
+    """Internal common engine. Native callers own resource/source/model admission."""
+    if backend not in ("scripted","native"):
+        raise ValueError("Unknown backend")
+    if model != ("SCRIPTED_NOT_MODEL" if backend=="scripted" else "Qwen/Qwen2.5-7B-Instruct"):
+        raise ValueError("Wrong backend/model pairing")
     validate_plan(plan,caches)
     if audit.digest(plan)!=expected_plan_sha256: raise ValueError("Plan hash changed")
-    if not callable(transport): raise ValueError("Explicit scripted transport required")
+    if not callable(transport): raise ValueError("Explicit transport required")
     output=Path(output); absent(output)
     records=Journal(output/"batch")
     records("plan",plan)
+    records("backend",{"kind":backend,"model":model,"receipt":backend_receipt})
     start=clock()
     rows=[dict(id=j["id"],status="NOT_STARTED",generation_calls=0) for j in plan["jobs"]]
     dispatched=0
@@ -110,7 +126,7 @@ def scripted_batch(plan,*,expected_plan_sha256,caches,database,output,count_chat
                 database_sha256=packet["context"]["database_sha256"],
                 history_sql=packet["history"]["sql"],cached_result=caches[job["history_id"]],
                 input_receipt={"plan_sha256":expected_plan_sha256,"job_id":job["id"],
-                               "backend":"SCRIPTED_NOT_MODEL"},output=root/"tools",
+                               "backend":backend,"model":model},output=root/"tools",
                 materialized_available=True,cache_read_cost=job["read_price"],
                 budget_profile=tools.RECOVERY_PROFILE)
             def dispatch(directory,endpoint,method,timeout,request):
@@ -118,13 +134,13 @@ def scripted_batch(plan,*,expected_plan_sha256,caches,database,output,count_chat
                 check()
                 if dispatched>=plan["max_generations"]: raise RuntimeError("Batch call ceiling")
                 dispatched+=1
-                value=transport(job["id"],deepcopy(request))
+                value=transport(job["id"],directory,endpoint,timeout,deepcopy(request))
                 # Adapter saves the provider response before validating its ID.
                 return value
-            adapter=Adapter(endpoint="http://127.0.0.1:8000/v1",model="SCRIPTED_NOT_MODEL",
+            adapter=Adapter(endpoint="http://127.0.0.1:8000/v1",model=model,
                 seed=job["seed"],max_tokens=512,max_seconds=max(1,int(plan["max_seconds"]-(clock()-start))),
-                directory=root/"unused-network",save=trace,context_check=cap,transport=dispatch,
-                protocol="recovery-v2",text_count=count_text,clock=clock)
+                directory=root/"network",save=trace,context_check=cap,transport=dispatch,
+                protocol="recovery-v2",text_count=count_text,clock=clock,require_usage=backend=="native")
             result=run_recovery_trajectory(job["envelope"],DeadlineSession(session,check),adapter,
                                            trace,ObservationBound(count_chat))
             entry.update(status=result["status"],generation_calls=result["generation_calls"])
@@ -152,10 +168,15 @@ def scripted_batch(plan,*,expected_plan_sha256,caches,database,output,count_chat
                     entry["trace_seal_error"]=type(exc).__name__
                     stop_reason="FINALIZATION_FAILED"
         records(f"job-{position:02d}.outcome",entry)
-    summary=dict(status="SCRIPTED_BATCH_STOPPED" if stop_reason else "SCRIPTED_BATCH_FINISHED",
+    prefix="SCRIPTED" if backend=="scripted" else "NATIVE_UNREVIEWED"
+    summary=dict(status=prefix+("_BATCH_STOPPED" if stop_reason else "_BATCH_FINISHED"),
         stop_reason=stop_reason,rows=rows,planned_trajectories=12,scripted_dispatches=dispatched,
-        model_calls=0,semantic_judgments=0,wall_seconds=clock()-start,
+        model_calls=0 if backend=="scripted" else None,semantic_judgments=0,wall_seconds=clock()-start,
         deadline_kind="cooperative_checks_not_hard_process_timeout",inference_authorized=False)
+    if backend=="native":
+        summary.pop("scripted_dispatches")
+        summary.update(model_dispatch_attempts=dispatched,
+            model_calls_note="Attempts are not verified completions; see immutable HTTP records")
     records("summary",summary); records.seal()
     audit.save_new(output/"artifact_hashes.json",{p.relative_to(output).as_posix():audit.hash_file(p)
         for p in sorted(output.rglob("*")) if p.is_file()})

@@ -26,7 +26,7 @@ def response_format(stage):
 class Adapter:
     def __init__(self, *, endpoint, model, seed, max_tokens, max_seconds,
                  directory, save, context_check, transport=None, clock=time.monotonic,
-                 protocol="staged-v1", text_count=None):
+                 protocol="staged-v1", text_count=None, require_usage=False):
         client.endpoint_url(endpoint)
         if type(model) is not str or not model.strip():
             raise ValueError("Explicit model ID required")
@@ -43,6 +43,8 @@ class Adapter:
         if protocol == "recovery-v2" and (max_tokens != 512 or not callable(text_count)):
             raise ValueError("Recovery v2 requires a 512 cap and verified raw-text counter")
         self.protocol, self.text_count = protocol, text_count
+        if type(require_usage) is not bool: raise TypeError("Explicit usage policy required")
+        self.require_usage = require_usage
         self.max_calls = 23 if protocol == "recovery-v2" else 22
         self.context_check = context_check
         self.endpoint, self.model, self.seed = endpoint, model, seed
@@ -112,6 +114,8 @@ class Adapter:
         if type(raw) is not dict or raw.get("model") != self.model:
             raise ValueError("Provider model ID mismatch")
         usage = client.valid_usage(raw)
+        if self.require_usage and usage is None:
+            raise ValueError("Native backend must report token usage; raw response retained")
         if usage is not None and usage["prompt_tokens"] != context["prompt_tokens_local"]:
             raise ValueError("Provider/local token count mismatch; do not continue")
         choices = raw.get("choices")

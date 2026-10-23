@@ -110,5 +110,38 @@ class BatchTests(unittest.TestCase):
         self.assertEqual(result["scripted_dispatches"],1)
         self.assertEqual(sum(r["status"]=="NOT_STARTED" for r in result["rows"]),11)
 
+    def native_fixture(self,with_usage):
+        counts={}
+        def fake(job,directory,endpoint,timeout,payload):
+            n=counts.get(job,0)+1; counts[job]=n
+            content=self.contract if n==1 else json.dumps({"kind":"answer","text":"7"})
+            reply=self.provider(content)|{"model":"Qwen/Qwen2.5-7B-Instruct"}
+            if with_usage:
+                reply["usage"]={"prompt_tokens":self.chat(payload["messages"]),
+                                "completion_tokens":self.text(content)}
+            return reply
+        with patch("urllib.request.OpenerDirector.open",side_effect=AssertionError("No network")):
+            return batch._run_batch(self.plan,expected_plan_sha256=audit.digest(self.plan),
+                caches=self.caches,database=self.db,output=self.root/"run",count_chat=self.chat,
+                count_text=self.text,tokenizer_sha256="a"*64,template_sha256="b"*64,
+                transport=fake,backend="native",model="Qwen/Qwen2.5-7B-Instruct",
+                backend_receipt={"TEST_ONLY_FAKE_TRANSPORT":True,"actual_model_calls":0})
+
+    def test_native_engine_mock_only_all_slots_and_usage(self):
+        result=self.native_fixture(True)
+        self.assertEqual(result["status"],"NATIVE_UNREVIEWED_BATCH_FINISHED")
+        self.assertEqual(result["model_dispatch_attempts"],24)
+        self.assertIsNone(result["model_calls"])
+        self.assertTrue(all(r["status"]=="ANSWERED" for r in result["rows"]))
+        self.assertEqual(result["semantic_judgments"],0)
+        verify(self.root/"run/batch")
+
+    def test_native_engine_missing_usage_retained_stops_without_retry(self):
+        result=self.native_fixture(False)
+        self.assertEqual(result["model_dispatch_attempts"],1)
+        self.assertEqual(result["rows"][0]["status"],"FAILED")
+        self.assertEqual(sum(r["status"]=="NOT_STARTED" for r in result["rows"]),11)
+        self.assertTrue((self.root/"run/h200a-p1/trace/http-g001.provider.json").is_file())
+
 
 if __name__=="__main__": unittest.main()
