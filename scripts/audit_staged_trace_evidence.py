@@ -6,7 +6,7 @@ from runtime import bird_readonly_audit as audit
 from runtime import cache_intent_trace_evidence as evidence
 from runtime.cache_intent_batch import HISTORIES
 from runtime.cache_intent_journal import Journal
-from scripts.prepare_staged_contract_review import load_archive
+from scripts.prepare_staged_contract_review import load_archive,declared_backend
 from scripts.fetch_bird_fixed import absent,strict_json
 
 
@@ -16,11 +16,11 @@ def prepare(run,*,manifest_sha,plan_sha,output):
     absent(output)
     raw,manifest=load_archive(run,manifest_sha,include_trace=True)
     read=lambda name:strict_json(raw[name].decode("utf-8"))
-    plan=read("batch/plan.json"); backend=read("batch/backend.json")
+    plan=read("batch/plan.json"); backend=declared_backend(raw)
     expected={f"{h}-p{p}" for h in HISTORIES for p in (1,8)}
     if (audit.digest(plan)!=plan_sha or len(plan["jobs"])!=12
             or {j["id"] for j in plan["jobs"]}!=expected
-            or plan["independent_targets"]!=2 or backend.get("kind") not in ("scripted","native")):
+            or plan["independent_targets"]!=2):
         raise ValueError("Wrong fixed plan/backend")
     outcome=read("batch/summary.json")
     if len(outcome["rows"])!=12 or {r["id"] for r in outcome["rows"]}!=expected:

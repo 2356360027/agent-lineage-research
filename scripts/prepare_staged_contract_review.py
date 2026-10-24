@@ -46,6 +46,33 @@ def load_archive(root,manifest_sha,*,include_trace=False):
     return raw,manifest
 
 
+def declared_backend(raw):
+    """Normalize explicit recorder declarations, never attest remote execution."""
+    legacy='batch/backend.json' in raw
+    official_format='batch/settings.json' in raw
+    if legacy == official_format:
+        raise ValueError('Exactly one backend declaration format is required')
+    if legacy:
+        backend=strict_json(raw['batch/backend.json'].decode('utf-8'))
+        if backend.get('kind') not in ('scripted','native'):
+            raise ValueError('Unsupported legacy backend declaration')
+        return backend
+    settings=strict_json(raw['batch/settings.json'].decode('utf-8'))
+    mode=settings.get('backend')
+    names={'SCRIPTED_NOT_MODEL':'scripted','OFFICIAL_UNREVIEWED':'official-deepseek'}
+    if (mode not in names or settings.get('max_calls')!=276
+            or settings.get('max_output_tokens')!=512
+            or settings.get('independent_targets')!=2
+            or settings.get('automatic_retry') is not False
+            or settings.get('confirmation_study') is not False):
+        raise ValueError('Unsupported DeepSeek batch declaration')
+    summary=strict_json(raw['batch/summary.json'].decode('utf-8'))
+    if summary.get('status') not in (mode+'_FINISHED',mode+'_STOPPED'):
+        raise ValueError('Backend and terminal batch summary disagree')
+    return {'kind':names[mode], 'declared_mode':mode,
+            'server_dispatch_attested':False,'remote_weights_identified':False}
+
+
 def prepare(run,*,manifest_sha,plan_sha,output):
     run=Path(run).absolute(); output=Path(output).absolute()
     if output==run or output.is_relative_to(run): raise ValueError("Keep review outside raw archive")
@@ -59,9 +86,7 @@ def prepare(run,*,manifest_sha,plan_sha,output):
     if (len(jobs)!=12 or {j["id"] for j in jobs}!=expected
             or plan["independent_targets"]!=2):
         raise ValueError("Expected the twelve fixed development slots")
-    backend=read("batch/backend.json")
-    if backend.get("kind") not in ("scripted","native"):
-        raise ValueError("Explicit source backend required; never infer model provenance")
+    backend=declared_backend(raw)
     summary=read("batch/summary.json")
     if (len(summary["rows"])!=12 or {r["id"] for r in summary["rows"]}!=expected):
         raise ValueError("Batch omitted planned outcomes")
@@ -114,6 +139,8 @@ def prepare(run,*,manifest_sha,plan_sha,output):
             "Use match, contradiction, or unresolved; leave unavailable text unresolved.",
             "Record material omission separately; omission alone need not be contradiction.",
             "Original text is unedited and may reveal condition clues; this is label masking only.",
+            "Backend is a recorder declaration, not independent proof of remote execution or model weights.",
+            "Missing review text means no accepted loop response; rejected provider records may still exist in the organizer archive.",
             "Two previously inspected tasks: development review, not independent confirmation."],
         reviewer=dict(code=None,date=None,independently_completed=None,
             prior_exposure=None,assistance_used=None,current_request_review_reference=None),
@@ -129,6 +156,7 @@ def prepare(run,*,manifest_sha,plan_sha,output):
         missing_responses=sum(i["response_availability"]=="NO_SAVED_RESPONSE" for i in items),
         source_backend=backend["kind"],semantic_labels_generated=False,
         primary_endpoint_gated_on_later_success=False,complete_blinding_claimed=False,
+        server_dispatch_or_execution_attested=False,remote_weights_identified=False,
         model_calls=0,sql_queries=0,network_requests=0)
     journal("receipt",receipt); journal.seal()
     return receipt

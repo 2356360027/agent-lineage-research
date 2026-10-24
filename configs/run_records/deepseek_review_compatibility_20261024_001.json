@@ -1,0 +1,32 @@
+{
+  "status": "OFFLINE_REVIEW_EXPORT_COMPATIBILITY_PASSED",
+  "research_model_calls": 0,
+  "semantic_labels_created": 0,
+  "paid_requests": 0,
+  "software_tests_passed": 68,
+  "test_modules": [
+    "tests.test_deepseek_review_export",
+    "tests.test_prepare_staged_contract_review",
+    "tests.test_cache_intent_review_accounting",
+    "tests.test_cache_intent_trace_evidence",
+    "tests.test_cache_intent_judgment"
+  ],
+  "checks": [
+    "Recognize explicit new batch/settings.json declarations without relabeling scripted runs as models",
+    "Reject conflicting backend formats and mismatched terminal summary declarations",
+    "Reject unsealed or modified archives before exporting review items",
+    "Preserve earlier contracts after later provider failure, with all twelve planned slots",
+    "Reconstruct observable event links from an actual scripted DeepSeek-orchestrator archive",
+    "Keep primary reviewer labels blank and hide condition and later-outcome metadata",
+    "Preserve legacy archive and review-accounting compatibility"
+  ],
+  "test_correction": "The unsealed-archive test initially expected FileNotFoundError; the existing pinned loader correctly raises ValueError before export. The assertion was corrected to the actual fail-closed contract, without changing production admission behavior.",
+  "frozen_prepared_manifest_sha256": "fb77253437f46a3b7875298b02bbe1061b50cd5e8605ce582d7cd48a2c339ce4",
+  "frozen_experiment_sources_unchanged": true,
+  "execution_claim_present_at_check": false,
+  "independent_development_targets": 2,
+  "complete_blinding_claimed": false,
+  "remote_model_execution_attested": false,
+  "raw_records_public": false,
+  "scientific_limit": "Software fixtures only. No real contract-drift observations, causal effect, human adjudication, or strong-baseline gain established."
+}
