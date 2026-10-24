@@ -1,0 +1,59 @@
+{
+  "status": "FROZEN_PREFLIGHT_PASSED_AWAITING_FRESH_AUTHORIZATION",
+  "date": "2026-10-24",
+  "prepared_directory": "runtime/runs/cache-action-prepared-20261024-001",
+  "prepared_manifest_sha256": "d68bdc44d902d51089a18e687942dc2d55f7377c20513c327aac5ad5a7aa3cde",
+  "input_manifest_sha256": "5602f3453cfebfb8a09f9ec5e98b722eb7f159eda4c32981cc11d879e513ec85",
+  "plan_sha256": "0bbaa88e9628488ab2be25ec25de8f54c0b0b7c3a48c4533736dbbf4de14432a",
+  "grading_policy_sha256": "881e5db026f45d898ad41aa91fec1accc12d63986fd96d555dd77baec97d819d",
+  "scope": {
+    "reused_development_tasks": 2,
+    "historical_queries": 6,
+    "availability_conditions": 2,
+    "trajectories": 12,
+    "maximum_model_calls": 48,
+    "maximum_tool_attempts": 36,
+    "output_cap_per_call": 512,
+    "dispatch_deadline_seconds": 600,
+    "deadline_limit": "Client stops further actions at the deadline; in-flight request/SQL cleanup and archive time can extend wall time. Timeout does not prove remote cancellation.",
+    "maximum_client_cny_proposed": 0.50,
+    "conditional_full_allocation_cny": 0.452992,
+    "training": false,
+    "tools": "Guarded read-only SQLite queries and stored-result reads; no arbitrary execution tool."
+  },
+  "changes": [
+    "Batch supervisor finalizes and seals available trace/tool records on failure or interruption; retains all not-started slots.",
+    "Invalid model actions end their own trajectory without syntax repair or replacement.",
+    "Readonly SQL child now explicitly uses -B, preventing bytecode writes into frozen source, and hides its Windows console. Historical frozen source trees were not changed.",
+    "Prospective final-answer policy separates human answer review from trace diagnostics, and cannot infer C-type drift from an unelicited workflow."
+  ],
+  "validation": {
+    "combined_tests_passed": 112,
+    "official_transport_tests_passed_separately": 7,
+    "total_distinct_tests_passed": 119,
+    "frozen_copied_launcher_verify": "FROZEN_PREFLIGHT_PASSED",
+    "execution_claim_present": false,
+    "experiment_directory_present": false,
+    "research_SQL_queries": 0,
+    "model_calls": 0,
+    "new_human_ratings": 0,
+    "test_scope": "Scripted generators/transports, temporary SQLite fixtures and offline source/input/tokenizer checks. Not research observations."
+  },
+  "pricing": {
+    "checked_date": "2026-10-24",
+    "source": "https://api-docs.deepseek.com/zh-cn/quick_start/pricing/",
+    "conservative_input_cny_per_million": 2,
+    "conservative_output_cny_per_million": 8,
+    "provider_invoice_verified": false,
+    "provider_spending_cap_installed": false,
+    "remote_weights_verified": false
+  },
+  "remaining": [
+    "Fresh user approval and confirmation of sufficient current balance.",
+    "User enters the key hidden in their own terminal after approval; do not reuse chat credentials.",
+    "After execution, audit full raw records and export condition-hidden final-answer review packets. No final-answer semantic labels before actual independent review.",
+    "Public GitHub push awaits the user's configured proxy/authentication; raw records remain private."
+  ],
+  "no_new_method_or_effect_claim": true,
+  "authorization_received": false
+}

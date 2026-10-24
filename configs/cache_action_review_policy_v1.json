@@ -1,0 +1,44 @@
+{
+  "version": "action-final-answer-review-v1-20261024",
+  "status": "PROSPECTIVE_DEVELOPMENT_GRADING_POLICY_NO_LABELS",
+  "scope": "Two reused development tasks under the previously adopted, human-reviewed operational interpretation. Not a new independent confirmation of original BIRD question clarity.",
+  "primary_endpoint": "Reviewed correctness of the actual final answer to the current request; no correctness labels from first action or final tool result alone.",
+  "task_interpretations": {
+    "200": "Return each qualifying carcinogenic molecule identifier once, filtered for triple bonds; no grouping or counting instead of the requested list.",
+    "234": "Return one count of distinct physical bond identifiers incident to atom TR009_12 at either endpoint, within the stated scope. The existing verified snapshot-specific scope fact remains shared in all prompts."
+  },
+  "human_reference_provenance": "Prior task adjudication and human contract reviews are retained, including their post-hoc nature and exposure history. They are not new blinded final-answer reviews.",
+  "before_grading": [
+    "Verify full prepared and experiment manifests and parse responses without repairs.",
+    "Keep all twelve trajectory slots, including invalid, abstained, interrupted and not-started entries.",
+    "Export only actual final answer text for endpoint review; retain empty/non-answer slots with their explicit status, never create missing answers.",
+    "Give reviewers the current request, evidence, schema, adopted interpretation and independently preserved target witness; never send references to the model.",
+    "Hide condition, costs, historical query and trace from first-stage answer review. Do not edit verbatim answers to hide clues. Blinding is metadata-only because answer text may reveal a route."
+  ],
+  "review_fields": ["item_id", "rating", "quoted_answer_span", "reason", "reference_concern"],
+  "allowed_ratings": ["MATCH", "MISMATCH", "UNCERTAIN"],
+  "review_protocol": {
+    "reviewers": 2,
+    "independent_completion_requested": true,
+    "identity_or_independence_automatically_verified": false,
+    "agreement": "Two MATCH ratings support provisionally reviewed match; two MISMATCH ratings support provisionally reviewed mismatch. Disagreement, missing reviews or UNCERTAIN remain unresolved until recorded adjudication.",
+    "no_substitution": "Blank files, assistant guesses or prior contract labels are not final-answer ratings.",
+    "criteria": "Evaluate answer meaning, completeness, multiplicity and requested output form. Harmless prose or formatting differences are not errors. SQL without a computed answer is not a completed database answer.",
+    "reference_challenge": "A reference/schema ambiguity or scoring concern is flagged for D/E audit; do not force a mismatch label. Preserve all versions and original ratings."
+  },
+  "trace_readout": {
+    "separate_from_answer_review": true,
+    "fields": ["successful_cache_reads", "failed_cache_reads", "SQL_attempts", "successful_SQL_results", "final_status", "declared_tool_units", "API_usage", "measured_latency"],
+    "reading_not_reuse_proof": "An actual cache read alone establishes only access. A read followed by SQL is a mixed path; a cache-only correct answer is an observed successful path, not proof of internal reliance.",
+    "typed_result_match": "Compare saved SQL results with the sealed target witness only as supplementary snapshot execution evidence, not general SQL equivalence or final-answer accuracy.",
+    "unelicited_intent": "No pre-action contract was collected, so do not assign C-type interpretation drift from these trajectories. Do not solicit post-hoc explanations and treat them as earlier intent."
+  },
+  "reporting": {
+    "unit": "Two previously exposed task units, twelve paired history/availability trajectories; repeated histories are not independent tasks.",
+    "denominators": "Show all twelve status slots. Report reviewed answer agreement separately from unresolved, non-answer and unstarted outcomes. A coverage rate can count failures as not demonstrated successful, but never as adjudicated semantic mismatch.",
+    "inference": "Descriptive development readout only; no population confidence interval, significance claim or method advantage.",
+    "cost": "Retain all attempted calls and failures, setup/history verification costs separately, measured durations separately from relative tool units. No claimed realized savings based on declared prices alone."
+  },
+  "model_or_SQL_calls_by_policy": 0,
+  "new_human_labels": 0
+}

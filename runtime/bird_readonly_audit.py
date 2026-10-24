@@ -10,6 +10,7 @@ from collections import Counter, defaultdict
 from datetime import datetime, timezone
 import hashlib
 import json
+import os
 from pathlib import Path
 import platform
 import re
@@ -221,9 +222,10 @@ def run_child(db_path, sql, limits=None):
     packet = {"database": str(Path(db_path).resolve()), "sql": sql, "limits": limits}
     started = time.perf_counter()
     try:
-        proc = subprocess.run([sys.executable, "-m", "runtime.bird_readonly_audit", "worker"],
+        proc = subprocess.run([sys.executable, "-B", "-m", "runtime.bird_readonly_audit", "worker"],
                               input=encoded(packet), capture_output=True,
-                              cwd=Path(__file__).resolve().parents[1], timeout=limits["hard_seconds"])
+                              cwd=Path(__file__).resolve().parents[1], timeout=limits["hard_seconds"],
+                              creationflags=subprocess.CREATE_NO_WINDOW if os.name == 'nt' else 0)
     except subprocess.TimeoutExpired:
         return {"status": "HARD_TIMEOUT", "complete": False, "elapsed_seconds": time.perf_counter()-started}
     if proc.returncode:
