@@ -1,0 +1,72 @@
+{
+  "status": "COMPLETED_DEVELOPMENT_BATCH_OFFLINE_AUDITED",
+  "date": "2026-10-24",
+  "prepared_directory": "runtime/runs/workflow-diagnostic-prepared-20261024-192253-336029",
+  "prepared_manifest_sha256": "9d7b547374f963b31c8b0e79909bf54699ed6c28e969cb55c077dc4fa44dd375",
+  "experiment_manifest_sha256": "e156f7afb1b564fa154f25164f698b4242f7e1614ca2e05fd3c70ffca640a230",
+  "summary_sha256": "6cf8b897dcef4e016fb3bbf9e3ab4d9a589c5fab51da668dc2ced17339862910",
+  "audit_directory": "runtime/runs/workflow-diagnostic-audit-20261024-001",
+  "model_alias": "deepseek-flash",
+  "remote_weights_verified": false,
+  "independent_development_tasks": 2,
+  "condition_slots": 8,
+  "generation_calls": 12,
+  "prompt_tokens": 13497,
+  "completion_tokens": 1106,
+  "client_accounted_cny": 0.035842,
+  "provider_invoice_verified": false,
+  "client_ceiling_cny": 0.30,
+  "uncertain_reserved_cny": 0,
+  "summed_provider_wall_seconds": 16.166835400043055,
+  "wall_time_scope": "Sum of recorded request wall durations, not complete launch/preflight/archive elapsed time.",
+  "conditions": [
+    {"workflow":"contract_first", "cache_available":false, "slots":2, "valid_run_sql":2, "valid_read_cache":0, "invalid_action":0},
+    {"workflow":"contract_first", "cache_available":true, "slots":2, "valid_run_sql":2, "valid_read_cache":0, "invalid_action":0},
+    {"workflow":"action_first", "cache_available":false, "slots":2, "valid_run_sql":2, "valid_read_cache":0, "invalid_action":0},
+    {"workflow":"action_first", "cache_available":true, "slots":2, "valid_run_sql":1, "valid_read_cache":0, "invalid_action":1}
+  ],
+  "invalid_output": {
+    "slot": "h200a-action_first-available1",
+    "classification": "INVALID_ACTION",
+    "reason": "JSONDecodeError: extra trailing characters after JSON object",
+    "repaired_or_retried": false,
+    "kept_in_denominator": true,
+    "interpreted_as_successful_sql_action": false
+  },
+  "verification": {
+    "frozen_source_and_plan": "verified",
+    "experiment_manifest_files": 69,
+    "journal_seals": 9,
+    "pending_payloads_match_frozen_builder": true,
+    "generated_contract_carried_verbatim": true,
+    "transport_and_saved_provider_responses_match": true,
+    "reference_input_counts_and_usage_checked": true,
+    "cost_ledger_recomputed": true,
+    "outcomes_reparsed_without_repairs": true,
+    "unit_tests": "11 passed; scripted tests, not research samples",
+    "test_environment_note": "Initial two new audit fixture tests could not write the sandbox default temp directory. Re-run used an explicitly writable project-local temporary directory; no experiment code or raw output changed."
+  },
+  "backup": {
+    "file": "runtime/runs/workflow-diagnostic-audit-20261024-001/prepared-and-results.zip",
+    "sha256": "f9ce0de92b5da5481065ad39a3c42451359948657fca2a2c919c4f9f465bd7b6",
+    "files_compared_after_archiving": 89,
+    "off_device": false,
+    "raw_records_public": false
+  },
+  "interpretation": {
+    "observed": "Seven valid SQL proposals, one malformed action, zero valid cache-read requests across the eight slots.",
+    "unsupported": [
+      "No evidence here that removing contract elicitation induces valid cache reading.",
+      "This does not establish workflow equivalence or general lack of a cache effect.",
+      "A single malformed action is not evidence of interpretation drift or a contract-method benefit.",
+      "There are two reused development tasks, not eight independent tasks or twelve independent samples.",
+      "No SQL was executed; neither proposed SQL correctness nor final-answer accuracy was evaluated.",
+      "Both workflows see the cache description before generating; this is not a cache-hidden intent baseline.",
+      "Workflow contrast bundles schema guidance, an extra call, and generated context."
+    ],
+    "decision": "Do not expand repetitions on these two tasks or claim a new method from this batch.",
+    "next_gate": "Before another paid batch, specify a distinct remaining question: why feasible reuse is not selected versus whether incompatible reuse changes observable intent. Audit interface semantics and task eligibility offline; any new tasks require pre-model inclusion rules and independent confirmation. Keep efficacy and calibration tests separate.",
+    "additional_paid_batch_started": false,
+    "method_gap_established": false
+  }
+}
