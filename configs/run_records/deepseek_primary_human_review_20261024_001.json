@@ -1,0 +1,58 @@
+{
+  "status": "USER_ATTESTED_HUMAN_PRIMARY_REVIEWS_ACCOUNTED",
+  "date": "2026-10-24",
+  "source_format": "One combined submitted document with two reviewer sections",
+  "authorship": {
+    "user_confirmed_two_people_filled_separately_then_merged": true,
+    "reviewers_self_reported_independent_completion": true,
+    "reviewers_self_reported_no_model_assistance": true,
+    "reviewer_independence_independently_verified": false,
+    "actual_reading_order_independently_verified": false,
+    "original_ambiguous_dual_perspective_introduction_preserved_privately": true,
+    "clarification_does_not_create_a_third_review_or_adjudication": true
+  },
+  "source_packet_manifest_sha256": "19b18268172ba0be914123cc73cfa7bc6afa07aa1a7d1c065c0d8010c990f9b9",
+  "accounting_manifest_sha256": "d7d4f5334499c66ced7be697ccc5af0dbb2e4806b4317fb99d6eaa91bb648a66",
+  "review_accounting": {
+    "reviewer_slots": 2,
+    "ratings_per_reviewer": 12,
+    "match_ratings_per_reviewer": 12,
+    "material_omissions_reported": 0,
+    "disagreements": 0,
+    "provisionally_agreed_match_contracts": 12,
+    "provisionally_agreed_contradictions": 0,
+    "complete_history_price_pairs": 6,
+    "observed_paired_contradiction_difference_price8_minus_price1": 0,
+    "this_zero_is_not_a_population_confidence_interval": true,
+    "previously_used_independent_development_targets": 2,
+    "formal_adjudication_performed": false
+  },
+  "transcription": {
+    "all_24_item_ids_and_quotes_link_to_original_outputs": true,
+    "outer_quote_delimiter_adjustments": 1,
+    "substantive_quote_or_label_rewriting": false,
+    "original_submission_bytes_preserved": true,
+    "blank_packets_and_raw_experiment_unchanged": true,
+    "importer_generates_no_semantic_labels": true,
+    "new_parser_tests_passed": 4,
+    "post_import_console_check": "First display attempt used system-default GBK and failed decoding; reading the already completed artifact as UTF-8 succeeded. Import and model execution were not rerun."
+  },
+  "research_decision": {
+    "finding": "No contract contradiction was identified by the two submitted reviews in these twelve development trajectories. All twelve trajectories recomputed directly rather than reading a cache, and their saved SQL-result bags matched prior sealed witnesses.",
+    "scope": "Two previously exposed tasks; explicit correctness priority and pre-action contract elicitation; declared relative read-price contrast with caches available in both arms.",
+    "not_established": [
+      "A population-wide absence of cache-induced semantic drift",
+      "An independent confirmatory result",
+      "General SQL semantic equivalence or final natural-language answer accuracy",
+      "Incremental method benefit beyond strong checks plus on-demand recomputation"
+    ],
+    "recommendation": "Close the primary-review waiting gate for this batch using the disclosed provenance. Preserve the bounded no-observed-effect finding. Do not expand repeated runs of these two tasks or claim a method contribution; assess any next design against this evidence before requesting a new paid batch."
+  },
+  "data_safety": {
+    "raw_submission_and_reviewer_texts_public": false,
+    "private_submission_directory": "runtime/runs/deepseek-primary-submitted-20261024-001",
+    "private_accounting_directory": "runtime/runs/deepseek-primary-accounting-20261024-001",
+    "new_model_calls": 0,
+    "new_network_requests": 0
+  }
+}
