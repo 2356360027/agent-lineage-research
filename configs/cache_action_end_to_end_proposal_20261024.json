@@ -1,0 +1,65 @@
+{
+  "status": "OFFLINE_DESIGN_NOT_EXECUTION_READY_NOT_AUTHORIZED",
+  "version": "action-first-short-recovery-v1",
+  "motivation_record": "configs/run_records/cache_documentation_execution_20261024_001.json",
+  "question": "Under an explicit fixed interface, does the agent complete the current request after choosing to read or recompute, and what operations does it actually perform?",
+  "scope": "Development feasibility and endpoint measurement; not method efficacy or a confirmation of interpretation drift.",
+  "tasks": [200, 234],
+  "histories": ["h200a", "h200b", "h200c", "h234a", "h234b", "h234c"],
+  "conditions": {"cache_available": [false, true], "read_cost": 1, "sql_cost": 10},
+  "trajectories": 12,
+  "selection": "All six previously frozen histories, regardless of calibration action or success. Fresh trajectories, not selective continuation of readers.",
+  "initial_messages": {
+    "documentation": "Use the single literal DOCUMENTATION from runtime/cache_documentation_inputs.py without outcome-driven edits.",
+    "within_pair_difference": "Only context.cache.materialized_available. History query, schema, current request, evidence, costs and documented schedule remain identical.",
+    "contract_elicitation": false,
+    "task_specific_route_or_gold": false,
+    "budget_correction": "Replace every inherited 20-attempt/210-unit schedule consistently with the new 2-exploration-plus-1-recovery schedule. Do not append contradictory instructions to old messages."
+  },
+  "limits": {
+    "generations_per_trajectory": 4,
+    "maximum_model_calls": 48,
+    "exploration_tool_attempts": 2,
+    "reserved_SQL_attempts": 1,
+    "exploration_relative_units": 20,
+    "reserved_relative_units": 10,
+    "maximum_tool_attempts_all_trajectories": 36,
+    "output_tokens_per_call_candidate": 512,
+    "wall_seconds_candidate": 600,
+    "fee_cap": "Unset until frozen payloads, growing context bounds, current prices and user approval are checked."
+  },
+  "feasibility": {
+    "read_only_SQL": true,
+    "correct_recomputation": "The agent can choose SQL on the first turn in both conditions; after exploration it also retains a dedicated SQL opportunity. No gold query is supplied.",
+    "unavailable_reads": "Return explicit rejection, consume an opportunity, do not silently execute SQL or substitute stored rows.",
+    "observations": "Use the same complete-or-explicit-oversize policy in both arms. Do not partially expose oversized results.",
+    "tools": "Existing guarded read-only SQLite and cache access only; no arbitrary Python, network tools or model-specified file paths."
+  },
+  "measurements": {
+    "primary_development_readout": "Per-trajectory final-answer status and independently reviewed final answer versus the locked current-task interpretation, alongside the entire operation trace.",
+    "secondary": ["Valid and invalid first actions", "Actual successful cache reads", "SQL attempts and failures", "Final answer or abstention", "LLM tokens and measured request/tool latency", "Declared relative tool units, separated from API currency"],
+    "answer_scoring": "Keep current answer.text protocol. Final prose needs blinded review; saved typed SQL bag equality is supporting evidence, not a substitute for final-answer grading. Unreviewed answers remain ungraded.",
+    "reuse_scoring": "Do not infer correct reuse from read_cache alone, or from absence of SQL. Check final output and its trace; a read followed by SQL is a mixed path.",
+    "C_drift": "Not identifiable from final errors in this unelicited workflow. Do not add post-hoc contract generation and treat it as an earlier intent measurement.",
+    "analysis_unit": "Two reused development tasks, with paired histories; no population inference, significance test or twelve-independent-task claim.",
+    "counterfactual_limits": "Execution paths change observed information after the availability intervention. This is operational development, not an isolated cost or hidden-intent experiment."
+  },
+  "failure_policy": {
+    "invalid_model_action": "Preserve and end that trajectory without repair or replacement; retain in denominator.",
+    "tool_environment_failure": "Preserve and stop batch if snapshot, sandbox or integrity checks fail.",
+    "transport_or_budget_failure": "Stop batch and retain pending, uncertain and not-started records; no automatic retry.",
+    "no_interim_effect_stopping": true,
+    "no_seed_or_wording_reruns": true
+  },
+  "admission_remaining": [
+    "Build paired payloads and prove only the availability field differs; freeze consistent horizon text and context.",
+    "Implement a matching action-first runner and matching enforced tool budget without modifying historic frozen code.",
+    "Test unavailable-cache rejection, reserved SQL, error consumption, no retry, bounded observations and interrupted journals with scripted backends.",
+    "Verify the existing database and historical execution chain; keep reference results out of prompts.",
+    "Freeze endpoint grading packet and independent-review procedure before generation; no assistant-generated human labels.",
+    "Bound full context growth and official API fee; recheck pricing and obtain fresh fixed-batch approval."
+  ],
+  "decision_rule": "If the documented ordinary agent correctly solves the available and unavailable controls, keep this as a functional baseline, not a novel algorithm. Any failures require A/B/D/E diagnosis before method design. Further task expansion must use independently eligible tasks, not model-error selection.",
+  "paid_execution_started": false,
+  "old_experiments_modified": false
+}
