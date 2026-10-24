@@ -1,0 +1,50 @@
+{
+  "status": "DESIGN_PROPOSAL_NOT_PREPARED_OR_AUTHORIZED",
+  "date": "2026-10-24",
+  "research_question_unchanged": "Does reuse convenience alter interpretation of a clear current request?",
+  "limited_question_for_next_check": "Does the explicit pre-action contract workflow change first-action cache selection when a compatible cache is available?",
+  "rationale": "The completed development batch found no reviewed contract contradictions and all twelve agents recomputed. Offline reconstruction now rules out initial result-size withholding as the reason useful direct caches could not be read. Contract elicitation remains a possible measurement intervention, not an established explanation.",
+  "design": {
+    "tasks": ["h200a", "h234a"],
+    "task_status": "Previously exposed development controls, not held-out confirmation",
+    "factors": {
+      "workflow": ["explicit_contract_then_first_action", "first_action_without_contract_elicitation"],
+      "cache_availability": [false, true]
+    },
+    "fixed_read_price": 1,
+    "fixed_SQL_price": 10,
+    "decision_slots": 8,
+    "maximum_generation_calls": 12,
+    "maximum_output_tokens_per_call": 512,
+    "proposed_wall_limit_seconds": 600,
+    "tool_executions": 0,
+    "automatic_retries": false,
+    "stop_point": "Stop each slot immediately after its first proposed action; do not execute tools or claim final task success.",
+    "information_matching": "Same request, schema, shared scope evidence and historical SQL in all arms. Only availability changes within workflow pairs. Workflow comparison removes explicit contract-elicitation instructions and its generated contract, not correctness priorities or provenance facts. No gold contract, example answer or forced cache-read instruction.",
+    "format_matching": "Common first-action JSON schema and exact action instruction. Contract-first has one preceding contract generation; preserve its raw output. Invalid/truncated/failed contract ends that slot as failure, without repair or replacement.",
+    "order": "Freeze a deterministic shuffled eight-slot order before dispatch; report possible provider/time effects. One observation per slot, not significance testing.",
+    "provider": "Recheck official endpoint, current alias, rates and balance before preparing a manifest. Do not infer remote immutable weights from an alias."
+  },
+  "endpoints": {
+    "primary_descriptive": "First proposed action category, with read_cache counted separately for available and unavailable cache conditions",
+    "failure_denominator": "All eight scheduled slots, including malformed outputs, refusals, truncation, transport failures and missing actions",
+    "secondary": ["Reference-budget admission", "Reported tokens", "Client latency", "Conservatively accounted monetary cost"],
+    "not_measured": ["Complete-trajectory accuracy", "C-type interpretation drift in unelicited arms", "Total savings", "Natural task-population effect"],
+    "analysis_unit": "Two tasks; eight decisions and twelve possible generations are not independent tasks.",
+    "workflow_contrast": "Paired descriptive first-action differences by task and availability. This is the effect of the explicit-contract workflow as a bundle, not proof of an internal reasoning mechanism."
+  },
+  "decision_rules": [
+    "If both workflows still choose recomputation with available compatible caches, stop repeating these controls; do not strengthen reuse pressure until a preferred effect appears.",
+    "If only the unelicited workflow chooses available caches, treat this as a development measurement-sensitivity signal. Freeze a separate new-task confirmation design before interpreting a general effect.",
+    "If both workflows read available caches, retain the discrepancy with the earlier run and investigate changed service or prompts; do not overwrite the old result.",
+    "Unavailable-cache reads are interface/planning failures, not C-type semantic drift.",
+    "Regardless of outcome, do not introduce a named new algorithm until a gap beyond strong baselines is demonstrated."
+  ],
+  "remaining_before_execution": [
+    "Create and test paired prompts, enforce allowed-field differences and preserve raw request hashes.",
+    "Pin model-service configuration and compute a conservative upper cost from exact prepared payload bounds.",
+    "Get fresh user approval of fixed scope, wall limit and monetary ceiling; use hidden local key input only."
+  ],
+  "budget_status": "No money spent by this proposal; no price quote or new spending authorization implied.",
+  "long_term_gate": "A method paper still needs clear held-out tasks, controlled evidence of the target phenomenon, and an incremental advantage over independent verification and on-demand recomputation. This check alone satisfies none of those publication gates."
+}

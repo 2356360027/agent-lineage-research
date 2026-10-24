@@ -1,0 +1,30 @@
+{
+  "status": "OFFLINE_CACHE_CONTROL_CHECK_COMPLETED",
+  "date": "2026-10-24",
+  "private_report": "runtime/runs/deepseek-cache-controls-20261024-001/report.json",
+  "artifact_manifest_sha256": "3a960ff4783a857e677252e147ee5a37192a2e8db7a64c9008b7cae5af226bad",
+  "facts": {
+    "distinct_development_tasks": 2,
+    "history_variants": 6,
+    "first_read_reconstructions": 12,
+    "complete_under_frozen_512_token_policy": 12,
+    "local_reference_framed_token_range": [89, 127],
+    "direct_control_histories": ["h200a", "h234a"],
+    "direct_control_price_slots_matching_saved_target_bags": 4,
+    "actual_agent_cache_reads_in_original_batch": 0,
+    "new_model_calls": 0,
+    "new_SQL_queries": 0,
+    "new_research_samples": 0,
+    "unit_tests_passed": 4
+  },
+  "interpretation": "The original no-read behavior cannot be explained by initial cache observations being mechanically withheld as oversized. Direct-answer cache controls existed and matched prior same-database witnesses. This does not explain why the agent chose recomputation or show that it recognized applicability.",
+  "not_claimed": [
+    "General SQL semantic equivalence",
+    "Measured total-system savings from cache reuse",
+    "A causal effect of contract elicitation",
+    "A method advantage over strong checks and recomputation",
+    "Twelve new independent experimental observations"
+  ],
+  "decision": "Revise the next diagnostic around the explicit-contract measurement workflow, not further price-only replication on these two tasks. No new paid run approved or started. Preserve the negative development result.",
+  "publication": "Reviewed code, tests and this aggregate only; raw task results and reviewer text remain private."
+}
