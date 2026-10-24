@@ -1,0 +1,48 @@
+{
+  "status": "SCRIPTED_LOCAL_WIRING_TESTED_NOT_LIVE_READY",
+  "date": "2026-10-24",
+  "proposal": "configs/cache_action_end_to_end_proposal_20261024.json",
+  "components": [
+    "runtime/cache_action_horizon.py",
+    "runtime/cache_action_preview.py",
+    "runtime/cache_action_loop.py",
+    "runtime/cache_intent_tools.py: additive short recovery profile"
+  ],
+  "new_facts": [
+    "Canonical action-first messages carry no contract-stage schema and only availability differs within paired fixture inputs.",
+    "The injected loop dispatches at most three tools and four generations, with SQL-only recovery and answer-or-abstain terminal stage.",
+    "The new ToolSession profile enforces the same 30-unit, three-attempt schedule independently of the loop.",
+    "Unavailable reads return explicit rejection without invoking SQL; two failed attempts do not exhaust the reserved SQL opportunity.",
+    "Original malformed output and complete raw observations remain in logs; no syntax repair, partial-row exposure or callback retry is performed."
+  ],
+  "validation": {
+    "test_modules": [
+      "tests.test_cache_action_horizon",
+      "tests.test_cache_action_loop",
+      "tests.test_cache_intent_tools",
+      "tests.test_cache_intent_recovery",
+      "tests.test_cache_intent_staged_loop"
+    ],
+    "tests_passed": 70,
+    "backend": "Scripted generators and temporary SQLite fixtures, not research samples",
+    "initial_test_failure": "Four new fixture cleanup errors on Windows: sqlite3 connection context committed but did not close its handle. Explicit finally-close fixed the fixture. These were software-test failures, not discarded research observations.",
+    "temporary_storage": "Project-local runtime/runs for bounded unittest temporary directories",
+    "research_database_queries": 0,
+    "API_calls": 0,
+    "human_semantic_labels_added": 0,
+    "historic_frozen_runs_modified": false
+  },
+  "remaining_before_approval_request": [
+    "Bind real input plan and six cache histories to verified immutable archives and database snapshot.",
+    "Integrate action-first provider adapter and batch finalization, with deadline and no-resume enforcement.",
+    "Prove and test prompt-growth/token bounds for every stage, then compute the conservative fee using verified current rates.",
+    "Freeze final-answer review and trace classification procedures; final answers remain ungraded until reviewed.",
+    "Freeze full source and inputs, execute final preflight, request fresh fixed-batch authorization."
+  ],
+  "limitations": [
+    "A working injected loop is not an executed model study or evidence for semantic drift.",
+    "The shorter horizon is a new development environment, not a retroactive repair of prior results.",
+    "The existing long-horizon official Adapter adds contract instructions and cannot be reused unchanged.",
+    "Source changes and aggregate receipts are suitable for reviewed public Git; raw study data stays private."
+  ]
+}

@@ -26,6 +26,7 @@ BUDGET, SQL_COST, MAX_ATTEMPTS = 100, 10, 20
 LEGACY_PROFILE = "legacy-100-v1"
 NONBINDING_PROFILE = "nonbinding-200-v1"
 RECOVERY_PROFILE = "exploration-200-recovery-10-v2"
+SHORT_RECOVERY_PROFILE = "exploration-20-recovery-10-v1"
 
 
 def _profile_budget(profile, cache_cost):
@@ -35,9 +36,10 @@ def _profile_budget(profile, cache_cost):
     admission failures within the common attempt horizon, not the horizon
     itself or SQL/environment failures. These are relative units, not money.
     """
-    if type(profile) is not str or profile not in (LEGACY_PROFILE, NONBINDING_PROFILE, RECOVERY_PROFILE):
+    if type(profile) is not str or profile not in (LEGACY_PROFILE, NONBINDING_PROFILE, RECOVERY_PROFILE, SHORT_RECOVERY_PROFILE):
         raise ValueError("Unknown fixed budget profile")
-    initial = BUDGET if profile == LEGACY_PROFILE else (210 if profile == RECOVERY_PROFILE else 200)
+    initial = (30 if profile == SHORT_RECOVERY_PROFILE else BUDGET if profile == LEGACY_PROFILE
+               else 210 if profile == RECOVERY_PROFILE else 200)
     if profile == NONBINDING_PROFILE and initial < MAX_ATTEMPTS * max(SQL_COST, cache_cost):
         raise ValueError("Budget profile is not nonbinding for configured charges/horizon")
     return initial
@@ -105,8 +107,8 @@ class ToolSession:
             raise ValueError("Expected boolean availability and read cost 1 or 8")
         self.initial_budget = _profile_budget(budget_profile, cache_read_cost)
         self.budget_profile = budget_profile
-        self.nonbinding_for_configured_horizon = budget_profile in (NONBINDING_PROFILE, RECOVERY_PROFILE)
-        self.max_attempts = 21 if budget_profile == RECOVERY_PROFILE else MAX_ATTEMPTS
+        self.nonbinding_for_configured_horizon = budget_profile in (NONBINDING_PROFILE, RECOVERY_PROFILE, SHORT_RECOVERY_PROFILE)
+        self.max_attempts = 3 if budget_profile == SHORT_RECOVERY_PROFILE else 21 if budget_profile == RECOVERY_PROFILE else MAX_ATTEMPTS
         if type(database_sha256) is not str or re.fullmatch(r"[0-9a-f]{64}", database_sha256) is None:
             raise ValueError("Invalid database fingerprint")
         if type(history_sql) is not str or not history_sql.strip():
@@ -147,6 +149,9 @@ class ToolSession:
         if self.budget_profile == RECOVERY_PROFILE:
             state.update(exploration_attempts=20, exploration_allowance=200,
                          recovery_allowance=10, last_attempt_sql_only=True)
+        elif self.budget_profile == SHORT_RECOVERY_PROFILE:
+            state.update(exploration_attempts=2, exploration_allowance=20,
+                         recovery_allowance=10, last_attempt_sql_only=True)
         return state
 
     def _check_database(self):
@@ -160,6 +165,8 @@ class ToolSession:
         if type(name) is not str or type(arguments) is not dict:
             return "INVALID_REQUEST", 0
         if self.budget_profile == RECOVERY_PROFILE and self.attempts == 20 and name != "run_sql":
+            return "RECOVERY_SQL_ONLY", 0
+        if self.budget_profile == SHORT_RECOVERY_PROFILE and self.attempts == 2 and name != "run_sql":
             return "RECOVERY_SQL_ONLY", 0
         if name == "read_cache":
             if arguments != {"cache_id": "v000"}:
