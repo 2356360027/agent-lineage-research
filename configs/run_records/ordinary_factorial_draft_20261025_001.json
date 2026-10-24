@@ -1,0 +1,52 @@
+{
+  "date": "2026-10-25",
+  "status": "OFFLINE_DESIGN_REPAIR_NOT_EXPERIMENT_APPROVAL",
+  "previous_goal_turn_classification": "PROGRESS: local interface audit established factor and horizon mismatch; subsequent user turn preserved review and provenance correction",
+  "stage": "Data adaptation; no established novel-method gap",
+  "review_update": {
+    "source": "User attestation in chat, not independently observed review sessions",
+    "independent_reviewers_attested": 2,
+    "model_role_per_correction": "Formatting only, after independent human judgment",
+    "actual_date_per_correction": "2026-10-25",
+    "original_text_preserved_privately": true,
+    "task_733_both": "clear",
+    "task_728_both": "needs clarification",
+    "pair_728_733_both": "pending clarification",
+    "pair_admitted": false,
+    "correction_does_not_override_pending_decisions": true
+  },
+  "finding": "Old ordinary workflow manipulated availability, whereas old elicited workflow manipulated read cost and used a different horizon. Their results cannot be pooled as a clean elicitation or cost comparison.",
+  "new_software": {
+    "builder": "runtime/cache_action_factorial_preview.py",
+    "tests": "tests/test_cache_action_factorial_preview.py",
+    "type": "Offline draft prompt builder; no runner or capacity certificate",
+    "cells": [[false, 1], [false, 8], [true, 1], [true, 8]],
+    "factors": ["materialized availability", "declared cache read cost"],
+    "fixed": "SQL cost 10, two exploration opportunities with 20 units, reserved SQL with 10 units, maximum four generations; original historical evidence retained in every cell",
+    "canonical_checks": "Only intended factor path differs within each contrast; common prompt tampering, per-cell scope edits, duplicate/reordered cells rejected",
+    "old_protocols_unchanged": true,
+    "old_runner_rejects_new_envelopes": true,
+    "prices_do_not_reverse_route_order": true,
+    "ordinary_final_error_not_evidence_of_prior_intent_drift": true,
+    "unavailable_price_contrast": "Diagnostic, not a presumed null"
+  },
+  "verification": {
+    "command": "python -B -X utf8 -m unittest tests.test_cache_action_factorial_preview tests.test_superhero_interface tests.test_superhero_snapshot tests.test_superhero_review_packet tests.test_native_positive_relation -v",
+    "passed": 22,
+    "new_builder_tests": 8,
+    "type": "Software tests, including synthetic in-memory SQLite fixtures; not model experiments",
+    "new_real_snapshot_queries": 0,
+    "new_model_calls": 0,
+    "paid_cost_cny": 0
+  },
+  "remaining_gates": [
+    "Original 728 remains ambiguous; any complete-group clarification must be a separately versioned researcher adaptation, not retroactive benchmark or reviewer approval.",
+    "Need current and historical semantic admission, fair information, fixed source hashes, new envelope capacity checks and enforcement before execution.",
+    "Four cells are design templates, not authorized live jobs or a sample-size justification. Repeated calls on one pair are not independent tasks.",
+    "No cost-order reversal is tested by prices 1 versus 8 against SQL 10. Any different price levels require prospective design justification and matching budget enforcement.",
+    "Need matched-horizon instrumented control before isolating elicitation effects; ordinary outputs alone cannot identify category C.",
+    "No method claim: exact group selection is already covered by classical materialized-view reuse plus fallback recomputation.",
+    "Paid execution requires a separately frozen plan and explicit current authorization."
+  ],
+  "github": "Safe code/tests/aggregate receipt eligible for sync; private review originals remain ignored. Known authentication blocker has not been bypassed."
+}
