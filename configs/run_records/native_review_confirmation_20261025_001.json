@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-25",
+  "status": "USER_ATTESTED_REVIEW_PROVENANCE_AND_CONTROL_DESIGN_CONFIRMED",
+  "submission_sha256": "828438718cebd4a0acc64330e0d2d921fd3d17baf0d2f48891db4d1d1fc25ee3",
+  "prior_record": "configs/run_records/native_555_snapshot_20261024_001.json",
+  "provenance_confirmation": {
+    "question_scope": "New task reviews for 555 and 1480; whether two humans independently judged before merging, without model-authored judgments",
+    "user_answer_verbatim": "是，两位真人独立判断后合并",
+    "accepted_as": "User attestation of independent human authorship, not independent identity verification",
+    "supersedes": "Prior record's pending separate user authorship confirmation only",
+    "repeat_authorship_question_needed_for_same_submission": false
+  },
+  "control_design_confirmation": {
+    "user_answer_verbatim": "同意，明确区分两类缓存",
+    "native_count_only": "Retain the original historical post count as an insufficient-information negative control for the current mean-score request",
+    "constructed_sufficient_information": "Separately label SUM(Score) plus COUNT(Score) over the same population as researcher-constructed sufficient information; not a natural output of the historical count query",
+    "does_not_approve": [
+      "Formal human admission of task 555",
+      "Changing the reviewers' original pending clarification judgments",
+      "Treating different cache contents as a pure cost intervention",
+      "Any paid model calls"
+    ]
+  },
+  "reviewer_recommendations_preserved": {
+    "555": ["pending clarification", "pending clarification"],
+    "1480": ["exclude this batch", "exclude this batch"]
+  },
+  "remaining_gate": "Two reviewers separately close or retain their pending 555 recommendations in light of the fixed-snapshot checks and disclosed constructed control. Preserve any disagreement and unresolved scope. Then freeze the small-batch design and obtain scoped paid-run approval.",
+  "formal_tasks_admitted": 0,
+  "new_model_calls": 0,
+  "new_sql_calls": 0,
+  "paid_batch_authorized": false,
+  "original_review_and_previous_records_unchanged": true,
+  "raw_review_publication_authorized": false
+}
