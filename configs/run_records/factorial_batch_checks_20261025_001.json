@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-25",
+  "status": "INJECTED_BATCH_CHECKED_AND_INPUTS_BOUND_NOT_DEPLOYABLE",
+  "protocol": "ordinary-factorial-batch-v1",
+  "classification": "Offline software checks, scripted provider responses and disposable SQLite fixtures; not evidence of model behavior",
+  "parent_code_commit": "47d773d",
+  "tests": {
+    "command": "python -B -X utf8 -m unittest tests.test_factorial_binding tests.test_factorial_batch tests.test_factorial_loop tests.test_factorial_capacity tests.test_cache_action_factorial_preview tests.test_cache_action_loop tests.test_cache_action_adapter tests.test_cache_action_batch -q",
+    "passed": 74,
+    "new_batch_test_methods": 10,
+    "new_binding_test_methods": 3,
+    "coverage": [
+      "Full four-cell scripted batch, real disposable readonly SQL, all output and nested journal hashes",
+      "Shared 16-call guard and conditional allocation before output creation",
+      "Timeout, interrupt, late response and finalization failure stop remaining cells without replacement",
+      "Invalid model actions retained as fixed-cell outcomes, without repair or replacement",
+      "Existing directory, changed cache, duplicate/reordered/unsafe job IDs and invalid limits rejected",
+      "Missing database stops before any transport dispatch",
+      "Historical SQL binding adds only one metadata field and leaves the archived rows untouched"
+    ]
+  },
+  "private_bound_inputs": {
+    "directory": "runtime/runs/superhero-factorial-binding-20261025-001",
+    "status": "BOUND_INPUTS_NOT_DEPLOYABLE",
+    "plan_object_sha256": "f0a99c527169c4b0fca9bf0a12625d23fe108f047175cf3ac6703ae9ccc9eab8",
+    "archive_sha256": "90f2cc1199a65f71c08f1caa9374a16ef4c7610f1a08f4754c18970d5debcd8a",
+    "input_plan_file_sha256": "1ec6fe7bd3c6ab050c3dfe3399890d2bdf4921b0567ef387f0ea29b697173aa5",
+    "source_closure_frozen": false,
+    "original_archives_modified": false,
+    "independent_task_pairs": 1,
+    "planned_trajectories": 4,
+    "max_model_calls": 16,
+    "max_tool_attempts": 12
+  },
+  "new_paid_requests": 0,
+  "new_model_calls": 0,
+  "new_research_snapshot_SQL_queries": 0,
+  "inference_authorized": false,
+  "interpretation": "This is a sufficient-history positive-control feasibility batch. No prior observable task contract is elicited. A final error does not identify demand reinterpretation; ordinary view selection remains a strong baseline.",
+  "remaining": [
+    "Freeze and validate full executable source/dependency closure and hard timeout launcher",
+    "Verify current official model settings and prices, then request fixed-batch authorization",
+    "Do not infer a method contribution or general effect from one development pair"
+  ],
+  "github": "Only reviewed public code/tests/aggregate receipt eligible; private bound cache and raw records excluded. Push remains pending authentication."
+}
