@@ -1,0 +1,30 @@
+{
+  "version": "superhero-sufficient-history-feasibility-readout-v1",
+  "purpose": "Developer feasibility check, not phenomenon confirmation or method evaluation",
+  "unit": "One researcher-clarified historical task 728 paired with unchanged current task 733; four dependent conditions are not four independent tasks",
+  "factors": {"materialized_available": [false, true], "declared_cache_read_cost": [1, 8], "sql_cost": 10},
+  "information": "Same request, evidence, schema, historical request/evidence/SQL; historical result becomes observable only through an available cache read. No current reference answer or review label in initial prompts.",
+  "primary_descriptive_readouts": [
+    "Final-answer disposition in each of the four fixed cells: MATCH, MISMATCH, UNCERTAIN, ABSTAINED, INVALID_OUTPUT, or NOT_COMPLETED",
+    "First syntactically valid action and complete action sequence, with all attempted tools and total declared cost per cell"
+  ],
+  "rating": {
+    "reference": "Only sealed current_733 result from superhero-snapshot-audit-20261025-001, with the independently clarified record/ID counting interpretation",
+    "procedure": "Exact unambiguous scalar integer answers may be matched mechanically; explanatory/ambiguous prose is not guessed or repaired and requires review before a semantic verdict",
+    "blinding": "For manual review, hide price/availability labels and randomize final-answer IDs; this is post-experiment answer review, not a new task-admission claim",
+    "no_response": "No final answer is not assigned a fabricated numeric result; keep original failure status"
+  },
+  "secondary_readouts": ["Provider-reported input/output tokens and conservative client accounting", "Uncertain billing reservations", "Model/tool latency", "Cache-use and SQL-use routes", "Invalid output, unavailable-cache attempts and protocol violations"],
+  "denominator": "Retain all four planned cells. Record not-started/failed/invalid cells explicitly. No success-only aggregate, deletion, replacement, retry or imputation.",
+  "failure_rule": "Infrastructure, timeout, provider/token-count, journal or environment failure stops remaining jobs. A terminal syntactically invalid model action is a recorded cell outcome; other fixed jobs continue unchanged.",
+  "statistics": "Descriptive paired cell comparison only. No population significance claim, confidence interval or pseudo-replication from four conditions.",
+  "interpretation_limits": [
+    "No prior task contract is elicited: final errors cannot be labeled C-type demand reinterpretation",
+    "Both cache prices remain below SQL price; this does not reverse route-cost preference",
+    "Classical grouped-view selection already solves this positive control; success is not a new algorithmic capability",
+    "Historical clarification is researcher-authored; this is not an unchanged native benchmark pair or observed user conversation"
+  ],
+  "next_decision": "If technical failures occur, diagnose them before proposing any new version. If all conditions succeed, report that this sufficient-history control shows no error and do not manufacture a positive case. If final answers differ, examine tool and output errors first, without claiming intent drift or expanding samples based on the observed effect.",
+  "training": false,
+  "paid_execution_authorized": false
+}
