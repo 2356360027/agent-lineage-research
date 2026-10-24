@@ -1,0 +1,32 @@
+{
+  "status": "OFFLINE_FINISHED_BATCH_REPLAY_TESTED_NOT_RESEARCH_RESULTS",
+  "date": "2026-10-24",
+  "implementation": "runtime/cache_action_trace_audit.py",
+  "tests": "tests/test_cache_action_trace_audit.py",
+  "tests_passed": 12,
+  "fixtures": "Synthetic responses and temporary SQLite fixtures, not paid model samples or human labels.",
+  "coverage": [
+    "Sealed whole-batch and per-journal inventories; retain all twelve finished slots including invalid actions.",
+    "Replay messages, provider JSON, usage reservations, cost settlement and parsed actions without calling a model.",
+    "Reconstruct tool admission, charges and exposures from saved records without executing SQL.",
+    "Check final answer extraction and aggregate accounting; do not grade semantic correctness.",
+    "Refuse stopped batches rather than silently select successful prefixes."
+  ],
+  "limits": [
+    "Frozen launcher/source/input admission must run separately before using this module on research data.",
+    "Standalone audit/archive launcher is not yet implemented.",
+    "SQL child results have no independent SQL hash; request association is the enclosing pending/completed record, not independent execution attestation.",
+    "Local hashes do not attest provider identity, billing or independent execution.",
+    "Human final-answer ratings remain pending and cannot establish unelicited C-type intent drift."
+  ],
+  "development_fixes": [
+    "Corrected a test context-manager syntax error.",
+    "Missing replay error records now fail with explicit validation errors instead of a masked KeyError.",
+    "Removed the mistaken requirement that native SQL backend results contain an independent SQL hash."
+  ],
+  "frozen_experiment_changed": false,
+  "new_API_calls": 0,
+  "new_research_SQL_calls": 0,
+  "research_effects_inspected": false,
+  "new_human_labels": 0
+}
