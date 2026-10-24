@@ -1,0 +1,61 @@
+{
+  "status": "OFFLINE_PROPOSAL_NOT_EXECUTION_READY_OR_AUTHORIZED",
+  "question": "Does explicit generic cache provenance/tool documentation change first-action proposals in this fixed development interface?",
+  "not_the_question": "This does not measure whether cache convenience changes current-task interpretation or whether a new method is effective.",
+  "motivating_batch": "workflow-diagnostic-prepared-20261024-192253-336029",
+  "offline_route_audit": "runtime/runs/cache-route-classes-20261024-001/report.json",
+  "factors": {
+    "documentation": ["original", "generic_documentation_from_interface_audit"],
+    "histories": ["h200a", "h200b", "h200c", "h234a", "h234b", "h234c"],
+    "cache_available": true,
+    "cache_read_relative_cost": 1,
+    "sql_relative_cost": 10,
+    "workflow": "action_first"
+  },
+  "proposed_slots": 12,
+  "proposed_calls": 12,
+  "proposed_seconds": 600,
+  "previously_exposed_development_tasks": 2,
+  "proposed_tools_executed": 0,
+  "proposed_training": false,
+  "history_control_classes": {
+    "a": "Stored typed bag matches the saved target witness on this snapshot.",
+    "b": "Stored bag differs, but fixed filter/project or distinct-count processing matches the saved target witness. These are positive derivable controls, NOT inappropriate-reuse controls.",
+    "c": "Stored bag is not the target bag; no answer transformation certified by this audit. This is not a proof of universal non-derivability or a prohibition on inspecting it."
+  },
+  "offline_new_facts": {
+    "direct_controls_matched": 2,
+    "derivable_controls_matched_after_scripted_transform": 2,
+    "non_direct_result_controls": 2,
+    "new_model_calls": 0,
+    "new_SQL_queries": 0,
+    "scripted_tests_passed": 4,
+    "independent_human_reviews_added": 0,
+    "model_behavior_inferred_from_scripted_transforms": false
+  },
+  "measurement_correction": {
+    "previous_shorthand": "correct reuse versus incorrect reuse",
+    "correct_primary_description": "valid first cache-read proposals versus SQL proposals, other actions and invalid outputs, stratified by historical-result class",
+    "reason": "Reading may be an information-gathering step. A non-direct cache read is not itself a wrong answer, inappropriate final reuse, or interpretation drift.",
+    "invalid_output": "Retain as its own category in all-slot denominators; do not repair or substitute intended actions.",
+    "semantic_success_labels": "Not supplied by first-action parsing. Final reuse correctness would require a separately designed, authorized continuation and evaluation."
+  },
+  "analysis": {
+    "unit": "Two reused tasks, with within-task paired historical descriptions; not twelve independent tasks.",
+    "primary": "Paired action-category transitions for each history under original versus documented interface, with invalid cases displayed.",
+    "interpretation": "At most a descriptive development calibration of the whole documentation addition; no significance, equivalence, population or method-efficacy claim.",
+    "latency_cost": "Record full provider usage and request wall times. Declared tool units do not represent actual end-to-end savings.",
+    "no_selective_rerun": true,
+    "wording_search_budget": "One fixed documentation addition; do not repeatedly retune until reading appears."
+  },
+  "remaining_admission_work": [
+    "Trace the six archived cached results back to their original read-only execution receipt and database snapshot before asserting verified historical execution in the new prompt.",
+    "Freeze one literal generic documentation string; no task-specific applicability labels or scripted transformations in model-visible messages.",
+    "Build all twelve payloads, verify within-history pairs differ only by that system-message addition, and save a deterministic execution order.",
+    "Pin code, inputs and tokenizer; measure full prompts and run privacy/limits/failure-preservation tests.",
+    "Verify official pricing on the execution date, compute the bounded fee and obtain fresh fixed-batch approval."
+  ],
+  "decision_after_calibration": "If documentation changes choices, retain the interface sensitivity result but do not call it interpretation drift. If it does not, do not expand these two tasks or keep changing wording; discuss evidence-led revision or a new preselected task set with the user.",
+  "additional_paid_run_started": false,
+  "existing_experiment_modified": false
+}
