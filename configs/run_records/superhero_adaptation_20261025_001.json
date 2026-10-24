@@ -1,0 +1,70 @@
+{
+  "date": "2026-10-25",
+  "status": "LOCAL_DATABASE_COMPATIBILITY_CHECKED_HUMAN_REVIEW_PENDING",
+  "previous_record": "configs/run_records/native_positive_relation_20261025_001.json",
+  "source": {
+    "tasks": "Arcwise-Plat fe766045c55b6875a43b30e9ac7683df5582f8cf, questions 728/733, unchanged",
+    "task_source_sha256": "baefe2ca4fbab86c000df72aad9eaa563f7d422e425af2cbff071f656ea4eea8",
+    "database_url": "https://bird-bench.oss-cn-beijing.aliyuncs.com/minidev.zip",
+    "archive_etag": "\"7BEB6DAB11E65F0FDE563E644A1EA319\"",
+    "archive_size": 800943648,
+    "full_archive_sha256": null,
+    "member": "minidev/MINIDEV/dev_databases/superhero/superhero.sqlite",
+    "database_sha256": "75e94a2c3236ee3bb2c01fb97a1c4b4c1c269bcefd4eab1d04be323d2d0825b1",
+    "compressed_member_bytes": 104094,
+    "database_bytes": 237568,
+    "new_download_body_bytes": 120955,
+    "inherited_metadata_plus_new_body_bytes": 570522,
+    "transfer_accounting": "The second value includes already acquired metadata copied byte-for-byte; it is not the bytes downloaded this turn. HTTP headers and transport overhead are excluded.",
+    "license": "CC-BY-SA-4.0 stated on pinned BIRD card and current official HF card, not an independent adjudication of upstream rights",
+    "license_card": "https://huggingface.co/datasets/birdsql/bird_mini_dev",
+    "pinned_card_sha256": "04f8bce831346b750b4042b274a050f897bba1e7e69029dc14d0cfba381022a5",
+    "scope": "Legacy official BIRD SQLite member, not asserted to be a corrected Arcwise-distributed database"
+  },
+  "acquisition": {
+    "first_attempt": "superhero-fixed-20261025-001: DNS resolution failed before database download. All prepared artifacts and failure retained.",
+    "second_attempt": "superhero-fixed-20261025-002: explicit normal-network permission requested and granted; separate directory, no overwritten failure; completed verified ranged acquisition",
+    "first_manifest_sha256": "9471784adb35ef93c57996260054815f7b9fd341b32697cb3491d9b93c9ea350",
+    "second_manifest_sha256": "89615f2dc5c258332c3983f93e55e3e260ec11465badad99aa63c8bcdf018634",
+    "second_sealed_files": 19
+  },
+  "snapshot_diagnostic": {
+    "private_output": "runtime/runs/superhero-snapshot-audit-20261025-001",
+    "queries": ["DDL of three relevant tables", "unmodified 728 reference", "unmodified 733 reference"],
+    "readonly_calls_attempted": 3,
+    "readonly_calls_complete": 3,
+    "historical_group_rows": 19,
+    "cache_conversion_equals_current_reference": true,
+    "database_hash_unchanged": true,
+    "ddl_inspection": "All three IDs are integer primary keys; relevant text columns have no explicit COLLATE clause, hence default BINARY comparison in this SQLite schema. Full DDL retained privately.",
+    "artifact_manifest_sha256": "164a6dd7fd2662a709ebec4188775a4d4f574de37bc4483ea598056485a21415",
+    "sealed_files_verified": 10,
+    "not_a_model_experiment": true,
+    "not_a_human_semantic_approval": true
+  },
+  "source_version_comparison": {
+    "legacy_hf_revision": "f65faf4ae3b638c1fa6df1d3370c8d92c8366301",
+    "legacy_questions_sha256": "88ceb0710163cae46a256ecea8f0a8c98286599530b60587fda5c3cfe57d45d2",
+    "728": "Question wording differs between pinned HF BIRD and pinned Arcwise. Evidence and reference SQL are identical. Keep Arcwise wording chosen before this diagnostic; do not switch wording post hoc to secure approval.",
+    "733": "Question, evidence and reference SQL are identical across these two pinned text sources.",
+    "pair_origin": "Researcher-imposed sequence of public questions, not a recorded natural dialogue"
+  },
+  "review": {
+    "status": "TWO_BLANK_FORMS_ONLY",
+    "sealed_originals": "runtime/runs/datasets/superhero-fixed-20261025-002/review",
+    "editable_delivery": "../wenjuan/728_733_独立复核_20261025",
+    "reviewer_1_initial_sha256": "fef83818acc1becfe589cfce2b591cd1109468b7021f5d4ad5609681f4269230",
+    "reviewer_2_initial_sha256": "2fe44982deaa83c2a2f9a4a5c8fcb89216cdcee7432322d231e218c46289bf1a",
+    "reference_sql_and_answer_values_included": false,
+    "reading_order_enforced": false,
+    "human_approvals": 0,
+    "pending": "Whether historical most common with each eye color defines all ranked colour groups, and whether both original requests and reuse relation are unambiguous. Do not force acceptance if reviewers disagree or request clarification."
+  },
+  "software_tests": {"passed": 12, "command": "python -B -X utf8 -m unittest tests.test_superhero_snapshot tests.test_superhero_review_packet tests.test_native_positive_relation -v"},
+  "interpretation": "Supports this reference-level cache conversion on one fixed snapshot. Does not establish intent drift, causal cost effects, generalization, or a method beyond classical materialized-view reuse.",
+  "model_calls": 0,
+  "paid_api_cost_cny": 0,
+  "formal_tasks_admitted": 0,
+  "github": "Public code/tests/aggregate receipt only. Raw acquisition, review forms and query results remain local; no repeated push attempt while authentication blocker is unchanged.",
+  "next_gate": "Independent review before formal task admission, then an explicitly approved frozen paid experiment only if remaining design gates pass."
+}
