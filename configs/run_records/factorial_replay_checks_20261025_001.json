@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-25",
+  "status": "FINISHED_BATCH_REPLAY_COMPONENT_TESTED_OFFLINE",
+  "classification": "Scripted software fixtures, not model experiment evidence",
+  "source_sha256": {
+    "runtime/factorial_trace_replay.py": "ff800b07eb317478a7444272064b741a0a0caa9d2923088d705a840bcf7a1dbe",
+    "tests/test_factorial_trace_replay.py": "26280ad785ac288d0fccc72bc04ccdca5fb1cd767cb432ce501a64be1d29074b"
+  },
+  "tests": {
+    "command": "python -B -X utf8 -m unittest tests.test_factorial_trace_replay tests.test_superhero_answer_readout -q",
+    "passed": 14,
+    "replay_test_methods": 7,
+    "checks": [
+      "Reconstruct all four cells and shared cost guard from saved scripted provider responses",
+      "Reconstruct tool admission, cache availability and prices 1/8 using pure environment methods without SQL execution",
+      "Compare entire finished-batch inventory, nested seals, execution order, code receipts and copied summaries",
+      "Reject changed answers/provider copies, prices, history SQL binding, missing/extra trace records",
+      "Reject unsealed, modified or stopped batches rather than scoring selected successful prefixes"
+    ]
+  },
+  "interpretation_limits": [
+    "Replay proves local record consistency, not independent provider execution or semantic correctness",
+    "Source/reference admission and full audit wrapper must precede reading real answers",
+    "Stopped/partial batch still requires failure inventory, not this finished-run replay",
+    "No C-type demand drift labels or method-effect claims are produced"
+  ],
+  "approved_runner_002_changed": false,
+  "new_paid_requests": 0,
+  "new_model_calls": 0,
+  "research_SQL_executions": 0,
+  "execution_status_check": "No execution_claim or experiment directory observed at turn start; CIM process query was denied. No independent process status assertion or duplicate launch.",
+  "remaining": "Standalone source-isolated audit/archive wrapper and a real completed authorized batch before any research result readout"
+}
