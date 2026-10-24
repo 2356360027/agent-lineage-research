@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-25",
+  "status": "INPUTS_FROZEN_NOT_EXECUTION_READY",
+  "previous_turn": "Progress: user resolved review provenance/date and current-task grain condition; semantic gate recorded for adapted development pair",
+  "input_preparer": "scripts/prepare_superhero_factorial_inputs.py",
+  "capacity_checker": "runtime/cache_action_factorial_capacity.py",
+  "private_output": "runtime/runs/superhero-factorial-inputs-20261025-001",
+  "plan_sha256": "1ec6fe7bd3c6ab050c3dfe3399890d2bdf4921b0567ef387f0ea29b697173aa5",
+  "manifest_sha256": "5eb5a9aa8ef132b6ac3411fc9925a7926bb7efac75812df4f8deb1a55446df78",
+  "scope": "One researcher-adapted sufficient-history development pair; no negative control and no independent confirmation claim",
+  "cells": 4,
+  "max_model_calls": 16,
+  "max_tool_attempts": 12,
+  "token_certificate": {
+    "initial_reference_tokens_each": 1346,
+    "total_conditional_input_bound": 47296,
+    "total_output_bound": 8192,
+    "full_first_history_and_current_observations_exposed": true,
+    "runtime_checks_required": true,
+    "remote_tokenizer_identity_attested": false,
+    "financial_quote_verified": false
+  },
+  "software_tests_passed": 13,
+  "new_model_calls": 0,
+  "new_SQL_queries": 0,
+  "paid_cost_cny": 0,
+  "inference_authorized": false,
+  "remaining": [
+    "Matching injected loop and ToolSession state enforcement, then batch failure/deadline/fee integration and offline fault tests",
+    "Complete frozen deployment source closure and result-to-original-SQL binding; this archive is an input preparation, not a deployable launcher",
+    "Current official API model/settings/pricing checks, conservative client cost limit and explicit paid-batch approval",
+    "Endpoint and failure policy frozen before execution; first route, completion, resource cost and unresolved semantics separate, no category-C inference from final answer alone"
+  ],
+  "interpretation": "Equal initial token counts and complete result exposure remove two interface concerns; neither establishes a causal behavioral effect nor a new reuse method.",
+  "historical_protocols_changed": false,
+  "github": "Local code, tests and aggregate receipt only; private plan and reviewer data excluded; push authentication still unresolved."
+}
