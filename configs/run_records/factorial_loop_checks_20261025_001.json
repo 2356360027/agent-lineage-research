@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-25",
+  "status": "INJECTED_LOOP_OFFLINE_CHECKED_NOT_LIVE_BATCH_READY",
+  "protocol": "ordinary-factorial-loop-v1",
+  "classification": "Software tests with scripted responses and disposable synthetic SQLite fixtures, not model experiments",
+  "parent_code_commit": "2f5bfcdc35d2c6c9767041422e93c37356512122",
+  "source_sha256": {
+    "runtime/cache_action_factorial_loop.py": "96d89ea6092a5abbec253f5a6fad71c3c449c6214e930cab62653054c2f0c44b",
+    "tests/test_factorial_loop.py": "2ba2f2193db52fab4b61eb4912aeae20ce51ad7907944394b8a6ea93e604bd24"
+  },
+  "tests": {
+    "command": "python -B -X utf8 -m unittest tests.test_factorial_loop tests.test_factorial_capacity tests.test_cache_action_factorial_preview tests.test_cache_action_loop tests.test_cache_action_adapter tests.test_cache_action_batch -v",
+    "passed": 61,
+    "new_loop_test_methods": 9,
+    "covered": [
+      "Four availability/price cells preserve initial messages and enforce matching tool state",
+      "Four-cell integration with real ToolSession, disposable read-only SQL and unchanged fixture hashes",
+      "Two exploration opportunities and reserved SQL followed by terminal output",
+      "Wrong initial state and drifted charges/counters/environment stop without subsequent dispatch",
+      "Invalid action and prohibited recovery/terminal tools retained without repair",
+      "Scripted network timeout retains uncertain cost reservation and does not retry",
+      "Late provider result retained and accounted without tool use",
+      "Failure to journal tool pending record prevents tool dispatch",
+      "Old action loop, adapter and batch regression checks"
+    ]
+  },
+  "new_paid_requests": 0,
+  "new_model_inference_calls": 0,
+  "research_snapshot_queries": 0,
+  "old_frozen_protocols_modified": false,
+  "identification_limit": "The loop elicits no prior task contract. A future final error alone cannot establish demand reinterpretation. This positive control does not establish an increment over classical grouped-view reuse.",
+  "deadline_limit": "Loop checks before/after callbacks retain late results but do not interrupt a blocking callback; the authorized launcher must enforce transport/SQL and outer timeouts.",
+  "remaining_gates": [
+    "New factorial batch orchestration and failure/finalization tests",
+    "Bind cached rows to sealed history SQL, exact admitted input and database snapshot",
+    "Freeze full executable source closure rather than only the input preparation snapshot",
+    "Recheck official model settings and prices and obtain current fixed-batch budget approval before inference"
+  ],
+  "github": "Local public-safe code and aggregate receipt; push pending user-side authentication, not asserted synchronized"
+}
