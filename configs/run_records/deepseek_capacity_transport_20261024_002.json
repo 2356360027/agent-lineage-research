@@ -1,0 +1,58 @@
+{
+  "status": "OFFLINE_PREPARATION_NOT_A_MODEL_RESULT",
+  "capacity_run": "deepseek-capacity-check-20261024-002",
+  "capacity_summary_sha256": "a120a7e97936273895ad6b5268a8e2b245eaa08f6ae3da9fa9f8f0737333ab31",
+  "capacity_verified_files": 5,
+  "scripted_replay_run": "deepseek-trajectory-offline-20261024-002",
+  "scripted_replay_summary_sha256": "b3afc3395f0a0d080fd9c0d06b4bdc06824bdadc235d45cd7aae413c7b0f64b2",
+  "scripted_replay_verified_files": 552,
+  "model_calls": 0,
+  "actual_api_cost_cny": 0,
+  "related_software_tests_passed": 44,
+  "owned_sleeping_subprocess_timeout_test_passed": true,
+  "server_cancellation_verified": false,
+  "credential_path": "Future caller supplies key in memory; child receives anonymous stdin only. No key stored or read in these offline checks.",
+  "transport_limits": {
+    "official_endpoint_only": true,
+    "redirects_allowed": false,
+    "ambient_proxy_used": false,
+    "automatic_retries": false,
+    "maximum_seconds_per_request": 90,
+    "timeout_billing_treated_as_unknown": true
+  },
+  "prepared_development_allocation": {
+    "independent_targets": 2,
+    "constructed_histories": 6,
+    "paired_trajectories": 12,
+    "maximum_calls": 276,
+    "maximum_tool_attempts": 252,
+    "new_confirmatory_tasks": 0
+  },
+  "conditional_reference_bounds": {
+    "largest_history_with_completion": 24109,
+    "local_window": 32768,
+    "total_input_tokens": 3334228,
+    "total_output_tokens": 141312,
+    "peak_uncached_cost_cny": 7.798952,
+    "price_source": "https://api-docs.deepseek.com/zh-cn/quick_start/pricing/",
+    "price_checked": "2026-10-24",
+    "input_cny_per_million": 2,
+    "output_cny_per_million": 8,
+    "conditions": [
+      "All runtime assistant/observation length and future-join checks pass",
+      "Every provider input count equals the pinned reference count",
+      "Provider honors output cap; documented rates unchanged",
+      "No retries or additional batches"
+    ],
+    "provider_invoice_or_spending_cap": false
+  },
+  "local_historical_cache_exposure_check": "Constructed read-observation metadata around fixed cached records fits without partial rows; actual live tool records still require runtime validation.",
+  "remaining_before_live": [
+    "Connect verified frozen inputs, database, journals, capacity and bounded transport in a fixed launcher",
+    "Obtain explicit paid-batch scope/time/cost approval and current balance confirmation",
+    "User supplies key through hidden terminal input, never conversation or code"
+  ],
+  "scientific_limit": "Only software/admission preparation; no evidence of intent drift or superiority over strong baselines.",
+  "private_records_uploaded": false,
+  "inference_authorized": false
+}

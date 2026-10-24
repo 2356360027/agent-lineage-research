@@ -77,11 +77,12 @@ Not a provider invoice; prices and accounting must be approved before live use.
 
 
 class Adapter:
-    def __init__(self, *, counter, transport, save, guard, max_seconds=1800,
+    def __init__(self, *, counter, transport, save, guard, capacity=None, max_seconds=1800,
                  clock=time.monotonic):
         if type(max_seconds) is not int or not 1 <= max_seconds <= 1800:
             raise ValueError('Deadline must be within 1800 seconds')
         self.counter, self.transport, self.save, self.guard = counter, transport, save, guard
+        self.capacity = capacity
         self.clock, self.start, self.max_seconds = clock, clock(), max_seconds
         self.count, self.failed = 0, False
 
@@ -114,6 +115,11 @@ class Adapter:
             'reference_input_tokens':n, 'reserved_output_tokens':512,
             'local_admission_cap':32768, 'truncated':False,
             'full_horizon_capacity_proven':False})
+        if self.capacity is not None:
+            receipt = self.capacity(payload)
+            self.save(name+'.capacity', receipt)
+            if receipt['generation_index'] != index:
+                raise ValueError('Capacity stage does not match call index')
         # Reserve only after pure validation; no transport occurs if save fails.
         ticket = self.guard.reserve(n, 512)
         self.save(name+'.pending', {'payload':payload, 'ticket':ticket,

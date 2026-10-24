@@ -20,6 +20,7 @@ from runtime.cache_intent_staged_loop import run_recovery_trajectory
 from runtime.cache_intent_observation_bound import ObservationBound
 from runtime.deepseek_trajectory_adapter import Adapter, CostGuard
 from runtime.deepseek_text_counter import ReferenceCounter
+from runtime.deepseek_recovery_capacity import RecoveryCapacity
 
 
 def run(reference, dependencies, output):
@@ -67,10 +68,11 @@ def run(reference, dependencies, output):
                     'choices':[{'message':{'content':content}, 'finish_reason':'stop'}]}
             guard = CostGuard(ceiling_micro_cny=2_000_000, max_calls=23,
                                input_rate=2, output_rate=8)
-            adapter = Adapter(counter=counter, transport=transport, save=log, guard=guard)
+            capacity = RecoveryCapacity(envelope,counter)
+            adapter = Adapter(counter=counter, transport=transport, save=log, guard=guard,capacity=capacity)
             try:
                 result = run_recovery_trajectory(envelope, session, adapter, log,
-                                                 ObservationBound(counter.chat))
+                                                 capacity.observation_bound())
             finally:
                 tool_summary = session.close()
                 log.seal()
@@ -88,6 +90,7 @@ def run(reference, dependencies, output):
                 'real_readonly_sql_calls':tool_summary['sql_calls'],
                 'declared_tool_units':tool_summary['spent_declared_units'],
                 'largest_reference_input':max(counter.chat(p['messages']) for p in sent),
+                'conditional_capacity':capacity.certificate(),
                 'synthetic_cost_guard_only':guard.snapshot(), 'model_calls':0})
     observation = {'status':'EXECUTED','complete':True,'charged_units':1,
         'remaining_budget':209,'attempt':1,'rows':[['oversize-marker '+str(i)] for i in range(1000)]}
@@ -104,9 +107,10 @@ def run(reference, dependencies, output):
         'source_sha256':{name:audit.hash_file(Path(__file__).resolve().parents[1]/name)
             for name in ('runtime/deepseek_text_counter.py','runtime/deepseek_trajectory_adapter.py',
                          'runtime/cache_intent_staged_loop.py','runtime/cache_intent_observation_bound.py',
+                         'runtime/deepseek_recovery_capacity.py',
                          'scripts/check_deepseek_trajectory_offline.py')},
         'live_batch_ready':False,
-        'remaining':['Remote multi-turn tokenizer parity', 'Full-history capacity certificate',
+        'remaining':['Remote multi-turn tokenizer parity', 'Enforce conditional capacity in live launcher',
                      'Live transport with hard deadline and hidden-key handling',
                      'Fixed paid-batch scope and cost approval', 'Independent semantic/program review']}
     audit.save_new(output/'summary.json', result)
