@@ -1,0 +1,33 @@
+{
+  "status": "OFFLINE_PREPARATION_ONLY_NO_LIVE_API_CALLS",
+  "date": "2026-10-24",
+  "user_direction": "Switch to official DeepSeek API; retain prior experimental records",
+  "endpoint": "https://api.deepseek.com/v1/chat/completions",
+  "model": "deepseek-flash",
+  "purpose": "Two public synthetic interface checks, not a research experiment",
+  "maximum_calls": 2,
+  "maximum_completion_tokens_per_call": 128,
+  "worker_deadline_seconds_per_call": 90,
+  "thinking": "disabled",
+  "automatic_retry": false,
+  "expected_cost_cny_less_than": 0.01,
+  "estimate_is_not_a_provider_spending_cap": true,
+  "credential_entry": "Hidden getpass input or preconfigured process environment; no credentials in this record",
+  "offline_tests_passed": 4,
+  "tests_are_not_model_evidence": true,
+  "live_requests_sent": 0,
+  "private_inputs_sent": false,
+  "previous_quantized_download": "Operator cancelled remaining download after explicit API switch; partial assets retained",
+  "compatibility_limits": [
+    "Official documented JSON object mode is not the old strict JSON Schema mode",
+    "No supported seed assumed",
+    "Requested alias and returned model identity recorded separately",
+    "Do not merge results into historical Qwen runs",
+    "Full research batch has not been adapted or launched"
+  ],
+  "sources": [
+    "https://api-docs.deepseek.com/zh-cn/quick_start/pricing/",
+    "https://api-docs.deepseek.com/api/create-chat-completion/",
+    "https://api-docs.deepseek.com/guides/thinking_mode/"
+  ]
+}
