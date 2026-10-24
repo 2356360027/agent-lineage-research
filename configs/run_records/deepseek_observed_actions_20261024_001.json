@@ -1,0 +1,53 @@
+{
+  "status": "DESCRIPTIVE_OFFLINE_ACTION_AUDIT_NOT_SEMANTIC_CONFIRMATION",
+  "date": "2026-10-24",
+  "experiment_manifest_sha256": "f871da06a2b123882d12ec30a0bf9b554638b5b0b31b5ec86586bdb0643536b6",
+  "scripted_witness_manifest_sha256": "ad26ef33712ddcc71450ed33d308f8178ae2855d49090f7a0365f14fa38d1e55",
+  "plan_sha256": "3666fbbcbe8e16c22bc76eca6b827fd2e111905ebd35c21ca41de0999dfccdab",
+  "scope": {
+    "previously_used_development_targets": 2,
+    "constructed_histories": 6,
+    "trajectories": 12,
+    "declared_read_prices": [1, 8],
+    "these_are_relative_units_not_api_prices": true
+  },
+  "observed_actions": {
+    "every_trajectory": ["run_sql", "answer"],
+    "cache_read_actions": 0,
+    "sql_actions": 12,
+    "executed_sql_results": 12,
+    "whole_result_withholding_events": 0,
+    "total_charged_relative_units": 120,
+    "charged_relative_units_per_trajectory": 10
+  },
+  "result_comparison": {
+    "method": "Compare complete saved typed SQL-result row bags against earlier sealed scripted route results on the same database snapshot; no queries re-executed.",
+    "equal_result_bags": 12,
+    "comparison_count": 12,
+    "duplicate_multiplicity_and_cell_types_preserved": true,
+    "row_order_and_column_labels_ignored": true,
+    "within_row_column_order_preserved": true,
+    "not_general_SQL_semantic_equivalence": true,
+    "not_a_score_of_final_natural_language_answers": true,
+    "final_answer_accuracy": null
+  },
+  "research_decision": {
+    "finding": "No observed read-price difference in tool choice in this fixed development batch: every trajectory recomputed directly.",
+    "not_supported": "An empirical improvement of a new cache-reuse algorithm over strong checks and on-demand recomputation is not demonstrated.",
+    "still_unknown": "Contract interpretation and SQL semantics require separate review. Cache descriptions were visible, so no cache read does not prove absence of description-induced influence.",
+    "next_gate": "Complete independent whole-contract reviews without exposing these later outcomes, freeze those labels, then review recorded programs and final text. Do not use outcome equality to create or revise primary labels.",
+    "resource_decision": "Do not expand repeated runs of these two tasks or start a new paid batch on this evidence alone.",
+    "causal_C_effect_established": false,
+    "strong_baseline_residual_gap_established": false,
+    "independent_confirmation": false
+  },
+  "reproducibility": {
+    "private_output": "runtime/runs/deepseek-observed-actions-20261024-001",
+    "script": "scripts/audit_deepseek_observed_actions.py",
+    "tests_passed": 4,
+    "test_scope": "Bag multiplicity/type preservation, row order invariance, incomplete result stays unknown, invalid typed value rejection, and equality does not create semantic or final-answer labels.",
+    "new_model_calls": 0,
+    "new_SQL_queries": 0,
+    "private_details_uploaded": false
+  }
+}
