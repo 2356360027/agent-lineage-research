@@ -1,0 +1,31 @@
+{
+  "protocol": "citation-interface-v1",
+  "stage": "prospective_developmental_interface_diagnostic",
+  "seed": 31032028,
+  "candidate_items": 64,
+  "items": 8,
+  "actual_calls_per_item": 8,
+  "temperature": 0.0,
+  "top_p": 1.0,
+  "max_tokens": 256,
+  "max_answer_utf8_bytes": 160,
+  "max_citations": 8,
+  "guided_backend": "outlines:no-fallback",
+  "bootstrap_seed": 10103027,
+  "bootstrap_resamples": 2000,
+  "primary_descriptive_endpoints": [
+    "explicit_minus_original_format_valid_json_object_full",
+    "guided_minus_json_format_valid_explicit_full"
+  ],
+  "sampling": "Exclude all 200 candidates from natural-repetition-v1, then order the remaining HotpotQA validation IDs by SHA256([seed,id]); first 64 candidates, first 8 passing complete-context tokenizer eligibility. No label or outcome selection.",
+  "factors": {"context": ["full", "question_only"], "prompt": ["original", "explicit"], "decoder": ["json_object", "guided_json"]},
+  "limits": [
+    "Interface engineering diagnostic, not method validation or evidence of DICE efficacy.",
+    "Prompt revision bundles literal ID clarification and an explicit empty-answer example; it does not isolate their individual effects.",
+    "Original generic JSON uses the existing server default; guided JSON explicitly uses Outlines with fallback disabled. This compares decoding stacks, not schema alone.",
+    "The installed vLLM 0.8.3 rejects xgrammar schemas containing enum or maxItems before generation. Outlines is chosen prospectively, not silently substituted after a failed experimental call.",
+    "Visible-ID membership is not evidential support. Schema validity does not enforce UTF-8 byte count or factual answer correctness.",
+    "Invalid complete outputs score zero; failed or pending infrastructure calls block full scoring. No repairs, retries, truncation, effect-based stopping or automatic next batch.",
+    "Eight questions are the independent units, not 64 calls; intervals are descriptive and unadjusted. Fresh from our prior candidate frame does not mean absent from model pretraining."
+  ]
+}

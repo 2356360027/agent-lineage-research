@@ -1,0 +1,19 @@
+{
+  "protocol":"tool-input-repair-v1",
+  "classification":"EXPLORATORY_ENGINEERING_GATE_NOT_DICE_VALIDATION",
+  "motivation":"Previous real experiment: no correct posterior recovery in 96 wrong-input calls; 92 agreed with wrong tool. These were 12 independent synthetic cells.",
+  "arms":["original tool result","explicit check instruction","same check plus nonnumeric deterministic audit report","same check and report plus corrected inputs and exact recalculation"],
+  "frozen_size":"12 fresh cells x 2 complements x 4 input cases x 4 arms = 384 real model calls",
+  "primary_descriptive_endpoints":["report minus explicit-check posterior MAE under duplicated inputs","repair minus explicit-check posterior MAE under duplicated inputs","report minus explicit-check posterior MAE under omitted inputs","repair minus explicit-check posterior MAE under omitted inputs"],
+  "analysis_unit":"Average label complements within reliability-pair cell; no cross-batch pooling or significance claims.",
+  "gate":"Repair at least 95% posterior-correct at absolute tolerance 1e-4 across 96 repair calls, zero invalid repair outputs, at most one previously correct valid-input control lost. This gate permits engineering follow-up, not an efficacy or publication claim.",
+  "if_gate_fails":"Do not rerun seeds, tune on this batch, or enlarge sample. Diagnose and discuss implications for manuscript before further model inference.",
+  "if_gate_passes":"Design recipient-specific multi-agent tests with a conventional origin-aware deterministic baseline, fair evidence and compute controls. Do not automatically claim novelty from input checking.",
+  "limitations":["Single Qwen2.5-7B model","trusted complete registry supplied by experiment","conditioned coincident observations, not natural prevalence","length-unmatched prompt/report treatments","no learned provenance inference","no natural communication or real-task utility evaluated"],
+  "literature_checked_2026_10_02":[
+    {"url":"https://arxiv.org/abs/2305.11738","title":"CRITIC: Large Language Models Can Self-Correct with Tool-Interactive Critiquing","scope_read":"abstract","relevance":"Tool-feedback-assisted correction is established; present arms do not implement CRITIC."},
+    {"url":"https://aclanthology.org/2024.findings-emnlp.289/","title":"TOOLVERIFIER: Generalization to New Tools via Self-Verification","scope_read":"abstract","relevance":"Verification of tool selection and parameter generation is established; present deterministic audit is not ToolVerifier."},
+    {"url":"https://arxiv.org/abs/2607.24117","title":"Grading the Narrators: An Isnad-Rijal Framework for Claim-Level Provenance in Multi-Agent Knowledge Systems","scope_read":"abstract only, preliminary related-work lead","relevance":"Claim-chain provenance and independent corroboration overlap with broad motivation; full technical comparison required before novelty claims."}
+  ],
+  "publication_boundary":"No fabricated data, inflated compute, deletion of unfavorable output, or outcome-based stopping. Repaired tool values are conventional computed intermediates, never counted as measured LLM reasoning. No raw logs on public GitHub."
+}

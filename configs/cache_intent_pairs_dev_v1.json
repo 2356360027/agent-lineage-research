@@ -1,0 +1,93 @@
+{
+  "version": "cache-intent-pairs-dev-v1",
+  "origin": "public_benchmark_targets_researcher_constructed_histories",
+  "source": "Arcwise-Plat full revision fe766045c55b6875a43b30e9ac7683df5582f8cf; legacy Mini-Dev database adaptation, not official reproduction",
+  "task_material_attribution": "Adapted from uiuc-kang-lab/text_to_sql_benchmarks, Arcwise-Plat; Jin, Choi, Zhu and Kang, Pervasive Annotation Errors Break Text-to-SQL Benchmarks and Leaderboards (2026). Candidate contracts and historical requests/SQL are researcher-constructed adaptations.",
+  "task_material_license": "CC-BY-SA-4.0; https://creativecommons.org/licenses/by-sa/4.0/ (adapted task material only; does not relicense unrelated code)",
+  "selection_rule": "Two previously exposed toxicology development targets selected for small inspectable outputs and distinct filtering/counting contracts; no model outputs inspected for selection.",
+  "target_ids": [200, 234],
+  "independent_target_count": 2,
+  "human_review_status": "pending",
+  "targets": [
+    {
+      "question_id": 200,
+      "candidate_contract": {
+        "entity": "Molecules identified by molecule_id",
+        "time": "Not applicable",
+        "filter": "At least one bond_type='#' and molecule.label='+'",
+        "aggregation": "Existence of at least one triple bond; not all bonds must be triple",
+        "dedup": "Each qualifying molecule ID once",
+        "denominator": "Not applicable",
+        "unit": "Molecule identifier",
+        "output": "One molecule_id column; order not requested"
+      },
+      "review_questions": ["Does 'find molecules' require distinct IDs rather than counts?", "Is the existence interpretation and label mapping sufficient and unambiguous?"],
+      "histories": [
+        {
+          "id": "h200a",
+          "candidate_relation": "direct",
+          "historical_request": "List the distinct IDs of carcinogenic molecules that contain at least one triple bond.",
+          "sql": "SELECT DISTINCT m.molecule_id FROM bond AS b JOIN molecule AS m ON b.molecule_id=m.molecule_id WHERE b.bond_type='#' AND m.label='+'",
+          "transform": "identity",
+          "relation_basis": "Same proposed selection and identifier output as current task; human confirmation pending."
+        },
+        {
+          "id": "h200b",
+          "candidate_relation": "cache_only_transformable",
+          "historical_request": "List distinct molecule IDs and their classification labels for every molecule with at least one triple bond, irrespective of classification.",
+          "sql": "SELECT DISTINCT m.molecule_id, m.label FROM bond AS b JOIN molecule AS m ON b.molecule_id=m.molecule_id WHERE b.bond_type='#'",
+          "transform": "filter_positive_label_project_id",
+          "relation_basis": "The cached label permits filtering to '+' and projecting distinct IDs without new base-data reads."
+        },
+        {
+          "id": "h200c",
+          "candidate_relation": "insufficient_without_base_reads",
+          "historical_request": "List distinct molecule IDs for all molecules with at least one triple bond, irrespective of classification. Return IDs only.",
+          "sql": "SELECT DISTINCT m.molecule_id FROM bond AS b JOIN molecule AS m ON b.molecule_id=m.molecule_id WHERE b.bond_type='#'",
+          "transform": null,
+          "relation_basis": "ID-only output lacks the classification labels. New label reads could still enable valid partial reuse; do not force unconditional rejection."
+        }
+      ]
+    },
+    {
+      "question_id": 234,
+      "candidate_contract": {
+        "entity": "Distinct bond IDs incident on atom TR009_12",
+        "time": "Not applicable",
+        "filter": "atom_id='TR009_12' OR atom_id2='TR009_12' in connected",
+        "aggregation": "Count distinct non-null bond_id",
+        "dedup": "Repeated records for the same bond ID count once",
+        "denominator": "Not applicable",
+        "unit": "Number of bonds",
+        "output": "One integer count, including zero when no bonds qualify"
+      },
+      "review_questions": ["Does the question mean distinct bonds rather than connection records?", "Are both endpoint positions included and is non-null bond-ID counting appropriate?"],
+      "histories": [
+        {
+          "id": "h234a",
+          "candidate_relation": "direct",
+          "historical_request": "Count distinct bond IDs incident on TR009_12, considering either endpoint column.",
+          "sql": "SELECT COUNT(DISTINCT bond_id) AS bond_count FROM connected WHERE atom_id='TR009_12' OR atom_id2='TR009_12'",
+          "transform": "identity",
+          "relation_basis": "Same proposed distinct-bond count as the current task; human confirmation pending."
+        },
+        {
+          "id": "h234b",
+          "candidate_relation": "cache_only_transformable",
+          "historical_request": "List distinct non-null bond IDs incident on TR009_12, considering either endpoint column.",
+          "sql": "SELECT DISTINCT bond_id FROM connected WHERE bond_id IS NOT NULL AND (atom_id='TR009_12' OR atom_id2='TR009_12')",
+          "transform": "count_distinct_nonnull_ids",
+          "relation_basis": "A complete list of distinct non-null bond IDs can be counted using cached data only; no join-completeness assumption needed."
+        },
+        {
+          "id": "h234c",
+          "candidate_relation": "insufficient_without_base_reads",
+          "historical_request": "Count distinct bond IDs recorded in the bond table for molecule TR009, regardless of which atoms they connect.",
+          "sql": "SELECT COUNT(DISTINCT bond_id) AS molecule_bond_count FROM bond WHERE molecule_id='TR009'",
+          "transform": null,
+          "relation_basis": "The total bond count contains no atom12 incidence information. Correct computation remains possible by reading the base data."
+        }
+      ]
+    }
+  ]
+}

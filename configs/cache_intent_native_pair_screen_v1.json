@@ -1,0 +1,108 @@
+{
+  "version": "cache-intent-native-pair-screen-v1",
+  "status": "TEXT_SCREEN_ONLY_PENDING_HUMAN_REVIEW",
+  "date": "2026-10-12",
+  "source": {
+    "repository": "uiuc-kang-lab/text_to_sql_benchmarks",
+    "revision": "fe766045c55b6875a43b30e9ac7683df5582f8cf",
+    "file": "data/arcwise_plat_full_with_diff.json",
+    "sha256": "baefe2ca4fbab86c000df72aad9eaa563f7d422e425af2cbff071f656ea4eea8",
+    "license": "CC-BY-SA-4.0",
+    "attribution": "Jin, Choi, Zhu and Kang, Pervasive Annotation Errors Break Text-to-SQL Benchmarks and Leaderboards (2026); Arcwise-Plat full. Original question/evidence/SQL remain unchanged in the separately fixed source. Pair direction and screening commentary are researcher adaptations."
+  },
+  "scope": {
+    "fixed_source_records": 498,
+    "records_in_four_existing_database_ids": 185,
+    "database_counts": {
+      "toxicology": 40,
+      "debit_card_specializing": 30,
+      "codebase_community": 49,
+      "formula_1": 66
+    },
+    "screening_is_exhaustive_pair_search": false,
+    "new_current_targets_shortlisted": [555, 1480],
+    "formal_tasks_admitted": 0,
+    "new_human_approvals": 0,
+    "sql_calls": 0,
+    "model_calls": 0
+  },
+  "selection": {
+    "rule": "Bounded manual static screen of same-database source questions: prefer shared population and inspectable differences in aggregation/output; at most two additional current targets. No model outputs, query results or prospective effect estimates used. Not a random sample or preregistered confirmation selection.",
+    "origin": "Public questions individually; researcher-imposed history-to-current pairing, not observed dialogue chronology or production cache logs",
+    "exposure": "Development-exposed by this textual screening; not a held-out confirmation set",
+    "no_rewrite": "Keep all original question, evidence and SQL fields; any later clarification must create a separately attributed adaptation and preserve originals."
+  },
+  "pairs": [
+    {
+      "id": "native-537-to-555",
+      "database_id": "codebase_community",
+      "historical_question_id": 537,
+      "current_question_id": 555,
+      "disposition": "SHORTLIST_FOR_TASK_REVIEW_NOT_EXECUTION",
+      "shared_context": "Posts owned by users whose DisplayName is csgillespie; same posts-users join",
+      "difference": "COUNT(posts.Id) versus AVG(posts.Score)",
+      "candidate_relation": "Count alone does not determine mean score; supplemented reuse is unresolved, not forbidden",
+      "review_gates": [
+        "Current and historical question/evidence semantics, including entity scope if DisplayName is not unique",
+        "Score NULL handling: stored DDL permits NULL, so post count is not automatically COUNT(Score)",
+        "Historical result completeness and compatibility of the chosen immutable database",
+        "Any extra score/denominator reads and their real cost must be included"
+      ],
+      "semantic_approval": false
+    },
+    {
+      "id": "native-1473-to-1480",
+      "database_id": "debit_card_specializing",
+      "historical_question_id": 1473,
+      "current_question_id": 1480,
+      "disposition": "SHORTLIST_FOR_TASK_REVIEW_NOT_EXECUTION",
+      "shared_context": "SME customers in year 2013; same customers-yearmonth join and filters",
+      "difference": "Mean annual consumption per customer divided by 12 versus month of greatest aggregate consumption",
+      "candidate_relation": "A scalar annual-derived mean does not determine monthly argmax; base reads remain allowed",
+      "review_gates": [
+        "Retain historical evidence defining AVG(customer annual totals)/12; do not silently change to AVG(monthly rows)",
+        "Resolve meaning of a peak month when multiple months tie; current reference uses LIMIT 1 without a tie-breaker",
+        "Review missing-month, empty-group and unit interpretation",
+        "Historical result completeness and compatibility of the chosen immutable database"
+      ],
+      "semantic_approval": false
+    },
+    {
+      "id": "native-931-to-960",
+      "database_id": "formula_1",
+      "historical_question_id": 931,
+      "current_question_id": 960,
+      "disposition": "HOLD_TYPE_AND_REFERENCE_SEMANTICS",
+      "difference": "Maximum versus average fastest-lap speed for the same 2009 Spanish Grand Prix",
+      "reason": "Saved old schema declares fastestLapSpeed TEXT. Historical reference orders the raw column; current AVG has numeric conversion behavior. This is a static risk, not proof of an actual wrong benchmark answer. Numeric domain/storage and reference intent need review first.",
+      "semantic_approval": false
+    },
+    {
+      "id": "native-219-to-200",
+      "database_id": "toxicology",
+      "historical_question_id": 219,
+      "current_question_id": 200,
+      "disposition": "NOT_PRIORITIZED_NOT_DECLARED_INVALID",
+      "difference": "Percentage carcinogenic within triple-bond molecules versus qualifying molecule IDs",
+      "reason": "Adds another information-losing scalar-to-identity relation to an already exposed target; does not replace the existing lossless positive controls or solve their human review gate. Retain as a screened alternative, not a failed experiment.",
+      "semantic_approval": false
+    },
+    {
+      "id": "native-239-to-234",
+      "database_id": "toxicology",
+      "historical_question_id": 239,
+      "current_question_id": 234,
+      "disposition": "HOLD_MULTIPLE_SEMANTIC_DIFFERENCES",
+      "difference": "Atom-number 19 across matching first endpoints versus distinct bonds incident at either endpoint on TR009_12",
+      "reason": "Entity, scope, endpoint handling and counting multiplicity differ together. Not the preferred minimal contrast; requires independent semantic review, not an automatic invalidity label.",
+      "semantic_approval": false
+    }
+  ],
+  "positive_control_gap": {
+    "nontrivial_cache_only_transform_confirmed": false,
+    "statement": "This bounded screen did not certify a distinct-public-question cache-only conversion. It does not prove none exists in the corpus.",
+    "consequence": "Do not evaluate a reuse method solely on these information-losing candidates. Keep separately labeled same-request repeat and existing researcher-constructed lossless controls pending review; do not relabel them as natural histories."
+  },
+  "execution_authorized": false,
+  "old_dev_config_changed": false
+}

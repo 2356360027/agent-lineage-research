@@ -1,0 +1,57 @@
+{
+  "date": "2026-10-24",
+  "status": "LOCAL_INPUT_AND_RUNNING_SOURCE_CHECKED",
+  "previous_goal_turn": "progress",
+  "previous_commit": "7b77356",
+  "authority": "Local preparation only; server stopped",
+  "entry": "runtime.cache_intent_entry",
+  "entry_mode": "Read-only admission; no execute option",
+  "validated": [
+    "Exact five-file private input archive, including parsed-byte SHA256",
+    "Canonical fixed twelve-slot allocation and paired seeds/order",
+    "Complete historical cache identity and historical SQL binding",
+    "Current project source files match the pinned source bundle",
+    "Imported project modules originate in that same manifested source tree",
+    "Frozen database SHA256 matches every job and no SQLite sidecars exist"
+  ],
+  "tests": {
+    "input_entry": 5,
+    "source_bundle": 5,
+    "status": "PASS",
+    "tool_evidence": "92ea35",
+    "scope": "Local temporary-file fixtures and one synthetic SQLite query; no model or network",
+    "negative_controls": [
+      "Changed input bytes",
+      "Unexpected extra file",
+      "Wrong plan digest",
+      "Changed source snapshot",
+      "Execute flag rejected before any inspection or dispatch"
+    ]
+  },
+  "actual_local_admission": {
+    "tool_evidence": "3f6478",
+    "trajectories": 12,
+    "independent_target_tasks": 2,
+    "historical_caches": 6,
+    "source_files": 23,
+    "input_manifest_sha256": "4374a5e72939aafec5e4a02efacd5d290a4d6da7a7fbd7b4ee1633cec07c2b21",
+    "plan_sha256": "3666fbbcbe8e16c22bc76eca6b827fd2e111905ebd35c21ca41de0999dfccdab",
+    "source_manifest_sha256": "514b6fb16ae6503be3068cbeda7cbe3c87ddb4b85820b51baa22df3c65f64d78",
+    "database_sha256": "35ef27ae6bdfda530e125ed369666ac0abb8bc8c0bcc0ad09407f547ecb61a93",
+    "receipt_directory": "runtime/runs/recovery-entry-check-20261024-001",
+    "receipt_manifest_sha256": "550e3203972ffc361b80219ffd5a636422e7fe58bc92af21751041833ec255c4",
+    "model_calls": 0,
+    "sql_queries": 0,
+    "network_requests": 0
+  },
+  "unchanged_limits": {
+    "inference_authorized": false,
+    "semantic_labels_generated": false,
+    "provider_equivalence_verified": false,
+    "live_model_and_tokenizer_verified": false,
+    "hostile_runtime_attestation": false
+  },
+  "next_implementation": "Connect a separately authorized native backend to the existing batch loop and owned-worker supervisor; retain raw provider outputs and fixed denominators",
+  "scientific_status": "Controlled cache-price effects and incremental benefit over strong baselines remain untested",
+  "public_sync_this_turn": false
+}

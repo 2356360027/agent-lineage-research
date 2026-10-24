@@ -1,0 +1,55 @@
+{
+  "run":"interface-replication-001",
+  "classification":"PROSPECTIVE_HELD_OUT_INTERFACE_REPLICATION_NOT_DICE_CONFIRMATION",
+  "frozen_code_commit":"0a4c2682cab131a4adf090b9683434060233861d",
+  "design_sha256":"c0b98e16b4a86a31164f0def50259d2d1aad39af39ca82c8b1e2a6cff28917c6",
+  "source_archive_sha256":"d743b365e312785dd802f804f505dac70f02a0db69fa0bab3e7a6ba160b09d43",
+  "private_archive_sha256":"9f1aba7494079f5a5d6a2ec74fd820e991626cc544359cce1220603e75cfdfb7",
+  "model":"Qwen/Qwen2.5-7B-Instruct",
+  "model_content_sha256":"d6d12ae13c606e1d3fdc29eb937828be32b1b09a755f1632b4e59654f228ff1e",
+  "started_hk":"2026-10-02T21:50:25+08:00",
+  "finished_hk":"2026-10-02T21:59:54+08:00",
+  "run_and_scoring_wall_seconds":569,
+  "wall_time_scope":"Includes model fingerprint check, inference and scoring; excludes local/remote software preflight, transfer, backup and idle rental time. Not an actual cloud billing receipt.",
+  "completed_calls":672,
+  "independent_cells":24,
+  "initial_calls":288,
+  "initial_correct":288,
+  "initial_invalid":0,
+  "final_invalid":0,
+  "experiment_exit_code":0,
+  "score_exit_code":0,
+  "software_tests":{"local":89,"server":89},
+  "usage":{"complete":true,"prompt_tokens":417136,"completion_tokens":23950,"sum_call_seconds":449.0876559317112},
+  "candidate_selection":"Explicit-rule/answer-first was chosen after the earlier exploratory decision-interface-001 batch. This replication used fresh cells and did not pool prior data or retrospectively replace the earlier failed probability-first gate.",
+  "no_peer_descriptive_counts":[
+    {"order":"answer_first","scheduled":96,"posterior_correct":96,"map_consistent":95,"format_invalid":0},
+    {"order":"probability_first","scheduled":96,"posterior_correct":96,"map_consistent":88,"format_invalid":0}
+  ],
+  "candidate_natural_descriptive_counts":{"scheduled":96,"posterior_correct":95,"map_consistent":95,"format_invalid":0},
+  "count_interpretation":"96 calls aggregate two relations and two label complements across 24 independent cells, not 96 independent observations. MAP consistency compares raw answer with the explicit threshold on its reported p_state_1. Posterior correctness uses absolute tolerance 1e-4 against the known conditional probability, not a sampled outcome label.",
+  "primary_descriptive_contrasts":[
+    {"name":"copy:candidate_minus_probability_first:mae","complete_cells":24,"complete_mean":5.392406751449548e-9,"cell_bootstrap_interval95":[0.0,1.455674009688083e-8]},
+    {"name":"copy:candidate_minus_probability_first:answer_probability_consistent","complete_cells":24,"complete_mean":0.0625,"cell_bootstrap_interval95":[0.0,0.14583333333333334]},
+    {"name":"independent:candidate_minus_probability_first:mae","complete_cells":24,"complete_mean":-1.547443631374474e-6,"cell_bootstrap_interval95":[-6.239426728106162e-6,1.5759492901964425e-6]},
+    {"name":"independent:candidate_minus_probability_first:answer_probability_consistent","complete_cells":24,"complete_mean":0.08333333333333333,"cell_bootstrap_interval95":[0.020833333333333332,0.16666666666666666]}
+  ],
+  "primary_scope":"All primary contrasts use no_peer only and average paired complements within each cell. Fixed 2000-resample percentile intervals are descriptive and not multiplicity-adjusted superiority tests. Near-rounding-scale MAE differences are not substantive performance improvements.",
+  "secondary_natural_minus_no_peer_candidate":[
+    {"relation":"copy","mae_delta":0.0,"mae_interval95":[0.0,0.0],"map_consistency_delta":0.0,"map_consistency_interval95":[0.0,0.0],"complete_cells":24},
+    {"relation":"independent","mae_delta":0.0081629375,"mae_interval95":[0.0,0.024488812500000002],"map_consistency_delta":0.0,"map_consistency_interval95":[0.0,0.0],"complete_cells":24}
+  ],
+  "engineering_gate":{"passed":true,"candidate":"answer_first:no_peer","calls":96,"correct_posterior":96,"map_consistent":95,"correct_min":0.95,"consistent_min":0.95,"all_initials_valid":true,"baseline_invalid":0},
+  "exploratory_error_audit":{
+    "candidate_baseline":"One raw answer=0 with p_state_1=0.503764 despite the threshold instruction. The same answer/probability pair appears in its natural-peer counterpart. This is not a field-order, parser or calculator repair.",
+    "candidate_natural_outlier":"One independent-origin natural-peer output equals its own initial assessment, including p_state_1=0.05 and a single initial citation, although the correct supplied calculator probability is approximately 0.441821. Both peer answers were 1; its answer remained 0. This single error is not evidence of conformity toward peer answers or a verified anchoring mechanism.",
+    "sparsity":"The independent-origin candidate natural-minus-no-peer MAE difference is concentrated in one cell/one final call; copy contrast is zero in all observed cells. Neither pattern establishes population equivalence or a robust social effect.",
+    "field_order":"All 384 final outputs complied with requested key order. No invalid outputs, truncations or infrastructure failures."
+  },
+  "verification":{"remote_local_archive_sha256_match":true,"source_archive_sha256_match":true,"exact_frozen_replay":["summary","cell_metrics","paired_contrasts","audit_input_hashes"],"independent_arithmetic_peer_lineage_and_group_counts":672,"independent_paired_contrasts_and_intervals":8},
+  "decision":"ELIGIBLE_FOR_FROZEN_COMMUNICATION_FOLLOWUP_NOT_CONFIRMATION",
+  "interpretation":"The selected answer-first interface meets its prespecified engineering threshold on held-out cells. Its raw decision consistency is descriptively better than probability-first in this batch. This supports freezing the interface for subsequent tests, not a claim that answer-first universally dominates or that DICE is effective. Probability accuracy is nearly saturated when an exact calculator is provided; natural-peer effects are sparse.",
+  "next_proposal_not_run":"Freeze this interface rather than retune it. Design a separate evidence-routing by verdict-timing comparison with a strong recipient-ID deduplication baseline, matched evidence and budgets, valid utility controls, and held-out tasks. Preserve the exact-calculator condition as a mechanistic reference rather than the sole efficacy benchmark. A second model and natural-task transfer remain necessary; no new batch is automatically authorized by this record.",
+  "limitations":["One 7B model; no model-family replication","24 independent conditional synthetic cells, not a natural prevalence sample","Trusted complete origin registry and supplied exact task-specific calculator","Candidate chosen from earlier exploration, evaluated here without pooling","Engineering threshold is not a statistical lower-confidence guarantee","Sparse secondary anomaly; no latent cognitive mechanism established","No DICE efficacy, superiority after multiplicity correction, general equivalence or publication claim"],
+  "raw_data_public":false
+}

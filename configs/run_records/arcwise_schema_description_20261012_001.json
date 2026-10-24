@@ -1,0 +1,42 @@
+{
+  "run_id": "arcwise-schema-description-20261012-001",
+  "status": "SCHEMA_DESCRIPTION_AUDIT_ONLY",
+  "source_revision": "fe766045c55b6875a43b30e9ac7683df5582f8cf",
+  "description_files": 4,
+  "description_columns": 11,
+  "fetched_body_bytes": 1451,
+  "table_name_and_declared_type_checks_passed": 4,
+  "csv_raw_bytes_modified": false,
+  "binary_database_binding": "UNRESOLVED",
+  "new_research_sql_calls": 0,
+  "model_calls": 0,
+  "human_approvals": 0,
+  "inference_eligible": false,
+  "summary_sha256": "662248ecd75e99fe0e3f9e9a3a8b567f05e3e2af3af3de49e520d20e2e3f7676",
+  "source_manifest_sha256": "ac76dbde54c294dff768c56542f78254f763eabd8d77a3e71489d032957fb118",
+  "artifact_manifest_sha256": "0852a150b2947311d908996ea8980640d9d439482ace5745b44f88352e791d85",
+  "audit_source_sha256": "957e17eaba3a2ebdecf88909f3988be12568b0bfb02f3fd7eb0fefc0c249c101",
+  "prior_schema_record_sha256": "90fc01efc05a8c37ee28692509be5b3cd80d173593d97abd2ea299fef04554a1",
+  "local_runtime": "CPython 3.12.14 bundled runtime, Windows",
+  "independent_readonly_verification": {
+    "artifact_hashes_checked": 9,
+    "artifact_hashes_matched": 9,
+    "csv_byte_sha256_blob_checks_matched": 4,
+    "summary_reconstruction_matched": true,
+    "source_copy_and_prior_schema_binding_matched": true
+  },
+  "software_checks": {
+    "related_tests_passed": 130,
+    "new_csv_fixture_tests": 16,
+    "new_in_memory_sql_witness_tests": 8,
+    "synthetic_paired_world_counterexamples": 2,
+    "tests_are_research_samples": false
+  },
+  "limitations": [
+    "Only four Toxicology description CSVs inspected; not all dataset schemas.",
+    "Column/type agreement does not imply database content agreement.",
+    "Literal description-cell placement was not silently corrected or adjudicated.",
+    "Synthetic witnesses do not demonstrate agent intent drift, human consensus, or an improvement over strong baselines.",
+    "Raw CSVs and ignored local artifacts are not part of this public receipt."
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "status": "SOFTWARE_PREPARATION_ONLY_NO_MODEL_RUN",
+  "date_hong_kong": "2026-10-13",
+  "base_commit": "98471cb850dc0da6c4d4a68d8b426a0a2ebeb00d",
+  "source_note": "New runner and tests were uncommitted on this base during verification; source hash identifies runner bytes, not the base commit alone.",
+  "runner": "runtime/cache_intent_contract_pilot.py",
+  "runner_sha256": "20c3f39fba6e5f866ef79c4befbbd55e6df70c36a65c714f2cbe899204383ba0",
+  "python": "3.13.9",
+  "test_command": "python -B -m unittest tests.test_cache_intent_contract_pilot tests.test_cache_intent_prompts -q",
+  "software_tests_passed": 45,
+  "new_runner_tests": 33,
+  "existing_prompt_tests": 12,
+  "model_calls": 0,
+  "research_sql_calls": 0,
+  "human_approvals": 0,
+  "new_research_samples": 0,
+  "plan_sha256": "73fc13d1256a76281e42c3f0aca15a92ff875322e59b1bcc9ff03348cdeea5e3",
+  "fixed_preview_sha256": "bc930e0b167045a09f78e8e6cf4925d642b6dd4a28712ba39236b3a170d12f45",
+  "fixed_prompt_source_sha256": "e92cd5098eaebd62f6f8a9424d77b3e970aef202d04869582057d2f275bd5656",
+  "planned_model_calls_not_executed": 24,
+  "independent_development_targets": 2,
+  "formal_semantic_eligibility": false,
+  "backend_compatibility_verified": false,
+  "notes": [
+    "No remote authentication retry, model download, paid API request or training took place during this software preparation.",
+    "Fixtures and mocks cannot establish model performance or a cache-induced intent effect.",
+    "Current server authorization/authentication and native provenance must be checked before execution.",
+    "The 1800-second client inference-loop deadline excludes native preflight and does not stop cloud billing or attest generation cancellation."
+  ]
+}

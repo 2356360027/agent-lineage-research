@@ -1,0 +1,19 @@
+{
+  "protocol":"decision-interface-v1",
+  "classification":"EXPLORATORY_FACTORIAL_DIAGNOSTIC_NOT_DICE_CONFIRMATION",
+  "authorization":"User agreed to continue the revised measurement-interface experiment while retaining the communication research direction.",
+  "design":"12 fresh reliability-pair cells x 2 label complements x 2 origin relations x (3 shared initial calls + 2 rule levels x 2 field-order instructions x 2 peer conditions) = 528 calls. Independent sample size is 12, not 528.",
+  "rule_levels":["unspecified decision rule, original probability definition","explicit symmetric MAP decision, exact tie assigned to 0"],
+  "order_levels":["answer then probability then citations","probability then answer then citations"],
+  "peer_levels":["no peer reconsideration","actual B/C initial answer fields only"],
+  "initials":"A/B/C each receive one observation, a correct task-specific calculator and the explicit decision rule. The same actual outputs are shared across all eight final arms. Invalid initials are marked unavailable, never repaired or resampled.",
+  "matching":"Same visible evidence, origin map, correct calculator and own actual initial assessment across all final arms. Rule and order vary only their instruction suffixes. Natural condition adds only actual B/C answer artifacts. Seeds matched across final arms; seeded randomized call order.",
+  "primary":"Within no-peer arms, explicit-minus-unspecified and probability-first-minus-answer-first effects on posterior MAE and MAP consistency, separately by origin relation. Average complements and the other factor within each cell; complete means require all 12 cells. Eight descriptive contrasts, no significance claims.",
+  "secondary":"Natural-minus-no-peer posterior MAE and oracle-MAP direction in the fixed explicit/probability-first arm; format validity, observed field-order compliance, per-arm counts and actual resources. Order noncompliance retained in intention-to-treat analysis. No manipulation-compliant subset selection.",
+  "gate":"Fixed explicit/probability-first/no-peer arm: all 48 outputs valid, at least 95% posterior correct at 1e-4 and at least 95% consistent decisions; all 144 initials valid. If gate fails or a primary contrast is incomplete, discuss before more inference. Gate is engineering readiness, not significance or publication acceptance.",
+  "limitations":["One model and synthetic conditional evidence grid","Structured calculator output in user JSON, not native tool-calling","Registry complete and trusted","No sampled truth label, therefore direction means oracle-MAP direction, not empirical label accuracy","No-peer exact-repeat control absent in this factorial; prior repeats are not pooled","Field-order instruction may not control latent computation order","Answer consistency in unspecified arm is a scoring convention, not explicit instruction compliance","Interface improvement is not novelty or delayed-release benefit","No adaptive sample extension, retries, output correction or favorable-only filtering"],
+  "literature_context":[
+    {"url":"https://arxiv.org/html/2504.19622v1","boundary":"Evidence-response-confidence misalignment is prior art; natural QA evidence studies are not the same as fixed-event synthetic probability tasks."},
+    {"url":"https://arxiv.org/html/2510.10913v1","boundary":"Selected-answer confidence differs from P(Y=1). Do not enforce answer dependence on a fixed-event probability or claim generic inconsistency as novel."}
+  ]
+}

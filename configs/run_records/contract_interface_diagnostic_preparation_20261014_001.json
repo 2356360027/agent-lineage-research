@@ -1,0 +1,32 @@
+{
+  "status": "PREPARED_NOT_AUTHORIZED_NOT_EXECUTED",
+  "preparation_date_hong_kong": "2026-10-13",
+  "documentation_date_hong_kong": "2026-10-14",
+  "protocol": "contract-definition-interface-diagnostic-v1",
+  "plan_bytes": 61286,
+  "plan_sha256": "f10fed100719736eec657a42f212c207e7394c6014de652619db8560a06d2f94",
+  "source_pilot_plan_sha256": "73fc13d1256a76281e42c3f0aca15a92ff875322e59b1bcc9ff03348cdeea5e3",
+  "planned_model_calls": 12,
+  "executed_model_calls": 0,
+  "independent_targets": 2,
+  "constructed_histories": 6,
+  "interface_pairs": 6,
+  "maximum_retries": 0,
+  "proposed_supervisor_seconds": 600,
+  "supervisor_for_this_plan_deployed": false,
+  "human_approvals": 0,
+  "semantic_scoring_performed": false,
+  "cache_convenience_factor_test": false,
+  "software_fixture_tests_passed": 6,
+  "new_database_queries": 0,
+  "old_responses_reused_as_control_observations": false,
+  "only_request_tree_difference": ["messages", 0, "content"],
+  "paid_execution_authorization_pending": true,
+  "warnings": [
+    "Post-outcome development diagnosis, not independent confirmation or a method comparison.",
+    "All histories retained; six histories do not form six independent target samples.",
+    "Definitions also change prompt length and instructional emphasis.",
+    "The proposal does not stop or prove the state of any cloud instance.",
+    "Actual execution adapter/supervisor and fresh resource checks are still required."
+  ]
+}

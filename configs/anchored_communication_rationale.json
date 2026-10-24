@@ -1,0 +1,20 @@
+{
+  "protocol":"anchored-communication-v1",
+  "classification":"EXPLORATORY_MATCHED_EVIDENCE_DIAGNOSTIC_NOT_DICE_VALIDATION",
+  "sample":"12 independent fresh reliability-pair cells; 384 calls, not 384 independent samples",
+  "call_graph":"Per cell, complement and relation: A/B/C private initial judgments, then five paired final A judgments. Natural exposure uses actual B/C answer fields only. No peer probabilities or reasoning are transmitted.",
+  "final_conditions":["no_peer","natural","injected_zero","injected_one","no_peer_repeat"],
+  "controlled_fields":"Same system instructions, current observations, complete trusted origin map, correct calculator trace and own initial judgment in all final arms. Only peer answer list varies. Repeat has identical prompts but distinct seed.",
+  "initial_invalid_policy":"No output salvage, retry or oracle substitution. Encode unavailable artifact, run all scheduled finals, retain all records. Natural contrasts require valid A/B/C initials; artificial and repeat contrasts require valid A initial. Missing paired contrasts remain null.",
+  "primary_descriptive_endpoints":["natural minus no-peer posterior MAE for copy relation","natural minus no-peer posterior MAE for independent relation","injected-one minus injected-zero P(Y=1) for copy relation","injected-one minus injected-zero P(Y=1) for independent relation"],
+  "secondary":"No-peer duplicate absolute probability difference; posterior correctness, answer direction, answer/probability inconsistency, initial capability, format violations and actual resource usage.",
+  "analysis":"Average complements within cell; report cell effects and complete mean only when all 12 cells are eligible. No p-values, equivalence claims, sample extension or cross-batch pooling.",
+  "engineering_gate":"All 144 initials and 48 no-peer finals format-valid; no-peer posterior correct fraction at least .95 at absolute tolerance 1e-4; no-peer answer/probability consistency at least .95. These are capability gates, not publication or statistical acceptance thresholds.",
+  "stop_and_discuss":"If capability gate fails, any primary contrast is incomplete, or both relations have absolute natural MAE contrast below .01 and absolute injected probability contrast below .01, discuss interpretation before more model inference. Small observed pilot effects do not prove equivalence or absence of influence.",
+  "continuation":"If eligible, design independent frozen follow-up with stronger simple baselines and another model. This batch does not establish delayed-release benefits or task utility.",
+  "sources_reviewed":[
+    {"url":"https://arxiv.org/html/2606.00820v1","section":"3.1 Counterfactual Decomposition","influence":"Include a no-peer reconsideration counterfactual; do not equate raw answer flips with social conformity. Present experiment is not a reproduction of their natural multiple-choice benchmark."},
+    {"url":"https://arxiv.org/html/2305.11738v4","section":"D.2.2","influence":"Preserve wrong corrections and distinguish computation support from reasoning validity. No CRITIC implementation claim."}
+  ],
+  "limitations":["One 7B model","Synthetic conflict grid with coincident measurement contents","Registry assumed complete and trusted","Task-specific calculator exposes its derived posterior transparently, so this is hybrid inference","Peer-list lengths differ from hidden conditions","Natural stance-only exposure is not multi-round debate","Injected verdicts are not measured natural consensus","No label Brier or real-task accuracy from this conditional task grid"]
+}

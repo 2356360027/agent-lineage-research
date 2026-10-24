@@ -1,0 +1,16 @@
+{
+  "kind":"LITERATURE_SCOPE_NOTE_NOT_MODEL_RESULTS",
+  "read_during":"decision-interface-001 execution; no interim effects inspected and no frozen design changed",
+  "papers":[
+    {"title":"Confidence Before Answering: A Paradigm Shift for Efficient LLM Uncertainty Estimation","url":"https://arxiv.org/abs/2603.05881v2","scope_read":"arXiv abstract and version metadata","status_used":"preprint; acceptance not verified","relevance":"Confidence-before-answering and its joint optimization are existing research directions. Their confidence is probability of producing a correct answer under a policy, unlike our fixed-event P(Y=1). Our requested JSON field order is a diagnostic factor, not an implementation of CoCA or a new training algorithm."},
+    {"title":"ORCE: Order-Aware Alignment of Verbalized Confidence in Large Language Models","url":"https://arxiv.org/abs/2605.12446v1","scope_read":"arXiv abstract and version metadata","status_used":"preprint; acceptance not verified","relevance":"Answer-first conditional confidence and decoupled optimization are prior proposals. Do not infer from this abstract that answer-first is universally better, or interpret our prompt ordering contrast as their training procedure."},
+    {"title":"LLMs are not (consistently) Bayesian: Quantifying internal (in)consistencies of LLMs' probabilistic beliefs","url":"https://arxiv.org/abs/2605.06915v2","scope_read":"arXiv abstract and version metadata","status_used":"preprint; acceptance not verified","relevance":"Belief-update coherence and downstream utility need separate evaluation when the world model is misspecified. Our synthetic generative model is specified exactly, so posterior error is a valid diagnostic here but does not establish natural-task utility. The abstract alone is insufficient to implement their information-processing-gap benchmark."}
+  ],
+  "research_implications":[
+    "Do not pitch answer/probability ordering alone as the paper's novelty.",
+    "Retain the original communication question: whether recipient-specific evidence routing improves utility over strong matched-information baselines.",
+    "Before a native literature-baseline comparison, read full methods and source implementations; avoid renaming our generic prompts after published systems.",
+    "Record these as context, not new post-hoc primary endpoints or grounds to modify a running experiment."
+  ],
+  "manuscript_status":"sections_v7 still describes language-model measurements as outstanding. A future empirical revision must distinguish older software counts, completed diagnostic batches, unfavorable protocol pilots and unperformed natural-task tests. No manuscript change is made by this note."
+}

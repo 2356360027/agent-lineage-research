@@ -1,0 +1,45 @@
+{
+  "run":"tool-input-repair-001",
+  "classification":"EXPLORATORY_ENGINEERING_DIAGNOSTIC_NOT_DICE_CONFIRMATION",
+  "frozen_code_commit":"9e5454aaeba838341427b566d740be2b3624549a",
+  "design_sha256":"6fd0fe1398608b5e408471b2a95a5c4b3713af62d1711b66199460ed0cd21217",
+  "source_archive_sha256":"d6ce53bf22eba43df6be3fb835be9eefdb614373bd761a1bfb6e9ccaad1a5e9b",
+  "private_archive_sha256":"87586d6eae1a58847fcf069863e65ede3698f8aa13bc051e9014cf64a6c826e6",
+  "model":"Qwen/Qwen2.5-7B-Instruct",
+  "model_content_sha256":"d6d12ae13c606e1d3fdc29eb937828be32b1b09a755f1632b4e59654f228ff1e",
+  "started_hk":"2026-10-02T19:57:08+08:00",
+  "finished_hk":"2026-10-02T20:03:23+08:00",
+  "completed_calls":384,
+  "independent_cells":12,
+  "format_invalid_calls":2,
+  "infrastructure_failures":0,
+  "software_tests":{"local":72,"server":72},
+  "prompt_tokens":238660,
+  "completion_tokens":17116,
+  "sum_call_seconds":316.2519448772073,
+  "posterior_correct_absolute_tolerance":0.0001,
+  "wrong_input_results":[
+    {"arm":"original","scheduled":48,"correct_posterior":0,"format_invalid":0},
+    {"arm":"explicit_check","scheduled":48,"correct_posterior":0,"format_invalid":2},
+    {"arm":"report","scheduled":48,"correct_posterior":0,"format_invalid":0},
+    {"arm":"repair","scheduled":48,"correct_posterior":47,"format_invalid":0}
+  ],
+  "valid_input_results":[
+    {"arm":"original","scheduled":48,"correct_posterior":45},
+    {"arm":"explicit_check","scheduled":48,"correct_posterior":47},
+    {"arm":"report","scheduled":48,"correct_posterior":48},
+    {"arm":"repair","scheduled":48,"correct_posterior":48}
+  ],
+  "engineering_gate":{"passed":true,"correct_repair_calls":95,"repair_calls":96,"lost_valid_controls":0,"repair_format_invalid":0},
+  "primary_descriptive_contrasts":[
+    {"name":"copy:report_minus_explicit_check_mae","complete_cells":11,"complete_mean":null},
+    {"name":"copy:repair_minus_explicit_check_mae","complete_cells":11,"complete_mean":null},
+    {"name":"independent:report_minus_explicit_check_mae","complete_cells":12,"complete_mean":0.00028859793770505865},
+    {"name":"independent:repair_minus_explicit_check_mae","complete_cells":12,"complete_mean":-0.20811133337802923}
+  ],
+  "error_audit":{"two_format_invalids":"Unknown citation IDs, not network failures or truncation. Retained without re-parsing or probability salvage.","repair_probability_incorrect":1,"repair_answer_probability_inconsistent":3,"original_records_repaired_or_deleted":false},
+  "verification":{"remote_local_archive_sha256_match":true,"exact_local_replay":["summary","cell_metrics","paired_contrasts","audit_input_hashes"],"independent_arithmetic_and_group_count_audit_calls":384},
+  "interpretation":"Within this fixed synthetic setting, nonnumeric warnings did not recover correct posteriors, while programmatic input repair usually did. This is evidence for a conventional engineering safeguard, not model understanding, method novelty or multi-agent protocol utility.",
+  "limitations":["Single model; 12 independent cells, not 384 independent samples","Trusted complete origin registry supplied by environment","Conditional coincident evidence, not a natural error prevalence estimate","Prompt and payload lengths are not matched","Three repaired-arm answer/probability inconsistencies remain","Two incomplete primary contrasts remain null; no imputation","Valid report and repair requests are duplicate controls, not independent evidence","No natural debate, second-model replication or real-task transfer"],
+  "raw_data_public":false
+}

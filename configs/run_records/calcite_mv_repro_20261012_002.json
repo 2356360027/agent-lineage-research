@@ -1,0 +1,49 @@
+{
+  "run_id": "calcite-mv-repro-20261012-002",
+  "status": "CORRECTED_CONFIGURED_BASELINE_COVERAGE_AUDIT",
+  "previous_run_preserved": "calcite-mv-repro-20261012-001",
+  "backend": "Calcite 1.40.0 HEP rules and RelRunners JDBC, local CPU",
+  "harness_revision": "v2",
+  "model_calls": 0,
+  "paid_api_calls": 0,
+  "case_state_combinations": 24,
+  "completed": 24,
+  "timeouts": 0,
+  "process_errors": 0,
+  "independent_query_value_checks_passed": 24,
+  "independent_rewrite_value_checks_passed": 24,
+  "independent_materialized_view_value_checks_passed": 24,
+  "declared_output_column_contracts_passed": 24,
+  "strict_contracts_passed": 24,
+  "actual_execution_routing": {
+    "MV_only": {"combinations": 9, "cases": ["C1", "C5", "C6"]},
+    "MV_plus_base_complement": {"combinations": 3, "cases": ["C8"]},
+    "base_fallback": {"combinations": 12, "cases": ["C2", "C3", "C4", "C7"]}
+  },
+  "sum_child_wall_seconds": 214.29424560046755,
+  "timing_is_not_a_performance_comparison": true,
+  "per_case_timeout_seconds": 40,
+  "dependency_jars": 47,
+  "input_hashes_unchanged_at_finish": true,
+  "posthoc_independent_verification": {"manifest_files_checked": 66, "strict_contracts_passed": 24, "verifier_sha256": "24d9d3508cfff927d7c42c6d42dee14b39818039eaa5d4049a13fc79f17b4ebe", "scope": "Local independent code/agent verification, not an external team's reproduction; no SQL/Java re-execution"},
+  "related_unit_tests_passed": 74,
+  "design_sha256": "345766eecb27fa3d3d983fcc6930bd8eb91c659b028424045a85d3983acd4ac4",
+  "summary_sha256": "8757737bf212ac7426bd270c9fe6d8cee0197ccf17395bf3b7e37f4d321e07da",
+  "manifest_sha256": "bd6a72851abfe80326a94c0ffcf8de2537fddb9a5f664566b47928e5f8103a6a",
+  "corrections": [
+    "C4 explicit SELECT output projection; values and gold were not changed",
+    "AVG-only upstream reduction before MV matching, preserving SUM compatibility",
+    "Unwrap HEP vertices when logging candidate scans",
+    "Check row types before restoring output aliases; retain raw rewrite plan/schema",
+    "Require baseRows existence and independent named-column contracts in evaluator"
+  ],
+  "interpretation": "Configured classical baseline covers these authored reuse, aggregation, partial compensation and recomputation controls. No superiority of a proposed new method is demonstrated.",
+  "limitations": [
+    "Eight authored contracts with boundary fixtures, not 24 independent natural tasks",
+    "HEP rule coverage, not full Volcano cost-based materialized-view selection",
+    "No fair latency or MV-build-amortization comparison",
+    "No joins, DECIMAL, nonintegral AVG, changing snapshots or unreliable provenance",
+    "Finite fixture agreement is not universal equivalence"
+  ],
+  "raw_artifacts_public": false
+}

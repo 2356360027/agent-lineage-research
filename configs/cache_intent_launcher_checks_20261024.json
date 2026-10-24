@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-24",
+  "status": "LOCAL_LAUNCHER_INTEGRATION_CHECKED_NOT_LINUX_DEPLOYMENT_PROOF",
+  "previous_commit": "5929bee",
+  "authority": "Local preparation only; server stopped; no live execution approved",
+  "implementation": "runtime/cache_intent_launcher.py",
+  "capability": "Connect frozen-input admission, native model fingerprint/package checks, local tokenizer construction, owned serving startup and the fixed native batch under one parent deadline",
+  "limits": {
+    "whole_worker_seconds_maximum": 1800,
+    "includes": ["input and source checks", "model file hashing", "tokenizer construction", "serving startup", "model and tool calls"],
+    "cleanup_grace_additional": true,
+    "readiness_seconds_maximum": 300,
+    "model_generations_maximum": 276,
+    "trajectories": 12,
+    "independent_targets": 2,
+    "cloud_instance_shutdown": false,
+    "automatic_retry": false
+  },
+  "safety_checks": [
+    "Default invocation emits a plan without accessing a server or model",
+    "Pinned specification and separate execute option required; hashes are audit references, not human permission",
+    "Current model content and package checks occur before server creation",
+    "Occupied local endpoint or GPU compute process causes refusal",
+    "New server inherits the owned worker process group; parent requests group cleanup after exit or timeout",
+    "Incomplete batch returns nonzero worker exit, not process success",
+    "Failure records and exclusive output paths retained without retries"
+  ],
+  "tests": {
+    "initial_attempt": {"tool_evidence": "f98ed3", "status": "FAILED_SANDBOX_TEMP_DIRECTORY_PERMISSIONS", "not_an_experiment": true},
+    "approved_local_rerun": {"tool_evidence": "ace956", "status": "PASS", "total": 39, "seconds": 2.385,
+      "launcher": 11, "deployment": 12, "source_bundle": 5, "input_entry": 5, "native_bridge": 6,
+      "scope": "Mocked process/server/model gates plus local source copies and synthetic SQLite fixture; no network or inference"}
+  },
+  "default_plan_check": {"tool_evidence": "563c0c", "status": "PLAN_ONLY", "server_started": false},
+  "source_snapshot": {
+    "directory": "runtime/runs/staged-source-bundle-20261024-010",
+    "files": 26,
+    "manifest_sha256": "f1a48231db48270075d8c1f691c10711494d689a44384806484bfcb21f3c27c6"
+  },
+  "input_admission": {
+    "directory": "runtime/runs/recovery-entry-check-20261024-004",
+    "tool_evidence": "ed8a38",
+    "status": "LOCAL_INPUT_AND_SOURCE_CHECK_PASSED",
+    "input_manifest_sha256": "4374a5e72939aafec5e4a02efacd5d290a4d6da7a7fbd7b4ee1633cec07c2b21",
+    "plan_sha256": "3666fbbcbe8e16c22bc76eca6b827fd2e111905ebd35c21ca41de0999dfccdab",
+    "production_sql_queries": 0
+  },
+  "remaining_live_gates": [
+    "Fresh user approval of a particular available server, balance, rate, bounded batch and output directory",
+    "Current-host native configuration must be pinned; no old host identity assumed",
+    "Actual Linux lifecycle, inherited descendant groups, startup readiness and 32768-window GPU capacity are not established by mocked tests",
+    "Per-request provider token parity, complete raw responses and off-host backup must be verified after any separately approved run",
+    "Any startup or batch failure is retained; no silent resizing, new seeds or restart"
+  ],
+  "scientific_interpretation": "Engineering readiness only. No causal cache effect, method gain or independent replication has been demonstrated by these checks. Two exposed development targets are not a confirmatory dataset.",
+  "model_calls": 0,
+  "network_requests": 0,
+  "public_push_this_turn": false
+}

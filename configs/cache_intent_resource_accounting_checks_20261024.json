@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-24",
+  "status": "LOCAL_RECORDED_COST_ACCOUNTING_CHECKED_NOT_TOTAL_COST",
+  "previous_goal_turn": "progress",
+  "previous_commit": "6790c84",
+  "authority": "Server stopped; local preparation only",
+  "modules": [
+    "runtime/cache_intent_resource_accounting.py",
+    "scripts/audit_staged_resources.py"
+  ],
+  "new_capability": "Summarize all fixed slots and per-attempt resource records without filtering successful answers or inventing missing usage",
+  "key_distinctions": [
+    "Adapter pending records do not prove completed model inference",
+    "Saved provider usage is reported usage, not independently verified model work",
+    "Missing or malformed usage remains unknown; reported token sums are partial",
+    "Recorded tool charges include failed and pending attempts, but are declared units rather than financial cost",
+    "Pending and completed records describe one charge, not two",
+    "Historical private backend timing inside cached results is not current cache-read time",
+    "Per-action timings, generation callback timings and batch wall time have different scopes and are not added indiscriminately",
+    "Startup, hashing, cache preparation, review, backup, idle billing and interrupted in-flight work remain unmeasured here"
+  ],
+  "tests": {
+    "tool_evidence": "03c561",
+    "status": "PASS",
+    "resource_tests": 9,
+    "primary_review_regression_tests": 9,
+    "total": 18,
+    "seconds": 0.775,
+    "scope": "Synthetic ledgers, temporary local archives and mocked replies; no model or network calls"
+  },
+  "archived_scripted_check": {
+    "tool_evidence": "05f809",
+    "archive": "runtime/runs/staged-recovery-audit-20261024-001",
+    "manifest_sha256": "ad26ef33712ddcc71450ed33d308f8178ae2855d49090f7a0365f14fa38d1e55",
+    "verified_files": 651,
+    "routes": 4,
+    "tool_records_per_route": 21,
+    "declared_units_price_1_routes": 30,
+    "declared_units_price_8_routes": 170,
+    "unresolved_tools_each": 0,
+    "interpretation": "Accounting consistency for archived scripted routes only; no inference about model efficiency or method benefit",
+    "total_cost_complete": false
+  },
+  "scientific_status": "Controlled cache-price effects and strong-baseline residual gains remain untested",
+  "new_model_calls": 0,
+  "new_sql_queries": 0,
+  "network_requests": 0,
+  "old_records_modified": false,
+  "public_push_this_turn": false
+}

@@ -1,0 +1,15 @@
+{
+  "status": "COMPLETED_POST_HOC_DIAGNOSTIC",
+  "run": "runtime/runs/sqlglot-timeout-diagnostic-20261012-001",
+  "design_sha256": "f6c797b24945d538c9d390887fb49c541a87b5845b8a7a78d89fde9e2b7ee6ff",
+  "summary_sha256": "02db986c317c680f10a9d90c3eca6808ac0ee62301e979b74b11d21d316ab4ac",
+  "artifact_manifest_sha256": "9e5926b65270b20eae1959f45d984dbb3741d325cdf0d6e3899ced308f1322ba",
+  "question_id": 1481,
+  "plan_queries": 3,
+  "result_queries": 3,
+  "result_statuses": {"EXECUTED": 2, "SOFT_TIMEOUT": 1},
+  "model_calls": 0,
+  "database_bytes_unchanged": true,
+  "source_batch_unmodified": true,
+  "interpretation": "Observed-case rule-chain diagnostic, not an independent confirmatory experiment or causal timing benchmark"
+}

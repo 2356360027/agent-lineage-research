@@ -1,0 +1,14 @@
+{
+  "protocol":"interface-replication-v1",
+  "classification":"PROSPECTIVE_INTERFACE_REPLICATION_NOT_DICE_CONFIRMATION",
+  "candidate_selection":"Explicit rule plus answer-first chosen from decision-interface-001 after observing exploratory results. That failed prespecified probability-first gate remains failed; no retrospective reclassification.",
+  "data":"24 fresh reliability-pair cells, balanced label complements and origin relations; no overlap with tracked prior task generators. 672 calls: 288 actual initials and 384 final calls. The independent unit is the cell, not a call or complement.",
+  "unchanged":"Exact explicit decision-rule and output-order wording, calculator, origin representation, single-observation initial protocol, model and decoding retained. No new prompt wording optimized on held-out outputs.",
+  "factors":"Requested answer-first vs probability-first crossed with no-peer vs actual B/C initial answers; all final arms share evidence, calculator and own initial assessment. Natural peers are not injected oracle answers.",
+  "primary":"Candidate answer-first minus probability-first, within no-peer arms: posterior MAE and MAP consistency separately by origin relation. Average complements within each cell. Four complete descriptive contrasts with fixed-seed 2000-resample cell-clustered 95% percentile intervals; intervals are not multiplicity-adjusted superiority tests.",
+  "secondary":"Natural-minus-no-peer MAE and MAP consistency within candidate answer-first; field-order compliance, format validity, direction vs oracle MAP and actual resource accounting.",
+  "invalid_policy":"Preserve every record. No retries, parser salvage, corrected answer fields, replacement seeds or sample extension. Invalid initials become unavailable artifacts; scheduled finals still run. Paired means require all 24 complete eligible cells, otherwise null. No pooling with prior exploration.",
+  "readiness_gate":"Candidate answer-first/no-peer 96 scheduled calls: no invalid outputs, >=95% posterior correct at tolerance 1e-4 and >=95% MAP-consistent; all 288 initials valid. Engineering threshold only, not publication or statistical acceptance.",
+  "stop_rule":"If candidate gate fails or any primary contrast is incomplete, stop new inference and discuss. Do not switch candidate to whichever arm wins. Passing only permits a separately frozen communication evaluation.",
+  "limitations":["One 7B model; no independent model-family replication","Known synthetic generative law and trusted complete provenance","Exact task-specific calculator provided as user JSON, not autonomous tool use","Conditional conflict grid, not a natural prevalence estimate","Interface readiness is not DICE novelty or utility","No independent exact-repeat condition; do not attribute variation to a unique cognitive mechanism","Real-task routing utility and strong deduplication baselines remain outstanding"]
+}

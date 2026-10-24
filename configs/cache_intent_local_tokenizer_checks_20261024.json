@@ -1,0 +1,51 @@
+{
+  "date": "2026-10-24",
+  "status": "PINNED_LOCAL_TOKENIZER_FACTORY_CHECKED_NOT_PROVIDER_PARITY",
+  "previous_goal_turn": "progress",
+  "previous_commit": "a1720d2",
+  "authority": "Local preparation only; server stopped",
+  "implementation": "runtime/cache_intent_tokenizer.py",
+  "capability": "Construct plain-chat and raw-text counters directly from verified local asset bytes, pinned template and package versions; no model load or downloads",
+  "gates": [
+    "All five tokenizer/config files match their expected hashes",
+    "Tokenizer is constructed from already verified in-memory bytes rather than a second filesystem read",
+    "Pinned template digest and tokenizer/renderer versions match",
+    "Padding and truncation are disabled",
+    "Rendered plain-chat branch matches independently constructed capacity framing on every request"
+  ],
+  "actual_local_comparison": {
+    "tool_evidence": "289535",
+    "versions": {"tokenizers": "0.22.1", "jinja2": "3.1.6"},
+    "planned_prompts": 12,
+    "archived_scripted_prompts": 92,
+    "archived_scripted_completions": 92,
+    "count_comparisons": 196,
+    "all_matched": true,
+    "scope": "Compatibility with archived offline counters on fixed and scripted text, not current vLLM service behavior"
+  },
+  "tests": {
+    "tool_evidence": "670229",
+    "status": "PASS",
+    "tokenizer_factory": 5,
+    "source_bundle": 5,
+    "input_entry": 5,
+    "total": 15,
+    "seconds": 1.232,
+    "scope": "Mocked tokenizer asset gates, local source copies and synthetic read-only SQLite fixture"
+  },
+  "source_snapshot": {
+    "directory": "runtime/runs/staged-source-bundle-20261024-009",
+    "files": 25,
+    "manifest_sha256": "303f240ada13e28580643e1af9d8b895f2e7560ab93b124bae92f0f5887157ec"
+  },
+  "remaining": [
+    "Connect factory, current-host model checks, serving startup and native batch under the single owned-process deadline",
+    "Verify Linux lifecycle and actual service token parity only after explicit resource approval",
+    "Collect real fixed-batch responses and independent semantic reviews before interpreting the research hypothesis"
+  ],
+  "model_calls": 0,
+  "network_requests": 0,
+  "provider_token_parity_verified": false,
+  "scientific_effect_established": false,
+  "public_push_this_turn": false
+}

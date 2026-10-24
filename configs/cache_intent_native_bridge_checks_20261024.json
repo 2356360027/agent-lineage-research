@@ -1,0 +1,55 @@
+{
+  "date": "2026-10-24",
+  "status": "LOCAL_NATIVE_BRIDGE_MOCK_TESTED_NOT_LIVE_READY",
+  "authority": "Local preparation only; server stopped; no inference authorization",
+  "previous_commit": "6831406",
+  "changes": [
+    "Scripted and native callers share the same fixed batch orchestration",
+    "Native replies require reported token usage and exact local prompt-token agreement",
+    "Verified frozen HTTP-worker source copied into exclusive per-job directories",
+    "Source mutation, unexpected path or endpoint, and repeated generation rejected",
+    "Native model admission failures retained in sealed preflight journal",
+    "Dispatch attempts remain distinct from verified completed model calls"
+  ],
+  "tests": {
+    "status": "PASS",
+    "count": 43,
+    "native_bridge": 6,
+    "batch": 9,
+    "adapter": 18,
+    "source_bundle": 5,
+    "input_entry": 5,
+    "seconds": 22.754,
+    "tool_evidence": ["223e70", "6cdfec"],
+    "scope": "Mocked provider and HTTP transport, temporary-file fixtures, synthetic read-only SQLite; no real model/network calls",
+    "actual_model_calls": 0,
+    "actual_network_requests": 0,
+    "semantic_labels_generated": false
+  },
+  "local_artifacts": {
+    "source_bundle": "runtime/runs/staged-source-bundle-20261024-008",
+    "source_manifest_sha256": "cc555381866550c8b414c1abe379f978127701931b8cb971f5f6a30e8cf44bfb",
+    "source_files": 24,
+    "input_check": "runtime/runs/recovery-entry-check-20261024-002",
+    "input_manifest_sha256": "4374a5e72939aafec5e4a02efacd5d290a4d6da7a7fbd7b4ee1633cec07c2b21",
+    "plan_sha256": "3666fbbcbe8e16c22bc76eca6b827fd2e111905ebd35c21ca41de0999dfccdab",
+    "database_sha256": "35ef27ae6bdfda530e125ed369666ac0abb8bc8c0bcc0ad09407f547ecb61a93",
+    "tool_evidence": ["eae32f", "4eb8cb"],
+    "model_calls": 0,
+    "sql_queries": 0,
+    "network_requests": 0
+  },
+  "remaining_before_live_execution": [
+    "Explicit user authorization with current server identity, budget and fixed batch limits",
+    "Authorized Linux launcher must supply current model and tokenizer checks and supervise the entire preparation/execution lifetime",
+    "Native function is a library bridge, not a complete live launcher; approval digest is only an audit link",
+    "Real serving token-count equivalence and Linux process lifecycle remain unverified"
+  ],
+  "scientific_limits": [
+    "Twelve planned trajectories are six histories on two previously inspected target tasks, not twelve independent tasks",
+    "Software tests and fabricated fixture replies do not establish a cache-price effect",
+    "Incremental method benefit over strong checking plus on-demand recomputation remains unproven",
+    "No existing data, semantic labels or experimental denominators were overwritten"
+  ],
+  "public_sync_this_turn": false
+}
