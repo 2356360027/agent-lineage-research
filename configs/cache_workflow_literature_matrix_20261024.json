@@ -1,0 +1,93 @@
+{
+  "status": "PRIMARY_SOURCE_REVIEW_NOT_MODEL_EXPERIMENT",
+  "date": "2026-10-24",
+  "question": "What could an explicit-contract versus action-first difference establish, and what prior work constrains novelty?",
+  "research_question_changed": false,
+  "frozen_workflow_manifest_changed": false,
+  "sources": [
+    {
+      "id": "rar",
+      "title": "Rephrase and Respond: Let Large Language Models Ask Better Questions for Themselves",
+      "publication_status": "arXiv:2311.04205v2, revised 2024-04-18; no conference publication verified in primary records checked",
+      "url": "https://arxiv.org/html/2311.04205v2",
+      "inspected": "Abstract, sections 3, 4.1-4.2 and 5",
+      "research_question": "Can rephrasing a question improve responses?",
+      "method": "Single-prompt rephrase-then-answer; two-step variant supplies original and rewritten questions to a responder.",
+      "data": "Knowledge classification/comparison, CSQA, dates, symbolic and sports tasks; some knowledge examples are model-generated.",
+      "metric": "Task accuracy",
+      "comparators": "Original questions, prompt variants, CoT comparisons",
+      "limitation_for_our_claim": "No controlled cache-availability or cache-price intervention in inspected experiments.",
+      "overlap": "Explicit interpretation before answering is established prompting, not unique to our contract fields.",
+      "difference": "Our target is convenience-induced departure from a fixed clear request, not generic accuracy improvement from rephrasing.",
+      "reproduced": false
+    },
+    {
+      "id": "rar_artifact",
+      "url": "https://github.com/uclaml/Rephrase-and-Respond",
+      "code_url": "https://github.com/uclaml/Rephrase-and-Respond/blob/main/main.py",
+      "license_url": "https://github.com/uclaml/Rephrase-and-Respond/blob/main/LICENSE",
+      "inspected": "README evaluation instructions; main.py rephrasing, request retry and answer-check paths; LICENSE",
+      "license": "MIT on displayed repository; upstream dataset rights require separate checking",
+      "revision": "Displayed main not pinned; not ready to claim exact reproduction",
+      "finding": "Two-step code retains original and rewritten question. Requests use up to six retry attempts; coarse answer matching is followed by human inspection according to README. These operational settings cannot silently carry into our fixed-budget no-retry experiment.",
+      "code_copied": false,
+      "code_executed": false,
+      "future_use": "Implement a clearly labelled adapted comparator after pinning prompts and licensing; preserve original request, all costs and unsuccessful outputs. Do not import cached GPT-4 rewrites as free additional information."
+    },
+    {
+      "id": "cot_faithfulness",
+      "title": "Language Models Don't Always Say What They Think: Unfaithful Explanations in Chain-of-Thought Prompting",
+      "publication_status": "NeurIPS 2023 conference paper",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2023/file/ed3fea9033a80fea1376299fa7863f4a-Paper-Conference.pdf",
+      "inspected": "Abstract, section 2 counterfactual construction, section 3.1",
+      "research_question": "Do explanations acknowledge influences on answers?",
+      "method": "Counterfactual biasing features and weak-evidence changes",
+      "data": "Thirteen selected BBH tasks and BBQ; GPT-3.5 and Claude 1.0",
+      "metrics": "Prediction changes and whether explanations reflect the manipulated influence",
+      "comparators": "Inputs with and without bias; opposed evidence versions",
+      "limitation_for_our_claim": "CoT faithfulness is not identical to task-contract correctness.",
+      "overlap": "Plausible verbal text does not certify the cause of a decision.",
+      "difference": "We evaluate observable request specifications and later program alignment, not hidden thoughts.",
+      "reproduced": false
+    },
+    {
+      "id": "iec_intact",
+      "title": "Do Tool Calls Execute as Intended? Measuring and Repairing Intent-Execution Correspondence in LLM Agents",
+      "publication_status": "arXiv:2610.04375v1, 2026-10-03 preprint",
+      "url": "https://arxiv.org/html/2610.04375v1",
+      "inspected": "Abstract, sections 2.1-2.4, 4.2-4.3 and 6",
+      "research_question": "Does the execution path preserve the action denoted by an emitted call?",
+      "method": "Receiver-parser witnesses identify the first changed hop; IntAct repairs delivery or refuses.",
+      "data": "Production shell calls and IEC-Bench task pairs, chains and terminal tasks",
+      "metrics": "Changed actions, failure attribution, task outcomes and token cost",
+      "comparators": "Trajectory judges, replay techniques and witness ablations",
+      "limitation_for_our_claim": "Section 2.1 defines intent as the emitted call, explicitly not the user's or model's goal.",
+      "overlap": "Transport or harness defects must not be mislabeled as model misunderstanding.",
+      "difference": "Our user-request-to-contract question precedes emitted-call-to-execution preservation.",
+      "reproduced": false,
+      "author_code_executed": false
+    }
+  ],
+  "current_local_evidence": {
+    "contract_review_receipt": "configs/run_records/deepseek_primary_human_review_20261024_001.json",
+    "cache_availability_receipt": "configs/run_records/deepseek_cache_controls_20261024_001.json",
+    "completed_batch": "Two reused development tasks, twelve trajectories; submitted human reviews identify no contract contradictions; all trajectories recompute, none reads a cache.",
+    "local_control_check": "All counterfactual first reads fit the frozen observation bound; direct-cache controls match saved target-result bags on the fixed snapshot.",
+    "not_established": "Target semantic-drift effect or incremental method benefit"
+  },
+  "own_design_inferences_not_paper_findings": [
+    "The frozen 8-slot diagnostic changes the explicit-contract workflow as a bundle: field guidance, an extra generation, and self-generated context. It cannot isolate the eight-field representation from generic extra deliberation.",
+    "Both frozen workflows see the current request and cache-history description before their first generation. Contract-first here is not a cache-hidden independent-contract baseline.",
+    "A contract judged correct is evidence about that output. It is not proof that no unreported influence affected a later action, or that the entire task was understood internally.",
+    "Selecting a compatible cache on a first action is neither successful reuse nor semantic drift. No tool runs in the prepared diagnostic, so full-task correctness and quality-cost benefit remain unmeasured.",
+    "If the small diagnostic differs by workflow, compare ordinary rephrase-then-act and generic plan-then-act with similar call/output budgets before claiming a contract-specific advantage. Report actual token costs; equal caps do not imply equal cost.",
+    "A future cache-hidden contract baseline changes exposure timing and must be a separately frozen experiment, not retroactively attributed to the current protocol.",
+    "Request-to-API record integrity and same-snapshot result equality do not establish every receiver's execution semantics. For later tool experiments, independently preserve emitted arguments, received arguments and backend execution evidence.",
+    "Do not add arms, revise prompts or increase the 12-call allocation while waiting for approval. These references constrain interpretation and later baselines, not the already frozen payloads."
+  ],
+  "next_decision": "The prepared check remains a low-cost measurement diagnostic. If it yields no meaningful signal, stop repeating these two tasks. If it yields a signal, require new admitted tasks and ordinary rephrasing/planning baselines before considering a method contribution.",
+  "model_calls": 0,
+  "sql_queries": 0,
+  "human_reviews_generated": 0,
+  "private_material_published": false
+}
