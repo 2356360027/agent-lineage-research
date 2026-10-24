@@ -1,0 +1,24 @@
+{
+  "status": "SUPPLEMENTARY_SAVED_RESULT_COMPARISON_NOT_HUMAN_SCORING",
+  "batch": "cache-action-prepared-20261024-002",
+  "private_report_sha256": "698f021495895b3543028dfda92958d54f01c706a33341a7698c4d334bb285fd",
+  "private_analysis_seal_sha256": "bc48345816a8771e0cd63817ad0befffc1078a2be193cf1fb6f7d45b470597ce",
+  "SQL_results": 9,
+  "SQL_typed_bag_matches": 9,
+  "cache_results": 3,
+  "cache_direct_typed_bag_matches": 2,
+  "cache_scripted_distinct_count_matches": 1,
+  "independent_reused_development_tasks": 2,
+  "new_API_calls": 0,
+  "new_SQL_executions": 0,
+  "human_final_answer_labels": 0,
+  "C_drift_assessed": false,
+  "unit_tests_passed": 4,
+  "decision": "Do not expand paid sampling from these observations. Obtain separate final-answer reviews, then reassess whether any strong-baseline gap remains.",
+  "limits": [
+    "Typed row bags ignore order and column aliases, preserve types and multiplicities.",
+    "Fixed-snapshot agreement is not general SQL equivalence or final-answer semantic accuracy.",
+    "The offline distinct-count transform demonstrates derivability, not an observed model internal computation.",
+    "No new method advantage or demand-interpretation drift has been established."
+  ]
+}
