@@ -35,7 +35,9 @@ def verify_tree(root):
     return len(actual)
 
 
-def audit_run(root, expected_sha):
+def audit_run(root, expected_sha, kind='workflow'):
+    require(kind in ('workflow','documentation'), 'Unknown audit kind')
+    documented = kind == 'documentation'
     root = Path(root).resolve()
     require(sha(root/'manifest.json') == expected_sha, 'Preparation hash mismatch')
     manifest = read(root/'manifest.json')
@@ -44,7 +46,10 @@ def audit_run(root, expected_sha):
     require(not any(n.startswith(('runtime.', 'scripts.')) for n in sys.modules),
             'Run this audit as a standalone script to avoid mixed imports')
     sys.path.insert(0, str(root/'source'))
-    from scripts.run_cache_workflow import verify
+    if documented:
+        from scripts.run_cache_documentation import verify
+    else:
+        from scripts.run_cache_workflow import verify
     from runtime import cache_workflow_diagnostic as workflow
     from runtime.cache_intent_journal import verify as verify_journal
     from runtime.cache_intent_staged_loop import parse_action
@@ -58,20 +63,22 @@ def audit_run(root, expected_sha):
     require(plan == read(exp/'batch/plan.json'), 'Executed plan differs')
     require(summary['status'] == 'OFFICIAL_DEVELOPMENT_FINISHED', 'Not a finished batch')
     claim = read(root/'execution_claim.json')
-    require(claim['manifest_sha256'] == expected_sha and claim['approved_cny'] == .30,
+    ceiling = 100000 if documented else 300000
+    require(claim['manifest_sha256'] == expected_sha and claim['approved_cny'] == ceiling/1e6,
             'Execution claim differs')
     require({p.name for p in exp.iterdir() if p.is_dir()} ==
             {'batch'} | {j['id'] for j in plan['jobs']}, 'Unexpected job directories')
     for folder in [exp/'batch'] + [exp/j['id'] for j in plan['jobs']]:
         verify_journal(folder)
-    guard = CostGuard(ceiling_micro_cny=300000, max_calls=12, input_rate=2, output_rate=8)
+    guard = CostGuard(ceiling_micro_cny=ceiling, max_calls=12, input_rate=2, output_rate=8)
     rows, inputs, outputs, elapsed, syntax_errors = [], 0, 0, 0.0, []
     for job in plan['jobs']:
         folder = exp/job['id']
-        phases = ['contract', 'action'] if job['workflow'] == 'contract_first' else ['action']
+        phases = ['contract', 'action'] if not documented and job['workflow'] == 'contract_first' else ['action']
         contract = None
-        row = dict(id=job['id'], history=job['history'], workflow=job['workflow'],
-                   available=job['available'], status='NOT_STARTED', action=None, dispatches=0)
+        row = (dict(id=job['id'],history_id=job['history_id'],condition=job['condition']) if documented else
+               dict(id=job['id'],history=job['history'],workflow=job['workflow'],available=job['available']))
+        row.update(status='NOT_STARTED',action=None,dispatches=0)
         for index, phase in enumerate(phases, 1):
             pending = read(folder/(phase+'.pending.json'))
             provider = read(folder/(phase+'.provider.json'))
@@ -79,11 +86,11 @@ def audit_run(root, expected_sha):
             transport = read(folder/f'transport-{index:03d}.json')
             require(transport['transport_status'] == 'RESPONSE_RECEIVED' and
                     json.loads(transport['response_text']) == raw, 'Transport/provider mismatch')
-            p = workflow.payload(job, contract)
+            p = job['payload'] if documented else workflow.payload(job, contract)
             require(pending['payload'] == p and pending['payload_sha256'] == digest(p),
                     'Payload or raw contract carry-forward mismatch')
             n = counter.chat(p['messages'])
-            require(0 < n <= 8192 and pending['input_tokens'] == n, 'Input count mismatch')
+            require(0 < n <= (1200 if documented else 8192) and pending['input_tokens'] == n, 'Input count mismatch')
             ticket = guard.reserve(n, 512)
             require(ticket == pending['ticket'] and pending['automatic_retry'] is False,
                     'Dispatch accounting mismatch')
@@ -111,8 +118,9 @@ def audit_run(root, expected_sha):
                     contract = text
                 else:
                     action = parse_action(text)
-                    row.update(status='ACTION_RECORDED', action=action['kind'],
-                        unavailable_cache_requested=action['kind'] == 'read_cache' and not job['available'])
+                    row.update(status='ACTION_RECORDED', action=action['kind'])
+                    if not documented:
+                        row['unavailable_cache_requested'] = action['kind'] == 'read_cache' and not job['available']
             except (ValueError, TypeError) as error:
                 row['status'] = 'INVALID_CONTRACT' if phase == 'contract' else 'INVALID_ACTION'
                 syntax_errors.append(dict(id=job['id'], phase=phase, error_type=type(error).__name__))
@@ -126,7 +134,7 @@ def audit_run(root, expected_sha):
     require(summary['tool_executions'] == 0 and summary['semantic_labels'] == 0 and
             summary['confirmation_study'] is False and summary['stop_reason'] is None,
             'Unsupported summary claims')
-    return dict(status='OFFLINE_INTEGRITY_AND_FIRST_ACTION_AUDIT_PASSED',
+    result = dict(status='OFFLINE_INTEGRITY_AND_FIRST_ACTION_AUDIT_PASSED', audit_kind=kind,
         prepared_manifest_sha256=expected_sha, experiment_manifest_sha256=sha(exp/'artifact_hashes.json'),
         summary_sha256=sha(exp/'summary.json'), verified_experiment_files=files,
         calls=guard.calls, prompt_tokens=inputs, completion_tokens=outputs,
@@ -134,14 +142,33 @@ def audit_run(root, expected_sha):
         action_counts=dict(Counter(r['action'] for r in rows if r['status']=='ACTION_RECORDED')),
         invalid_outputs=syntax_errors, independent_development_tasks=2,
         new_API_calls=0, SQL_executions=0, semantic_labels=0,
-        conclusion='Seven valid run_sql proposals, one invalid action, no valid cache-read request. No repairs or replacements.',
-        limits=['Two reused development tasks, not eight independent tasks.',
+        conclusion='Counts reconstructed from saved responses without repairs or replacements.',
+        limits=['Two reused development tasks; decision slots are not independent tasks.',
                 'Invalid output remains in denominator; no inference of its intended action.',
                 'First proposals only; SQL and final answers were not executed/evaluated.',
-                'Workflow bundles schema guidance, extra call and generated context.',
+                ('Documentation is a bundled semantic explanation and trust assertion, not an isolated mechanism.' if documented else
+                 'Workflow bundles schema guidance, extra call and generated context.'),
                 'Both workflows see historical cache description before generation.',
                 'Does not establish interpretation drift, benefit of a method, or general absence of an effect.',
                 'Client records and hashes are not provider invoice or remote weights attestation.'])
+    if documented:
+        result['paired_actions'] = paired_actions(rows)
+        result['condition_counts'] = {
+            c: dict(Counter(r['action'] if r['status']=='ACTION_RECORDED' else r['status']
+                            for r in rows if r['condition']==c)) for c in ('original','documented')}
+    return result
+
+
+def paired_actions(rows):
+    """Keep invalids explicit; never infer intentions or call a read an error."""
+    by_id = {r['id']:r for r in rows}
+    require(len(by_id)==len(rows), 'Duplicate rows')
+    result=[]
+    for h in sorted({r['history_id'] for r in rows}):
+        pair={c:by_id[h+'-'+c] for c in ('original','documented')}
+        result.append(dict(history_id=h, **{c:(r['action'] if r['status']=='ACTION_RECORDED'
+                                                else r['status']) for c,r in pair.items()}))
+    return result
 
 
 def main():
@@ -149,9 +176,10 @@ def main():
     p.add_argument('--prepared', required=True, type=Path)
     p.add_argument('--manifest-sha256', required=True)
     p.add_argument('--output', required=True, type=Path)
+    p.add_argument('--kind', choices=('workflow','documentation'), default='workflow')
     args = p.parse_args()
     require(not args.output.exists(), 'Never overwrite an audit/archive')
-    result = audit_run(args.prepared, args.manifest_sha256)
+    result = audit_run(args.prepared, args.manifest_sha256, args.kind)
     args.output.mkdir(parents=True, exist_ok=False)
     archive = args.output/'prepared-and-results.zip'
     entries = sorted(p for p in args.prepared.rglob('*') if p.is_file())

@@ -1,0 +1,68 @@
+{
+  "status": "COMPLETED_DEVELOPMENT_BATCH_OFFLINE_AUDITED",
+  "date": "2026-10-24",
+  "prepared_directory": "runtime/runs/cache-documentation-prepared-20261024-001",
+  "prepared_manifest_sha256": "ed1445b1fd45d97768444c9b8f97ca05399ab66b16fdadff27c47cab23c9b1c2",
+  "experiment_manifest_sha256": "1641c9524c7e1d1eea4d9961082f42854693bd86b669a03ecce3b4a2db1a3065",
+  "summary_sha256": "8bedac7b5efd7b84b4bda9e1dd68c94292dd476f529697eb9073736746566ba4",
+  "audit_directory": "runtime/runs/cache-documentation-audit-20261024-001",
+  "model_alias": "deepseek-flash",
+  "remote_weights_verified": false,
+  "reused_development_tasks": 2,
+  "history_pairs": 6,
+  "generation_calls": 12,
+  "prompt_tokens": 11678,
+  "completion_tokens": 454,
+  "client_accounted_cny": 0.026988,
+  "client_ceiling_cny": 0.10,
+  "uncertain_reserved_cny": 0,
+  "provider_invoice_verified": false,
+  "provider_spending_cap_installed": false,
+  "summed_request_wall_seconds": 11.561719300225377,
+  "wall_time_scope": "Sum of request durations, not complete preflight/archive elapsed time.",
+  "paired_actions": [
+    {"history_id": "h200a", "original": "INVALID_ACTION", "documented": "read_cache"},
+    {"history_id": "h200b", "original": "run_sql", "documented": "run_sql"},
+    {"history_id": "h200c", "original": "run_sql", "documented": "run_sql"},
+    {"history_id": "h234a", "original": "run_sql", "documented": "read_cache"},
+    {"history_id": "h234b", "original": "run_sql", "documented": "read_cache"},
+    {"history_id": "h234c", "original": "run_sql", "documented": "run_sql"}
+  ],
+  "condition_counts": {
+    "original": {"run_sql": 5, "read_cache": 0, "INVALID_ACTION": 1},
+    "documented": {"run_sql": 3, "read_cache": 3, "INVALID_ACTION": 0}
+  },
+  "verification": {
+    "frozen_sources_inputs_payloads_and_token_counts": "verified",
+    "saved_transport_provider_and_outcomes": "verified",
+    "experiment_manifest_files": 77,
+    "cost_ledger": "recomputed",
+    "invalid_action": "h200a-original: JSONDecodeError; retained without repair, retry, or inferred intention",
+    "unit_tests": "13 passed; scripted tests, not research observations",
+    "new_API_calls_during_audit": 0,
+    "SQL_executions": 0,
+    "semantic_labels": 0
+  },
+  "backup": {
+    "file": "runtime/runs/cache-documentation-audit-20261024-001/prepared-and-results.zip",
+    "sha256": "e2e818bf7632087d0473b386cf20afa187f942b560cd15250c36f09ea3184e6a",
+    "files_compared_after_archiving": 119,
+    "off_device": false,
+    "raw_records_public": false
+  },
+  "interpretation": {
+    "observed": "Two valid SQL-to-cache proposal transitions, one invalid-to-cache transition, and three unchanged SQL proposals after adding documentation.",
+    "supported_scope": "Exploratory evidence of first-action sensitivity to the bundled interface explanation on these reused development tasks.",
+    "limitations": [
+      "Six histories and twelve calls are not six or twelve independent tasks.",
+      "No actual cache reads, SQL executions, final answers, accuracy, or realized savings were evaluated.",
+      "Documentation bundles execution semantics, provenance assertions, extra wording and guidance; no isolated mechanism claim.",
+      "The invalid output remains in the denominator and is not classified as a SQL proposal.",
+      "A cache-read proposal is not proof of correct reuse, nor by itself an interpretation error.",
+      "This calibration does not establish semantic drift or a new algorithm's advantage over a documented strong baseline."
+    ],
+    "next_gate": "Use explicit interface semantics as a baseline. Specify a separately approved bounded end-to-end development check of direct and transformed reuse, retaining failures and checking final results; only then assess extension to independently eligible new tasks.",
+    "additional_paid_batch_started": false,
+    "method_gap_established": false
+  }
+}

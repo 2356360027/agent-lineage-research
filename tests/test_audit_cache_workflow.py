@@ -4,7 +4,7 @@ from pathlib import Path
 import tempfile
 import unittest
 
-from scripts.audit_cache_workflow import sha, verify_tree
+from scripts.audit_cache_workflow import sha, verify_tree, paired_actions
 from runtime.cache_intent_staged_loop import parse_action
 
 
@@ -36,6 +36,12 @@ class AuditTests(unittest.TestCase):
         self.assertEqual(parse_action(valid)['kind'], 'run_sql')
         with self.assertRaises(json.JSONDecodeError):
             parse_action(valid + "'}")
+
+    def test_pair_retains_invalid_instead_of_imputing_sql(self):
+        rows=[dict(id='h-original',history_id='h',condition='original',status='INVALID_ACTION',action=None),
+              dict(id='h-documented',history_id='h',condition='documented',status='ACTION_RECORDED',action='read_cache')]
+        self.assertEqual(paired_actions(rows),[dict(history_id='h',original='INVALID_ACTION',documented='read_cache')])
+        with self.assertRaises(ValueError): paired_actions(rows+rows[:1])
 
 
 if __name__ == '__main__':
