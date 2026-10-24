@@ -1,0 +1,59 @@
+{
+  "status": "USER_ATTESTED_FINAL_ANSWER_REVIEW_GATE_CLOSED",
+  "date": "2026-10-24",
+  "batch": "cache-action-prepared-20261024-002",
+  "source_sha256": "aba13bfdbe3b9a7db2ceccaa4bf2220f37bb3fe03de9b4e2129cc10fbc0e0844",
+  "private_accounting_directory": "runtime/runs/cache-action-review-accounting-20261024-002",
+  "accounting_seal_sha256": "50f23c60ba9504554a4d731bf4ad4cc5d06cd454347a3a5b62b0e02dc6149201",
+  "authorship": {
+    "user_confirmed_two_humans_independently_rated_then_merged": true,
+    "user_confirmed_no_model_written_judgments": true,
+    "reviewers_self_report_no_assistance": true,
+    "identity_and_independence_independently_verified": false
+  },
+  "results": {
+    "reviewers": 2,
+    "submitted_ratings": 24,
+    "reviewed_final_answers": 12,
+    "agreed_MATCH": 12,
+    "disagreements": 0,
+    "reference_concerns": 0,
+    "available_arm_agreed_MATCH": 6,
+    "available_arm_answers": 6,
+    "unavailable_arm_agreed_MATCH": 6,
+    "unavailable_arm_answers": 6,
+    "independent_reused_development_tasks": 2,
+    "C_drift_assessed": false,
+    "automatic_adjudication": false
+  },
+  "transcription": {
+    "quotes_link_to_original_model_outputs": 24,
+    "outer_display_quote_delimiter_removals": 24,
+    "substantive_rewriting": false,
+    "source_bytes_preserved": true,
+    "semantic_labels_created_by_importer": false
+  },
+  "archive_correction": {
+    "first_import_directory_preserved": "runtime/runs/cache-action-review-accounting-20261024-001",
+    "issue": "Seal writer opened artifact_hashes.json before snapshotting, so it accidentally included the empty self-file. End-of-import validation rejected it.",
+    "fix": "Snapshot before opening the seal; preserve the failed directory and generate a separate verified accounting directory.",
+    "prior_result_comparison_affected": "runtime/runs/cache-action-result-comparison-20261024-002",
+    "prior_result_comparison_seal_not_valid": true,
+    "replacement_comparison_directory": "runtime/runs/cache-action-result-comparison-20261024-003",
+    "replacement_seal_sha256": "84853a6d808382a19458e36619429048ec86fa4a68c294dd0be9e3a6370cc5ac",
+    "comparison_report_unchanged_verified": true,
+    "model_run_or_original_review_modified": false,
+    "new_seals_verified": true,
+    "new_inference_or_SQL": 0
+  },
+  "decision": "The final-answer review gate is closed under disclosed user-attested provenance. Preserve the bounded no-observed-answer-error result; do not repeat these two tasks or claim a method gain. Any new-task screen requires independent admission, frozen design and separate paid approval.",
+  "interpretation": "Ordinary documented-agent behavior produced reviewed matching final answers in both availability arms on these two reused tasks. This is not proof of population-wide absence of drift, statistical equivalence, or a new method advantage.",
+  "supersedes_pending_review_state_in": [
+    "cache_action_execution_20261024_002.json",
+    "cache_mainline_gate_20261024_001.json"
+  ],
+  "tests_passed": 25,
+  "new_model_calls": 0,
+  "new_SQL_executions": 0,
+  "raw_reviews_public": false
+}

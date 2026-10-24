@@ -85,8 +85,9 @@ def run(project, output):
     with (output/'report.json').open('x', encoding='utf-8') as f:
         json.dump(result, f, ensure_ascii=False, indent=2)
     with (output/'audit_source.py').open('xb') as f: f.write(Path(__file__).read_bytes())
+    hashes = snapshot(output)
     with (output/'artifact_hashes.json').open('x', encoding='utf-8') as f:
-        json.dump(snapshot(output), f, indent=2)
+        json.dump(hashes, f, indent=2)
     return {k:v for k,v in result.items() if k != 'rows'}
 
 
