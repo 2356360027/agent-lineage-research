@@ -1,0 +1,62 @@
+{
+  "status": "FROZEN_PREFLIGHT_PASSED_AWAITING_FRESH_APPROVAL",
+  "date": "2026-10-24",
+  "prepared_directory": "runtime/runs/cache-documentation-prepared-20261024-001",
+  "manifest_sha256": "ed1445b1fd45d97768444c9b8f97ca05399ab66b16fdadff27c47cab23c9b1c2",
+  "input_manifest_sha256": "9b81cd75f0b15d57887075da803ffa13ba3b3fc2bdc9431f63ed4670815b0210",
+  "model_alias": "deepseek-flash",
+  "advertised_version": "DeepSeek-V4.1-Flash-1017",
+  "remote_weights_verified": false,
+  "scope": "Two previously exposed development tasks, six historical results, original versus generic-documentation prompts; twelve first-action slots. No contract elicitation, SQL/tool execution or training.",
+  "maximum_calls": 12,
+  "maximum_inference_loop_seconds": 600,
+  "per_request_timeout_seconds_at_most": 90,
+  "input_cap_each": 1200,
+  "output_cap_each": 512,
+  "proposed_client_ceiling_cny": 0.10,
+  "conditional_fixed_input_full_output_cny": 0.072508,
+  "pricing": {
+    "official_source": "https://api-docs.deepseek.com/zh-cn/quick_start/pricing/",
+    "checked_date": "2026-10-24",
+    "CNY_per_million_input_tokens": 2,
+    "CNY_per_million_output_tokens": 8,
+    "basis": "Peak cache-miss rate; no cache-hit or off-peak discount assumed.",
+    "invoice_verified": false,
+    "provider_spending_cap_installed": false,
+    "conditions": "Twelve exact frozen prompts, maximum 512 output tokens each, no retries. Provider alias/count mismatch stops further calls after preserving the reply. Client timeouts do not establish provider cancellation."
+  },
+  "execution_boundary": {
+    "fresh_approval_required": true,
+    "key_input": "User's own terminal, hidden and memory-only; never use conversation keys.",
+    "raw_output": "prepared_directory/experiment; local only",
+    "automatic_retry_or_resume": false,
+    "existing_execution_claim_or_output_rejected": true,
+    "malformed_action": "Retain INVALID_ACTION; do not repair, resample or discard.",
+    "transport_timeout_or_interrupt": "Stop batch; preserve dispatched/uncertain and remaining NOT_STARTED slots.",
+    "date_change": "Recheck prices and create a new preparation; do not alter this frozen snapshot."
+  },
+  "verification": {
+    "copied_launcher_preflight": "FROZEN_PREFLIGHT_PASSED",
+    "combined_unit_tests_passed": 19,
+    "test_calls_are_model_calls": false,
+    "covered": [
+      "Literal paired intervention, deterministic order and no input mutation",
+      "Twelve-slot bound and no SQL/tool execution",
+      "Malformed output preserved without repair",
+      "Failure, keyboard interrupt, late response and token mismatch handling",
+      "No approval means no secret prompt",
+      "Changed input inventory rejected",
+      "Official endpoint, no redirects, bounded child timeout and credential redaction"
+    ]
+  },
+  "actual_preparation_API_calls": 0,
+  "actual_preparation_SQL_queries": 0,
+  "execution_claim_exists": false,
+  "experiment_directory_exists": false,
+  "interpretation_limits": [
+    "A documentation calibration, not a novel method or independent confirmation.",
+    "First cache reading is not itself correct or incorrect final reuse.",
+    "No direct measurement of task-interpretation drift.",
+    "Do not keep retuning documentation until desired behavior appears."
+  ]
+}
