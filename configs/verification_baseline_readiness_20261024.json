@@ -1,0 +1,88 @@
+{
+  "status": "PRIMARY_SOURCE_BASELINE_READINESS_AUDIT_NOT_EXPERIMENT",
+  "date": "2026-10-24",
+  "research_question_changed": false,
+  "approved_twelve_trajectory_batch_changed": false,
+  "model_calls": 0,
+  "external_source_code_executed": false,
+  "sources": [
+    {
+      "id": "vldb_verification_2026",
+      "title": "Developing and Benchmarking Verification Algorithms to Improve Text-to-SQL Generation",
+      "publication": "PVLDB 19(11), 3732-3744, 2026",
+      "url": "https://www.vldb.org/pvldb/vol19/p3732-alrashed.pdf",
+      "inspected": "Abstract; sections 3.1-3.3; artifact availability statement",
+      "finding": "Fresh-context critique is established. Round-trip verification translates SQL with schema but without the original request, then compares the reconstructed request with the original. Synthetic execution compares candidate SQL results on generated small databases with separately predicted answers.",
+      "artifact_url": "https://figshare.com/s/c88a751bc29d9751816b",
+      "artifact_access": "Web tool returned HTTP 403. No alternate access or download attempted.",
+      "reproduced": false
+    },
+    {
+      "id": "mrsqlgen_paper_2026",
+      "title": "Validating LLM-Generated SQL Queries through Metamorphic Prompting",
+      "publication": "Proceedings of the ACM on Software Engineering 3(FSE), FSE019, 2026",
+      "url": "https://matafeiyanll.github.io/paper/FSE26-MRSQLGen.pdf",
+      "inspected": "Abstract; sections 5-6; data availability",
+      "finding": "Prompt transformations and execution relationships are prior methods. Section 6 specifies rejection when the violated-relationship proportion exceeds 80%, which is more specific than the abstract's majority wording.",
+      "reproduced": false
+    },
+    {
+      "id": "mrsqlgen_detector_code",
+      "url": "https://github.com/MRSQLGen/MRSQLGen/blob/main/app/bug_detector.py",
+      "inspected": "BugDetector constructor and check_bug; displayed main revision not pinned",
+      "finding": "The displayed detector rejects when satisfied checks are below threshold times effective checks. Only Boolean check results enter the effective denominator. At zero effective checks its final expression returns false. Caller configuration and upstream zero-check handling have not been verified.",
+      "config_access": "The linked configuration directory was denied by the web tool's robots policy; no alternate access attempted.",
+      "license_verified": false,
+      "code_copied_or_run": false,
+      "author_implementation_declared_wrong": false
+    },
+    {
+      "id": "apc_2025",
+      "title": "Agentic Plan Caching: Test-Time Memory for Fast and Cost-Efficient LLM Agents",
+      "publication": "NeurIPS 2025 main conference",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2025/hash/9549f7d06700f0966d5f938f1d11022a-Abstract-Conference.html",
+      "inspected": "Proceedings abstract only this turn",
+      "finding": "Structured plan-template extraction, matching and adaptation are existing reuse mechanisms. The abstract alone is insufficient to infer a controlled declared-price effect on pre-result task contracts.",
+      "reproduced": false
+    }
+  ],
+  "own_arithmetic_check_not_author_performance": {
+    "effective_checks": 5,
+    "satisfied_counts": [0, 1, 2, 3, 4, 5],
+    "paper_violation_fraction_strictly_gt_0_8_rejects": [true, false, false, false, false, false],
+    "code_with_satisfaction_threshold_0_8_rejects": [true, true, true, true, false, false],
+    "code_with_satisfaction_threshold_0_2_rejects": [true, false, false, false, false, false],
+    "interpretation": "Conditional parameter semantics, not evidence that the authors used the wrong configuration. Under identical nonzero denominators the violation and satisfaction thresholds are complements. Verify strictness, actual caller values and invalid-check handling before reproduction.",
+    "our_zero_effective_policy": "Unresolved verification, never evidence of correctness; preserve invalid and missing checks in reporting."
+  },
+  "future_baseline_interfaces_not_authorized_runs": [
+    {
+      "baseline": "Fresh-context direct critique",
+      "inputs": "Original request, shared schema/evidence, actual candidate SQL; no gold contract, price label or generator reasoning",
+      "costs": "All critique tokens, failures, rejected candidates and any later recomputation",
+      "comparison": "Same base generator and declared tool permissions; distinguish verifier rejection from successful correction"
+    },
+    {
+      "baseline": "Round-trip verification",
+      "inputs": "Back-translation receives actual SQL and schema, not original request. Comparison stage receives original request and back-translation.",
+      "costs": "Both model stages, invalid output handling and any correction or abstention",
+      "admission": "Recover original prompts/configuration or label implementation as an adaptation, not a faithful reproduction"
+    },
+    {
+      "baseline": "Synthetic execution or metamorphic verification",
+      "inputs": "Original request, common schema/evidence and actual candidate program under each method's documented isolation rules",
+      "costs": "Test or prompt construction, all generated queries, execution failures, result checks, and recovery",
+      "admission": "Validate transformations and comparator semantics before using test consistency as evidence; no gold answer supplied to baseline"
+    }
+  ],
+  "own_analysis_and_decision": [
+    "Do not add these verifiers midway through the authorized diagnostic or change its prompts, seeds, prices, sample allocation or stopping rule.",
+    "Assess contract fidelity independently of later SQL success. A correct contract with a wrong program remains a different failure from an incorrect contract followed by an aligned incorrect program.",
+    "A cache-only answer may have no standalone current-task SQL. Do not invent an equivalent program after observing the answer and call that the agent's executed program. Report baseline coverage and any missing program evidence explicitly.",
+    "Measure successful correction and useful cache reuse as well as rejection, abstention, unresolved cases and total cost. Universal rejection is not a successful reuse method.",
+    "Independent verification and test generation are established baselines, not the project's algorithmic novelty. Method development requires a measured remaining gap after those comparisons.",
+    "Two exposed development targets cannot establish population effects, significance or novelty. Even a positive diagnostic requires separately admitted, unused tasks and a new authorized confirmation design."
+  ],
+  "execution_state_at_audit": "Prepared manifest exists; no execution claim or outcome present at local check",
+  "private_material_published": false
+}
