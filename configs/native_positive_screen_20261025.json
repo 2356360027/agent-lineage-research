@@ -1,0 +1,56 @@
+{
+  "version": "native-positive-screen-20261025-v1",
+  "status": "STATIC_CANDIDATES_NOT_HUMAN_ADMITTED",
+  "source": {
+    "repository": "uiuc-kang-lab/text_to_sql_benchmarks",
+    "revision": "fe766045c55b6875a43b30e9ac7683df5582f8cf",
+    "sha256": "baefe2ca4fbab86c000df72aad9eaa563f7d422e425af2cbff071f656ea4eea8",
+    "license": "CC-BY-SA-4.0",
+    "attribution": "Jin, Choi, Zhu and Kang, Pervasive Annotation Errors Break Text-to-SQL Benchmarks and Leaderboards (2026), Arcwise-Plat. Original source records remain unchanged. Pairings and screening judgments are researcher adaptations."
+  },
+  "scope": {
+    "question_texts_inspected": 498,
+    "database_question_counts": {"california_schools": 30, "card_games": 52, "codebase_community": 49, "debit_card_specializing": 30, "european_football_2": 51, "financial": 30, "formula_1": 66, "student_club": 48, "superhero": 52, "thrombosis_prediction": 50, "toxicology": 40},
+    "detailed_question_evidence_sql_ids": [94, 189, 728, 733, 744, 766, 786, 829],
+    "all_sql_inspected": false,
+    "exhaustive_pair_search": false,
+    "rule": "Manual question-text scan for a distinct current task derivable from the original historical result alone. Inspect source SQL for plausible pairs. No model responses or real query outcomes used in selection.",
+    "development_exposed": true,
+    "remaining_records": "No obvious positive pair selected at question-text level; not a per-pair exclusion, proof of impossibility, or complete SQL containment search."
+  },
+  "pairs": [
+    {
+      "history": 728, "current": 733, "database": "superhero",
+      "disposition": "PRIORITY_STATIC_POSITIVE_CANDIDATE_PENDING_SEMANTICS_AND_SNAPSHOT",
+      "relation": "Historical reference returns EyeColor, COUNT(superhero.id), and rank for every Marvel colour group without LIMIT or HAVING. Current reference counts the Gold group with the same inner joins and publisher filter.",
+      "cache_only_transform": "Select Count where EyeColor is exactly Gold; return 0 if absent only when the historical grouped result is complete and equality uses the verified grouping/filter collation.",
+      "no_predictive_fields_added": true,
+      "gates": ["Independent readers must confirm whether 'most common' plus 'each eye color' requests all ranked groups or only the most frequent group(s). Do not promote reference SQL into human intent.", "Obtain and verify a licensed immutable superhero database; check schema, collations, joins and source compatibility before real execution.", "Verify full historical output, including any pagination; absence in a truncated top-k is not zero.", "Use exact same snapshot and filters; reference SQL remains an oracle for offline validation, not privileged information for one agent arm.", "Pair chronology is researcher-imposed, not observed user history."],
+      "semantic_approval": false
+    },
+    {
+      "history": 766, "current": 786, "database": "superhero",
+      "disposition": "NOT_CERTIFIED_SUFFICIENT",
+      "reason": "Historical DISTINCT full_name can collapse multiple hero IDs (including missing names); current COUNT(DISTINCT hero_id) retains identities. Historical inner join also requires matching superhero rows. Counting name rows is not generally a valid rewrite. Do not add IDs and still call the result native.",
+      "semantic_approval": false
+    },
+    {
+      "history": 744, "current": 829, "database": "superhero",
+      "disposition": "HOLD_SIGN_AND_TIE_SEMANTICS_NOT_PRIORITY",
+      "reason": "Near-identical question wording but evidence/reference uses opposite subtraction directions. A sign inversion of the difference and retention of winner is a reference-level conversion, not confirmed distinct business intent. Both references map ties to DC and may yield NULL for absent publishers.",
+      "semantic_approval": false
+    },
+    {
+      "history": 94, "current": 189, "database": "financial",
+      "disposition": "NOT_CERTIFIED_SUFFICIENT",
+      "reason": "Historical oldest-person subquery has no tie policy and orders account district salary descending; current text specifies client district salary ascending. Projecting the account field cannot generally recover the current tied choice; join scopes also differ.",
+      "semantic_approval": false
+    }
+  ],
+  "preservation": {"555": "Pending; not a native reusable positive. Potential negative only under separately reviewed protocol.", "1480": "Prior reviewers excluded current batch; unchanged.", "old_screen": "configs/cache_intent_native_pair_screen_v1.json remains historical and unchanged."},
+  "strong_baseline": "If admitted, 728-to-733 is covered by ordinary materialized-view group selection. Its role is a positive control against always-recompute, not a new algorithm or evidence of intent drift.",
+  "formal_tasks_admitted": 0,
+  "model_calls": 0,
+  "real_database_queries": 0,
+  "paid_execution_authorized": false
+}

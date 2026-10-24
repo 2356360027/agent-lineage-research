@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-25",
+  "status": "STATIC_POSITIVE_CANDIDATE_WITH_SYNTHETIC_RELATION_CHECK_ONLY",
+  "previous_goal_turn_assessment": "Status restatement/read-only confirmation; no new admission or model evidence. This turn advances the unresolved native-positive-control gap rather than repeating that status.",
+  "screen": "configs/native_positive_screen_20261025.json",
+  "source_records_verified": 498,
+  "source_revision": "fe766045c55b6875a43b30e9ac7683df5582f8cf",
+  "source_json_sha256": "baefe2ca4fbab86c000df72aad9eaa563f7d422e425af2cbff071f656ea4eea8",
+  "candidate": {"history_id": 728, "current_id": 733, "database": "superhero", "original_cache_extended": false, "formal_admission": false},
+  "program_checks": {
+    "script": "scripts/audit_native_positive_relation.py",
+    "private_output": "runtime/runs/native-positive-relation-20261025-001",
+    "synthetic_fixture_pairs": 74,
+    "synthetic_pairs_matched": 74,
+    "synthetic_reference_selects": 148,
+    "real_database_queries": 0,
+    "meaning": "Unmodified pinned reference SQL compared on synthetic in-memory SQLite with default BINARY collation. These are software checks, not 74 empirical tasks or model samples.",
+    "artifact_manifest_sha256": "a86e310537bd202c8be792245a9bda575c3b9b7480810418d25d8c955f218e08",
+    "sealed_files_verified": 79,
+    "software_unit_tests_passed": 7,
+    "test_command": "python -B -X utf8 -m unittest tests.test_native_positive_relation -v"
+  },
+  "boundary": {
+    "human_semantics": "Pending: historical 'most common' versus 'each eye color' may imply top group(s) or all ranked groups. Source SQL alone is not a human intent label.",
+    "snapshot": "No superhero database file found in the current dataset directory inventory. No real database downloaded or queried this turn. Schema, collations, source compatibility and licensing of a future database need verification.",
+    "cache": "Only a complete historical result can certify Gold absence as count zero. Truncated results must not be treated as complete.",
+    "generalization": "Researcher-imposed pairing of public questions, not naturally observed conversation; development-exposed, not held-out.",
+    "method": "Simple materialized-view group selection covers this conversion. No advantage over a strong baseline and no intent-drift phenomenon demonstrated."
+  },
+  "next_action": "Verify an immutable licensed superhero snapshot and obtain independent semantic review of 728/733 before formal admission. Keep 555 pending as a possible negative, 1480 excluded, and all historic results intact. No paid inference has been authorized.",
+  "new_model_calls": 0,
+  "paid_api_cost_cny": 0,
+  "formal_tasks_admitted": 0,
+  "new_human_approvals": 0,
+  "github": "Safe code and aggregate record prepared locally; no push attempted because the previously observed interactive credential blocker has not changed. Raw source records and fixtures remain ignored."
+}
