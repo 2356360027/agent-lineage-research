@@ -1,0 +1,53 @@
+{
+  "status": "FROZEN_PREFLIGHT_PASSED_AWAITING_FRESH_APPROVAL",
+  "date": "2026-10-24",
+  "prepared_directory": "runtime/runs/workflow-diagnostic-prepared-20261024-192253-336029",
+  "manifest_sha256": "9d7b547374f963b31c8b0e79909bf54699ed6c28e969cb55c077dc4fa44dd375",
+  "plan_sha256": "4f6e647de5f9a4caa38fc74891ad684d20d785c9821c7774cded474670529d2a",
+  "source_snapshot_matches_project_at_preparation": true,
+  "copied_launcher_verification": "FROZEN_PREFLIGHT_PASSED",
+  "planned_decision_slots": 8,
+  "previously_exposed_development_tasks": 2,
+  "maximum_generation_calls": 12,
+  "maximum_seconds": 600,
+  "input_cap_per_call": 8192,
+  "output_cap_per_call": 512,
+  "initial_reference_input_range": [843, 1162],
+  "conditional_full_allocation_cny": 0.24576,
+  "requested_client_ceiling_cny": 0.30,
+  "billing": {
+    "official_source": "https://api-docs.deepseek.com/zh-cn/quick_start/pricing/",
+    "checked_on": "2026-10-24",
+    "model_alias": "deepseek-flash",
+    "advertised_version": "DeepSeek-V4.1-Flash-1017",
+    "remote_weights_verified": false,
+    "CNY_per_million_input_tokens": 2,
+    "CNY_per_million_output_tokens": 8,
+    "basis": "Peak/cache-miss rates; no cache-hit or off-peak discount assumed",
+    "bound_conditions": "At most twelve admitted requests, local reference input <=8192 and output <=512; provider usage mismatch stops further dispatch after preserving the reply. Client guards do not install a provider-side spending cap.",
+    "invoice_verified": false
+  },
+  "tests": {
+    "workflow_tests": 8,
+    "combined_workflow_transport_integrity_tests": 19,
+    "all_passed": true,
+    "fixtures_are_model_results": false,
+    "covered": [
+      "Only availability differs within availability pairs",
+      "Action-first system does not receive Stage-1 schema advice",
+      "Generated contract preserved verbatim",
+      "Eight slots and at most twelve dispatches, no tools",
+      "Invalid contracts retained without replacement",
+      "Transport failure and interrupt preserve uncertainty and remaining slots",
+      "Late and count-mismatched responses retained before stopping",
+      "No approval means no credential prompt",
+      "Existing official transport privacy, timeout and no-redirect guards"
+    ]
+  },
+  "actual_preparation_model_calls": 0,
+  "actual_preparation_SQL_queries": 0,
+  "execution_claim_exists": false,
+  "experiment_directory_exists": false,
+  "interpretation_boundary": "Prepared development first-action diagnostic, not completed research, interpretation-drift measurement, confirmation study, or evidence for a new method.",
+  "next_gate": "Obtain fresh fixed-batch approval and current balance >=0.30 CNY. User enters key hidden in their terminal. Never reuse chat credentials. Recheck pricing and prepare a new record if the date changes."
+}
