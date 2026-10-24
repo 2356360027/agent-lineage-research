@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-25",
+  "status": "FOLLOWUP_RECEIVED_PENDING_NOT_ADMITTED",
+  "source": "User's merged follow-up in this chat for current question 555; not two newly supplied individual forms",
+  "prior_confirmation": "configs/run_records/native_review_confirmation_20261025_001.json",
+  "user_conclusion_excerpt": "建议“待澄清”，暂缓直接纳入",
+  "user_scope_excerpt": "不建议按“自然历史复用”直接纳为正向样本",
+  "preserved_followup_points": [
+    "Native historical count does not provide score sums or individual scores",
+    "SUM(Score) plus COUNT(Score) must be disclosed as constructed extended information, not native history",
+    "Check DisplayName uniqueness on the fixed snapshot",
+    "Use the non-NULL score denominator rather than total post count",
+    "Declare empty/all-NULL behavior and numeric tolerance before model scoring"
+  ],
+  "reconciliation_with_existing_evidence": {
+    "snapshot_record": "configs/run_records/native_555_snapshot_20261024_001.json",
+    "observed_name_scope": "One matching account; no duplicate-name conflict in this snapshot only",
+    "observed_denominator": "121 posts, 121 non-NULL integer scores, no join duplicates",
+    "observed_reference": "Sum 1089 and AVG 9.0; no empty or all-NULL group in this snapshot",
+    "remaining_scoring_policy": "A numeric tolerance and scope for empty/all-NULL cases are not yet frozen in an approved new experiment",
+    "remaining_method_boundary": "The user-approved constructed positive control remains distinct from native historical output. This does not turn the original pair into a naturally reusable positive sample."
+  },
+  "researcher_interpretation_not_reviewer_label": {
+    "negative_control": "Inability to derive the current answer from an old count is a useful potential negative control for inappropriate reuse; it is not proof that all reuse experiments must exclude this pair",
+    "target_question": "Keep the current research question about same-content convenience and observable intent fidelity; do not silently switch to designing a predictive materialized-view engine",
+    "natural_positive_sample": "Not admitted as such",
+    "general_limitation": "Two public questions paired by researchers are not a naturally observed user interaction sequence even when each question is native to the benchmark",
+    "no_new_human_approval_inferred": true
+  },
+  "next_action": "Retain the pending determination, stop requesting a forced yes, and distinguish potential negative-control use from natural-positive eligibility in any revised protocol. No new execution is approved by this follow-up.",
+  "new_independent_reviews_counted": 0,
+  "formal_tasks_admitted": 0,
+  "new_model_calls": 0,
+  "new_sql_calls": 0,
+  "paid_batch_authorized": false,
+  "prior_reviews_overwritten": false
+}
