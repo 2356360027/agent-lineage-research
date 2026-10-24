@@ -1,0 +1,28 @@
+{
+  "status": "OFFLINE_AUDIT_COMMAND_PREPARED_NOT_A_RESEARCH_READOUT",
+  "date": "2026-10-24",
+  "command": "scripts/audit_cache_action.py",
+  "prepared_batch": "runtime/runs/cache-action-prepared-20261024-001",
+  "manifest_sha256": "d68bdc44d902d51089a18e687942dc2d55f7377c20513c327aac5ad5a7aa3cde",
+  "source_import_policy": "Standalone process; hash-check frozen source inventory before loading dependencies; run verified frozen launcher.verify only, never execute; load the separate new offline checker with frozen research dependencies.",
+  "checks": [
+    "Require an official FINISHED status, final seal and matching execution claim; stopped and unsealed batches need separate failure handling.",
+    "Verify frozen source, inputs, database fingerprint, reference tokenizer and recorded capacity using the original verifier.",
+    "Replay the sealed finished batch without model calls or SQL execution.",
+    "Archive prepared inputs, frozen source and all results, verify ZIP inventory and every member hash, and preserve separate analysis-source copies.",
+    "Never overwrite existing audit output; refuse output nested inside the prepared batch.",
+    "Private audit includes actual answer text but console output is compact and ungraded."
+  ],
+  "validation": {
+    "unit_modules": ["tests.test_audit_cache_action", "tests.test_cache_action_trace_audit", "tests.test_cache_action_review"],
+    "tests_passed": 31,
+    "synthetic_fixtures_only": true,
+    "real_finished_batch_end_to_end_check": "Pending actual execution; not claimed by these tests."
+  },
+  "backup_limitations": "Local archive, not off-device; external dataset and tokenizer files are not included, only their frozen identities/references.",
+  "new_API_calls": 0,
+  "new_research_SQL_calls": 0,
+  "new_semantic_labels": 0,
+  "frozen_experiment_changed": false,
+  "scientific_status": "No new evidence for intent drift or method benefit. Waiting for fixed-batch execution and subsequent human final-answer review."
+}
