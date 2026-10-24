@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-25",
+  "status": "PURE_SCORER_TESTED_BEFORE_MODEL_OUTPUT",
+  "policy": "configs/superhero_factorial_readout_v1.json",
+  "analysis_module": "runtime/superhero_answer_readout.py",
+  "command": "python -B -X utf8 -m unittest tests.test_superhero_answer_readout -v",
+  "test_methods_passed": 7,
+  "scope": "Artificial text and typed scalar fixtures only; no inference or research SQL",
+  "rules": [
+    "Only a plain ASCII signed integer, with surrounding whitespace permitted, is automatically matched",
+    "Prose, conflicting numbers, lists, math expressions, decimal text and markdown remain UNCERTAIN for review",
+    "Failed or interrupted trajectories are not promoted by a retained late answer",
+    "All four planned condition slots must remain, with one independent task pair",
+    "No human judgments, C-type intent labels, p-values or confidence intervals are manufactured"
+  ],
+  "integration_limit": "Pure scorer assumes upstream verification of full sealed experiment, reference provenance and replayed trace. It is not itself that verification.",
+  "runner_002_modified": false,
+  "user_approved_runner_002": true,
+  "approval_ceiling_cny": 0.20,
+  "credential_entry_pending": true,
+  "new_paid_requests": 0
+}
