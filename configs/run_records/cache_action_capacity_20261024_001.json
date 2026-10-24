@@ -1,0 +1,62 @@
+{
+  "status": "OFFLINE_CAPACITY_AND_INPUT_BINDING_CHECKED_NOT_AUTHORIZED",
+  "date": "2026-10-24",
+  "input_directory": "runtime/runs/cache-action-inputs-20261024-001",
+  "input_artifact_manifest_sha256": "5602f3453cfebfb8a09f9ec5e98b722eb7f159eda4c32981cc11d879e513ec85",
+  "plan_sha256": "0bbaa88e9628488ab2be25ec25de8f54c0b0b7c3a48c4533736dbbf4de14432a",
+  "prior_provenance_checked_input_manifest": "9b81cd75f0b15d57887075da803ffa13ba3b3fc2bdc9431f63ed4670815b0210",
+  "database_sha256": "35ef27ae6bdfda530e125ed369666ac0abb8bc8c0bcc0ad09407f547ecb61a93",
+  "trajectories": 12,
+  "reused_development_tasks": 2,
+  "maximum_calls": 48,
+  "reference_initial_input_range": [1019, 1105],
+  "total_conditional_input_bound": 128192,
+  "total_output_bound": 24576,
+  "maximum_full_history_plus_output_bound": 4877,
+  "pricing": {
+    "source": "https://api-docs.deepseek.com/zh-cn/quick_start/pricing/",
+    "checked_date": "2026-10-24",
+    "alias": "deepseek-flash",
+    "advertised_version": "DeepSeek-V4.1-Flash-1017",
+    "remote_weights_verified": false,
+    "conservative_input_cny_per_million": 2,
+    "conservative_output_cny_per_million": 8,
+    "discount_assumed": false,
+    "conditional_upper_cny": 0.452992,
+    "proposed_client_ceiling_cny": 0.50,
+    "provider_spending_cap_installed": false,
+    "scope": "Bound for fixed calls under verified reference counts and declared token caps, not a provider invoice or guaranteed server cancellation. Recheck if execution date or published pricing changes."
+  },
+  "checks": {
+    "all_six_history_inputs_retained": true,
+    "within_pair_only_availability_differs": true,
+    "database_rehashed_without_querying": true,
+    "new_API_calls": 0,
+    "new_research_SQL_queries": 0,
+    "test_count": 82,
+    "test_modules": [
+      "tests.test_cache_action_horizon",
+      "tests.test_cache_action_loop",
+      "tests.test_cache_action_adapter",
+      "tests.test_cache_intent_tools",
+      "tests.test_cache_intent_recovery",
+      "tests.test_cache_intent_staged_loop"
+    ],
+    "test_scope": "Scripted counters/transports and temporary SQLite fixtures, not model observations. Actual initial payloads counted separately with the pinned reference tokenizer."
+  },
+  "conditions_for_bound": [
+    "Every accepted assistant message is at most 512 reference tokens.",
+    "Every exposed observation fits the complete-or-explicit-oversize 512-token framed limit.",
+    "Future recovery and terminal instruction joins are checked before exposing each observation.",
+    "Every full request satisfies its stage-specific bound and provider prompt usage agrees with the local reference.",
+    "Any mismatch, failed dispatch or deadline violation stops the batch without replacement or automatic retry."
+  ],
+  "remaining": [
+    "Integrate and test batch finalization and interruption handling.",
+    "Freeze grading preparation, full executable source, token dependencies and final admission checks.",
+    "Request fresh fixed-batch authorization and current sufficient balance; do not reuse previous approvals."
+  ],
+  "source_snapshot_complete": false,
+  "model_effect_measured": false,
+  "inference_authorized": false
+}
