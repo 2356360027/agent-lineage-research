@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-25",
+  "status": "SEMANTIC_GATE_PASSED_FOR_ADAPTED_DEVELOPMENT_PAIR",
+  "history_variant": "728-complete-groups-researcher-clarification-v1",
+  "current_task": 733,
+  "current_question_and_evidence_unchanged": true,
+  "source_revision": "fe766045c55b6875a43b30e9ac7683df5582f8cf",
+  "source_sha256": "baefe2ca4fbab86c000df72aad9eaa563f7d422e425af2cbff071f656ea4eea8",
+  "reviewed_packet_manifest_sha256": "3c88f748c3377f828fe61fdc4f6f01bd85a5642511dd5b6975bf704dac348511",
+  "review": {
+    "two_reviewers_support_adapted_history": true,
+    "reviewer_2_supports_pair": true,
+    "reviewer_1_initial_support_conditional": true,
+    "reviewer_1_record_ID_count_condition_resolved_by_user_forwarded_answer": true,
+    "actual_date_corrected_by_user": "2026-10-25",
+    "human_judgment_then_model_formatting_user_attested": true,
+    "independence_externally_observed": false,
+    "prior_discussion_exposure_disclosed": true,
+    "new_blinded_validation": false,
+    "raw_reviews_and_corrections_retained_privately": true
+  },
+  "technical_basis": {
+    "snapshot_record": "configs/run_records/superhero_adaptation_20261025_001.json",
+    "amendment_check_record": "configs/run_records/amendment_semantics_20261025_001.json",
+    "database_sha256": "75e94a2c3236ee3bb2c01fb97a1c4b4c1c269bcefd4eab1d04be323d2d0825b1",
+    "primary_key_and_default_binary_collation_checked": true,
+    "finite_synthetic_history_semantic_checks": "74 archived outputs matched independent Python grouped-count/competition-rank semantics; not universal proof",
+    "existing_real_snapshot_conversion_matches": true,
+    "new_SQL_queries_this_intake": 0
+  },
+  "admission_scope": {
+    "role": "Sufficient-history positive control for controlled development",
+    "native_unmodified_benchmark_pair": false,
+    "natural_user_history": false,
+    "independent_confirmation_set": false,
+    "original_728_disposition": "Pending clarification, unchanged",
+    "original_555_negative_control_disposition": "Pending; this approval does not cover it",
+    "new_model_calls": 0,
+    "paid_execution_authorized": false
+  },
+  "remaining_execution_gates": [
+    "Bind the exact reviewed amendment and current evidence to a new immutable plan; no silent edits to task text.",
+    "Ensure historical evidence and schema are exposed equally across comparison arms; admission labels and current reference answer stay private to scoring.",
+    "Implement and verify new-protocol runner, capacity and budget enforcement; existing frozen runners intentionally reject the new draft envelopes.",
+    "Admit any insufficient-history control separately; positive-control success alone cannot identify demand drift.",
+    "Freeze batch scope, endpoints, failure treatment and current API cost ceiling, then obtain explicit paid authorization."
+  ],
+  "novelty_boundary": "Classical grouped-view selection already covers this positive control. No observed drift or method increment has been established.",
+  "github": "Aggregate receipt only; private raw review and confirmation records excluded."
+}
