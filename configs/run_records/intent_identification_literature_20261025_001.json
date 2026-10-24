@@ -1,0 +1,68 @@
+{
+  "date": "2026-10-25",
+  "status": "PRIMARY_SOURCE_METHODS_CHECK_NOT_NEW_EXPERIMENT",
+  "previous_goal_turn": "Progress: separately labelled amendment forms generated, tested and delivered; no new human approvals",
+  "matrix": [
+    {
+      "title": "Benchmarking and Improving Text-to-SQL Generation under Ambiguity",
+      "publication": "EMNLP 2023",
+      "url": "https://aclanthology.org/2023.emnlp-main.436/",
+      "inspected_primary_pdf": "https://aclanthology.org/2023.emnlp-main.436.pdf",
+      "locations": "Section 3, Table 1, Precomputed Aggregates subsection, printed pages 7055-7056",
+      "problem": "Recover plausible SQL interpretations under schema ambiguity",
+      "method": "LogicalBeam uses plan/template diversity and schema-constrained infilling",
+      "data": "AmbiQT includes 101 precomputed-aggregate cases, constructing an added table and alternative SQL rather than recording natural historical cache interactions",
+      "metrics": "Candidate coverage and execution/exact match in top-k",
+      "baselines": "Text-to-SQL models and alternative decoding strategies",
+      "overlap": "Already contrasts computed aggregates with direct selection of preaggregated fields",
+      "difference_hypothesis": "Our proposed test holds admitted task meaning and historical content fixed while varying convenience, not asking for all valid interpretations",
+      "limitation_for_our_use": "Ambiguous alternatives are not wrong-intent labels; cannot directly use its two valid SQLs to score category C",
+      "next_action": "Relevant prior art, not automatically replace the current dataset or count as a demonstrated novelty gap"
+    },
+    {
+      "title": "CostBench: Evaluating Multi-Turn Cost-Optimal Planning and Adaptation in Dynamic Environments for LLM Tool-Use Agents",
+      "publication": "ACL 2026 long paper",
+      "url": "https://aclanthology.org/2026.acl-long.584/",
+      "inspected_primary_pdf": "https://aclanthology.org/2026.acl-long.584.pdf",
+      "locations": "Appendix B.3.1-B.3.2, printed page 12846; main cost-optimal planning evaluation",
+      "problem": "Tool planning under flexible costs and dynamic blocking",
+      "method_data": "Travel tasks with atomic/composite tools, ground-truth optimal paths and greedy comparison",
+      "metrics": "Cost gap, path distances/exact match, task completion, invalid tool use",
+      "overlap": "Tool-price sensitivity and cost-aware route choice are already studied",
+      "version_note": "arXiv 2511.02734v1 calls the final-candidate metric User Intent Hit Ratio; the ACL PDF calls it Task Completion Ratio. Cite the published name when describing the final paper.",
+      "boundary": "Appendix excludes non-goal trajectories from cost/path/completion metrics, and invalid search attempts from the cost calculation; invalid tool-use metric includes all outcomes. Do not characterize the whole paper as ignoring failures.",
+      "difference_hypothesis": "We require earlier observable contract drift and later aligned behavior, not final-candidate accuracy as a direct reading of prior intent",
+      "next_action": "Report full-cohort completion/failure and all attributable incurred costs; successful-only cost is secondary with its denominator explicit"
+    },
+    {
+      "title": "Apache Calcite Materialized Views documentation",
+      "publication": "Official implementation documentation, not a new empirical paper",
+      "url": "https://calcite.apache.org/docs/materialized_views.html",
+      "locations": "View-based query rewriting; rewriting using plan structural information; aggregate rewriting",
+      "problem_method": "Reuse existing views through relational substitution, filters, joins, aggregation and compensation",
+      "data_metrics": "Documentation examples, not a benchmark effect estimate",
+      "overlap": "Selecting a matching count group is a classical relational reuse operation",
+      "limitation": "Documentation does not prove automatic support for our exact window-ranked 728 SQL, nor that its query was translated correctly from natural language",
+      "next_action": "Keep exact group selection plus fallback as a strong baseline. Do not infer automatic Calcite rewrite success for this exact query without running that implementation."
+    }
+  ],
+  "design_implications": {
+    "positive_control_role": "Admitted revised 728-to-733 would test whether a model can use a genuinely sufficient cache. It does not by itself establish a wrong-task temptation or category C.",
+    "negative_control_role": "Need separately admitted correct-but-insufficient history with a feasible recomputation path. 537-to-555 remains pending, not silently admitted.",
+    "C_required_observation": "A semantically wrong task definition recorded before program/tool selection, followed by a program consistent with that wrong definition. Simultaneous JSON fields or final answer alone do not prove temporal precedence.",
+    "C_denominator": "Keep all preassigned eligible trajectories, including invalid/missing contracts as unresolved or invalid rather than imputing no drift. Report sensitivity bounds if unresolved records affect the endpoint.",
+    "A_B_boundary": "Correct prior contract with unsuitable cache is A; correct prior contract with wrong implementation is B. Without a prior observable definition, A/B/C can be unidentifiable and must remain so.",
+    "instrumentation": "Explicit contract elicitation may protect or alter behavior. Keep it separate from ordinary-workflow error rates and match horizon/information before cross-protocol inference.",
+    "fairness": "Reviewer interpretation and current reference SQL stay with the scorer; do not give only the proposed method the correct contract. Historical public auxiliary evidence must be identical within each contrast.",
+    "causal_limit": "No amount of repeat calls on this one development pair establishes cross-task generalization; available-versus-unavailable post-tool observations may differ through the intervention itself.",
+    "stopping": "If eligible positive controls are used correctly and insufficient caches are rejected without task drift, report that boundary instead of searching model errors by changing task selection or prices."
+  },
+  "novelty_claim": "Unproven. A potentially sharper measurement target is not yet a novel effective algorithm or a publishable phenomenon.",
+  "new_model_calls": 0,
+  "new_database_queries": 0,
+  "new_human_approvals": 0,
+  "paid_api_cost_cny": 0,
+  "direction_changed": false,
+  "inference_authorized": false,
+  "next_minimal_experiment": "No launch until semantic admission and frozen execution plan. Then a small feasibility batch with both sufficient and insufficient history, ordinary outcomes separate from temporally prior elicited contracts, not a confirmatory causal claim."
+}
