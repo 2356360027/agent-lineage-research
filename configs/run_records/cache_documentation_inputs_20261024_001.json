@@ -1,0 +1,60 @@
+{
+  "status": "INPUTS_FROZEN_NOT_EXECUTABLE_NOT_AUTHORIZED",
+  "date": "2026-10-24",
+  "directory": "runtime/runs/cache-documentation-inputs-20261024-001",
+  "artifact_manifest_sha256": "9b81cd75f0b15d57887075da803ffa13ba3b3fc2bdc9431f63ed4670815b0210",
+  "payloads_sha256": "37ff596d13545655afad11b7d32dce10dbcda2d4aa78dfbd580e0327f0d9a451",
+  "documentation_sha256": "952923b1f0b1428a623c785d0560cef19464a4c29a1266809fdc05b8eb0425a3",
+  "provenance": {
+    "original_execution_archive_sha256": "6ee741f4935bcfe2b30688401ecebf83b658a38b847b026b4a360746d7a048e7",
+    "prior_official_input_archive_sha256": "4374a5e72939aafec5e4a02efacd5d290a4d6da7a7fbd7b4ee1633cec07c2b21",
+    "database_sha256": "35ef27ae6bdfda530e125ed369666ac0abb8bc8c0bcc0ad09407f547ecb61a93",
+    "historical_execution_records_matched": 6,
+    "original_before_after_database_hashes_match": true,
+    "current_database_rehashed_and_matched": true,
+    "history_sql_and_full_cached_record_binding_checked": true,
+    "independent_execution_attestation": false,
+    "current_task_applicability_certified_by_provenance": false
+  },
+  "design": {
+    "previously_exposed_development_tasks": 2,
+    "historical_inputs": 6,
+    "documentation_conditions": 2,
+    "slots_and_max_calls": 12,
+    "within_history_difference": "One identical literal generic documentation addition to system message only.",
+    "ordering_seed": "cache-documentation-calibration-v1-20261024",
+    "cache_available": true,
+    "cache_relative_cost": 1,
+    "SQL_relative_cost": 10,
+    "contract_elicitation": false,
+    "SQL_execution": false,
+    "outcome": "First valid action category and invalid-output category, not final reuse correctness or interpretation drift.",
+    "no_gold_contracts_answers_or_route_class_labels_added": true
+  },
+  "software_checks": {
+    "unit_tests_passed": 3,
+    "all_six_actual_pairs_verified": true,
+    "deterministic_order_and_input_immutability_tested": true,
+    "missing_duplicate_or_unavailable_source_rejected": true,
+    "input_tokens_min": 843,
+    "input_tokens_max": 1106,
+    "documentation_extra_input_tokens_per_pair": 177,
+    "output_cap_each": 512
+  },
+  "planning_cost_only": {
+    "historical_input_micro_CNY_per_token": 2,
+    "historical_output_micro_CNY_per_token": 8,
+    "conditional_CNY_for_fixed_inputs_and_full_outputs": 0.072508,
+    "current_price_or_invoice_verified_by_this_record": false,
+    "condition": "No retries, twelve fixed prompts, output <=512 per request, stated historical rates; not a provider spending cap."
+  },
+  "model_calls_this_preparation": 0,
+  "new_SQL_queries_this_preparation": 0,
+  "new_human_labels": 0,
+  "remaining": [
+    "Freeze and test a new bounded execution launcher before use; the old workflow launcher cannot execute this twelve-slot plan.",
+    "Verify execution-date official pricing and present a fixed call/time/fee limit for fresh user approval.",
+    "Keep credentials hidden in the user's terminal and raw outputs local.",
+    "Do not use repeated wording changes to seek a desired model response."
+  ]
+}
