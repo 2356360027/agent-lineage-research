@@ -1,0 +1,69 @@
+{
+  "status": "OFFLINE_POST_RESULT_INTERFACE_AUDIT_NOT_CAUSAL_PROOF",
+  "date": "2026-10-24",
+  "batch": "workflow-diagnostic-prepared-20261024-192253-336029",
+  "prepared_manifest_sha256": "9d7b547374f963b31c8b0e79909bf54699ed6c28e969cb55c077dc4fa44dd375",
+  "experiment_manifest_sha256": "e156f7afb1b564fa154f25164f698b4242f7e1614ca2e05fd3c70ffca640a230",
+  "audit_scope": "All eight saved first-action pending payloads and their two distinct system-message templates; frozen tool implementation and prompt builders. No new model/SQL call.",
+  "source_hashes": {
+    "runtime/cache_intent_tools.py": "98fbbd0669b93c1381056804f35b8532d100ec035508da34ec0dba39a14c2bc4",
+    "runtime/cache_intent_staged_preview.py": "666fef8c4a2c31de9a9778daccae81f1400228e230ac8896404a696f7f636e1d",
+    "runtime/cache_workflow_diagnostic.py": "eb5e7619378e5bb5acaec2a909336232012917c8ce97d312c93cb8ac661e4262",
+    "runtime/cache_intent_prompts.py": "e92cd5098eaebd62f6f8a9424d77b3e970aef202d04869582057d2f275bd5656"
+  },
+  "visible_facts": {
+    "cache_object_keys": ["cache_id", "materialized_available", "read_cost"],
+    "history_object_keys": ["historical_request", "sql"],
+    "database_sha256_provided": true,
+    "read_cache_v000_action_example_provided": true,
+    "run_sql_action_example_provided": true,
+    "available_and_unavailable_states_provided": true,
+    "relative_costs_provided": true,
+    "prefer_lower_cost_among_correct_solutions_instruction": true,
+    "native_API_tools_field": false,
+    "native_tools_interpretation": "Intentional text-action protocol, not evidence by itself of a tool integration defect.",
+    "raw_cached_rows_provided_before_action": false
+  },
+  "documentation_gaps_observed_by_inspection": [
+    "No explicit sentence binds read_cache(v000) to the result of the visible history.sql on the current fixed snapshot.",
+    "No explicit statement says that the historical result has already been checked against its historical SQL; correctness of that result is not the same as applicability to the current request.",
+    "No explicit tool description explains that read_cache retrieves stored columns/rows without executing the SQL again, whereas run_sql executes the submitted query.",
+    "The early contract-only template contained a natural-language availability explanation, but staged preview replaced that system template. Do not assume the earlier explanation reached these actual requests."
+  ],
+  "backend_evidence_and_limits": [
+    "Frozen ToolSession checks typed-result fingerprints, binds the cached result to history_sql via sql_sha256, and verifies the supplied database snapshot hash.",
+    "ToolSession.call copies self.cache for an admitted read_cache rather than recomputing it; run_sql uses the read-only query executor.",
+    "A cached result's correct execution on the snapshot also depends on the trusted input construction/receipts, not merely on ToolSession.valid_result or the presence of a database hash.",
+    "Prior offline control audit found complete first-read observations and same-database target-bag matches for the direct controls. This is environment evidence, not proof of model awareness.",
+    "The current batch executes no tools at all; its result remains first-action proposals only."
+  ],
+  "interpretation": {
+    "supported": "The interface relies on implicit cache-result semantics more than the trusted-registry research premise warrants. Model-visible documentation and backend validity must be distinguished.",
+    "not_supported": "We have not shown that this omission caused non-reuse, that the model distrusted the cache, or that adding documentation will change behavior.",
+    "old_results": "Retain unchanged. Do not relabel this completed batch as invalid or replace malformed output. Do not infer interpretation drift from no reuse.",
+    "method_novelty": "Clear tool documentation is interface calibration, not a new research method."
+  },
+  "candidate_generic_documentation_not_deployed": [
+    "Tool semantics for this experiment: history.sql is the historical query associated with cache v000 on the fixed snapshot identified by context.database_sha256.",
+    "The experiment operator has verified that the stored result is the complete execution result of that historical query on this snapshot. This does not certify that the historical query answers the current request.",
+    "When materialized_available is true, read_cache with cache_id v000 retrieves that stored result's columns and rows without running SQL again. When false, that result cannot be retrieved through read_cache.",
+    "run_sql executes the supplied read-only query on the same snapshot. Use the declared tool costs; results are subject to the shared complete-or-explicit-oversize observation policy.",
+    "Decide applicability from the original current request, evidence, schema and historical query. Do not replace the current request with the historical one. No task-specific applicability label is supplied."
+  ],
+  "candidate_admission": [
+    "Verify the historical-result execution receipt and snapshot binding before making the generic operator-verification statement. Do not treat a prompt assertion as verification.",
+    "Use identical generic documentation in all treated conditions; never insert task-specific gold contracts, equivalence labels, current answers or desired actions.",
+    "Keep native tool calling unchanged; do not simultaneously switch the transport/interface format.",
+    "Compare old versus documented prompts in a separate fixed development calibration, with compatible and incompatible histories selected before any new output is observed.",
+    "Report first-action validity and appropriate/inappropriate reuse separately. A read request alone is neither an answer nor observable interpretation drift.",
+    "Do not optimize wording repeatedly until reuse occurs. One bounded calibration can inform whether this interface is suitable; it cannot establish the main hypothesis.",
+    "If both compatible and incompatible cache reads rise, investigate generic cache-following rather than declaring improved intent preservation.",
+    "If no valid reuse appears, retain that boundary and seek user direction before further interface tuning or changing the research question.",
+    "Any future paid run needs new frozen inputs, limits and explicit authorization; existing approval is exhausted by the completed batch."
+  ],
+  "new_API_calls": 0,
+  "new_SQL_queries": 0,
+  "old_code_or_records_modified": false,
+  "new_experiment_prepared_or_started": false,
+  "next_action": "Develop and review a single generic-documentation calibration proposal without claiming causal attribution or method benefit."
+}
