@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-25",
+  "status": "OFFLINE_AUDIT_ARCHIVE_WRAPPER_TESTED_NO_REAL_RESULTS_YET",
+  "script": "scripts/audit_superhero_factorial.py",
+  "command": "python -B -X utf8 -m unittest tests.test_audit_superhero_factorial tests.test_factorial_trace_replay tests.test_superhero_answer_readout -q",
+  "passed": 20,
+  "new_wrapper_test_methods": 6,
+  "checks": [
+    "Refuse unsealed or stopped batches and source mismatches before semantic readout",
+    "Require claim and parent completion outcome consistent with sealed batch summary",
+    "Verify every archived byte of prepared artifacts, reference archive and enumerated analysis sources",
+    "Reject changed input snapshots, nested/existing output and unexpected/changed analysis source files",
+    "Reuse tested all-cell trajectory replay and conservative scalar scoring"
+  ],
+  "isolation_design": "Standalone audit first verifies source inventory and inputs, then imports execution dependencies exclusively from the frozen tree. Only the explicitly identified replay helper and analysis modules come from the working project and their hashes are archived.",
+  "validation_limit": "Archive/precheck, replay and scoring components tested on scripted fixtures. Full standalone real-run audit remains unexecuted because no completed experiment is available.",
+  "backup_scope": "Local zip includes prepared artifacts/results, sealed reference outputs and analysis code. External full database and tokenizer assets are not embedded; this is not off-device backup.",
+  "approved_runner_002_modified": false,
+  "new_paid_requests": 0,
+  "new_model_calls": 0,
+  "new_research_SQL_queries": 0,
+  "execution_status": "Prepared directory had no execution_claim, experiment or launch_outcome at initial inspection. No duplicate launch or credential reuse.",
+  "remaining": "Await user's hidden terminal credential entry and completed output; use a separate failure inventory if the run fails, never score only its successful prefix."
+}
