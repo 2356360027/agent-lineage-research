@@ -87,7 +87,7 @@ def communicate_owned(command, packet, *, cwd, timeout):
         cwd=cwd,env=env,creationflags=flags,start_new_session=os.name!='nt')
     try:
         stdout,stderr = process.communicate(packet,timeout=timeout)
-    except subprocess.TimeoutExpired:
+    except (subprocess.TimeoutExpired, KeyboardInterrupt) as interruption:
         # Target only the specific worker tree created immediately above.
         if os.name=='nt':
             subprocess.run(['taskkill','/PID',str(process.pid),'/T','/F'],
@@ -95,8 +95,10 @@ def communicate_owned(command, packet, *, cwd, timeout):
         else:
             os.killpg(process.pid,signal.SIGKILL)
         process.wait(timeout=15)
-        return {'status':'WORKER_TREE_TIMEOUT','worker_returncode':process.returncode,
-                'server_cancellation_verified':False,'billing_unknown':True}
+        return {'status':('WORKER_TREE_INTERRUPTED' if isinstance(interruption, KeyboardInterrupt)
+                          else 'WORKER_TREE_TIMEOUT'), 'worker_returncode':process.returncode,
+                'server_cancellation_verified':False,'billing_unknown':True,
+                'automatic_retry':False}
     if process.returncode:
         return {'status':'WORKER_FAILED','worker_returncode':process.returncode,
                 'stderr_not_published':True,'automatic_retry':False}

@@ -7,7 +7,7 @@ import sys
 import tarfile
 import tempfile
 import unittest
-from unittest.mock import patch
+from unittest.mock import patch, MagicMock
 
 from scripts import run_deepseek_recovery as launcher
 
@@ -63,6 +63,25 @@ class Tests(unittest.TestCase):
         self.assertEqual(result['status'],'WORKER_TREE_TIMEOUT')
         self.assertIsNotNone(result['worker_returncode'])
         self.assertFalse(result['server_cancellation_verified'])
+
+    def test_keyboard_interrupt_cleans_up_only_owned_process(self):
+        process = MagicMock()
+        process.pid = 123456
+        process.communicate.side_effect = KeyboardInterrupt
+        process.returncode = -1
+        with patch.object(launcher.subprocess, 'Popen', return_value=process), \
+             patch.object(launcher.subprocess, 'run') as taskkill, \
+             patch.object(launcher.os, 'killpg', create=True) as killpg:
+            result = launcher.communicate_owned(['fixture-only'], b'', cwd=self.root, timeout=1)
+        self.assertEqual(result['status'], 'WORKER_TREE_INTERRUPTED')
+        self.assertTrue(result['billing_unknown'])
+        self.assertFalse(result['automatic_retry'])
+        process.wait.assert_called_once_with(timeout=15)
+        if launcher.os.name == 'nt':
+            self.assertEqual(taskkill.call_args.args[0],
+                             ['taskkill', '/PID', '123456', '/T', '/F'])
+        else:
+            killpg.assert_called_once_with(123456, launcher.signal.SIGKILL)
 
 
 if __name__=='__main__': unittest.main()

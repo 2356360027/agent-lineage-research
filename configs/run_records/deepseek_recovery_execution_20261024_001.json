@@ -1,0 +1,77 @@
+{
+  "status": "DEVELOPMENT_EXECUTED_OFFLINE_ARCHIVE_VERIFIED_SEMANTIC_REVIEW_PENDING",
+  "date": "2026-10-24",
+  "batch": "deepseek-recovery-prepared-20261024-181730-649450",
+  "prepared_manifest_sha256": "fb77253437f46a3b7875298b02bbe1061b50cd5e8605ce582d7cd48a2c339ce4",
+  "plan_sha256": "3666fbbcbe8e16c22bc76eca6b827fd2e111905ebd35c21ca41de0999dfccdab",
+  "experiment_manifest_sha256": "f871da06a2b123882d12ec30a0bf9b554638b5b0b31b5ec86586bdb0643536b6",
+  "observed_execution": {
+    "recorded_status": "OFFICIAL_UNREVIEWED_FINISHED",
+    "planned_trajectories": 12,
+    "answered_trajectories": 12,
+    "independent_previously_used_development_targets": 2,
+    "dispatch_attempts": 36,
+    "saved_provider_responses": 36,
+    "finish_reason_stop": 36,
+    "saved_failure_records": 0,
+    "reported_prompt_tokens": 49317,
+    "reported_completion_tokens": 2975,
+    "conservative_accounted_micro_cny": 122434,
+    "uncertain_reserved_micro_cny": 0,
+    "provider_invoice_verified": false,
+    "remote_weights_identified": false,
+    "answered_is_not_semantically_correct": true
+  },
+  "launcher_incident": {
+    "user_supplied_exception": "KeyboardInterrupt during parent communicate",
+    "original_execution_outcome_file_present": false,
+    "original_worker_exit_code_known": false,
+    "python_processes_observed_before_recovery": 0,
+    "no_inference_restarted": true,
+    "future_launcher_fix": "Handle KeyboardInterrupt like timeout for termination and waiting on its own child process tree; preserve uncertain billing and record interruption, not success.",
+    "original_frozen_source_changed": false
+  },
+  "offline_recovery": {
+    "archive_sha256": "59d8c68dab696837f15c1e4592e4cf0a136710d04ac39b5eeae5d9b7aa5dd28d",
+    "archive_bytes": 361757,
+    "verified_files": 527,
+    "experiment_manifest_files_verified": 485,
+    "original_files_modified": false,
+    "location": "Private local runtime/runs; not a verified off-device backup",
+    "raw_records_uploaded": false,
+    "model_calls": 0,
+    "network_requests": 0
+  },
+  "review_preparation": {
+    "primary_packet_manifest_sha256": "19b18268172ba0be914123cc73cfa7bc6afa07aa1a7d1c065c0d8010c990f9b9",
+    "available_contracts": 12,
+    "format_valid_contracts": 12,
+    "request_response_linked_generations": 36,
+    "filled_human_reviews": 0,
+    "semantic_labels_generated": false,
+    "condition_metadata_and_later_outcomes_hidden_from_primary_review": true,
+    "complete_blinding_claimed": false,
+    "text_copies_require_preserved_originals_and_checked_transcription": true
+  },
+  "tests": {
+    "passed": 35,
+    "suites": [
+      "test_deepseek_recovery_archive",
+      "test_contract_review_text",
+      "test_deepseek_review_export",
+      "test_prepare_staged_contract_review",
+      "test_cache_intent_trace_evidence",
+      "test_deepseek_recovery_launcher"
+    ],
+    "initial_attempt": "Four existing review fixture tests failed on sandbox temporary-directory permissions; new text tests passed. Re-executed the offline tests with an explicit project-local temporary directory, without changing experimental records. This was not an inference retry.",
+    "limits": "No live paid interruption test; interrupt handling is mocked, timeout cleanup uses a real owned local sleep child. Passing tests do not establish research conclusions."
+  },
+  "research_decision": {
+    "current_stage": "Development phenomenon check, awaiting independent semantic review",
+    "causal_effect_established": false,
+    "C_failure_established": false,
+    "strong_baseline_gap_established": false,
+    "confirmatory_result": false,
+    "next": "Collect two separate whole-contract reviews first; preserve disagreements and unresolved labels. Then assess recorded programs against both the contract and request, without revising primary labels from final outcomes. Do not expand paid batches until this audit informs the next design."
+  }
+}
