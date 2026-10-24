@@ -1,0 +1,42 @@
+{
+  "status": "CLIENT_REQUEST_INTEGRITY_CHECKED_NOT_RESEARCH_CONFIRMATION",
+  "date": "2026-10-24",
+  "prepared_manifest_sha256": "fb77253437f46a3b7875298b02bbe1061b50cd5e8605ce582d7cd48a2c339ce4",
+  "experiment_manifest_sha256": "f871da06a2b123882d12ec30a0bf9b554638b5b0b31b5ec86586bdb0643536b6",
+  "checked_generations": 36,
+  "checked_pre_result_pairs": 6,
+  "checks": [
+    "Reconstruction adapter and prompt-description source hashes equal frozen source hashes.",
+    "Each first trajectory request equals the planned initial messages.",
+    "Each API payload equals the saved trajectory request after the common provider adaptation.",
+    "Context payload hashes link to API pending payloads with truncated=false.",
+    "Saved transport JSON equals saved provider response, whose model alias and prompt usage match client expectations.",
+    "Accepted loop content, finish reason and usage link back to the saved provider response and request hash.",
+    "Within each initial pair, replacing context.cache.read_cost=8 with 1 makes the complete payload structures identical."
+  ],
+  "scope_limits": {
+    "client_saved_records_not_remote_attestation": true,
+    "model_attention_to_price_established": false,
+    "remote_weights_identified": false,
+    "later_payloads_expected_identical": false,
+    "causal_effect_established": false,
+    "primary_semantic_labels_generated": false
+  },
+  "interpretation_boundaries": [
+    "This rules out an omitted-price or additional-initial-payload-difference error in the saved client records; it does not establish that the model used the price information.",
+    "Both arms expose historical descriptions and have materialized caches available. This is a declared read-price contrast, not a cache-presence contrast.",
+    "Both arms explicitly prioritize correctness, warn that history does not replace the current task, and elicit a contract before actions. Results do not characterize an unrestricted or non-instrumented agent.",
+    "Prices are simulated relative tool units, not measured latency or actual money. The API invoice and tool-unit objective are different quantities.",
+    "No observed cache reads or between-price action difference is a narrow development finding, not a proof of no population effect or no description-induced semantic influence."
+  ],
+  "next_decision_gate": "Wait for separate primary whole-contract reviews. If all are faithful, preserve the no-observed-effect result for this instrumented setup; do not mine the same two tasks for errors. If any are contradictory or unresolved, adjudicate before inspecting semantic alignment of later programs. New paid studies require a separately justified design and approval.",
+  "reproducibility": {
+    "script": "scripts/audit_deepseek_request_integrity.py",
+    "private_receipt": "runtime/runs/deepseek-request-integrity-20261024-001/receipt.json",
+    "new_tests_passed": 4,
+    "test_scope": "Reject wrong price, additional system/settings differences, modified payload/hash/transport/accepted-response links; accept the exact fixture links.",
+    "new_model_calls": 0,
+    "new_network_requests": 0,
+    "raw_requests_or_responses_uploaded": false
+  }
+}
