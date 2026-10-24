@@ -1,0 +1,21 @@
+{
+  "status": "USER_APPROVED_SEPARATE_RETRY_BATCH",
+  "date": "2026-10-24",
+  "prepared_directory": "runtime/runs/cache-action-prepared-20261024-002",
+  "manifest_sha256": "98e39f6269673b07ed5cef4cf7c1520747183f50a61d2046adefebd366ab8d46",
+  "prior_failed_batch": "runtime/runs/cache-action-prepared-20261024-001",
+  "prior_records_preserved": true,
+  "retry_is_explicitly_authorized_not_automatic": true,
+  "same_source_inputs_design_as_prior": true,
+  "approved_client_ceiling_cny": 0.50,
+  "maximum_model_calls": 48,
+  "maximum_readonly_tool_attempts": 36,
+  "dispatch_deadline_seconds": 600,
+  "cleanup_and_archive_time_outside_dispatch_deadline": true,
+  "conditional_upper_cny": 0.452992,
+  "automatic_retry": false,
+  "training": false,
+  "execution_environment": "Approved ordinary host execution with working DNS; permission escalation handled by tool approval.",
+  "credential_handling": "User explicitly authorized supplied credential use. Hidden PTY input only; no credential in code, files or this record.",
+  "approval_is_not_evidence_of_execution": true
+}

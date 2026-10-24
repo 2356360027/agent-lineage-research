@@ -1,0 +1,61 @@
+{
+  "status": "COMPLETED_DEVELOPMENT_BATCH_REPLAY_AUDITED_HUMAN_RATINGS_PENDING",
+  "date": "2026-10-24",
+  "prepared_directory": "runtime/runs/cache-action-prepared-20261024-002",
+  "prepared_manifest_sha256": "98e39f6269673b07ed5cef4cf7c1520747183f50a61d2046adefebd366ab8d46",
+  "experiment_manifest_sha256": "d84d96d56df9e322832f54cfc45cbd052786bddd2c0a373a7c7cfebeacebb7d5",
+  "summary_sha256": "2349a0fb4daf7d9386f72f4bdd206c9d2b33b786986f9a4068344b146df7e8c0",
+  "audit_sha256": "1e4c6469b001996f61879fffec1e26a563db7de8ad090114cbc710c1e1e15b54",
+  "audit_directory": "runtime/runs/cache-action-audit-20261024-002",
+  "prior_failed_batch_preserved": "runtime/runs/cache-action-prepared-20261024-001",
+  "same_source_inputs_design_as_failed_batch": true,
+  "execution_environment": "User-approved ordinary host execution with working network, hidden credential input.",
+  "model_alias": "deepseek-flash",
+  "remote_weights_verified": false,
+  "independent_development_tasks": 2,
+  "history_availability_pairs": 6,
+  "completed_trajectories": 12,
+  "dispatch_attempts": 24,
+  "reported_prompt_tokens": 26824,
+  "reported_completion_tokens": 845,
+  "client_accounted_cny": 0.060408,
+  "client_ceiling_cny": 0.50,
+  "uncertain_reserved_cny_this_batch": 0,
+  "prior_failed_batch_uncertain_reserved_cny_not_erased": 0.006288,
+  "provider_invoice_verified": false,
+  "provider_spending_cap_installed": false,
+  "terminal_status_counts": {"ANSWERED": 12},
+  "condition_counts": {
+    "cache_unavailable": {"trajectories": 6, "cache_read_attempts": 0, "SQL_attempts": 6, "declared_tool_units": 60},
+    "cache_available": {"trajectories": 6, "successful_cache_reads": 3, "SQL_attempts": 3, "declared_tool_units": 33}
+  },
+  "paired_paths": [
+    {"history_id": "h200a", "unavailable": "SQL_then_answer", "available": "cache_read_then_answer"},
+    {"history_id": "h200b", "unavailable": "SQL_then_answer", "available": "SQL_then_answer"},
+    {"history_id": "h200c", "unavailable": "SQL_then_answer", "available": "SQL_then_answer"},
+    {"history_id": "h234a", "unavailable": "SQL_then_answer", "available": "cache_read_then_answer"},
+    {"history_id": "h234b", "unavailable": "SQL_then_answer", "available": "cache_read_then_answer"},
+    {"history_id": "h234c", "unavailable": "SQL_then_answer", "available": "SQL_then_answer"}
+  ],
+  "human_final_answer_labels": 0,
+  "review_packets": "runtime/runs/cache-action-human-review-20261024-002",
+  "review_packet_state": "Two blank independent forms, twelve actual answer slots each; not submitted reviews.",
+  "assistant_descriptive_observation_not_human_score": "All twelve final answer texts appear consistent with the adopted task outputs. This is not an independent reviewed accuracy figure or proof of unobserved intent.",
+  "C_drift_assessed": false,
+  "limits": [
+    "Two reused development tasks, not twelve independent tasks or a confirmation study.",
+    "Action-first trajectories do not expose a pre-action task contract; final answer correctness cannot diagnose or exclude internal interpretation drift.",
+    "Recorded cache access does not prove internal reliance; no universal SQL equivalence is claimed.",
+    "Declared tool costs are experimental units, not measured runtime or monetary savings.",
+    "The observed ordinary agent behavior does not establish a new method increment."
+  ],
+  "decision": "Do not expand samples or name a new method now. Obtain independent final-answer reviews; if consistency is confirmed, preserve this bounded negative finding and assess a genuinely new, independently admitted task family before seeking further paid approval.",
+  "backup": {
+    "sha256": "b97f6bd0163587f9b491bcec261106a50bfb1cbfa929b922c3d65cdc4d035bae",
+    "verified_files": 422,
+    "off_device": false,
+    "external_dataset_and_tokenizer_included": false
+  },
+  "automatic_retry": false,
+  "raw_records_public": false
+}
