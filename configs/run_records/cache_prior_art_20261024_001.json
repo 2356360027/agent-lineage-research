@@ -1,0 +1,37 @@
+{
+  "status": "LITERATURE_AND_IDENTIFICATION_UPDATE_ONLY",
+  "checked_date": "2026-10-24",
+  "sources": [
+    {
+      "title": "Memory-Induced Tool-Drift in LLM Agents",
+      "url": "https://arxiv.org/abs/2605.24941v2",
+      "version": "v2, 2026-10-17",
+      "publication_status_checked": "preprint",
+      "read_scope": "Abstract, PDF sections 3 and 5, limitations; not entire appendix",
+      "code_entry": "https://github.com/jihyun-jeong-854/memdrift",
+      "code_review_scope": "README web view only; no pinned code, install or reproduction"
+    },
+    {
+      "title": "CostBench: Evaluating Multi-Turn Cost-Optimal Planning and Adaptation in Dynamic Environments for LLM Tool-Use Agents",
+      "url": "https://aclanthology.org/2026.acl-long.584/",
+      "publication_status_checked": "ACL 2026 long paper",
+      "read_scope_this_turn": "Official abstract and bibliographic metadata"
+    },
+    {
+      "title": "When Evidence Changes: Evaluating Memory Repair and Re-reading in Language-Model Agents",
+      "url": "https://arxiv.org/abs/2610.03902v1",
+      "publication_status_checked": "preprint",
+      "read_scope": "Abstract only"
+    }
+  ],
+  "research_decision": "Retain the current question as an unverified hypothesis. A same-content objective-cost intervention must be distinguished from changing semantic memory, changing cache payload, or inducing a frugality preference. Do not claim first discovery or a new algorithm.",
+  "existing_measurement_spec": "configs/cache_intent_measurement_v1.md",
+  "next_task_evidence": "configs/run_records/native_555_snapshot_20261024_001.json",
+  "report": "reports/cache_prior_art_update_20261021/READOUT.md (2026-10-24 addendum)",
+  "new_model_calls": 0,
+  "new_sql_calls": 0,
+  "new_formal_tasks_admitted": 0,
+  "external_code_installed": false,
+  "raw_data_uploaded": false,
+  "paid_batch_authorized": false
+}
