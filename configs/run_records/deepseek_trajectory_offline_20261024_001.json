@@ -1,0 +1,43 @@
+{
+  "status": "OFFLINE_SOFTWARE_CHECK_NOT_MODEL_EVIDENCE",
+  "run_id": "deepseek-trajectory-offline-20261024-001",
+  "summary_sha256": "f649e7027f6d88e28ac7560102105bbf1cee3ab466f1ee847e5c82367951346a",
+  "manifest_sha256": "f3f2aa2851428ba83cdf9140276ac4cba28ab861a99ad215d04177228bb316da",
+  "verified_artifacts": 506,
+  "model_calls": 0,
+  "research_samples": 0,
+  "actual_api_cost_cny": 0,
+  "synthetic_fixture_trajectories": 2,
+  "declared_cache_prices": [1, 8],
+  "scripted_generations_each": 23,
+  "tool_attempts_each": 21,
+  "cache_calls_each": 20,
+  "real_readonly_sql_calls_each": 1,
+  "declared_tool_units_each": [30, 170],
+  "largest_reference_input_each": [2892, 2892],
+  "readonly_database_hash_unchanged": true,
+  "oversize_fixture_raw_tokens": 8075,
+  "oversize_fixture_exposed_status_tokens": 74,
+  "partial_row_exposure": false,
+  "old_probe_input_count_matches_with_new_counter": [50, 56],
+  "related_unit_tests_passed": 32,
+  "prompt_revision": "Provider adaptation v2 scopes the eight-field JSON instruction to Stage 1 only. This prevents a potential conflict in later action stages; no prior model result is rewritten.",
+  "failures_tested": [
+    "Transport timeout: reserve retained, no retry",
+    "Wrong model or token usage: raw response retained, stop",
+    "Missing/invalid usage: billing remains uncertain",
+    "Late response: retained and usage accounted, stop",
+    "Budget/time limit: no dispatch",
+    "Invalid contract or truncated output: no semantic repair",
+    "Literal control-token spellings: explicit failure, no role reinterpretation"
+  ],
+  "cap_limitations": [
+    "Local per-request 32768-token admission cap is not a complete-history capacity proof",
+    "Local monetary guard is not a provider-side spending cap",
+    "Synthetic cost ledger numbers are not actual API expenditure",
+    "No remote multi-turn parity test or paid research batch was run"
+  ],
+  "live_batch_ready": false,
+  "next_step": "Complete worst-case history accounting and bounded hidden-key transport; freeze and seek approval for a fixed paid batch. Continue to require downstream program evidence and independent review.",
+  "raw_logs_published": false
+}
