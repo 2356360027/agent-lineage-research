@@ -1,0 +1,18 @@
+{
+  "status": "USER_APPROVED_FIXED_BATCH_NOT_YET_LAUNCHED",
+  "date": "2026-10-24",
+  "prepared_directory": "runtime/runs/cache-action-prepared-20261024-001",
+  "manifest_sha256": "d68bdc44d902d51089a18e687942dc2d55f7377c20513c327aac5ad5a7aa3cde",
+  "user_confirmed_current_balance_at_least_cny": 0.50,
+  "approved_client_ceiling_cny": 0.50,
+  "maximum_model_calls": 48,
+  "maximum_readonly_tool_attempts": 36,
+  "dispatch_deadline_seconds": 600,
+  "cleanup_and_archive_time_outside_dispatch_deadline": true,
+  "output": "runtime/runs/cache-action-prepared-20261024-001/experiment",
+  "automatic_retry": false,
+  "training": false,
+  "raw_records_public": false,
+  "credential_handling": "User enters key hidden in their local terminal; no chat credential reuse or secret stored in this record.",
+  "approval_is_not_evidence_of_execution": true
+}
