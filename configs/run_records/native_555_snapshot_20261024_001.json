@@ -1,0 +1,63 @@
+{
+  "status": "LOCAL_READONLY_ADAPTATION_PROGRESS_NOT_MODEL_RESULT",
+  "run_id": "native-555-snapshot-audit-20261024-001",
+  "date": "2026-10-24",
+  "source_revision": "fe766045c55b6875a43b30e9ac7683df5582f8cf",
+  "source_json_sha256": "baefe2ca4fbab86c000df72aad9eaa563f7d422e425af2cbff071f656ea4eea8",
+  "database_sha256": "92101be6d2a9f6adceea59d38f6d1c556087f9eea1432432a21268cb1348036d",
+  "database_snapshot": "bird-mini-fixed-20261005-002/codebase_community",
+  "official_arcwise_database_verified": false,
+  "database_unchanged": true,
+  "queries_attempted": 6,
+  "queries_complete": 6,
+  "model_calls": 0,
+  "paid_api_cost_cny": 0,
+  "software_tests": {
+    "passed": 18,
+    "command": "python -B -X utf8 -m unittest tests.test_native_555_audit tests.test_bird_readonly_audit -v",
+    "first_attempt": "4 pure tests passed; 14 existing SQLite fixture tests failed in setup/cleanup (28 errors) due to sandbox temporary-directory permissions",
+    "authorized_normal_host_test_rerun": "18/18 passed; tests are not research samples"
+  },
+  "observations": {
+    "matching_users": 1,
+    "matching_distinct_user_ids": 1,
+    "joined_posts": 121,
+    "distinct_post_ids": 121,
+    "nonnull_scores": 121,
+    "score_storage_types": {"integer": 121},
+    "score_sum": 1089,
+    "reference_537_count": 121,
+    "reference_555_average": 9.0
+  },
+  "review_submission": {
+    "sha256": "828438718cebd4a0acc64330e0d2d921fd3d17baf0d2f48891db4d1d1fc25ee3",
+    "private_original_preserved": true,
+    "provenance": "Text self-reports two independent human reviewers without model assistance. This new submission has not received separate user authorship confirmation; earlier confirmation concerned a different final-answer review.",
+    "is_formal_human_admission": false,
+    "reviewer_recommendations_555": ["pending clarification", "pending clarification"],
+    "reviewer_recommendations_1480": ["exclude this batch", "exclude this batch"],
+    "no_reviewer_judgments_overwritten": true
+  },
+  "decision": {
+    "555": "Retain as a development candidate. Snapshot checks resolve observed duplicate-name, empty-set, missing-score and join-duplication concerns only. Do not promote reviewers' pending recommendations into approval.",
+    "1480": "Not executed and not admitted in this batch; retain original concerns and exclusion recommendations.",
+    "native_insufficient_cache": "A count-only result does not generally determine a mean. Insufficiency is a legitimate negative control, not itself an exclusion reason.",
+    "constructed_sufficient_cache": "SUM(Score) plus COUNT(Score) may be a separately labelled sufficient-information control. It is not a natural output of the historical count query, and its construction/maintenance cost cannot be omitted.",
+    "no_method_gain_established": true
+  },
+  "next_design_constraints": [
+    "Separate cache-content controls from causal availability or price contrasts. Comparing count-only against SUM+COUNT changes information and cannot isolate convenience.",
+    "Within an availability or price pair, hold historical meaning and visible payload constant, retain feasible correct recomputation, and change only the preregistered factor.",
+    "Do not place score_sum or current_answer from this diagnostic in the count-only cache condition.",
+    "Explicit-contract diagnostics and ordinary agent execution must be analysed separately; final answer errors alone do not identify type C intent drift.",
+    "Freeze scalar numeric scoring and tolerances before inference. This snapshot has an exact integer-valued mean; zero/NULL policies still need explicit scope for other snapshots.",
+    "A single already text-screened task is development only, regardless of repeated calls. No held-out or population claim.",
+    "Resolve reviewer provenance and pending semantic/control decisions before formal admission; obtain scoped approval before any paid API batch."
+  ],
+  "formal_tasks_admitted": 0,
+  "new_model_calls_authorized": 0,
+  "artifact_manifest_sha256": "958deb4b9c57637264085873a734fe34fa69d930f593e04abab775e4b6d3003c",
+  "private_artifacts": "runtime/runs/native-555-snapshot-audit-20261024-001",
+  "backup_scope": "Local project copy only, not an off-device backup",
+  "github_status_at_record_creation": "Not pushed; prior credential blocker remains. Raw review and SQL outputs excluded from public version control."
+}
