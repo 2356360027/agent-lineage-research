@@ -113,7 +113,8 @@ def archive(root, output, result, expected_snapshot):
         external_dataset_and_tokenizer_included=False))
     project=Path(__file__).absolute().parents[1]
     for name,digest in result.get('analysis_source_files',{}).items():
-        require(name in ('scripts/audit_cache_action.py','runtime/cache_action_trace_audit.py'),
+        require(name in ('scripts/audit_cache_action.py','runtime/cache_action_trace_audit.py',
+                        'scripts/audit_cache_action_failure.py'),
                 'Unexpected analysis source path')
         source=project/name; no_links(source)
         require(sha(source)==digest,'Analysis source changed before archival')

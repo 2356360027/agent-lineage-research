@@ -1,0 +1,32 @@
+{
+  "status": "STOPPED_AT_FIRST_TRANSPORT_ATTEMPT_AUDITED_AND_LOCALLY_BACKED_UP",
+  "date": "2026-10-24",
+  "prepared_directory": "runtime/runs/cache-action-prepared-20261024-001",
+  "prepared_manifest_sha256": "d68bdc44d902d51089a18e687942dc2d55f7377c20513c327aac5ad5a7aa3cde",
+  "authorization_amendment": "After the earlier manual-terminal handoff, the user explicitly authorized the assistant to run this same fixed batch using the supplied credential. Hidden PTY input was used; credential is not stored in this record, source or research artifacts.",
+  "maximum_approved_client_cny": 0.50,
+  "dispatch_attempts": 1,
+  "received_model_responses": 0,
+  "tool_attempts": 0,
+  "not_started_trajectories": 11,
+  "accounted_cny": 0,
+  "uncertain_reserved_cny": 0.006288,
+  "provider_invoice_verified": false,
+  "transport_record": {"transport_status": "TRANSPORT_ERROR", "error_type": "URLError", "billing_unknown": true},
+  "uncredentialed_connectivity_diagnostics": {
+    "restricted_execution": "gaierror: getaddrinfo failed (11001)",
+    "approved_unsandboxed_execution": "HTTP 401 from official /v1/models endpoint without an Authorization header",
+    "model_calls": 0,
+    "credential_validity_checked": false,
+    "inference": "Environment-specific DNS failure is supported by the checks; neither diagnostic used credentials or requested inference."
+  },
+  "audit_directory": "runtime/runs/cache-action-failure-audit-20261024-001",
+  "backup_sha256": "ce2c3d0e7e8b0b2d9fdb6225839e6d0497d5fd95ae27dd7f53966bb43150a421",
+  "backup_verified_files": 54,
+  "off_device_backup": false,
+  "automatic_retry": false,
+  "original_run_overwritten": false,
+  "semantic_labels": 0,
+  "scientific_interpretation": "Infrastructure failure only; no new evidence about cache choice, answer correctness, interpretation drift or method benefit.",
+  "next_gate": "Fresh approval and a new output/preparation for any inference retry. Keep the failed batch intact."
+}
