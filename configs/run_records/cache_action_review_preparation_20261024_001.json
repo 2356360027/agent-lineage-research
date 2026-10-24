@@ -1,0 +1,41 @@
+{
+  "status": "OFFLINE_REVIEW_ACCOUNTING_PREPARED_NO_RESEARCH_LABELS",
+  "date": "2026-10-24",
+  "prepared_batch": "runtime/runs/cache-action-prepared-20261024-001",
+  "prepared_manifest_sha256": "d68bdc44d902d51089a18e687942dc2d55f7377c20513c327aac5ad5a7aa3cde",
+  "frozen_execution_source_changed": false,
+  "implementation": "runtime/cache_action_review.py",
+  "purpose": "Pack separately audited terminal outcomes for two metadata-blinded human reviewers, import filled packets without allowing evidence edits, and retain unresolved ratings without automatic adjudication.",
+  "prerequisites_not_replaced_by_this_module": [
+    "Audit terminal batch records, frozen source and input manifests before reading effects.",
+    "Verify every outcome and the preserved target witnesses before building packets.",
+    "Preserve an independent export receipt containing the canonical blank packet hash.",
+    "Obtain actual human submissions and record authorship and independence clarification."
+  ],
+  "protections": [
+    "All twelve slots retained, including non-answers and not-started items.",
+    "Only terminal status vocabulary admitted; no inferred missing answer text.",
+    "Task, reference, instructions and verbatim answer cannot change during filled-packet import.",
+    "Exact answer quotes required for supplied semantic ratings.",
+    "Disagreement, reference concerns, uncertainty and missing reviews remain unresolved.",
+    "Agreement is provisional, not identity attestation or C-type intent-drift evidence."
+  ],
+  "tests": {
+    "review_unit_tests_passed": 13,
+    "combined_tests_passed": 66,
+    "combined_modules": [
+      "tests.test_cache_action_review",
+      "tests.test_cache_action_horizon",
+      "tests.test_cache_action_loop",
+      "tests.test_cache_action_adapter",
+      "tests.test_cache_action_batch",
+      "tests.test_cache_action_launcher"
+    ],
+    "fixtures_are_synthetic_not_human_or_model_research_records": true
+  },
+  "new_model_calls": 0,
+  "new_research_SQL_calls": 0,
+  "new_human_labels": 0,
+  "research_effects_inspected": false,
+  "remaining": "Completed-run trace auditor, actual outcome export and independent human final-answer review; current module is not a complete experiment audit."
+}
