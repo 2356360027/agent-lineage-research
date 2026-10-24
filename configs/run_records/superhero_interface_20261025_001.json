@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-25",
+  "status": "OFFLINE_INTERFACE_FEASIBILITY_ONLY_NOT_A_BATCH",
+  "prior_turn_assessment": "Progress: fixed database acquisition, snapshot compatibility diagnostic and independent blank review packet.",
+  "scope": "One pending development pair 728-to-733. Reused sealed source results and pinned local reference tokenizer. No SQL rerun, model invocation, semantic label or study admission.",
+  "script": "scripts/audit_superhero_interface.py",
+  "private_output": "runtime/runs/superhero-interface-audit-20261025-001",
+  "artifact_manifest_sha256": "fe53795e8ccfdd7297034d91fb94433d74463cb1979f25ff87a85a7c32f6aedb",
+  "sealed_files_verified": 16,
+  "input_snapshot_seal_sha256": "164a6dd7fd2662a709ebec4188775a4d4f574de37bc4483ea598056485a21415",
+  "tokenizer_reference_manifest_sha256": "fb77253437f46a3b7875298b02bbe1061b50cd5e8605ce582d7cd48a2c339ce4",
+  "observations": {
+    "complete_historical_result_framed_tokens": 484,
+    "current_recomputation_result_framed_tokens": 92,
+    "existing_exposure_cap": 512,
+    "tested_initial_observation_states": 5,
+    "all_five_exposed_complete": true,
+    "scope": "Initial successful result representation under the existing interface, not all possible future trajectories or a remote tokenizer attestation. Tokens and rows were not truncated."
+  },
+  "factor_audit": {
+    "ordinary_action_first": "Canonical paired input changes only materialized_available; read price fixed at 1. This is not a cost-only intervention.",
+    "elicited_contract_first": "Canonical paired input changes only read_cost 1 versus 8; cache available in both, same SQL price and budget. Contract is requested before subsequent actions.",
+    "cannot_pool": "These workflows differ in contract elicitation, horizon and intervention. They cannot be pooled to estimate a pure cost effect or directly attribute cross-workflow differences to elicitation.",
+    "ordinary_cost_only_protocol_implemented": false
+  },
+  "additional_native_input_gate": "Existing history envelope allows only historical_request and sql, not a separate historical evidence field. Native BIRD/Arcwise evidence must not silently disappear from a supposedly fully matched new protocol. Any inclusion policy requires a new explicitly versioned interface, equal in all arms, after semantic decisions.",
+  "scientific_limits": [
+    "Local capacity feasibility is not evidence of intent drift or independent human understanding.",
+    "Fixed 1/8 read costs remain below SQL cost 10 for this cache-only conversion; they do not reverse the cheapest known valid route. No post-hoc price search to induce errors.",
+    "Explicit-contract diagnostics can identify observable contracts; ordinary final-answer errors alone cannot establish type C.",
+    "A correct historical result and matching current SQL result are not sufficient to approve the natural-language task or cache interpretation.",
+    "Do not add a named method until ordinary behavior and the strong baselines leave a demonstrated residual gap."
+  ],
+  "review_status": "Both delivered forms still match their initial blank-file hashes; no new answers inferred from file presence.",
+  "next_gate": "Await independent semantic review. Then choose and freeze a faithful native-input policy and a same-horizon cost-only ordinary/elicited design before any separately authorized paid batch. Do not retrofit old availability experiments or infer new authorization.",
+  "tests": {"passed": 2, "command": "python -B -X utf8 -m unittest tests.test_superhero_interface -v"},
+  "new_SQL_calls": 0,
+  "model_calls": 0,
+  "formal_tasks_admitted": 0,
+  "paid_api_cost_cny": 0,
+  "github": "Only safe code/tests/aggregate record intended for public commit. Raw previews and results remain ignored. No new push attempt while previously observed interactive authentication blocker is unchanged."
+}
