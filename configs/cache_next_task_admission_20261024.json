@@ -1,0 +1,59 @@
+{
+  "status": "CANDIDATE_ADMISSION_ONLY_NOT_EXECUTION_APPROVAL",
+  "source_screen": "configs/cache_intent_native_pair_screen_v1.json",
+  "source_sha256": "baefe2ca4fbab86c000df72aad9eaa563f7d422e425af2cbff071f656ea4eea8",
+  "selection": "Retain the two existing 2026-10-12 static shortlists. No new selection using model outputs or query results.",
+  "exposure": "Already text-screened development candidates, not held-out confirmation tasks; no claim of complete historical model-exposure audit.",
+  "pairs": [
+    {
+      "history_id": 537,
+      "current_id": 555,
+      "database": "codebase_community",
+      "task_family": "count_versus_mean_over_posts",
+      "native_history_relation": "A post count alone does not generally determine mean score.",
+      "direct_control": "Same current request and its verified result, explicitly a repeated-request control, not a new task.",
+      "proposed_constructed_positive_control": "For the same independently confirmed population, cache SUM(Score) and COUNT(Score). Derive AVG using the non-null denominator; handle zero non-null count and numeric precision explicitly.",
+      "positive_control_is_classical_not_new_method": true,
+      "open_gates": [
+        "Does the user-name scope mean all matching DisplayName records, or a unique account requiring clarification?",
+        "Does the evidence AVG(Score) justify excluding NULL scores from the denominator?",
+        "Confirm acceptable empty-result behavior and numeric tolerance before inference.",
+        "Verify chosen snapshot and historical/current SQL against these interpretations."
+      ],
+      "human_approved": false
+    },
+    {
+      "history_id": 1473,
+      "current_id": 1480,
+      "database": "debit_card_specializing",
+      "task_family": "annual_derived_mean_versus_monthly_argmax",
+      "native_history_relation": "A scalar annual-derived mean alone does not generally determine the peak month.",
+      "direct_control": "Same current request and its verified result; repeated-request control only.",
+      "proposed_constructed_positive_control": "For the same independently confirmed customer/year population, cache all month identifiers and corresponding aggregate consumption; derive the peak using the independently confirmed tie and missing-month policy.",
+      "positive_control_is_classical_not_new_method": true,
+      "open_gates": [
+        "Preserve historical evidence AVG(customer annual totals)/12, not AVG of stored monthly rows.",
+        "Does peak refer to total across SME customers or another aggregation?",
+        "What should be returned when months tie? Original LIMIT 1 does not specify a deterministic tiebreaker.",
+        "Clarify consumption scope, units, NULLs and missing months; do not insert assumptions into the original question.",
+        "Verify chosen snapshot and historical/current SQL after these decisions."
+      ],
+      "human_approved": false
+    }
+  ],
+  "review_sequence": "Each person first reads current questions without historic SQL, records interpretation, then separately reviews historical requests and candidate relations. Reading order is self-reported, not technically enforced.",
+  "decision_rules": [
+    "Disagreement or missing semantics stays unresolved; do not adapt the task merely to induce model error.",
+    "Any clarified task is a separately versioned researcher adaptation, not the unchanged public original.",
+    "Independent human confirmation is required for current intent and new historical relations.",
+    "All non-direct histories must be accompanied by direct/derivable controls before evaluating reuse quality and cost.",
+    "Eligibility is established before target-model inference, not by retaining observed failures."
+  ],
+  "remaining_research_question": "Whether convenience changes observable task interpretation beyond legitimate plan substitution under fully documented tools.",
+  "cost_only_and_availability_interventions_separate": true,
+  "correct_recomputation_must_remain_feasible": true,
+  "new_model_calls_authorized": 0,
+  "new_SQL_calls_authorized_by_this_config": 0,
+  "formal_tasks_admitted": 0,
+  "algorithm_name_assigned": false
+}
