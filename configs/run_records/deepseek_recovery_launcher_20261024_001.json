@@ -1,0 +1,52 @@
+{
+  "status": "PREPARED_AND_USER_APPROVED_NOT_EXECUTED",
+  "prepared_run": "deepseek-recovery-prepared-20261024-181730-649450",
+  "prepared_manifest_sha256": "fb77253437f46a3b7875298b02bbe1061b50cd5e8605ce582d7cd48a2c339ce4",
+  "frozen_subprocess_preflight": "FROZEN_PREFLIGHT_PASSED",
+  "software_tests_passed": 54,
+  "test_modules": [
+    "tests.test_deepseek_capacity",
+    "tests.test_deepseek_trajectory",
+    "tests.test_deepseek_official_transport",
+    "tests.test_deepseek_token_counts",
+    "tests.test_deepseek_reference_fetch",
+    "tests.test_deepseek_migration",
+    "tests.test_cache_intent_recovery",
+    "tests.test_deepseek_recovery_batch",
+    "tests.test_deepseek_recovery_launcher"
+  ],
+  "software_fixture_checks": [
+    "12 trajectories and 276 scripted dispatches with read-only synthetic SQLite",
+    "Provider failure preserves all unstarted trajectories and the raw response",
+    "Invalid model output stays in the fixed denominator without retries",
+    "Global deadline stops further dispatches and preserves the late response",
+    "Owned local sleeping worker is terminated at its timeout",
+    "Dummy credential absent from saved records and command-line arguments",
+    "Single-use execution claim prevents repeated execution",
+    "Archive bytes verified against every snapshot file hash without extraction",
+    "Incomplete archive is rejected"
+  ],
+  "test_environment_issue": "Initial four fixture setup errors came from inaccessible Windows sandbox TEMP. Tests subsequently used authorized project-local temporary directories. This was not a model failure or research run.",
+  "preparation_model_calls": 0,
+  "preparation_api_cost_cny": 0,
+  "paid_batch_executed": false,
+  "user_approved_this_batch": true,
+  "user_confirmed_balance_at_least_8_cny": true,
+  "limits": {
+    "development_targets": 2,
+    "constructed_histories": 6,
+    "trajectories": 12,
+    "maximum_calls": 276,
+    "maximum_seconds": 1800,
+    "client_ceiling_cny": 8,
+    "conditional_peak_uncached_estimate_cny": 7.798952,
+    "provider_spending_cap_installed": false,
+    "automatic_retries": false
+  },
+  "price_source": "https://api-docs.deepseek.com/zh-cn/quick_start/pricing/",
+  "price_rechecked_date": "2026-10-24",
+  "scientific_limit": "Development diagnostics only, not independent confirmation, a semantic judgment, evidence of intent drift, or superiority to strong baselines.",
+  "source_identity": "Frozen byte manifest includes current working-tree sources; no claim that all project changes equal the Git commit.",
+  "raw_records_public": false,
+  "remaining_execution_step": "User supplies official credential through hidden local terminal input. Never use a key from conversation history."
+}
