@@ -2,23 +2,44 @@
 
 Caller owns authorization, durable pending/raw journals, usage/cost/deadline
 checks and read-only ToolSession. A returned action is a proposal, not permission.
-Four generations / two exploration tools / one SQL recovery / terminal response.
+Four generations / three symmetric tool opportunities / terminal response.
 Existing frozen first-response runners are not changed or resumed by this code.
 """
 from copy import deepcopy
 import json
 
 from runtime.native_action_counter import validate_candidate_payload
-from runtime.native_action_interface import _load, parse_native_response_v2, ENVELOPE_POLICY_V2
-from runtime.cache_action_horizon import phase, classify, MAX_GENERATIONS
-from runtime.cache_action_loop import RECOVERY, TERMINAL
+from runtime.native_action_interface import _load, parse_native_response_v2, ENVELOPE_POLICY_V2, build_candidate
+from runtime.cache_route_symmetric_design import classify, build, FIELDS
+from runtime.cache_intent_staged_loop import TERMINAL_INSTRUCTION
 
-VERSION = 'native-action-history-offline-v1'
+VERSION = 'native-action-history-symmetric-v2'
+MAX_GENERATIONS = 4
+
+
+def phase(generation):
+    if type(generation) is not int or not 1 <= generation <= MAX_GENERATIONS:
+        raise ValueError('Generation outside symmetric horizon')
+    return 'terminal' if generation == 4 else 'symmetric_tool_opportunity'
+
+
+def validate_symmetric_initial(payload):
+    validate_candidate_payload(payload)
+    packet = _load(payload['messages'][1]['content'])
+    if type(packet) is not dict or set(packet) != FIELDS | {'context'}:
+        raise ValueError('Symmetric source packet required')
+    common = {key:packet[key] for key in FIELDS}
+    for envelope in build(common):
+        original = {k:deepcopy(v) for k,v in payload.items() if k not in ('messages','tools','tool_choice')}
+        original.update(messages=envelope['messages'], response_format={'type':'json_object'})
+        if build_candidate(original)['payload'] == payload:
+            return
+    raise ValueError('Initial instruction/context differs from symmetric design')
 
 
 class NativeHistory:
     def __init__(self, initial_payload, *, observation_byte_limit):
-        validate_candidate_payload(initial_payload)
+        validate_symmetric_initial(initial_payload)
         if type(observation_byte_limit) is not int or not 1 <= observation_byte_limit <= 1048576:
             raise ValueError('Explicit positive observation byte bound required')
         self._payload = deepcopy(initial_payload)
@@ -43,8 +64,8 @@ class NativeHistory:
             raise ValueError('No next generation available')
         self._generation += 1
         stage = phase(self._generation)
-        if stage != 'exploration':
-            self._payload['messages'].append(dict(role='user', content=RECOVERY if stage == 'recovery' else TERMINAL))
+        if stage == 'terminal':
+            self._payload['messages'].append(dict(role='user', content=TERMINAL_INSTRUCTION))
         self._state = 'AWAITING_RESPONSE'
         return dict(generation_id=f'g{self._generation:03d}', stage=stage,
                     payload=deepcopy(self._payload), execution_authorized=False)

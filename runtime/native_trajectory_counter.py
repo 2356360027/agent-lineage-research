@@ -2,7 +2,7 @@
 
 Pinned dsv41.rs render_message/render_tool_calls/normalize_messages semantics.
 Single string-valued action argument, one bound result per call, no thinking,
-and only the fixed recovery/terminal reminders are supported. No network.
+and only the fixed symmetric terminal reminder are supported. No network.
 Live use must compare each provider usage and stop on mismatch, not fit offsets.
 """
 from copy import deepcopy
@@ -15,7 +15,7 @@ from runtime.native_action_history import NativeHistory
 from runtime.native_action_interface import _load
 from runtime.deepseek_text_counter import ASSISTANT, END_THINK, EOS, USER
 
-VERSION = 'native-trajectory-reference-v1'
+VERSION = 'native-trajectory-reference-symmetric-v2'
 PREFIX = ASSISTANT + END_THINK + '\n\n<｜DSML｜ calls>\n'
 
 

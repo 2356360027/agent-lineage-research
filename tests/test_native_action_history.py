@@ -4,6 +4,15 @@ import unittest
 from runtime.native_action_history import NativeHistory
 from runtime.native_action_interface import build_candidate
 from tests.test_native_action_interface import request, response
+from runtime.cache_route_symmetric_design import build
+
+
+def native_initial():
+    common=dict(shared_contract='same snapshot',history_contract='list IDs',
+                current_contract='count IDs',schema=['CREATE TABLE fixture(id INTEGER)'],
+                history_sql='SELECT id FROM fixture',database_sha256='a'*64)
+    p=request(); p['messages']=build(common)[2]['messages']
+    return build_candidate(p)['payload']
 
 
 def raw(kind='read_cache', value='v000', call_id='c1'):
@@ -16,7 +25,13 @@ def raw(kind='read_cache', value='v000', call_id='c1'):
 
 class Tests(unittest.TestCase):
     def new(self, cap=1024):
-        return NativeHistory(build_candidate(request())['payload'], observation_byte_limit=cap)
+        return NativeHistory(native_initial(), observation_byte_limit=cap)
+
+    def test_initial_must_match_symmetric_contract(self):
+        with self.assertRaises(ValueError):
+            NativeHistory(build_candidate(request())['payload'],observation_byte_limit=1024)
+        p=native_initial(); p['messages'][0]['content']+=' SQL-only recovery'
+        with self.assertRaises(ValueError): NativeHistory(p,observation_byte_limit=1024)
 
     def test_read_observe_answer(self):
         h = self.new(); first = h.begin(); r = raw()
@@ -60,11 +75,11 @@ class Tests(unittest.TestCase):
         m = h.begin()['payload']['messages'][-1]
         self.assertEqual(m['role'], 'tool'); self.assertEqual(m['content'], text)
 
-    def test_recovery_and_terminal_horizon(self):
+    def test_symmetric_and_terminal_horizon(self):
         h = self.new()
         for i in range(3):
             req = h.begin()
-            self.assertEqual(req['stage'], 'exploration' if i<2 else 'recovery')
+            self.assertEqual(req['stage'], 'symmetric_tool_opportunity')
             h.accept(raw('run_sql','SELECT 1',f'c{i}')); h.observe(f'c{i}', '[]')
         self.assertEqual(h.begin()['stage'], 'terminal')
         d = h.accept(raw('run_sql','SELECT 1','c3'))
@@ -72,13 +87,16 @@ class Tests(unittest.TestCase):
         self.assertFalse(d['dispatch_tool'])
         with self.assertRaises(ValueError): h.observe('c3','[]')
 
-    def test_recovery_cache_forbidden(self):
+    def test_third_cache_permitted_no_recovery_instruction(self):
         h = self.new()
         for i in range(2):
             h.begin(); h.accept(raw(call_id=f'c{i}')); h.observe(f'c{i}', 'CACHE_UNAVAILABLE')
-        h.begin(); d = h.accept(raw(call_id='c2'))
-        self.assertEqual(d['status'], 'RECOVERY_ACTION_VIOLATION')
-        self.assertFalse(d['dispatch_tool'])
+        third = h.begin(); d = h.accept(raw(call_id='c2'))
+        self.assertEqual(len(third['payload']['messages']),6)
+        self.assertEqual(d['status'], 'TOOL_PROPOSED')
+        self.assertTrue(d['dispatch_tool'])
+        h.observe('c2','[]')
+        self.assertEqual(h.begin()['stage'],'terminal')
 
     def test_payload_copies_not_mutable_state(self):
         h = self.new(); p = h.begin(); p['payload']['messages'][0]['content'] = 'mutated'

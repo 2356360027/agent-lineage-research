@@ -5,12 +5,12 @@ from runtime.native_action_interface import build_candidate
 from runtime.native_action_history import NativeHistory
 from runtime.native_action_counter import render_first_request
 from runtime.native_trajectory_counter import render_trajectory, validate_trajectory_payload, PREFIX
-from runtime.cache_action_loop import RECOVERY, TERMINAL
+from runtime.cache_intent_staged_loop import TERMINAL_INSTRUCTION
 from tests.test_native_action_interface import request
-from tests.test_native_action_history import raw
+from tests.test_native_action_history import raw, native_initial
 
 
-def initial(): return build_candidate(request())['payload']
+def initial(): return native_initial()
 
 
 def at(turn):
@@ -39,10 +39,11 @@ class Tests(unittest.TestCase):
         self.assertEqual(render_trajectory(at(2),'PREAMBLE',()),expected)
 
     def test_reminder_after_tool_uses_blank_separator(self):
-        for turn, reminder in ((3,RECOVERY),(4,TERMINAL)):
+        for turn, reminder in ((4,TERMINAL_INSTRUCTION),):
             value = render_trajectory(at(turn),'P',())
             self.assertTrue(value.endswith('</tool_result>\n\n'+reminder+PREFIX))
             self.assertEqual(value.count('<｜end▁of▁sentence｜>'),turn-1)
+        self.assertTrue(render_trajectory(at(3),'P',()).endswith('</tool_result>'+PREFIX))
 
     def test_all_turns_valid_without_mutation(self):
         for turn in range(1,5):
@@ -59,7 +60,7 @@ class Tests(unittest.TestCase):
 
     def test_reminder_or_tools_mutation_rejected(self):
         for which in ('reminder','tools','max_tokens'):
-            p=at(3)
+            p=at(4)
             if which=='reminder': p['messages'][-1]['content']='custom'
             elif which=='tools': p['tools'].pop()
             else: p['max_tokens']=1024

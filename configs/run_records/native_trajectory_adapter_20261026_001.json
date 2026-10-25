@@ -1,0 +1,47 @@
+{
+  "date":"2026-10-26",
+  "status":"OFFLINE_ACCOUNTING_ADAPTER_TESTED_AND_PROTOCOL_MISMATCH_CORRECTED",
+  "previous_goal_turn":"PROGRESS: 8100432 implemented source-derived multi-turn counting; subsequent integration audit identified an unlaunched horizon mismatch",
+  "code":"runtime/native_trajectory_adapter.py",
+  "tests":"tests/test_native_trajectory_adapter.py",
+  "new_adapter_tests":12,
+  "combined_tests_passed":111,
+  "adapter_checks":[
+    "Generation/stage identity and preservation of the prior received assistant call",
+    "Explicit per-request reference-token fee reservation before dispatch",
+    "Exclusive pending/raw/context/cost/admission records via injected save",
+    "Deadline checked before reservation, after pending write, and after raw response",
+    "Missing or ambiguous usage retains uncertain reserve; valid usage settles even on late/mismatched result",
+    "Identity/count/cap/transport/write failures close adapter and shared guard; no retries",
+    "Format-invalid response remains observed invalid and closes its trajectory without fabricating semantic labels"
+  ],
+  "protocol_correction":{
+    "issue":"Unlaunched NativeHistory v1 used early action-first SQL-only third-opportunity recovery, inconsistent with the current symmetric source instructions allowing either tool on all three opportunities.",
+    "affected_offline_versions":["b41c8d7","8100432"],
+    "corrected_history":"native-action-history-symmetric-v2",
+    "corrected_counter":"native-trajectory-reference-symmetric-v2",
+    "new_initial_gate":"Reconstruct all four canonical symmetric cells from the public packet and require exact initial payload equality before accepting history.",
+    "rule":"Three symmetric read_cache/run_sql opportunities; only fourth generation is terminal. No SQL-only recovery or recovery reminder.",
+    "regressions":"Third cache request accepted; incorrect initial system/context rejected; terminal fourth tool proposal rejected; original eight source contexts unchanged.",
+    "prior_paid_batches_affected":false,
+    "prior_raw_records_or_scores_modified":false,
+    "prior_code_and_audits_retained":true
+  },
+  "current_offline_count_audit":{
+    "directory":"runtime/runs/native-trajectory-counter-audit-20261026-001",
+    "counts_sha256":"752afc7fb7371012769245ab8b97257d3b5b865ed4e335aca892df2906ec318d",
+    "initial_contexts":8,
+    "synthetic_continuation_contexts":24,
+    "first_counts_unchanged":true,
+    "counts_are_not_model_results":true
+  },
+  "new_API_calls":0,
+  "new_tool_executions":0,
+  "multi_turn_provider_parity_verified":false,
+  "whole_horizon_cost_bound_established":false,
+  "provider_spending_cap_installed":false,
+  "deployment_ready":false,
+  "remaining_work":"Native multi-turn transport must still be explicitly enabled and tested; compose with source-bound symmetric read-only session, bounded observations, journal replay and close verification. Set prospective context/fee bounds and acquire fresh batch approval; prior first-response approval is spent and not reusable.",
+  "scientific_status":"Engineering correction only. No demonstrated intent drift or method increment.",
+  "github_remote_sync_verified":false
+}
