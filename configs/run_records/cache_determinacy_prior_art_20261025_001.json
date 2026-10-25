@@ -1,0 +1,81 @@
+{
+  "date": "2026-10-25",
+  "status": "PRIMARY_SOURCE_READING_AND_BASELINE_BOUNDARY_NOT_NEW_METHOD",
+  "sources": [
+    {
+      "title": "Views and Queries: Determinacy and Rewriting",
+      "authors": "Alan Nash, Luc Segoufin, Victor Vianu",
+      "publication": "ACM TODS 35(3), Article 21, 2010",
+      "doi": "10.1145/1806907.1806913",
+      "url": "https://dbucsd.github.io/paperpdfs/2010_3.pdf",
+      "read_scope": "Abstract, introduction and formal definition on PDF pages 2 and 8; not a full-paper reproduction",
+      "finding": "View determinacy means equal view outputs imply equal query answers on all allowed database instances. It is distinguished from expressibility of a rewriting in a chosen language.",
+      "overlap": "Our equal-history/different-answer constructions are ordinary counterexamples to determinacy, not a new principle.",
+      "caution": "Do not transfer the paper's query-language-specific results automatically to full SQLite aggregates, NULL or bag semantics. An optimizer's failure to find a rewrite is not by itself a proof of insufficient information.",
+      "reproduced": false
+    },
+    {
+      "title": "Algorithms for Rewriting Aggregate Queries Using Views",
+      "authors": "Sara Cohen, Werner Nutt, Alexander Serebrenik",
+      "publication": "Technical Report CW 292; arXiv cs/0011024v1, 2000",
+      "url": "https://arxiv.org/pdf/cs/0011024",
+      "read_scope": "Title page, abstract and introduction; no implementation reproduced",
+      "finding": "Presents sound aggregate-view rewriting algorithms for count and sum, with completeness in specified cases and adaptations for min/max.",
+      "overlap": "Computing new aggregates from materialized old results is established database work, not an agent-specific invention.",
+      "caution": "This reading does not certify support for our exact SQLite queries, nor an arbitrary average/NULL rewrite. Keep implementation capability claims separate from mathematical derivability.",
+      "reproduced": false
+    },
+    {
+      "title": "Explaining Wrong Queries Using Small Examples",
+      "authors": "Zhengjie Miao, Sudeepa Roy, Jun Yang",
+      "publication": "SIGMOD 2019, pages 503-520",
+      "doi": "10.1145/3299869.3319866",
+      "url": "https://www.miaozhengjie.com/assets/pdf/ratest-sigmod19.pdf",
+      "read_scope": "Abstract, introduction and Section 2.1 problem definition",
+      "finding": "Given two queries differing on a database, seeks small constraint-respecting subinstances that retain the difference; develops provenance/solver-based algorithms and aggregate extensions.",
+      "overlap": "Small executable counterexamples for SQL explanation already have algorithmic prior art.",
+      "difference": "Our current two-database equal-view witnesses address result non-determination rather than minimizing a supplied single-database inequivalence example. That distinction alone does not establish novelty.",
+      "reproduced": false
+    }
+  ],
+  "application_to_local_evidence": {
+    "formula": "For an explicitly declared constraint class K: a pair D1,D2 in K with V(D1)=V(D2) and Q(D1)!=Q(D2) refutes universal answer recovery from V alone over K.",
+    "local_evidence": "cache-full-schema-witnesses-20261025-001 supplies two such finite pairs for the unchanged reference SQL under the pinned declared schemas.",
+    "not_proven": [
+      "That a particular real cached value has multiple possible current answers; generic non-determinacy need not imply ambiguity for every view value",
+      "That the entire agent observation is identical between witness worlds: snapshot hashes and external facts are not part of the equal-view certificate",
+      "That no extra base-table query or additional metadata could answer the task",
+      "That the reference SQL matches the independently intended human request",
+      "That the agent used, misunderstood or ignored these mathematical facts"
+    ],
+    "hash_boundary": "A database fingerprint binds provenance. These certificates concern the historical result and declared relational constraints, not an information-theoretic analysis of every bit of provenance metadata or hidden model knowledge."
+  },
+  "strong_baseline_semantic_states": [
+    {
+      "state": "PROVED_REUSABLE_FOR_DECLARED_SCOPE",
+      "requirement": "Validated rewriting or proof under the explicitly scoped semantics; finite successful tests alone are not universal proof",
+      "action": "Reuse only with required completeness, version, typing and constraint checks"
+    },
+    {
+      "state": "PROVED_NOT_GENERALLY_DETERMINED",
+      "requirement": "Constraint-valid equal-view/different-query witness",
+      "action": "Reject a universal cache-only recovery claim; recompute or obtain missing information. Do not label every instance unrecoverable."
+    },
+    {
+      "state": "UNKNOWN_OR_UNSUPPORTED",
+      "requirement": "No accepted proof or counterexample; optimizer timeout, unsupported operator or rewrite miss stays unknown",
+      "action": "Fallback while separately counting inability to certify; not scored as semantic insufficiency"
+    }
+  ],
+  "novelty_gate": {
+    "established": "Reproducible task-relationship checks and a no-error/no-reuse development result",
+    "not_established": "Agent demand-drift phenomenon, an autonomous counterexample-search algorithm, or quality/cost gains over strong applicability checks plus recomputation",
+    "next_needed": "Independent semantics for candidate tasks, then a preapproved fixed development comparison. No method naming or broad novelty claim based only on these witnesses.",
+    "direction_changed": false
+  },
+  "review_status_checked": "Both 766/786 forms remain blank at inspection; no new human labels inferred",
+  "new_model_calls": 0,
+  "new_SQL_executions": 0,
+  "new_human_approvals": 0,
+  "paid_execution_authorized": false
+}
