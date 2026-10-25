@@ -1,0 +1,65 @@
+{
+  "date": "2026-10-25",
+  "status": "POST_HOC_READONLY_INTERFACE_AUDIT_NO_NEW_INFERENCE",
+  "prepared": "runtime/runs/positive-symmetric-prepared-20261025-001",
+  "prepared_manifest_sha256": "856d339da5de6b79fca6cba9453f2e673328dc8680d35352258ab5726e3298ff",
+  "prior_whole_batch_receipt": "configs/run_records/positive_symmetric_result_20261025_001.json",
+  "official_document": {
+    "url": "https://api-docs.deepseek.com/guides/json_mode/",
+    "accessed": "2026-10-25",
+    "paraphrase": "Enable json_object response format, mention JSON and show an output example, and allow enough output tokens. The guide also acknowledges occasional empty content. It does not diagnose concatenated objects or trailing junk.",
+    "snapshot_saved": false
+  },
+  "observed_request_checks": {
+    "all_four_first_payloads_pass_fixed_validator": true,
+    "all_four_json_object_mode": true,
+    "all_four_prompt_mentions_JSON_and_has_action_examples": true,
+    "all_four_output_limit": 512,
+    "first_completion_tokens_by_cell": [132, 76, 132, 77],
+    "all_four_finish_reason": "stop",
+    "no_reported_length_limit_stop": true,
+    "no_missing_documented_JSON_setting_identified": true,
+    "prompt_quality_proven": false
+  },
+  "trace_checks": {
+    "transport_provider_adapter_content_equal_all_four": true,
+    "cell_0": {"syntax":"Extra data","position":272,"tool_pending_records":0},
+    "cell_1": {"syntax":"valid single JSON","tool_pending_records":1},
+    "cell_2": {"syntax":"Extra data","position":272,"tool_pending_records":0},
+    "cell_3": {"syntax":"Extra data","position":295,"tool_pending_records":0},
+    "current_parser_design_and_payload_validator_equal_frozen_source": true,
+    "unchanged_experiment_files_during_this_check": 99,
+    "new_model_calls": 0,
+    "new_research_SQL_queries": 0,
+    "old_scores_modified": false,
+    "content_repaired": false,
+    "provider_internal_cause_known": false,
+    "local_records_are_not_independent_provider_attestation": true
+  },
+  "software_regression": {
+    "new_test_module": "tests/test_action_json_interface_regression.py",
+    "new_tests_passed": 4,
+    "synthetic_invalid_patterns": 7,
+    "patterns_include": ["concatenated objects", "trailing quote and brace", "trailing prose", "duplicate keys", "array instead of object", "Markdown fences", "extra schema field"],
+    "all_seven_invalid_patterns_preserved_without_tool_dispatch_or_retry": true,
+    "positive_single_object_and_whitespace_controls_pass": true,
+    "tampered_transport_provider_adapter_or_decision_rejected": true,
+    "combined_suite_tests_run": 24,
+    "combined_suite_passed": 23,
+    "combined_suite_errors": 1,
+    "error_test": "tests.test_cache_route_symmetric_loop.IntegrationTests.test_real_tool_and_loop_across_four_cells",
+    "error_reason": "SQLite could not open disposable fixture database in sandbox temporary directory; cleanup also hit Windows access denial. Not rerun or bypassed, and not reported as a pass.",
+    "research_database_used_by_tests": false,
+    "paid_API_used_by_tests": false
+  },
+  "scientific_decision": {
+    "stage": "Interface reliability gate, not method confirmation",
+    "supported": "Malformed content is present in the recorded transport response despite the checked JSON settings; strict rejection prevents unintended tool execution.",
+    "unsupported": ["The comma-separated examples caused this", "The provider itself concatenated responses internally", "Three agents misunderstood the task", "The valid condition proves universal recomputation"],
+    "next_minimal_experiment_proposal": "If separately approved, use a new frozen interface-only calibration contrasting old action examples with explicitly separated alternatives on a small balanced synthetic action set; score exact JSON/schema validity first. Do not execute SQL or splice valid prefixes, and do not replace historical scores.",
+    "new_protocol_implemented": false,
+    "new_paid_batch_authorized": false,
+    "method_increment_established": false
+  },
+  "github": "Publishable code, synthetic tests and aggregate receipt only. Remote push remains dependent on existing user-side authentication; no new push attempted."
+}
