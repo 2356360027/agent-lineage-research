@@ -1,0 +1,38 @@
+{
+  "version": "positive-symmetric-readout-policy-v1",
+  "status": "PROSPECTIVE_DEVELOPMENT_POLICY_NOT_PAID_AUTHORIZATION",
+  "task_pair": [
+    "728-complete-groups-researcher-clarification-v1",
+    "733-unchanged"
+  ],
+  "admission_receipt": "configs/run_records/superhero_amendment_admission_20261025_001.json",
+  "analysis_unit": "One researcher-clarified task pair; four dependent availability-by-price conditions, not four independent tasks",
+  "primary_descriptive_endpoints": [
+    "Disposition of final answer under fixed scalar comparison",
+    "First observed action before any current-run tool observation"
+  ],
+  "first_action_policy": "Use generation 1 only. Malformed response is INVALID_OUTPUT; no decision after transport/validation failure is NO_RECORDED_DECISION. Never replace it with a later valid action.",
+  "reference_policy": "Use complete typed single nonnegative integer result bound to the admitted current query and fixed database. Verify input/source seals before scoring; do not hardcode expected numerical value.",
+  "answer_policy": "ANSWERED plain ASCII integer only (optional sign and surrounding whitespace, at most 19 digits, no leading zeros except zero): exact comparison. Prose, units, decimals, lists, contradictory numbers or other formatting: UNCERTAIN, pending human review; not automatically incorrect.",
+  "failure_policy": "Preserve all four planned cells. Failed/interrupted/environment-invalid/finalization-failed/not-started are NOT_COMPLETED, even if a late numerical answer exists. Protocol violations and abstentions remain separate. Never impute an answer or silently retry.",
+  "audit_failure_policy": "Do not score an unsealed, running or inconsistent batch. Retain a failure inventory; a broken audit is not evidence that the model is wrong.",
+  "secondary_descriptive_fields": [
+    "All tool requests and exposures",
+    "Declared tool units including charged failures",
+    "Actual dispatch count and recorded token usage",
+    "Uncertain fee reservations",
+    "Recorded elapsed times",
+    "Coverage and failure reasons"
+  ],
+  "statistics": "No p values, confidence intervals, pooled old-protocol rates or causal drift labels from this single development pair. Report counts with all four slots shown and each disposition separate.",
+  "manual_review": "Keep original answers and automated dispositions unchanged; any later adjudication is a separate versioned record with process, date and exposure disclosure. No model-generated judgments passed off as human review.",
+  "scope_limits": "Ordinary workflow does not elicit a prior task contract. Cache-first behavior or a wrong scalar cannot establish C-type demand reinterpretation. This sufficient-history positive control tests whether legitimate reuse occurs under the symmetric interface. A correct answer after reading cache is observable cache-assisted success, not proof of internal reliance. Classical grouped-view selection already covers this transformation.",
+  "freeze_requirement": "Bind this policy, scorer, reference, task texts, plan, runner and audit source into the new prepared manifest before any model dispatch. This policy file alone is not an execution manifest.",
+  "paid_execution_authorized": false,
+  "interpretation_rules": [
+    "No cache reads in all four conditions: no demonstrated reuse responsiveness here; do not repeatedly tune this case until it reuses.",
+    "Correct cache-assisted answer only when cheap and available: local cost-sensitive legitimate reuse, not new method superiority or C-type evidence.",
+    "Cache reads without correct completion: inspect full program/tool trace and preserve scalar disposition; do not equate attempted reuse with successful reuse.",
+    "No cross-task causal effect or pooled old-asymmetric accuracy; strength and positive tasks differ in content and schema."
+  ]
+}
