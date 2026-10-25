@@ -1,0 +1,52 @@
+{
+  "date": "2026-10-26",
+  "status": "LOCAL_STRUCTURAL_SUITABILITY_CHECK_COMPLETE_HUMAN_ADMISSION_PENDING",
+  "previous_goal_turn": "PROGRESS: verified the failed acquisition artifact contains a DNS resolution error; no database or model experiment was inferred from that failure.",
+  "decision": "Continue candidate semantic review in the same scientific direction, not a new paid batch. Do not retune the previously completed superhero cases.",
+  "scope": "One researcher-paired different-domain development candidate, 1371 to 1317; no independent confirmation and no new method benefit established.",
+  "acquisition": {
+    "failed_attempt_retained": "runtime/runs/datasets/student-club-fixed-20261026-001",
+    "failure": "DNS resolution error before database download",
+    "successful_attempt": "runtime/runs/datasets/student-club-fixed-20261026-002",
+    "normal_network_permission_approved": true,
+    "source": "Official BIRD legacy minidev.zip, pinned archive identity and central directory verified, one selected SQLite member extracted with size/CRC/SHA256 checks",
+    "database_sha256": "eb89bcfe97eefa386a27904ec5aa15159811a7eac894ec659a36e48fa9f76b77",
+    "database_bytes": 2641920,
+    "preparation_seal_sha256": "be4a94f661392566dacda976dd3bdc2f478448297b5d9b04e7cf3a0149f66be4",
+    "corrected_arcwise_database_certified": false,
+    "license": "Pinned source card declares CC-BY-SA-4.0; original records and database remain private"
+  },
+  "audit": {
+    "directory": "runtime/runs/student-club-structure-20261026-001",
+    "artifact_manifest_sha256": "b244e5279fbb17a51cd08319f4705d59a3dfe86312534079c2a48b336f1db601",
+    "queries": "Seven fixed aggregate-only structural queries after one DDL query; source/plan/results sealed; database and acquisition bytes unchanged",
+    "findings": [
+      "Exactly one binary-exact named event; no target null event ID.",
+      "Target attendance rows, nonnull member links and distinct member links are equal; no target null/orphan member links.",
+      "No repeated event/member pair across this snapshot.",
+      "Member and event primary identifiers are nonnull and unique in this snapshot.",
+      "Target joined shirt sizes have no NULL, empty string or nontext values.",
+      "No event-time shirt-size column in the three inspected table definitions."
+    ],
+    "source_mapping": "Both question/evidence/SQLite SQL texts match fixed Arcwise texts exactly. The separately packaged MySQL SQL strings differ in quoting/formatting; not evidence of different intent. No reference SQL executed.",
+    "privacy": "Aggregate outputs only; no names, phones, email addresses or per-member records inspected or published",
+    "model_calls": 0,
+    "formal_tasks_admitted": 0,
+    "new_human_reviews": 0,
+    "target_medium_count_evaluated": false
+  },
+  "tests": {
+    "command": "python -B -X utf8 -m unittest tests.test_student_club_structure -v",
+    "passed": 3,
+    "coverage": "Synthetic empty tables, case-sensitive event matching, duplicate attendance, multiple same-name events, NULL/orphan links, missing and nontext sizes, readonly hashes and incomplete-output rejection",
+    "initial_test_failure": "Three cleanup errors: test fixture SQLite connections were not explicitly closed on Windows. Fixed fixture using contextlib.closing and explicit insert commit; production query code and completed research audit were unchanged. Failed temporary fixtures retained, no actual research run repeated."
+  },
+  "next_gate": {
+    "review_packet": "runtime/runs/student-club-review-20261026-001/INDEPENDENT_REVIEW.txt",
+    "needed": "Two independently completed reviews of counting entities, event scope and current-versus-event-time shirt preference; source SQL and aggregate answers omitted from review packet",
+    "positive_cache": "Potential complete roster must be separately declared researcher-constructed, never attributed to native historical count query",
+    "no_paid_experiment_authorized": true
+  },
+  "interpretation": "Structurally cleaner does not prove semantic clarity, cache-induced interpretation drift, or an increment over strong checking and recomputation. Data suitability only.",
+  "github_remote_sync_verified": false
+}
