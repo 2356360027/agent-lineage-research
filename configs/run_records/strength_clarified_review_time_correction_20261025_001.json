@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-25",
+  "status": "REVIEW_CLOCK_TIMES_CORRECTED_BY_USER",
+  "intake_record": "configs/run_records/strength_clarified_review_intake_20261025_001.json",
+  "workflow_confirmation": "configs/run_records/strength_clarified_review_confirmation_20261025_001.json",
+  "draft_sha256": "3172efd672168824195ac05d62e07a97c2f0b2cfafaf8f5b7953f63372f015d5",
+  "user_text": "18：00和17：58",
+  "corrections": [
+    {"reviewer": "Rev-01", "original_reported_time": "2026-10-25 02:55", "corrected_time": "2026-10-25T18:00:00+08:00"},
+    {"reviewer": "Rev-02", "original_reported_time": "2026-10-25 03:00", "corrected_time": "2026-10-25T17:58:00+08:00"}
+  ],
+  "interpretation": {
+    "clock_times": "Explicitly provided by user",
+    "reviewer_mapping": "Applied in submitted review order: first time to reviewer 1, second to reviewer 2",
+    "date_timezone": "Retained from same-day review context and client Asia/Hong_Kong timezone; not separately restated in the user's short correction",
+    "precision": "Minute precision only; zero seconds are serialization, not an observed exact second",
+    "reason_original_times_were_wrong": "Not specified; do not assert template reuse as established",
+    "process_directly_observed": false
+  },
+  "preservation": "Original submitted timestamps and earlier pending records remain unchanged. This correction supersedes their unresolved clock-time fields for the current clarified-draft reviews only.",
+  "decision": {
+    "chronology_discrepancy_resolved_under_stated_mapping": true,
+    "independent_human_judgment_then_model_formatting": "User attestation already recorded; not re-questioned",
+    "original_unmodified_pair_pending": true,
+    "paid_execution_authorized": false,
+    "next_step": "Complete adapted-task admission and exact-snapshot binding, then freeze and seek separate authorization for any paid development batch. No API execution in this correction."
+  },
+  "work_counts": {"new_model_calls": 0, "new_database_queries": 0, "new_review_rounds": 0}
+}
