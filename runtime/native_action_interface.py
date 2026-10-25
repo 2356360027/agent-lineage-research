@@ -10,6 +10,7 @@ from runtime.cache_intent_staged_loop import ACTION_INSTRUCTION, parse_action
 from runtime.deepseek_official_transport import validate_payload
 
 VERSION = 'native-action-interface-offline-v1'
+ENVELOPE_POLICY_V2 = 'native-action-envelope-optional-zero-index-v2'
 ENDPOINT = 'https://api.deepseek.com/beta/chat/completions'
 FIELDS = {'read_cache': 'cache_id', 'run_sql': 'sql',
           'answer': 'text', 'abstain': 'text'}
@@ -94,6 +95,23 @@ def parse_native_response(raw):
     or authorization. Caller must preserve raw response before parsing.
     No first-call selection, text fallback, string repair, or tool dispatch.
     """
+    return _parse_native_response(raw, allow_zero_index=False)
+
+
+def parse_native_response_v2(raw):
+    """Explicit new envelope policy; legacy entry point remains unchanged.
+
+    Accept only an absent tool-call index or the integer zero on the one call.
+    This handles the extension observed in the 2026-10-25 native batch, not a
+    claimed universal provider guarantee. Arguments, raw JSON and remaining
+    fields are checked without normalization. No execution or retry is enabled.
+    Adoption requires an explicitly versioned caller; old batches use v1.
+    """
+    result = _parse_native_response(raw, allow_zero_index=True)
+    return dict(result, envelope_policy=ENVELOPE_POLICY_V2)
+
+
+def _parse_native_response(raw, *, allow_zero_index):
     if type(raw) is not str or len(raw.encode('utf-8')) > 1024 * 1024:
         raise ValueError('Bounded raw provider JSON required')
     body = _load(raw)
@@ -115,10 +133,14 @@ def parse_native_response(raw):
     if type(calls) is not list or len(calls) != 1:
         raise ValueError('Exactly one native action required')
     call = calls[0]
-    if (type(call) is not dict or set(call) != {'id', 'type', 'function'}
+    required_keys = {'id', 'type', 'function'}
+    allowed_keys = required_keys | ({'index'} if allow_zero_index else set())
+    if (type(call) is not dict or not required_keys <= set(call) <= allowed_keys
             or call['type'] != 'function' or type(call['id']) is not str
             or not call['id'].strip()):
         raise ValueError('Invalid function-call envelope')
+    if 'index' in call and (type(call['index']) is not int or call['index'] != 0):
+        raise ValueError('Only integer zero tool-call index is supported')
     function = call['function']
     if (type(function) is not dict or set(function) != {'name', 'arguments'}
             or type(function['name']) is not str or function['name'] not in FIELDS

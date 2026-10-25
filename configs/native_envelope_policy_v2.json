@@ -1,0 +1,22 @@
+{
+  "version": "native-action-envelope-optional-zero-index-v2",
+  "entry_point": "runtime.native_action_interface.parse_native_response_v2",
+  "legacy_entry_point_unchanged": true,
+  "scope": "Non-stream single-action response parsing only; explicitly selected by future callers",
+  "required_call_fields": ["id", "type", "function"],
+  "optional_call_field": {"index": "integer zero only; booleans, floats, strings, null and all other values rejected"},
+  "unknown_call_fields": "reject",
+  "unchanged_checks": [
+    "bounded complete provider JSON without duplicate keys or trailing content",
+    "one choice with index zero and finish_reason tool_calls",
+    "one assistant call, no accompanying text or reasoning",
+    "nonempty call ID, function type and exactly name/arguments fields",
+    "known action, full JSON argument parse, no duplicate keys, exact action fields and types",
+    "no first-call selection, argument repair, execution or retry"
+  ],
+  "basis": "Observed integer-zero index on all eight native-context-20261025-003 non-stream responses; engineering compatibility correction, not task-semantic relaxation or a claimed documented universal guarantee",
+  "prior_scores": "Do not overwrite. Frozen v1 original remains 0/8 admitted; separate post-hoc envelope diagnosis remains distinct.",
+  "new_API_calls_authorized": false,
+  "new_tool_executions_authorized": false,
+  "research_claim": "None; neither new algorithm nor validation of intent drift"
+}

@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-25",
+  "status": "OFFLINE_VERSIONED_COMPATIBILITY_CORRECTION_TESTED",
+  "previous_goal_turn": "PROGRESS: completed frozen replay, located all eight envelope rejections, preserved originals and verified private backup; commit ab77b61",
+  "code": "runtime/native_action_interface.py",
+  "policy": "configs/native_envelope_policy_v2.json",
+  "test": "tests/test_native_action_interface_v2.py",
+  "new_parser": "parse_native_response_v2",
+  "old_parser": "parse_native_response; behavior unchanged",
+  "new_tests":17,
+  "regression_tests_passed":76,
+  "frozen_original_cli_reverified":true,
+  "original_manifest_sha256":"f3ca48eebad5d03ae38a17bce26c92b1356f2c1661414310826a47250f65b48e",
+  "new_model_calls":0,
+  "new_SQL_executions":0,
+  "raw_records_or_original_scores_modified":false,
+  "caller_adoption":"No existing paid launcher silently switched; future experiment must explicitly freeze the v2 policy and caller.",
+  "remaining_execution_gap": {
+    "first_response_only":"NativeFirstCounter validates exactly system/user messages; native adapter allows one response only.",
+    "legacy_loop_not_equivalent":"Existing text loop appends JSON as assistant text and observations as user text. It is not native assistant.tool_calls + tool.tool_call_id history and must not be silently reused as if equivalent.",
+    "next_offline_work":"Implement and test explicit native history construction, tool-result ID binding, bounded read-only execution and multi-turn token accounting before preparing full trajectories. Reuse established database safety checks. No repeated first-response prompt tuning.",
+    "scientific_gate":"Full outcomes still needed to tell justified inspection from invalid reuse. Requesting read_cache is not an error or C-type drift. Keep ordinary action outcomes separate from later contract-elicitation diagnostics and compare strong baselines before method claims."
+  },
+  "method_increment_demonstrated":false,
+  "future_paid_batch_requires_new_approval":true,
+  "github_remote_sync_verified":false
+}
