@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-25",
+  "status": "OFFLINE_INPUT_ADAPTATION_PASSED_NOT_READY_FOR_PAID_EXECUTION",
+  "previous_turn": "Progress: audited all four completed strength conditions, scored four exact matches, archived 286 files and committed aggregate result 36e6423.",
+  "motivation": "The negative control always recomputed. Check legitimate reuse feasibility on an already admitted sufficient-history control before interpreting this as selective applicability reasoning or expanding the study.",
+  "task": "728-complete-groups-researcher-clarification-v1 to unchanged 733",
+  "admission": "configs/run_records/superhero_amendment_admission_20261025_001.json",
+  "private_inputs": "runtime/runs/positive-symmetric-inputs-20261025-001",
+  "archive_manifest_sha256": "3c5de085cae60ced24f7615dbf7a2a734e5715520e4c69003ab42cff933331c0",
+  "preparer": "scripts/prepare_positive_symmetric_inputs.py",
+  "checks": {
+    "prior_input_snapshot_amendment_archives_verified": true,
+    "admission_hash_bound_to_prior_input_plan": true,
+    "question_amendment_and_evidence_preserved": true,
+    "historical_SQL_matches_sealed_snapshot_query": true,
+    "database_hash_and_sidecars_checked": true,
+    "initial_reference_answer_exposed": false,
+    "within_pair_only_availability_or_price_changed": true,
+    "complete_history_and_current_observations_fit": true,
+    "software_tests_passed": 15,
+    "new_model_calls": 0,
+    "new_SQL_queries": 0
+  },
+  "proposed_protocol": {
+    "independent_development_pairs": 1,
+    "dependent_conditions": 4,
+    "availability": [false, true],
+    "declared_cache_prices": [1, 20],
+    "declared_SQL_price": 10,
+    "common_budget": 60,
+    "symmetric_tool_opportunities": 3,
+    "maximum_model_calls": 16,
+    "maximum_tool_attempts": 12,
+    "conditional_input_token_bound": 56352,
+    "conditional_output_token_bound": 8192,
+    "pricing_verified_this_turn": false,
+    "paid_execution_authorized": false
+  },
+  "limits": [
+    "This archive is input and token-capacity preparation, not an executable frozen launcher.",
+    "No new human review or empirical performance evidence was generated.",
+    "Positive and negative pairs differ in task and schema content; cross-task differences are not a randomized causal contrast.",
+    "Keep prior asymmetric positive-control results separate; this is a new interface calibration, not a silent retry.",
+    "Neither successful selective reuse nor universal recomputation establishes C-type demand drift or a method increment."
+  ],
+  "next": "Finish read-only/cache trajectory preflight and source-bound frozen deployment with prospective outcomes, then request fresh fixed-batch approval after checking current prices. Do not run from this input archive.",
+  "github": "Public code, tests and aggregate receipt only; raw inputs stay local. User-side authenticated push is still required."
+}
