@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-25",
+  "status": "RESEARCHER_CLARIFICATION_PROPOSED_NOT_ADMITTED",
+  "previous_turn": "Progress: user attested independent human judgments before model-assisted expression; workflow uncertainty resolved, semantic pending conclusions retained",
+  "source_pair": [766, 786],
+  "draft": "reports/cache_relation_review_20261025/CLARIFIED_PAIR_REVIEW_V1.txt",
+  "draft_sha256": "3172efd672168824195ac05d62e07a97c2f0b2cfafaf8f5b7953f63372f015d5",
+  "draft_storage": "Local under existing reports ignore policy; no completed answers published",
+  "variants": {
+    "history": "766-distinct-names-clarification-v1",
+    "current": "786-entity-count-clarification-v1"
+  },
+  "changes_from_original_material": [
+    "Both tasks explicitly scoped to an exact case-sensitive Strength attribute filter and a global non-NULL maximum, including ties and empty-set behavior.",
+    "History explicitly requests distinct full_name values, retaining NULL, empty string and dash as values; no IDs or hidden multiplicities added.",
+    "Current explicitly requests distinct hero entities by ID, regardless of name, with duplicate associations not multiplying entities.",
+    "Both variants are researcher clarified; do not describe the current natural-language task as unchanged or the clarification as the original author's intent."
+  ],
+  "selection_and_exposure": {
+    "pair_preselected_before_model_errors": true,
+    "clarification_after_human_review_and_reference_snapshot_audit": true,
+    "development_only": true,
+    "independent_confirmation": false,
+    "natural_history": false,
+    "review_packet_contains_reference_SQL_or_numeric_answers": false,
+    "blindness_claim": "None; prior discussion and numerical-result exposure must be disclosed by reviewers"
+  },
+  "design_boundaries": [
+    "Common demand and history contracts must be equally visible across eventual conditions; no correct-contract privilege for a proposed method.",
+    "Base-database recomputation remains feasible. No forced reuse, forced abstention, or instruction that the cache is inapplicable.",
+    "A failure of reuse would not by itself demonstrate temporally prior demand reinterpretation. Ordinary behavior and explicit-contract diagnostics remain separate.",
+    "Classical applicability checks and fallback remain the relevant baseline. This proposal adds no method novelty.",
+    "If reviewers find the adapted task unclear or too artificial, retain that outcome rather than repeatedly revising until admitted."
+  ],
+  "approval": {
+    "human_reviews_of_this_draft": 0,
+    "task_admitted": false,
+    "paid_calls_authorized": false,
+    "original_pair_status": "Pending unchanged",
+    "prior_728_733_batch": "Completed unchanged; not rerun"
+  },
+  "next_gate": "Two separate judgments of this explicitly adapted draft, including artificiality concerns; then validate the exact approved semantics and freeze a separately authorized small development plan. No automatic admission or execution.",
+  "work_counts": {"new_model_calls": 0, "new_database_queries": 0, "formal_tasks_admitted": 0}
+}
