@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-25",
+  "status": "CURRENT_DRAFT_REVIEW_WORKFLOW_USER_CONFIRMED_TIMES_UNRESOLVED",
+  "intake_record": "configs/run_records/strength_clarified_review_intake_20261025_001.json",
+  "draft_sha256": "3172efd672168824195ac05d62e07a97c2f0b2cfafaf8f5b7953f63372f015d5",
+  "confirmation": {
+    "user_text": "两人先独立判断、模型仅整理",
+    "scope": "The newly submitted reviews of CLARIFIED_PAIR_REVIEW_V1.txt",
+    "human_review_records_accepted_on_user_attestation": 2,
+    "new_review_rounds": 0,
+    "process_independently_observed": false,
+    "prior_ambiguous_model_draft_wording": "Preserved in intake excerpts; clarified by this user statement, not silently edited",
+    "repeat_workflow_question_needed": false
+  },
+  "time_metadata": {
+    "submitted": ["2026-10-25 02:55", "2026-10-25 03:00"],
+    "status": "Unresolved; do not invent corrected timestamps or reuse local receipt time as review time",
+    "exact_minute_required": false,
+    "remaining_request": "Actual date and timezone, and whether the submitted clock times were template values; if actual time is unknown, record unknown honestly"
+  },
+  "decision": {
+    "supportive_judgments_preserved": true,
+    "original_pair_pending": true,
+    "formal_execution_admission_record_created": false,
+    "paid_execution_authorized": false,
+    "local_software_semantics_checks": "May continue independently of timestamp clarification; do not count as model research samples"
+  }
+}

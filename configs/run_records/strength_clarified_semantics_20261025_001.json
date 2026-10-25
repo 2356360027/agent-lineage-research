@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-25",
+  "status": "FINITE_PROGRAM_CHECKS_PASSED_NOT_MODEL_EVIDENCE",
+  "script": "scripts/check_strength_clarified_semantics.py",
+  "draft_sha256": "3172efd672168824195ac05d62e07a97c2f0b2cfafaf8f5b7953f63372f015d5",
+  "private_output": "runtime/runs/strength-clarified-semantics-20261025-001",
+  "seal_sha256": "e0490a731e2020d2b44b27739199c9d345417039422f36622cadc1d7c7f91be3",
+  "verification": {
+    "cases": 10,
+    "matched_python_oracle": 10,
+    "task_queries_on_in_memory_fixtures": 20,
+    "real_database_queries": 0,
+    "model_calls": 0,
+    "all_output_file_hashes_verified": true,
+    "schema": "DDL recreated from hash-pinned archived full superhero schema; each fixture passed foreign_key_check and integrity_check",
+    "coverage": ["empty", "all-null attribute values", "same-name ties", "NULL/empty/dash/case/space name values", "duplicate associations", "case-sensitive attribute name", "multiple Strength attribute IDs with different maxima", "nullable hero_id on globally maximal attribute record", "negative numeric order", "mixed null values and null attribute_id"]
+  },
+  "maximum_scope_result": {
+    "constructed_fixture": "One existing hero with Strength 5; a Strength 100 row with NULL hero_id",
+    "foreign_key_violations": 0,
+    "draft_result": "Empty history, current count 0 because global maximum is 100 and no hero reaches it",
+    "implication": "Foreign-key validity alone does not imply equivalence to computing a maximum only after joining existing heroes. Preserve draft-wide maximum rather than silently narrowing it.",
+    "real_world_incidence": "Not measured by this fixture"
+  },
+  "boundaries": [
+    "Finite integer-valued fixtures are software checks, not new independent task samples, human approvals, or a universal proof.",
+    "No modified real database or API call. Archived review draft remains unchanged.",
+    "Researcher-written SQL is for the clarified variants, not a silent replacement of original reference SQL.",
+    "No observed model demand drift, no demonstrated method improvement, and no further paid authorization."
+  ],
+  "remaining": "Actual review timestamps still need honest metadata resolution; approved task-text binding, any real-snapshot adapted-query check and future paid batch admission remain separate steps."
+}
