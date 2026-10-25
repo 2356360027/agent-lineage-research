@@ -1,0 +1,56 @@
+{
+  "date": "2026-10-25",
+  "status": "FIXED_SNAPSHOT_REFERENCE_MISMATCH_CONFIRMED_NOT_AGENT_EVIDENCE",
+  "previous_turn": "Progress: new review submission preserved, pending admission retained, reference-SQL and semantic-implementation distinctions audited",
+  "script": "scripts/audit_strength_snapshot.py",
+  "private_output": "runtime/runs/strength-snapshot-audit-20261025-001",
+  "seal_sha256": "6320bff0abac0aa6e8df59b695d05d3bd74f5399e5b99af329d573622e9358b3",
+  "database_sha256": "75e94a2c3236ee3bb2c01fb97a1c4b4c1c269bcefd4eab1d04be323d2d0825b1",
+  "query_source_sha256": "baefe2ca4fbab86c000df72aad9eaa563f7d422e425af2cbff071f656ea4eea8",
+  "scope": "Previously selected 766-to-786 pair in pinned legacy superhero SQLite database. Not an official Arcwise database certification; reference execution does not settle natural-language meaning.",
+  "observations": {
+    "strength_dictionary": [{"id": 2, "name": "Strength", "equals_upper_literal": true, "equals_lower_literal": false}],
+    "matching_attribute_rows": 623,
+    "runtime_value_types": {"integer": 623},
+    "duplicate_hero_attribute_groups_in_strength": 0,
+    "maximum_strength_join_rows": 63,
+    "maximum_strength_hero_entities": 63,
+    "maximum_strength_distinct_names_including_null": 36,
+    "maximum_strength_null_names": 0,
+    "maximum_strength_empty_names": 0,
+    "maximum_strength_dash_names": 28,
+    "unmodified_reference_766_row_count": 36,
+    "unmodified_reference_786_scalar": 63,
+    "blind_history_row_count_equals_current_reference": false
+  },
+  "interpretation": [
+    "The 28 dash-name entities collapse to one name under DISTINCT, accounting for the 27-row difference. There are no NULL or empty names in the eligible set.",
+    "The exact reference-history row count is therefore an incorrect replacement for the exact current reference answer on this snapshot. No model chose or executed that replacement in this audit.",
+    "No duplicate hero/attribute rows were observed in this Strength subset, but the schema does not declare that pair unique. Observed absence is not a universal constraint.",
+    "The single Strength attribute removes the per-attribute versus global-maximum difference in this snapshot, not in all schema-valid databases.",
+    "Lowercase evidence differs from the actual dictionary and from the uppercase source SQL. This remains a source-consistency issue; no evidence was silently rewritten.",
+    "This is a concrete reference-result cardinality failure alongside earlier general two-world witnesses, not proof that every possible cache-only estimator fails on this particular value or that additional base-table access cannot resolve the task.",
+    "Strong applicability checks and recomputation cover the demonstrated issue; no method increment has been established."
+  ],
+  "decision": {
+    "human_semantic_admission": false,
+    "original_pair_status": "Still pending; keep outside inference panel",
+    "model_review_provenance": "Await actual human/model workflow clarification for the latest submission",
+    "adaptation": "No researcher clarification approved or silently applied. If later proposed, label separately and review before new inference.",
+    "paid_execution_authorized": false,
+    "next_boundary": "Database facts now resolve empirical concerns about types, duplicates and name loss. They do not replace the pending semantic decision or justify another paid run."
+  },
+  "execution": {
+    "mode": "SQLite mode=ro, query_only, allowlisted SELECT/READ/FUNCTION/RECURSIVE authorizer, 30-second progress deadline",
+    "source_and_database_hashes_verified_before_after": true,
+    "sidecars_absent_before_after": true,
+    "reference_sql_modified": false,
+    "diagnostic_queries": 5,
+    "reference_queries": 2,
+    "model_calls": 0,
+    "research_model_samples": 0,
+    "formal_tasks_admitted": 0,
+    "automatic_retries": 0
+  },
+  "privacy": "Reference rows and review answers remain local; this public-safe receipt reports aggregate diagnostics only. Local archive is not an off-device backup."
+}

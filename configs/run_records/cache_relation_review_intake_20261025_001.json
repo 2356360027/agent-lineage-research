@@ -1,0 +1,67 @@
+{
+  "date": "2026-10-25",
+  "status": "REVIEW_MATERIAL_RECEIVED_PAIR_NOT_ADMITTED",
+  "pair": [766, 786],
+  "database": "superhero",
+  "private_submission": {
+    "path": "runtime/runs/cache-relation-review-intake-20261025-001/submitted-review.txt",
+    "sha256": "88cf215ec7f0bb0cb7763a4c0f25ce133a1ee1b9113ed710108b91fa0f8efd4b",
+    "raw_answers_public": false,
+    "reported_reviewers": 2,
+    "reported_date": "2026-10-25",
+    "independence_status": "Not yet resolved for this submission: text says independent, but also says model-assisted organization of opinions with core judgments reviewed and confirmed. Prior submissions' confirmations are not automatically transferred.",
+    "verified_independent_human_reviews_added": 0
+  },
+  "submitted_conclusions": {
+    "history_766": "Both marked pending: name multiplicity, missing-name handling and attribute spelling require clarification",
+    "current_786": "Both identify heroes/entities as the count object, but mark pending over SQL count granularity and spelling",
+    "pair_admission": "Both pending; discuss a possible fallback/insufficient-history control, not unconditional admission"
+  },
+  "researcher_audit_not_reviewer_rewrite": [
+    {
+      "issue": "Evidence spelling versus actual reference SQL",
+      "finding": "Pinned source 766 evidence uses lowercase strength; its actual reference SQL uses uppercase Strength. Source 786 evidence and SQL use Strength. The assertion that the reference SQL necessarily uses lowercase is unsupported.",
+      "remaining": "Evidence/reference consistency and fixed-snapshot attribute dictionary remain separate checks. Do not silently correct evidence or use reference SQL to settle human meaning."
+    },
+    {
+      "issue": "Count implementation versus business semantics",
+      "finding": "Both submissions describe counting hero entities/IDs. COUNT(*) versus COUNT(DISTINCT hero_id) is then an implementation obligation under join multiplicity, not automatically a second legitimate user demand. No raw-SQL spelling is required in a natural-language task.",
+      "remaining": "Do not override the submitted pending judgment; if revisited, clarify entity counting separately from implementation details."
+    },
+    {
+      "issue": "Projection does not always destroy cardinality",
+      "finding": "A complete bag with exactly one retained row per eligible hero can be counted even when names repeat and IDs are absent. Loss arises when DISTINCT, filtering or join multiplication removes that guaranteed correspondence. The pinned 766 reference does apply DISTINCT full_name.",
+      "remaining": "Previously archived two-world witnesses concern the exact fixed reference SQL and declared schema, not all reasonable interpretations of the unresolved natural-language task or every real cache value."
+    },
+    {
+      "issue": "Maximum scope",
+      "finding": "Pinned 766 reference computes maxima grouped by attribute_id; 786 computes one maximum over all Strength matches. Equality needs appropriate attribute-dictionary conditions. Prior synthetic witnesses deliberately used a single Strength attribute.",
+      "remaining": "No claim that the source natural-language meanings or full query behavior are universally aligned."
+    },
+    {
+      "issue": "Collation and unspecified presentation",
+      "finding": "Case sensitivity depends on the actual engine, collation and expressions; SQL in general must not be described as universally case-sensitive. Unspecified output order alone need not block a list task when the scoring policy is order-insensitive.",
+      "remaining": "Do not count presentation freedom as requirement drift or ignore substantive multiplicity differences."
+    }
+  ],
+  "source": {
+    "path": "runtime/runs/datasets/arcwise-plat-fixed-20261012-001/arcwise_plat_full_with_diff.json",
+    "expected_sha256": "baefe2ca4fbab86c000df72aad9eaa563f7d422e425af2cbff071f656ea4eea8",
+    "reference_records_inspected": [766, 786]
+  },
+  "decision": {
+    "original_pair_admitted": false,
+    "negative_control_admitted": false,
+    "recommendation": "Keep the original pair pending and outside the next inference panel. A negative-control label does not cure ambiguous history semantics. Do not force adaptation solely to obtain a desired error.",
+    "method_claim": "No new evidence of agent demand drift or advantage over applicability checks plus recomputation",
+    "followup": "Clarify the actual human/model review workflow for this submission. No automatic reinterpretation as two verified independent reviews.",
+    "paid_execution_authorized": false
+  },
+  "work_counts": {
+    "new_model_calls": 0,
+    "new_database_queries": 0,
+    "new_research_samples": 0,
+    "formal_tasks_admitted": 0
+  },
+  "preservation": "Raw submission archived unchanged; prior blank forms, completed experiments and pending/excluded records remain unchanged. This receipt is a separate researcher audit, not a replacement human review."
+}
