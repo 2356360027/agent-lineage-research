@@ -1,0 +1,22 @@
+{
+  "version": "synthetic-action-encoding-calibration-v1",
+  "purpose": "Gate debugging of malformed JSON before returning to cache-reuse research, not a contribution or mechanism test.",
+  "sampling": "Eight fixed researcher-written encoding fixtures, four action kinds times minimal/context variants; two presentation arms, one call each, sixteen calls total.",
+  "contrast": "Original comma-separated examples versus labeled separated alternatives plus explicit one-object instructions. This is a presentation bundle, not identification of a comma-only cause.",
+  "held_constant": ["intended action", "argument text", "background per pair", "model alias", "JSON mode", "temperature", "thinking disabled", "512 output-token cap", "strict parser"],
+  "order": "Fixed SHA-256 case order, alternating which arm comes first across eight pairs; four pairs each order. No retries or additional repetitions based on outcomes.",
+  "primary": "For all planned slots, report normal-finish AND strict action-schema admission. Separate unobserved or infrastructure-failed slots; never impute them as malformed outputs.",
+  "secondary": ["one JSON value syntax validity", "exact intended action and argument encoding", "paired descriptive admission differences", "reported token use and conservative client costs"],
+  "failure_policy": "Malformed model content is retained and scored without repair, and the fixed sequence continues. Transport, model alias, token count, timing, budget or journal failures stop the batch. No completed-prefix arm contrast after infrastructure stop.",
+  "limits": {"calls":16,"SQL":0,"tools":0,"call_horizon_seconds":600,"worker_limit_seconds":630,"client_cap_cny":0.12},
+  "no_inference": ["No statistical significance claim", "No general reliability guarantee from 16 calls", "No diagnosis of provider internals", "No C-type task interpretation claim", "No post-hoc salvage of old responses"],
+  "next_gate": {
+    "any_infrastructure_failure": "Audit incomplete records; do not draw paired effects or automatically rerun.",
+    "separated_arm_any_invalid": "Do not expand research runs with this candidate; retain calibration and reassess interface options before requesting further paid work.",
+    "separated_all_admitted_but_wrong_encoding": "Formatting alone is insufficient; inspect exact-encoding failures without labeling them cache-induced drift.",
+    "separated_all_exact_original_has_invalid": "Candidate for a separately approved research-context interface check, not proof of root cause or readiness for large-scale inference.",
+    "both_all_exact": "Simple fixtures did not reproduce failure; do not declare the prior problem fixed. A small research-context check would still be required before expansion."
+  },
+  "authorization": false,
+  "old_results_unchanged": true
+}

@@ -1,0 +1,53 @@
+{
+  "date": "2026-10-25",
+  "status": "FROZEN_OFFLINE_VERIFIED_AWAITING_FRESH_APPROVAL",
+  "prepared": "runtime/runs/action-encoding-prepared-20261025-001",
+  "manifest_sha256": "173bf11713262a2e5f60def62dc74f1745fae8b55d9a9011364beb44e5bc1452",
+  "plan_file_sha256": "0ed390564f244a95deb0ca93618d22b3d4e61f27fbe8539d6c75e1bb5514f1dd",
+  "policy_sha256": "33c57a819d0413a05405b3c13a55737c33a05edb0aa2504a67386698ea82d0ca",
+  "scope": "Eight synthetic action-encoding fixtures times two formatting-instruction arms; one response per slot, sixteen slots. Not a cache-reuse experiment or independent task confirmation.",
+  "reason": "Prior positive-control run had three malformed first responses. Read-only trace audit found JSON mode and examples present, no reported length-limit stop, and malformed content already in recorded transport text. Provider internal cause remains unknown.",
+  "fixed_limits": {
+    "model_calls": 16,
+    "SQL_executions": 0,
+    "tool_executions": 0,
+    "model_call_horizon_seconds": 600,
+    "owned_worker_limit_seconds": 630,
+    "cleanup_additional": true,
+    "client_ceiling_cny": 0.12,
+    "conditional_cost_upper_cny": 0.074448,
+    "reference_input_tokens_total": 4456,
+    "largest_reference_input": 411,
+    "output_cap_per_call": 512,
+    "conservative_micro_cny_per_token": [2,8],
+    "provider_spending_cap_installed": false,
+    "provider_invoice_verified": false,
+    "automatic_retries": false
+  },
+  "pricing": {
+    "url": "https://api-docs.deepseek.com/zh-cn/quick_start/pricing/",
+    "checked": "2026-10-25",
+    "basis": "Peak cache-miss input/output rates; no discounts assumed. Bound is conditional on reference token counts and frozen settings; actual invoice remains authoritative."
+  },
+  "software": {
+    "new_calibration_tests_passed": 14,
+    "combined_tests_passed": 33,
+    "combined_test_modules": ["tests.test_action_encoding_calibration", "tests.test_action_json_interface_regression", "tests.test_deepseek_official_transport", "tests.test_positive_symmetric_launcher"],
+    "scripted_full_batch_and_readout_replay_tested": true,
+    "failure_no_retry_and_no_prefix_effect_tested": true,
+    "raw_output_preservation_and_strict_parser_tested": true,
+    "hidden_key_and_claim_boundaries_tested_with_synthetic_secret": true,
+    "frozen_launcher_verify": "FROZEN_PREFLIGHT_PASSED",
+    "module_sha256": "910376795f7eb98435599a7c4e47f5049fc22f8428cb767c4968eb4999645227",
+    "launcher_sha256": "56bc242db94470cdace3f3e2c9adf2e5626598f6b440e7786b30f86c2a883ccf",
+    "test_sha256": "25768e3e38923693225c0a58fc9b3012bb543eceffb84639223460848b7659bc",
+    "old_environment_blocked_SQLite_integration_test_reclassified_as_pass": false
+  },
+  "decision": "Request one new bounded interface-calibration approval; do not reuse previous positive-control authorization. All-pass results would still require a research-context check, not establish general reliability or a method contribution.",
+  "execution_claim_present": false,
+  "experiment_directory_present": false,
+  "new_paid_calls": 0,
+  "original_results_modified": false,
+  "raw_logs_public": false,
+  "github_remote_sync_verified": false
+}
