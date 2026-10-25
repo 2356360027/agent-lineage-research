@@ -1,0 +1,63 @@
+{
+  "date": "2026-10-25",
+  "status": "SOURCE_BOUND_OFFLINE_DESIGN_AND_SCHEDULE_TESTED_NOT_EXECUTABLE",
+  "previous_turn": "Progress: adapted-task admission and fixed-snapshot SQL/Python agreement completed",
+  "design_module": "runtime/cache_route_symmetric_design.py",
+  "preparer": "scripts/prepare_strength_route_design.py",
+  "tests": "tests/test_cache_route_symmetric_design.py",
+  "private_design": "runtime/runs/strength-route-design-20261025-001",
+  "plan_sha256": "68ccc578404b8d9a35ba93c2c689a74589ae0ecfab04d7efc6becdfac619cacf",
+  "seal_sha256": "731d6bc3808543c24d09ee0c397269c7dff52227ad83f33b9e1d8ab890322191",
+  "scope": {
+    "independent_task_pairs": 1,
+    "dependent_conditions": 4,
+    "factors": {"cache_available": [false, true], "declared_cache_price": [1, 20]},
+    "declared_SQL_price": 10,
+    "common_budget": 60,
+    "cost_units_are_currency": false,
+    "tools_allowed_each_of_first_three_opportunities": ["read_cache", "run_sql"],
+    "generation_4": "Answer or abstain only",
+    "maximum_model_calls": 16,
+    "maximum_tool_attempts": 12,
+    "model_runtime_seconds_proposed": 600
+  },
+  "changes_from_previous_completed_batch": [
+    "Remove the SQL-only third opportunity; the earlier result is not rerun or modified.",
+    "Use price 20 above SQL price 10 rather than old price 8 below SQL. Price 1 remains below SQL.",
+    "Use common nonbinding budget 60 across all four cells. Every three-tool sequence is affordable; after any two attempts a SQL attempt remains affordable.",
+    "Prospective observation cap 1024 instead of 512, equal in all cells; full cache-fit/token certification not yet completed.",
+    "Use exact reviewed shared/history/current text sections. Review instructions, eligibility labels, current reference SQL and gold counts are not packet fields."
+  ],
+  "verification": {
+    "actual_source_bound_four_cells_generated": true,
+    "contrasts_differ_only_in_target_factor": true,
+    "shared_input_edits_rejected_against_bound_common": true,
+    "new_unit_tests_passed": 10,
+    "new_plus_legacy_targeted_regression_tests_passed": 24,
+    "software_tests_not_research_samples": true,
+    "archive_hashes_verified": true,
+    "old_frozen_runners_modified": false,
+    "new_database_queries": 0,
+    "model_calls": 0
+  },
+  "readout": {
+    "primary_descriptive": ["first action", "final-answer status"],
+    "secondary": ["cache reads", "SQL attempts", "declared cost", "actual model usage and latency", "failures and oversize responses"],
+    "all_four_conditions_in_denominator": true,
+    "missing_or_failed_imputed": false,
+    "c_type_demand_reinterpretation_assessed": false,
+    "explanation": "First action precedes tool-result exposure. Later answer differences may be mediated by different acquired observations; they do not isolate internal demand reinterpretation.",
+    "no_old_new_pooling": true,
+    "inferential_statistics": false,
+    "adaptive_resampling": false
+  },
+  "remaining_before_execution": [
+    "Implement new symmetric real tool session and durable loop; old tool class restricts cache prices to 1/8 and old short recovery restricts third action to SQL, so it cannot be relabelled as this protocol.",
+    "Validate full cache observations, context size, token/fee bound, read-only enforcement, malformed/partial failure and replay behavior.",
+    "Verify current official provider model/settings/prices, freeze source/input/scoring and time/budget limits.",
+    "Obtain separate explicit paid-batch authorization and hidden-terminal credential input."
+  ],
+  "paid_execution_authorized": false,
+  "monetary_budget_frozen": false,
+  "novelty": "Interface feasibility design only. Classical cache applicability checks plus recomputation remain the baseline to beat; no new-method advantage established."
+}
