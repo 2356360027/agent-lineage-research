@@ -1,0 +1,63 @@
+{
+  "date": "2026-10-26",
+  "status": "MEASUREMENT_ORIGIN_GUARD_TESTED_BASELINE_REPRODUCTION_PENDING",
+  "previous_goal_turn": "PROGRESS: fixed student_club database acquired, structural audit completed and independent semantic review packet prepared. Human review is still pending, not inferred from data integrity.",
+  "new_fact": "The working mechanical judgment API required ordered contract/program links but had no required contract authorship field. Thus its schema alone did not distinguish an agent-generated task definition from a supplied reference or verifier reconstruction.",
+  "change": {
+    "file": "runtime/cache_intent_judgment.py",
+    "schema": "observable-contract-origin-v2",
+    "required_field": "trace_link.contract_source",
+    "allowed_observed_origin": "evaluated_agent",
+    "allowed_missing_origin": "unobserved",
+    "rejected_as_agent_interpretation": ["supplied reference contract", "verifier SQL back-translation", "human reconstruction", "unspecified origin"],
+    "boundary": "The function validates declared provenance, not actual authorship. Callers still need raw artifact and actor binding. Human assessment of an agent-written contract is allowed; a human-written contract substituted for agent output is not.",
+    "no_migration_default": "Old callers without a source field fail closed; never auto-label old records as agent-generated.",
+    "no_retroactive_result_change": "No frozen source, raw response, semantic label or prior research score was edited. Latest eight-trajectory native batch already reports C_type_drift_assessed=false. No assertion that an old published score was wrong."
+  },
+  "verification": {
+    "command": "python -B -X utf8 -m unittest tests.test_cache_intent_judgment tests.test_cache_intent_review_accounting -q",
+    "tests_passed": 45,
+    "new_tests": 2,
+    "initial_attempt": "35 passed; 10 fixture setup errors due to sandbox temporary-directory permissions. No research execution occurred.",
+    "final_attempt": "Normal local execution permission granted; same 45 tests passed without production or fixture changes after the permission failure.",
+    "test_type": "Synthetic annotation/software tests, not model experiments or human judgments"
+  },
+  "primary_sources": [
+    {
+      "title": "Developing and Benchmarking Verification Algorithms to Improve Text-to-SQL Generation",
+      "url": "https://www.vldb.org/pvldb/vol19/p3732-alrashed.pdf",
+      "status": "PVLDB 19(11), 2026",
+      "scope_read": "Abstract, introduction, sections 3.1-3.3",
+      "facts": "Verification uses the original request, candidate SQL and schema without gold SQL. Discusses fresh-context direct critique, reverse translation and generated-data consistency checks.",
+      "own_inference": "Use these as strong baselines. A verifier-created explanation can assess SQL alignment, but cannot supply the evaluated agent's earlier interpretation for our C-type outcome. Pure cache answers need an auditable derivation/program representation before a SQL-only verifier applies; absence of SQL is a coverage limitation, not proof of novelty.",
+      "artifact": "https://figshare.com/s/c88a751bc29d9751816b",
+      "artifact_status": "Author-linked landing page accessible, shows CC BY 4.0 and a 19.16 MB download. Direct posted download returned HTTP 403. Did not bypass, download via another route, or claim reproduction."
+    },
+    {
+      "title": "Validating LLM-Generated SQL Queries through Metamorphic Prompting",
+      "url": "https://matafeiyanll.github.io/paper/FSE26-MRSQLGen.pdf",
+      "status": "Proceedings of ACM Software Engineering 3, FSE019, 2026",
+      "scope_read": "Abstract, introduction, method overview and artifact statement",
+      "facts": "Rewrites prompts under expected output relations and compares executions; combines multiple relation checks. This is already an intent-violation detection baseline, not a new name for our proposed intervention.",
+      "author_code": "https://github.com/MRSQLGen/MRSQLGen/blob/main/app/bug_detector.py",
+      "code_scope": "README, run_mrsqlgen.py, evaluation_manager.py, bug_detector.py and workflow links; mutable main, not a pinned implementation",
+      "code_observation": "BugDetector includes every checker return in the effective count, but only boolean True contributes a satisfied relation. Caller conditions, empty-list reachability and checker return domains were not verified; do not claim an upstream defect from this alone.",
+      "access_limit": "MR_checker directory link was denied by robots policy; retrieval link did not return usable source. No bypass attempted.",
+      "reproduction_status": "No install, model calls or code execution. License and full source revision not pinned. Public visibility alone is not permission to vendor code."
+    }
+  ],
+  "baseline_adaptation_requirements": [
+    "Original natural-language request and schema must reach the verifier; do not verify only an agent's possibly changed contract.",
+    "Do not count verifier explanations as the generator's pre-action interpretation.",
+    "Track reference/gold data separately from inference inputs; neither our method nor a baseline gets privileged gold contracts.",
+    "Specify cache derivation coverage and ambiguous/missing verifier outputs; do not label an unsupported route automatically wrong or correct.",
+    "Record all verification, transformation, execution, rejection and recomputation costs; coverage and false acceptance/rejection are separate from final correctness.",
+    "Pin and inspect accessible author artifacts before claiming a reproduction; an independently implemented adaptation must be labelled as such."
+  ],
+  "decision": "Keep existing evidence boundaries; finish task review before another paid experimental plan. No method increment or C-type effect established by these engineering tests or literature readings.",
+  "new_model_calls": 0,
+  "new_database_queries": 0,
+  "new_human_reviews": 0,
+  "new_paid_batch_started": false,
+  "github_remote_sync_verified": false
+}

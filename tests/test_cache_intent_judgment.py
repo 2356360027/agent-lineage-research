@@ -37,6 +37,7 @@ def assessment(**changes):
 def link(**changes):
     return {
         "contract_id": "synthetic-contract-1",
+        "contract_source": "unobserved" if changes.get("contract_observation") in ("not_elicited", "missing") else "evaluated_agent",
         "program_id": "synthetic-program-1",
         "program_contract_id": "synthetic-contract-1",
         "contract_event": 2,
@@ -52,6 +53,26 @@ def derive(labels=None, trace=None):
 
 
 class DerivationTests(unittest.TestCase):
+    def test_contract_origin_must_be_explicit_and_agent_generated(self):
+        trace = link()
+        del trace['contract_source']
+        with self.assertRaises(ValueError):
+            derive(trace=trace)
+        for source in ('supplied_reference', 'verifier_backtranslation', 'human_reconstruction',
+                       'unobserved', None, True):
+            with self.subTest(source=source), self.assertRaisesRegex(ValueError, 'source'):
+                derive(assessment(contract_vs_request='contradiction',
+                                  program_vs_request='contradiction'),
+                       link(contract_source=source))
+
+    def test_missing_contract_does_not_gain_an_agent_origin(self):
+        labels = assessment(contract_vs_request='not_observed',program_vs_contract='not_observed',
+                            contract_toward_history='not_observed')
+        trace = link(contract_id=None,contract_event=None,program_contract_id=None,
+                     contract_observation='not_elicited',contract_source='evaluated_agent')
+        with self.assertRaisesRegex(ValueError, 'source'):
+            derive(labels,trace)
+
     def test_aligned_clean_case_is_not_any_failure_or_semantic_approval(self):
         result = derive()
         self.assertEqual(result["eligibility"], "eligible_by_supplied_labels")

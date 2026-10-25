@@ -40,7 +40,7 @@ def _check_link(link, assessment):
     # Events are actual recorded generation/tool turns, not field positions
     # within one model response. Splitting a joint contract/action response
     # into two event numbers cannot establish a forward program relationship.
-    keys = {"contract_id", "program_id", "program_contract_id", "contract_event",
+    keys = {"contract_id", "contract_source", "program_id", "program_contract_id", "contract_event",
             "program_event", "contract_observation", "execution_status"}
     if type(link) is not dict or set(link) != keys:
         raise ValueError("Explicit trace linkage is required")
@@ -58,6 +58,13 @@ def _check_link(link, assessment):
             link["execution_status"] not in {"complete", "error", "timeout", "abstain", "missing", "not_executed"}):
         raise ValueError("Invalid execution status")
     unseen = link["contract_observation"] in {"not_elicited", "missing"}
+    # Temporal order is not authorship. A supplied gold contract, verifier's
+    # SQL back-translation, or reviewer's reconstruction is not the evaluated
+    # agent's own observable task definition. Callers must bind this declared
+    # provenance to raw artifacts; this pure function cannot authenticate it.
+    expected_source = "unobserved" if unseen else "evaluated_agent"
+    if type(link["contract_source"]) is not str or link["contract_source"] != expected_source:
+        raise ValueError("Contract source must be the evaluated agent, or unobserved when absent")
     if unseen:
         if (link["contract_id"] is not None or link["contract_event"] is not None or
                 assessment["contract_vs_request"] != "not_observed"):
@@ -96,6 +103,9 @@ def derive(assessment, *, link):
     current and historical requirements differ. Match on this DB alone cannot
     supply a contract/program label. C does not establish a causal treatment
     effect. Missing contracts cannot be reconstructed from generated SQL.
+    Source is required explicitly: evaluated-agent output, not an input gold
+    contract or a separate verifier's explanation. These supplied source labels
+    are not authenticated here. Observe/verify raw provenance before calling.
     Cache application is judged against the current request for the complete
     actual use, including any supplemental base reads, not the cache in isolation.
     """
@@ -140,6 +150,7 @@ def derive(assessment, *, link):
         indicators[names[6]] = wrong if link["contract_observation"] == "pre_result" else None
         indicators[names[7]] = misuse
     return {
+        "judgment_schema": "observable-contract-origin-v2",
         "annotation_scope": "MECHANICAL_RULES_ONLY_NOT_SEMANTIC_APPROVAL",
         "trace_link": deepcopy(link),
         "eligibility": "eligible_by_supplied_labels" if eligible else
