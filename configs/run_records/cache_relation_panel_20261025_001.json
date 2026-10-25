@@ -1,0 +1,63 @@
+{
+  "date": "2026-10-25",
+  "status": "DEVELOPMENT_RELATION_PANEL_CANDIDATES_NOT_EXECUTION_ADMISSION",
+  "selection_basis": "Previously recorded sufficient-group-selection and information-losing relations; no new pair selected by observed model errors. This is bounded, purposive development selection, not random sampling or a held-out confirmation set.",
+  "source_sha256": "baefe2ca4fbab86c000df72aad9eaa563f7d422e425af2cbff071f656ea4eea8",
+  "source_license": "CC-BY-SA-4.0",
+  "attribution": "Jin, Choi, Zhu and Kang, Arcwise-Plat / uiuc-kang-lab/text_to_sql_benchmarks, commit fe766045c55b6875a43b30e9ac7683df5582f8cf. Pairings, interpretations and synthetic witnesses are researcher constructions.",
+  "candidate_panel": [
+    {
+      "history": "728-complete-groups-researcher-clarification-v1", "current": 733,
+      "database": "superhero", "role": "sufficient-history development control",
+      "admission": "Already admitted only in its separately labelled adapted form; one completed factorial batch",
+      "relation": "Select the matching colour count from a complete grouped result",
+      "classical_baseline": "Group selection with complete-result/equality checks plus fallback",
+      "new_run_status": "No rerun planned; preserve four correct SQL-only outcomes"
+    },
+    {
+      "history": 537, "current": 555, "database": "codebase_community",
+      "role": "candidate count-to-mean insufficient-history control",
+      "admission": "Still pending as explicitly requested by reviewers and user; not promoted by witness",
+      "witness": "One uniquely named user, same two posts and historical count 2; scores [2,4] versus [2,8] give current means 3 and 5",
+      "remaining": "Preserve pending determination. Any future narrowly scoped negative-control protocol needs explicit semantic closure, null/empty/tolerance policy, and no relabelling of added SUM/COUNT(Score) as native history."
+    },
+    {
+      "history": 766, "current": 786, "database": "superhero",
+      "role": "candidate distinct-name-to-ID-count insufficient-history control",
+      "admission": "Not independently human reviewed or admitted",
+      "witness": "Unique Strength attribute, all matching hero IDs present, no NULLs or orphan joins; one versus two max-strength hero IDs share one full name, leaving DISTINCT full_name unchanged while ID count is 1 versus 2",
+      "remaining": "Check full fixed schema constraints and query-name case/evidence consistency; independent human meaning review required before model use. Same database as positive control is not independent-domain replication."
+    }
+  ],
+  "preserved_exclusions": [
+    {"pair": "1473-to-1480", "status": "Excluded from prior batch by both reviewers; not readmitted"},
+    {"pair": "931-to-960", "status": "Type/reference semantics unresolved; not admitted"},
+    {"pair": "744-to-829", "status": "Sign/tie semantics unresolved; not admitted"},
+    {"pair": "94-to-189", "status": "Different district scopes and tie policy; not certified sufficient"}
+  ],
+  "new_evidence": {
+    "kind": "Finite synthetic reference-SQL witnesses, not model behavior",
+    "script": "scripts/check_cache_information_loss.py",
+    "tests": "tests/test_cache_information_loss.py",
+    "test_count_passed": 6,
+    "initial_test_issue": "Five passed; wrong-source test failed while creating a default sandbox temporary file. Test was replaced with a mock of the early hash gate, avoiding filesystem access. No restricted temporary path was accessed again or permissions changed.",
+    "private_archive": "runtime/runs/cache-information-loss-20261025-001",
+    "seal_sha256": "d24bb2f0c5acd9cdeec0724ae69006850364c11b58c2540cc1b37f10e65b223a",
+    "reference_query_executions": 8,
+    "synthetic_databases": 4,
+    "witness_pairs": 2,
+    "real_database_queries": 0,
+    "model_calls": 0,
+    "new_human_reviews": 0,
+    "source_SQL_modified": false,
+    "boundary": "Non-determination on explicit reduced schemas. Full official-schema embedding and real-world frequency are not established; extra database reads can resolve the current task."
+  },
+  "decision": {
+    "mainline_unchanged": true,
+    "panel_ready_for_inference": false,
+    "new_paid_execution_authorized": false,
+    "next_local_step": "Check candidate witnesses against the full fixed-schema constraints before asking for any new task review; retain prior pending/excluded cases without forcing approval.",
+    "method_gate": "The same witnesses motivate classical applicability rejection and recomputation. They do not establish an advantage over that baseline or justify a new method name.",
+    "stopping_boundary": "If no unambiguous insufficient-history tasks can be admitted, stop this panel rather than treating unresolved semantics as model error."
+  }
+}
