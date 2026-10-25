@@ -1,0 +1,61 @@
+{
+  "date": "2026-10-25",
+  "status": "OFFLINE_NATIVE_INTERFACE_CANDIDATE_NOT_LIVE_VALIDATED",
+  "trigger": "research_context_interface_result_20261025_001: original 7/8 admitted, separated 5/8; frozen rule prohibits expanding with the separated candidate",
+  "scope": "Engineering prerequisite only, not a new research method or evidence of intent drift",
+  "implementation": "runtime/native_action_interface.py",
+  "tests": "tests/test_native_action_interface.py",
+  "profile": {
+    "version": "native-action-interface-offline-v1",
+    "proposed_endpoint": "https://api.deepseek.com/beta/chat/completions",
+    "thinking": "disabled",
+    "tool_choice": "required",
+    "strict": true,
+    "functions": ["read_cache", "run_sql", "answer", "abstain"],
+    "single_call_client_enforced": true,
+    "terminal_answer_and_abstain_remain_available": true,
+    "SQL_execution_enabled": false
+  },
+  "official_sources_checked": [
+    {
+      "url": "https://api-docs.deepseek.com/guides/tool_calls/",
+      "finding": "Strict mode requires beta base URL and strict=true on every function. All object fields required and additionalProperties=false; string minLength/maxLength unsupported. Local nonempty validation retained."
+    },
+    {
+      "url": "https://api-docs.deepseek.com/api/create-chat-completion/",
+      "finding": "Required allows one or more calls, not exactly one; required unsupported with thinking. Native responses use tool_calls and string arguments. Client validation remains necessary."
+    }
+  ],
+  "offline_results": {
+    "new_test_methods_passed": 10,
+    "regression_test_methods_passed": 16,
+    "total_test_methods_passed": 26,
+    "test_command": "python -B -X utf8 -m unittest tests.test_native_action_interface tests.test_research_context_interface tests.test_research_context_runner -v",
+    "fixture_only": true,
+    "actual_development_contexts_build_checked": 8,
+    "source_plan_sha256": "f55859a61bbc5bdcb20cf8ea407e8854aafa838b388ab49d4e059569270d5e4f",
+    "source_unchanged": true,
+    "API_calls": 0,
+    "SQL_calls": 0,
+    "training": false
+  },
+  "failure_policy": [
+    "Reject multiple choices/calls, incomplete finish, duplicate keys, trailing or concatenated JSON, unknown function, extra/missing/wrong-type/empty parameters",
+    "Reject separate content or reasoning; no first-call selection, text fallback or string repair",
+    "Format admission does not authorize execution or assess SQL safety, applicability or task correctness",
+    "Keep old text-only transport validator and old result files unchanged",
+    "Native tools change the protocol; do not pool with old text-interface trials or claim behavioral equivalence from reversible prompt conversion"
+  ],
+  "remaining_gates_before_paid_proposal": [
+    "Tools-aware input accounting: existing deepseek_text_counter always adds JSON-output instructions and does not serialize tools; its exact token counts and prior ceilings cannot be reused",
+    "Separately audited official beta transport, native response journaling, timeout and uncertain-billing handling; never bypass legacy transport validation",
+    "Freeze all contexts, failure policy, stopping rule, outputs and maximum resources before requesting batch-specific approval",
+    "Live compatibility and format reliability remain unknown; strict schema cannot establish correct task interpretation",
+    "Apply identical native interface and task information to all methods in any later substantive comparison"
+  ],
+  "next_paid_batch_authorized": false,
+  "secrets_reused": false,
+  "raw_data_public": false,
+  "github_sync_verified": false,
+  "github_blocker": "Previously observed local credential problem; no unchanged push retry or authentication bypass"
+}
