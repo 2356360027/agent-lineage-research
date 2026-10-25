@@ -1,0 +1,92 @@
+{
+  "version": "native-full-development-interpretation-notes-v1",
+  "date": "2026-10-26",
+  "status": "SEPARATE_ANALYSIS_GUIDANCE_NOT_A_CHANGE_TO_FROZEN_EXECUTION",
+  "prepared_manifest_sha256": "d099f838f25962b1b397d60a51e15caee8d53908e7136a3526e3840bf75559ee",
+  "timing": "Written while no execution_claim.json or experiment directory was observed locally; no current-batch outcomes read. Not a registered confirmatory protocol and not part of the already approved execution manifest.",
+  "existing_policy": "Keep the frozen native_full_trajectory_policy_v1 scope. These notes clarify interpretation, do not replace existing scores, grant execution, change prompts, add calls or introduce a new primary efficacy endpoint.",
+  "scientific_identification_audit": [
+    {
+      "fact": "The symmetric input explicitly supplies shared_contract, current_contract and history_contract and states history does not replace the current request.",
+      "supports": "Development assessment of adherence to an explicit reviewed contract and selection of a valid execution route.",
+      "does_not_support": "A clean measurement of initial natural-language intent construction without a supplied contract. Successful performance could reflect the supplied guardrail; failure is not by itself a changed interpretation.",
+      "future_gate": "Any unassisted-intent or contract-first comparison needs a separate approved design with equal underlying task information and explicit acknowledgement that eliciting a contract is an intervention. Do not silently weaken the approved prompt."
+    },
+    {
+      "fact": "Before the first current-run tool result, the planned availability and price contrasts retain the same semantic inputs. After a successful cache read, trajectories can expose different result contents and subsequent observations.",
+      "supports": "First-action descriptive contrasts and total downstream workflow outcomes for this availability intervention.",
+      "does_not_support": "Attributing every final-answer difference exclusively to convenience rather than information exposure or route selection. Do not condition a causal claim on the post-treatment subset that chose read_cache.",
+      "future_gate": "A mechanism claim would need a separately designed matched-exposure or pre-exposure measurement, not retrospective conditioning on tool choices."
+    },
+    {
+      "fact": "There are two already exposed researcher-adapted pairs from one database and four dependent cells per pair, without independent task replication in this batch.",
+      "supports": "Case-level feasibility, interface coverage, and generation of a bounded next decision.",
+      "does_not_support": "Population rates, significance tests, method superiority, eight independent task observations, or a causal effect inferred from one stochastic output per cell."
+    },
+    {
+      "fact": "Read-cache prices are declared relative units (1 or 20), SQL costs 10, and the common budget is 60 for at most three tool attempts.",
+      "supports": "The intended relative-price comparison keeps recomputation feasible within this tool horizon.",
+      "does_not_support": "Actual infrastructure savings in CNY or measured latency. Keep declared tool units, API token accounting, elapsed time and provider invoices separate."
+    }
+  ],
+  "interpretation_ladder": [
+    "A read_cache action is an access decision, not successful reuse or reliance.",
+    "Correct completion after cache exposure is cache-assisted success; independently inspect derivation and later SQL before describing it as legitimate reuse.",
+    "A scalar matching a tempting historical row count is a diagnostic clue only; numerical coincidence does not identify the executed rationale.",
+    "For A or B, require observable evidence of correct target interpretation plus the corresponding wrong reuse or implementation; otherwise retain an unresolved error category.",
+    "C requires an explicit observable wrong task definition and aligned subsequent execution. Neither a wrong query alone nor a wrong final number suffices to separate C from B.",
+    "A spontaneous explanation may support a candidate case, not proof of hidden internal belief or of a causal convenience effect. No post-hoc request for an explanation is part of this batch.",
+    "Any task ambiguity or reference/scorer concern is separately recorded as D or E and adjudicated before asserting a model failure."
+  ],
+  "readout_order": [
+    "Confirm parent/worker terminal state, frozen inputs and all eight planned slots; do not score a running or successful-prefix archive.",
+    "Run the existing frozen loop, tool and shared API-accounting replay. A stopped inventory is not a verified semantic result.",
+    "Keep invalid output, infrastructure failure, not-started and abstention distinct; retain the original denominator and no automatic reruns.",
+    "Bind any scalar reference to its reviewed current query and fixed database before comparison. Keep plain-scalar matching distinct from semantic review of prose or conflicting text.",
+    "Keep pair-level first actions, terminal disposition, all tool exposures, declared units, dispatch counts, token accounting and elapsed times separate.",
+    "For human review, preserve originals, obtain individual judgments before combining them, disclose prior development exposure, and record disagreements rather than calling adjudicated agreement independent unanimity.",
+    "Publish sanitized aggregate findings only after private raw-record backup and integrity checks; do not publish raw prompts, reviewer identities or credentials."
+  ],
+  "decision_branches": {
+    "infrastructure_stop": "Diagnose the specific retained failure. No effect analysis from the completed prefix and no automatic restart.",
+    "valid_correct_recomputation_in_all_cells": "No demonstrated harmful reuse or reuse benefit here. Do not keep tuning these pairs to manufacture the hypothesized effect.",
+    "positive_cache_success_and_strength_correct_recompute": "A useful local capability check, consistent with classical applicability checking plus recomputation. Not a new algorithm result.",
+    "wrong_cache_assisted_output_without_wrong_task_definition": "Candidate reuse/execution error; inspect A/B/unresolved, not automatically C. Compare against a strong applicability-check-and-recompute baseline before method invention.",
+    "observable_wrong_definition_with_aligned_execution": "Candidate C case for independently reviewed, matched-information follow-up on held-out tasks; not confirmation from the two development pairs.",
+    "no_cache_reads": "No responsiveness to the supplied reuse options demonstrated. Report this limitation without changing conditions mid-batch."
+  },
+  "primary_source_boundary_checks": [
+    {
+      "source": "Useful Memories Become Faulty When Continuously Updated by LLMs",
+      "url": "https://arxiv.org/html/2605.12978v2",
+      "checked_date": "2026-10-26",
+      "scope_read_this_turn": "Appendix D.5, lines describing two cross-family memory-transfer cases",
+      "status": "arXiv preprint version 2; reported experiments not independently reproduced here",
+      "finding": "The paper already describes a source-family-appropriate strategy being applied to another family, including replacement of a target selection criterion.",
+      "implication": "Do not claim first discovery of old valid experience redirecting a current task. Our potential distinction would need a controlled convenience intervention with semantic information held fixed."
+    },
+    {
+      "source": "CostBench: Evaluating Multi-Turn Cost-Optimal Planning and Adaptation in Dynamic Environments for LLM Tool-Use Agents",
+      "url": "https://aclanthology.org/2026.acl-long.584/",
+      "checked_date": "2026-10-26",
+      "scope_read_this_turn": "Official abstract and publication metadata, not a new full-paper replication",
+      "status": "ACL 2026 proceedings",
+      "finding": "Evaluates tool-cost-aware planning and adaptation to failures and cost changes in travel tasks.",
+      "implication": "Choosing a cheaper valid route is already an established planning target, not evidence of intent drift or our method novelty."
+    },
+    {
+      "source": "Apache Calcite Materialized Views",
+      "url": "https://calcite.apache.org/docs/materialized_views.html",
+      "checked_date": "2026-10-26",
+      "scope_read_this_turn": "Aggregate rollup, compensation and constraint-based rewriting examples",
+      "status": "Official implementation documentation",
+      "finding": "Established view rewriting supports aggregation rollup and uses declared constraints to preserve tuple multiplicity.",
+      "implication": "Known sufficient-statistic reuse or rejection of lossy projections needs comparison with classical rules, not a new algorithm name."
+    }
+  ],
+  "new_model_calls": 0,
+  "new_research_SQL_executions": 0,
+  "new_human_reviews": 0,
+  "new_empirical_effect_estimates": 0,
+  "new_paid_authority": false
+}
