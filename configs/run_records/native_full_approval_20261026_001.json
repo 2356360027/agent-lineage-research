@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-26",
+  "status": "USER_APPROVED_PENDING_LOCAL_HIDDEN_KEY_EXECUTION",
+  "previous_goal_turn": "PROGRESS: committed frozen launcher, preparation receipt and passing regression tests in c5af0e6",
+  "prepared": "runtime/runs/native-full-prepared-20261026-001",
+  "manifest_sha256": "d099f838f25962b1b397d60a51e15caee8d53908e7136a3526e3840bf75559ee",
+  "authorization": "User explicitly approved this batch and attested current balance of at least 0.70 CNY in this conversation. This is not a provider balance verification.",
+  "approved_ceiling_cny": 0.70,
+  "max_model_calls": 32,
+  "max_readonly_tool_attempts": 24,
+  "call_deadline_seconds": 600,
+  "owned_worker_seconds": 630,
+  "cleanup_additional": true,
+  "automatic_retry": false,
+  "new_batches_authorized": false,
+  "credential_handling": "Hidden prompt in the user's local terminal only; no chat credential reused or saved.",
+  "prelaunch_check": "Frozen verification passed; execution_claim.json and experiment directory absent at check time. No live process is claimed by this record.",
+  "new_model_calls_this_turn": 0,
+  "research_database_queries_this_turn": 0,
+  "github_remote_sync_verified": false
+}
