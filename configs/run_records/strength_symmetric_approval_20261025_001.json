@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-25",
+  "status": "USER_APPROVED_FIXED_BATCH_AWAITING_LOCAL_HIDDEN_KEY_INPUT",
+  "previous_goal_turn_classification": "Progress: executable package frozen and verified, with 164 software tests and local commit ed3cc16.",
+  "prepared": "runtime/runs/strength-symmetric-prepared-20261025-001",
+  "manifest_sha256": "6083e0a39e1cebf9872cd54a3861c9d917b52da8093289e1cd1933044dbc0840",
+  "user_confirmation": "Approved this batch and confirmed available balance at least 0.25 CNY.",
+  "approved_client_ceiling_cny": 0.25,
+  "scope": {
+    "independent_task_pairs": 1,
+    "dependent_conditions": 4,
+    "maximum_model_calls": 16,
+    "maximum_readonly_tool_attempts": 12,
+    "call_horizon_seconds": 600,
+    "owned_worker_limit_seconds": 630,
+    "cleanup_additional": true,
+    "automatic_retry": false,
+    "training": false
+  },
+  "post_approval_check": {
+    "local_time": "2026-10-25T18:59:25+08:00",
+    "frozen_preflight": "PASSED",
+    "execution_claim_exists": false,
+    "experiment_directory_exists": false,
+    "API_calls_started_by_this_turn": 0
+  },
+  "credential_boundary": "User enters a current key via the frozen launcher hidden terminal prompt. No pasted chat key reused, no key in this receipt. This approval note is not an execution claim or proof the worker has started.",
+  "next_action": "Run the exact frozen launch command once in the user's PowerShell. On failure preserve artifacts and inspect; do not rerun. No background monitor has been installed."
+}
