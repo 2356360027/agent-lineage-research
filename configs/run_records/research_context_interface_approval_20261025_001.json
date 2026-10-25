@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-25",
+  "status": "USER_APPROVED_NOT_EXECUTED",
+  "prepared": "runtime/runs/research-context-interface-prepared-20261025-001",
+  "manifest_sha256": "5e2eb2feb716da107c65ee16e7425b751935d4fba8df3ca109df9c4f46a049b7",
+  "approval_source": "Direct human answer to fixed-batch approval question in this chat",
+  "answer": "批准本批，余额至少0.15元",
+  "maximum_calls": 16,
+  "SQL_executions": 0,
+  "tool_executions": 0,
+  "training": false,
+  "call_horizon_seconds": 600,
+  "outer_worker_seconds": 630,
+  "cleanup_additional": true,
+  "client_ceiling_micro_cny": 150000,
+  "conditional_upper_micro_cny": 111216,
+  "balance_statement": "User confirms at least 0.15 CNY; not independently checked",
+  "automatic_retry": false,
+  "credential_handling": "New hidden terminal input only; no old chat credential reused or saved",
+  "preflight": "FROZEN_PREFLIGHT_PASSED after approval; only inputs, source, manifest.json and plan.json present",
+  "new_API_calls": 0,
+  "scope": "First-response interface diagnosis on two exposed development task pairs, not independent semantic confirmation or method evaluation"
+}
