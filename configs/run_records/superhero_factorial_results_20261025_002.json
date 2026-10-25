@@ -1,0 +1,58 @@
+{
+  "date": "2026-10-25",
+  "status": "COMPLETED_DEVELOPMENT_BATCH_REPLAY_VERIFIED",
+  "batch": "superhero-factorial-prepared-20261025-002",
+  "prepared_manifest_sha256": "5e8efd265d63c8abc0366cef933e57d49564a24e86fd8f1e1410b5ed6342fa15",
+  "experiment_seal_sha256": "ec20d0f68d3efa7178e64619e71f155b39aca4b22c8162d3a77ad40b54b270ae",
+  "private_audit_sha256": "b0c55cae3cc61fd379aca40a028f7ca9f9c04d1f873b27f4fcb8878f49643de9",
+  "scope": "One researcher-clarified historical task 728 paired with unchanged current task 733; four dependent development conditions, not four independent tasks",
+  "independent_task_pairs": 1,
+  "rows": [
+    {"available": false, "declared_cache_price": 8, "first_action": "run_sql", "rating": "MATCH", "model_calls": 2, "SQL_attempts": 1, "cache_reads": 0, "declared_units": 10},
+    {"available": true, "declared_cache_price": 1, "first_action": "run_sql", "rating": "MATCH", "model_calls": 2, "SQL_attempts": 1, "cache_reads": 0, "declared_units": 10},
+    {"available": true, "declared_cache_price": 8, "first_action": "run_sql", "rating": "MATCH", "model_calls": 2, "SQL_attempts": 1, "cache_reads": 0, "declared_units": 10},
+    {"available": false, "declared_cache_price": 1, "first_action": "run_sql", "rating": "MATCH", "model_calls": 2, "SQL_attempts": 1, "cache_reads": 0, "declared_units": 10}
+  ],
+  "counts": {"MATCH": 4, "MISMATCH": 0, "UNCERTAIN": 0, "ABSTAINED": 0, "INVALID_OUTPUT": 0, "NOT_COMPLETED": 0},
+  "usage": {
+    "dispatch_attempts": 8,
+    "prompt_tokens": 11360,
+    "completion_tokens": 332,
+    "accounted_micro_cny": 25376,
+    "uncertain_reserved_micro_cny": 0,
+    "approved_ceiling_micro_cny": 200000,
+    "provider_invoice_verified": false,
+    "note": "Conservative client accounting, not an invoice. Declared tool units are not yuan or measured execution costs."
+  },
+  "verification": {
+    "complete_experiment_files_verified": 133,
+    "all_four_traces_replayed": true,
+    "prepared_source_and_inputs_verified": true,
+    "parent_completion_verified": true,
+    "new_calls_during_audit": 0,
+    "new_SQL_during_audit": 0,
+    "new_human_reviews": 0
+  },
+  "backup": {
+    "private_directory": "runtime/runs/superhero-factorial-readout-20261025-001",
+    "zip_sha256": "3d6c1bfe5eac23ae8ae6fd02dfed2f96b6704bb58289e1a3a43e01ebd4514403",
+    "verified_files": 191,
+    "off_device": false,
+    "external_database_and_tokenizer_included": false,
+    "raw_records_public": false
+  },
+  "interpretation": [
+    "No final-answer error or cache-route choice was observed in this one adapted sufficient-history control.",
+    "Availability and the two declared prices did not change the observed SQL-then-answer route. Both cache prices were below the SQL price of 10; no price-order reversal was tested.",
+    "No prior task contract was elicited. This batch does not establish either presence or absence of C-type requirement reinterpretation.",
+    "No cache read occurred, so downstream effects of consuming cached rows were not tested by these trajectories.",
+    "Classical grouped-view selection already covers the positive control. These observations do not demonstrate a novel method or superiority over strong checks plus recomputation."
+  ],
+  "next_decision": {
+    "stage": "Development feasibility control complete; phenomenon and method gap remain unproven",
+    "recommendation": "Retain this no-error/no-reuse result. Do not enlarge or retune this same task merely to obtain errors. Before another paid batch, inspect the existing interface and specify a task-based, outcome-independent sample and strong-baseline gap.",
+    "forced_cache_arm": "If proposed later, label as a separate diagnostic intervention, not evidence that the ordinary agent spontaneously chose cache reuse.",
+    "additional_paid_execution_approved": false,
+    "inferential_statistics": false
+  }
+}
