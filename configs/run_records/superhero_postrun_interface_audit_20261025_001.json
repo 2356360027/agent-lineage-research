@@ -1,0 +1,55 @@
+{
+  "date": "2026-10-25",
+  "status": "POSTHOC_OFFLINE_INTERFACE_INSPECTION_NOT_CAUSAL_EXPLANATION",
+  "batch": "superhero-factorial-prepared-20261025-002",
+  "prepared_manifest_sha256": "5e8efd265d63c8abc0366cef933e57d49564a24e86fd8f1e1410b5ed6342fa15",
+  "previous_turn": "Progress: complete official batch replay, fixed readout and byte-verified local archive; all four cells matched and chose SQL",
+  "observations": [
+    {
+      "check": "Availability, trust and costs actually visible",
+      "source": "experiment/available1-price1/trace/g001.pending.json",
+      "finding": "System explicitly documents complete historical-query results on the same snapshot, read_cache retrieval without SQL, and correctness-first preference for lower declared tool cost. Packet states availability true, cache price 1 and SQL price 10.",
+      "limit": "Visible instructions do not prove that the model understood or optimized them. No reasoning trace or prior contract was requested."
+    },
+    {
+      "check": "Route asymmetry",
+      "source": "source/runtime/cache_action_horizon.py; source/runtime/cache_action_factorial_loop.py",
+      "finding": "Two exploration attempts admit either tool; a third recovery attempt permits only SQL. All observed traces stop after the first SQL attempt and second generation, before recovery.",
+      "limit": "The recovery restriction did not directly reject any observed cache call. Its advance announcement might affect planning, so the design is not a fully route-symmetric interface. This is a hypothesis, not an established cause."
+    },
+    {
+      "check": "Would the cached result fit the observation interface?",
+      "method": "Verified frozen launcher inputs and tokenizer; constructed the exact first-call response fields used by ToolSession for a successful available cache read from PRIVATE_cache.json, then applied frozen ObservationBound(counter.chat). No actual tool call, SQL or model request.",
+      "constructor": "dict(status='EXECUTED', complete=True, charged_units=price, remaining_budget=30-price, attempt=1, columns=cache['columns'], rows=cache['rows'])",
+      "results": [
+        {"price": 1, "raw_framed_tokens": 484, "exposed_framed_tokens": 484, "limit": 512, "complete": true, "exposed_rows": 19},
+        {"price": 8, "raw_framed_tokens": 484, "exposed_framed_tokens": 484, "limit": 512, "complete": true, "exposed_rows": 19}
+      ],
+      "limit": "This is a deterministic constructed-observation check. The model did not select this route, and no counterfactual model answer was generated."
+    }
+  ],
+  "strong_baseline_gap": {
+    "accuracy": "None observed in this task: ordinary direct SQL solved every condition.",
+    "declared_tool_cost": "A cache selection route could use 1 or 8 units rather than the observed 10; this is a nominal route opportunity, not measured end-to-end method savings.",
+    "classical_coverage": "Selecting the Gold group from a complete compatible grouped count is already a relational reuse operation. No novel algorithmic increment established; no exact Calcite implementation test claimed.",
+    "unresolved": "Does any method improve correctness and total cost over strong applicability checking plus fallback on outcome-independently admitted tasks? This batch cannot answer that."
+  },
+  "decision": {
+    "do_not": [
+      "Label non-use as demand reinterpretation or evidence of an internal motive",
+      "Force cache exposure and call it spontaneous ordinary-workflow reuse",
+      "Select new tasks by whether this model produces the desired error",
+      "Change the frozen completed batch or silently relabel a later prompt as replication",
+      "Claim that nominal savings of 2 or 9 tool units exceed validation, model and cache-maintenance costs"
+    ],
+    "next_gate": "Before proposing another paid batch, define a small fixed panel by task relationships, including sufficient and correct-but-insufficient histories; require semantic admission and fixed snapshot checks independent of model outcomes. Keep this pair as development only.",
+    "measurement": "Ordinary-route errors and savings are descriptive behavior endpoints. Any temporally prior contract diagnostic must be separately labelled and cannot be pooled as ordinary behavior or an internal-state measurement.",
+    "method_gate": "Compare classical applicability checks plus recomputation before adding algorithm components. If they cover the errors or all routes remain correct, report that boundary rather than expanding this pair until a positive result appears.",
+    "additional_paid_batch_authorized": false
+  },
+  "new_model_calls": 0,
+  "new_SQL_executions": 0,
+  "new_human_reviews": 0,
+  "frozen_batch_modified": false,
+  "research_direction_changed": false
+}
