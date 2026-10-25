@@ -44,7 +44,7 @@
     "pair": [766, 786],
     "excludes": "No SQL, numerical reference answers, model outputs or researcher witness results in forms",
     "order": "Task meaning first, relationship second; self-administered order, not enforced blinding",
-    "privacy": "Blank forms public; completed personal answers not automatically authorized for publication",
+    "privacy": "Blank forms contain attributed public excerpts and researcher questions, but remain local under the existing reports ignore rule; not force-added to Git. Completed personal answers are not automatically authorized for publication.",
     "prior_555": "Pending conclusion retained; no repeated demand for approval",
     "paid_execution_authorized": false
   }
