@@ -1,0 +1,60 @@
+{
+  "date": "2026-10-25",
+  "status": "OFFLINE_NATIVE_REFERENCE_COUNTER_IMPLEMENTED",
+  "previous_goal_turn": "PROGRESS: committed offline native action schemas and fail-closed parser at 67cc4a6",
+  "current_stage": "Interface prerequisite before resuming development experiments; no method advantage or intent-drift evidence added",
+  "implementation": "runtime/native_action_counter.py",
+  "audit_script": "scripts/audit_native_action_counts.py",
+  "reference_fetch_script": "scripts/fetch_native_counter_reference.py",
+  "recipe_revision": "935817c66f5d6e64838f419692545f06787e485f",
+  "source_reference_directory": "runtime/runs/native-counter-reference-20261025-002",
+  "license": "MIT, copyright 2026 DeepSeek; LICENSE retained with all seven downloaded source references",
+  "source_execution": false,
+  "reference_rules_checked": [
+    "dsv41.rs adds tool instructions and schemas to first system message",
+    "Required choice appends a DSML calls-block prefix after the assistant marker",
+    "mod.rs serializes name/description/parameters, excluding strict from prompt schema text",
+    "Cargo.toml enables preserve_order; json.rs uses spaced separators and unescaped non-ASCII",
+    "This counter only accepts the fixed first system/user request profile; rejects tools/schema changes and literal reserved spellings"
+  ],
+  "audit_directory": "runtime/runs/native-action-count-audit-20261025-001",
+  "audit_sha256": "ce1c49178a5bc1a310fb026902b4137f39d7d1180ccf4dda80fcd18afb510ec5",
+  "artifact_hashes_sha256": "f07744fa0b5c8b4a30d0a0762581a41dc78141447647884e86a07a2989d9d7ed",
+  "all_eight_source_contexts_used": true,
+  "source_plan_sha256": "f55859a61bbc5bdcb20cf8ea407e8854aafa838b388ab49d4e059569270d5e4f",
+  "source_unchanged": true,
+  "counts": {
+    "positive_each_of_four_reference_input_tokens": 1607,
+    "strength_each_of_four_reference_input_tokens": 2012,
+    "total_reference_input_tokens": 14476,
+    "maximum_reference_input_tokens": 2012,
+    "eight_call_requested_output_ceiling": 4096
+  },
+  "tests": {
+    "command": "python -B -X utf8 -m unittest tests.test_native_action_counter tests.test_native_action_interface tests.test_deepseek_token_counts tests.test_research_context_interface tests.test_research_context_runner -q",
+    "passed": 38,
+    "new_counter_tests": 6,
+    "fixtures_not_model_observations": true,
+    "initial_test_failure": "One source-tampering fixture failed to write into sandbox temporary storage. Changed this unit fixture to mock invalid file bytes; rerun passed. Actual reference source files were separately read and hash-verified during the eight-context count."
+  },
+  "download_failure_retained": "native-counter-reference-20261025-001 records sandbox socket permission failure. Explicit sandbox escalation approved public-text fetch into separate -002 directory; no authentication bypass or model call.",
+  "limitations": [
+    "Counts follow manually inspected pinned reference rules; upstream Rust executable parity not run",
+    "Hosted beta strict-mode prompt, grammar overhead and tokenizer identity not verified",
+    "Reference input count is not a provider spending cap; no price ceiling claimed in this record",
+    "Not a full-trajectory counter and not proof of valid model responses",
+    "Prior invalid responses remain unchanged, not reparsed or repaired"
+  ],
+  "next_steps": [
+    "Implement separately versioned beta transport and auditable raw native-response records without weakening the legacy text transport",
+    "Test timeout, incomplete usage, uncertain billing reserve and fail-closed native parsing with injected fixtures",
+    "Freeze a small first-response compatibility design and obtain separate paid-batch approval before any real dispatch",
+    "If observed token counts disagree with the reference, preserve the response, stop and retain uncertainty rather than silently adding an empirical offset"
+  ],
+  "new_API_calls": 0,
+  "SQL_calls": 0,
+  "new_paid_batch_authorized": false,
+  "secrets_reused": false,
+  "raw_data_public": false,
+  "github_sync_verified": false
+}
