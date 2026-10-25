@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-26",
+  "status": "OFFLINE_LOOP_AND_TOOL_REPLAY_VERIFIED",
+  "previous_goal_turn": "PROGRESS: verified commit 6ce9433 containing separate bounded native multi-turn transport",
+  "implementation": "runtime/native_trajectory_replay.py",
+  "implementation_sha256": "42a003475a1235586f502049c5de3ef80b54b534df6f29ad15874eb5a656eb2d",
+  "tests": "tests/test_native_trajectory_replay.py",
+  "tests_sha256": "d6fcc2f86ee875526f42cd2ee2283ecaba0d6512d6904bf4ebc16a45874f03ac",
+  "new_tests_passed": 13,
+  "combined_tests_passed": 88,
+  "test_command": "python -B -X utf8 -m unittest tests.test_native_trajectory_replay tests.test_native_symmetric_loop tests.test_native_trajectory_transport tests.test_native_transport_adapter tests.test_native_trajectory_adapter tests.test_native_action_history tests.test_native_trajectory_counter -q",
+  "test_execution": "Approved normal-local permissions because sandbox temp directories previously prevented SQLite setup. Disposable synthetic one-row databases and scripted model responses only.",
+  "verified": [
+    "All four symmetric availability/price cells, including fourth-call horizon violation",
+    "Request histories, raw-output decisions, exact call IDs and bounded tool exposures recomputed",
+    "Cross-layer pending/completed tool requests, observations, cached contents and charges matched",
+    "External manifest hash, exact inventory and three frozen source fingerprints required",
+    "Malformed model output remains an observed invalid response; never repaired",
+    "Incomplete, failed or invalid-environment traces cannot receive a completed replay status",
+    "Tampered response, exposure, call ID, charge, backend data, seal, source or extra terminal calls rejected",
+    "Read-only DELETE denial retained; replay succeeds after its disposable database is removed and performs no SQL"
+  ],
+  "new_API_calls": 0,
+  "new_paid_cost": 0,
+  "research_database_queries": 0,
+  "synthetic_fixture_database_queries": true,
+  "replay_database_queries": 0,
+  "scientific_effect_estimated": false,
+  "semantic_correctness_assessed": false,
+  "provider_accounting_replay_covered": false,
+  "failed_trace_reconstruction_attempted": false,
+  "scope_warning": "Completed loop/tool trace consistency, not proof of authenticity or semantic correctness. Failed traces are retained as incomplete, not promoted to success. A trusted externally bound seal is required; self-generated hashes alone are insufficient.",
+  "remaining_gates": [
+    "Integrate per-API accounting/transport journal audit and complete outer manifest verification",
+    "Conservative current-rate horizon/batch fee admission",
+    "Frozen source/data/input launcher and owned hard worker timeout",
+    "Fresh fixed-batch approval and hidden local credential entry before paid execution",
+    "Full-trajectory semantic review before causal or method claims"
+  ],
+  "old_runs_modified": false,
+  "github_remote_sync_verified": false
+}
