@@ -231,7 +231,7 @@ not be smuggled into this map and silently ignored.
             equal(private, {}, 'Rejected tool private contents')
             equal(observation, dict(status=tool_pending['admission'], complete=False,
                 charged_units=0, remaining_budget=after['remaining_budget'], attempt=attempts), 'Rejected response')
-        exposure = observation_bound.apply(observation)
+        exposure = json.loads(encoded(observation_bound.apply(json.loads(encoded(observation)))))
         equal(take(f't{attempts:03d}.exposure'), exposure, 'Recomputed bounded exposure')
         history.observe(decision['call_id'], serialize(exposure['observation']))
         state = after

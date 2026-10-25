@@ -1,0 +1,47 @@
+{
+  "date": "2026-10-26",
+  "status": "OFFLINE_FIXED_EIGHT_CELL_BATCH_AND_ARCHIVE_REPLAY_PASSED",
+  "previous_goal_turn": "PROGRESS: verified 9da83ce API accounting/canonical schema commit before adding batch integration",
+  "implementation_hashes": {
+    "runtime/native_symmetric_batch.py": "a6fb4f2f8b8f4f0c4be4a5fe7f5d9bcf8a6e6c1bdb4c47d7e7fdd696dce04aa9",
+    "runtime/native_symmetric_batch_audit.py": "242e5b47bcee976abcd8a0b7031ca4095ef6ac5f243a3f6244da9a2a2bceb06a",
+    "tests/test_native_symmetric_batch.py": "5b5b8bb757ca6b7aeab386402e84f48d214152db43c7500b0df206ef765c4f2e",
+    "runtime/native_symmetric_loop.py": "efa3936b6e97fedc1170adc89180361be33d95c72649c39d9af73a0d314fbcbc",
+    "runtime/native_trajectory_replay.py": "5505f0ea087673df990cd6c21b2e068fb3af43608f7f80bcfd5d772675a45bd4"
+  },
+  "new_tests_passed": 10,
+  "combined_tests_passed": 106,
+  "test_command": "python -B -X utf8 -m unittest tests.test_native_symmetric_batch tests.test_native_accounting_replay tests.test_native_trajectory_replay tests.test_native_symmetric_loop tests.test_native_trajectory_transport tests.test_native_transport_adapter tests.test_native_trajectory_adapter tests.test_native_action_history tests.test_native_trajectory_counter -q",
+  "initial_failure_retained": {
+    "initial_test_count": 8,
+    "passed": 7,
+    "errors": 1,
+    "failed_check": "Full batch roundtrip after on-disk journal reload",
+    "cause": "Tool observations were serialized to next-turn strings in insertion order, while journal reload sorted their keys. Prior in-memory fixture replay did not expose this mismatch.",
+    "fix": "Canonicalize raw observations before the observation token bound and canonicalize exposed observations before next-turn serialization in both execution and replay.",
+    "loop_version": "native-symmetric-loop-v3-canonical-wire-observation",
+    "live_model_runs_affected": 0,
+    "old_experiment_records_modified": false
+  },
+  "coverage": [
+    "Two explicitly named development families, all four availability/price cells each, deterministic frozen ordering",
+    "One batch-wide 32-call cost guard; maximum 24 tool attempts",
+    "Exact source/common/cache fingerprint binding; reject deleted cells or changed inputs before output creation",
+    "Actual read-only SELECT on disposable SQLite and cached fixture reads; database hash unchanged",
+    "24 scripted responses across eight three-response fixture trajectories, followed by sealed full replay without database access",
+    "Timeout/count mismatch stops the batch, preserves failure and seven not-started slots",
+    "Observed malformed actions retained across all eight cells without automatic retry",
+    "Transport uncertainty keeps reservation; existing output cannot resume",
+    "Whole archive, nested journals, copied tool sources, loop/tool replay and API accounting cross-checked",
+    "Even after synthetic archive rehashing, false cost totals and hidden unstarted slots are rejected"
+  ],
+  "new_API_calls": 0,
+  "new_paid_cost": 0,
+  "research_database_queries": 0,
+  "disposable_synthetic_database_queries": true,
+  "scripted_response_counts_are_not_model_experiments": true,
+  "scientific_effect_estimated": false,
+  "provider_invoice_verified": false,
+  "remaining_gate": "Frozen launcher must bind the actual reviewed inputs and database, source/dependencies, tokenizer reference, date/current prices and user approval. Test its verification/worker ownership and prepare a new private batch before requesting fresh paid execution.",
+  "github_remote_sync_verified": false
+}

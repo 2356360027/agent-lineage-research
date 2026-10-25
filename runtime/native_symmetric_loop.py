@@ -17,7 +17,7 @@ from runtime.cache_route_symmetric_loop import initial_state, ObservationBound
 from runtime.native_action_interface import build_candidate
 from runtime.native_action_history import NativeHistory
 
-VERSION='native-symmetric-loop-v2-canonical-wire'
+VERSION='native-symmetric-loop-v3-canonical-wire-observation'
 
 
 def run(envelope, trusted_common, session, generate, save, observation_bound, *,
@@ -89,7 +89,10 @@ def run(envelope, trusted_common, session, generate, save, observation_bound, *,
                 if observation.get('status')!='CACHE_UNAVAILABLE' or any(k in observation for k in ('rows','columns')):
                     raise ValueError('Unavailable cache leaked rows')
             expected=deepcopy(after)
-            exposure=observation_bound.apply(observation)
+            # Tool observations become a JSON string in the next message.
+            # Canonicalize before counting AND after the bound policy so disk
+            # reload reproduces the exact string, not only an equal mapping.
+            exposure=json.loads(encoded(observation_bound.apply(json.loads(encoded(observation)))))
             save(f't{attempts:03d}.exposure',exposure)
             history.observe(decision['call_id'],serialize(exposure['observation']))
         raise AssertionError('Unreachable')
