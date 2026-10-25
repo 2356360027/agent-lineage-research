@@ -1,0 +1,38 @@
+{
+  "date":"2026-10-26",
+  "status":"OFFLINE_NATIVE_LOOP_READONLY_SESSION_INTEGRATION_PASSED",
+  "previous_goal_turn":"PROGRESS: fb4023e added accounting adapter and corrected unlaunched history to the current symmetric protocol",
+  "code":"runtime/native_symmetric_loop.py",
+  "tests":"tests/test_native_symmetric_loop.py",
+  "new_integration_tests":11,
+  "combined_regression_tests_passed":122,
+  "test_environment":"Disposable synthetic SQLite database with one integer row; deterministic scripted native responses and synthetic accounting usage. No research database, API, model, secrets or network.",
+  "initial_test_failure":{
+    "cause":"Sandbox temporary-directory permissions prevented sqlite3.connect during setup; cleanup also reported WinError 5.",
+    "attempted_total_tests":120,
+    "affected_integration_tests":9,
+    "reported_errors_including_cleanup":18,
+    "research_records_modified":false,
+    "resolution":"Normal-local-permission execution requested through approval mechanism; original 9 integration tests passed. Two composition tests then added; complete 122-test suite passed under approved normal-local execution."
+  },
+  "verified_integration":[
+    "Four source-bound availability/price cells; read-cache, actual SELECT, third cache opportunity, final answer",
+    "Three symmetric tool opportunities; fourth tool proposal never dispatched",
+    "Native assistant/tool call-ID binding and complete raw-response journaling",
+    "Actual DELETE proposal rejected by existing read-only worker; database SHA unchanged",
+    "Missing cache exposes no rows; availability and relative-price charging preserved",
+    "Duplicate native calls, initial-state mismatch, pending-write failure and late response prevent tool dispatch",
+    "No journal resumption; session closure and all artifact hashes verified",
+    "Guarded adapter plus actual SELECT composed successfully with scripted provider",
+    "Provider usage mismatch recorded and accounted, then stopped before proposed SQL"
+  ],
+  "new_API_calls":0,
+  "new_paid_cost":0,
+  "research_database_queries":0,
+  "synthetic_database_queries":true,
+  "model_performance_evidence":false,
+  "C_type_drift_assessed":false,
+  "old_frozen_runs_modified":false,
+  "remaining_gate":"Explicit native multi-turn HTTP transport profile, conservative input/output and whole-batch fee admission, source/database-pinned launcher and offline replay verifier are still required before a separately approved live batch. Caller must always close and verify ToolSession; callback deadlines alone are not hard process timeouts.",
+  "github_remote_sync_verified":false
+}
