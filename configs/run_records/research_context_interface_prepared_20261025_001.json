@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-25",
+  "status": "PREPARED_NOT_AUTHORIZED",
+  "previous_goal_turn": "Progress: built and tested private all-context paired draft without model calls.",
+  "prepared": "runtime/runs/research-context-interface-prepared-20261025-001",
+  "manifest_sha256": "5e2eb2feb716da107c65ee16e7425b751935d4fba8df3ca109df9c4f46a049b7",
+  "plan_file_sha256": "f55859a61bbc5bdcb20cf8ea407e8854aafa838b388ab49d4e059569270d5e4f",
+  "policy_sha256": "5d0a111bfadd04013ac985c2233de7216391fe041b956170fd7cd7b5296b79a1",
+  "input_seal_sha256": "3963380f6fbab47d4fee8a6144d0a62f3f8dfbebc68b40fd62960018d36a2c47",
+  "scope": "Two already-used development task pairs, all eight original availability/price contexts, paired original versus separated format instructions. First-action formatting only, not semantic task grading or method evaluation.",
+  "maximum_calls": 16,
+  "SQL_calls": 0,
+  "tool_executions": 0,
+  "training": false,
+  "input_tokens_total": 22840,
+  "input_tokens_max": 1663,
+  "output_tokens_per_call_cap": 512,
+  "call_horizon_seconds": 600,
+  "outer_worker_seconds": 630,
+  "cleanup_additional": true,
+  "client_ceiling_micro_cny": 150000,
+  "conditional_cost_micro_cny": 111216,
+  "pricing": {
+    "checked_date": "2026-10-25",
+    "source": "https://api-docs.deepseek.com/zh-cn/quick_start/pricing/",
+    "rates_micro_cny_per_token": [2, 8],
+    "basis": "Peak cache-miss input/output rates; no time-of-day or cache discount assumed. Client conditional bound, not verified official invoice or provider-enforced cap."
+  },
+  "failure_policy": "Retain malformed outputs without repair; stop on infrastructure, timing, budget or provenance validation failure; preserve uncertain billing reserve, never retry or silently replace slots.",
+  "local_validation": {
+    "frozen_preflight": "FROZEN_PREFLIGHT_PASSED",
+    "tests_passed": 34,
+    "modules": ["tests.test_action_encoding_calibration", "tests.test_action_json_interface_regression", "tests.test_research_context_interface", "tests.test_research_context_runner"],
+    "scope": "Injected fixtures validate exact pairing, strict admission, full-slot accounting, no SQL, malformed continuation, timeout/late-response preservation, no retries, budget consistency, secret-free journals, approval/date/claim rejection and full successful audit replay. Not a real provider reliability test."
+  },
+  "API_calls_this_turn": 0,
+  "paid_approval": false,
+  "human_reviews_added": 0,
+  "raw_inputs_public": false,
+  "remote_git_sync_verified": false,
+  "remaining_goal_gap": "No established C-type drift or improvement beyond strong baselines. Interface calibration is an operational prerequisite, not the research contribution."
+}
