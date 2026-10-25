@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-25",
+  "status": "TWO_SUBMITTED_SUPPORTIVE_REVIEWS_PROVENANCE_AND_TIME_PENDING",
+  "draft": "reports/cache_relation_review_20261025/CLARIFIED_PAIR_REVIEW_V1.txt",
+  "draft_sha256": "3172efd672168824195ac05d62e07a97c2f0b2cfafaf8f5b7953f63372f015d5",
+  "variants": ["766-distinct-names-clarification-v1", "786-entity-count-clarification-v1"],
+  "private_excerpts": "runtime/runs/strength-clarified-review-intake-20261025-001/submission-excerpts.json",
+  "source_scope": "New user chat submission, not the earlier original-pair review confirmed in cache_relation_review_confirmation_20261025_001.json",
+  "submitted_opinions": {
+    "count": 2,
+    "both_support_adapted_readonly_checks": true,
+    "reviewer_1": "Support with adapted-label and equal-contract-disclosure requirements; asks about maximum scope",
+    "reviewer_2": "Support with numeric-type/non-null-ID verification and equal-contract-disclosure requirements"
+  },
+  "unresolved_provenance": {
+    "reviewer_1": "Submission explicitly describes model-generated structured draft followed by reviewer confirmation. Cannot silently classify as human-judgment-first formatting-only.",
+    "reviewer_2": "Submission describes independent judgments with model formatting; introductory text also describes generated independent perspectives, so actual process needs scope-specific confirmation.",
+    "prior_confirmation": "Applies to original-pair review only; do not revoke or repeatedly re-question that resolved record",
+    "independent_human_reviews_certified_this_intake": 0,
+    "dates": "Submitted times are 2026-10-25 02:55 and 03:00 without timezone; local draft creation/delivery record is later that day (file CreationTime and LastWriteTime 17:51:43). Ask actual review dates/times/timezone or acknowledge template times. File timestamps alone do not prove authorship or misconduct."
+  },
+  "technical_condition_audit": [
+    {
+      "condition": "Numeric values and non-null primary key",
+      "evidence": "strength_snapshot_audit_20261025_001.json and archived schema.json/value_types.json",
+      "finding": "superhero.id is INTEGER NOT NULL PRIMARY KEY; attribute_value is declared INTEGER and all 623 matched Strength values have integer runtime type in the fixed snapshot.",
+      "limit": "Not a guarantee about future database values or all possible SQLite inputs; no new query executed."
+    },
+    {
+      "condition": "Maximum population",
+      "finding": "Draft explicitly takes maximum over all matching non-NULL Strength attribute records, then selects heroes having a qualifying association. Do not silently restrict maximum to rows successfully joined to superhero.",
+      "schema_caution": "hero_attribute.hero_id is nullable. A declared foreign key alone does not establish that every attribute record is associated with a non-null existing hero. The claimed general equivalence under foreign keys is not accepted as proof.",
+      "followup": "Future exact-semantics validation must cover nullable association IDs, along with empty/all-null values and duplicate associations. This is an implementation check, not silent task amendment."
+    },
+    {
+      "condition": "Adaptation and fair information",
+      "finding": "Both variants must remain researcher clarifications. No inference that DISTINCT was uniquely implied by original 766. Same clarified demand/history contracts across conditions; no admission labels or gold counts in agent inputs.",
+      "limit": "A future invalid reuse is not automatically prior demand reinterpretation. Cache insufficiency is not universal inability to answer every instance, nor proof of advantage over checks plus recomputation."
+    }
+  ],
+  "decision": {
+    "original_pair": "Pending unchanged",
+    "adapted_pair_admitted": false,
+    "paid_execution_authorized": false,
+    "next_step": "Clarify this submission's actual human/model workflow and actual review timestamps. Preserve model-assisted drafts honestly if that is the true process; do not convert them into independent human-first evidence by relabelling."
+  },
+  "work_counts": {"new_model_calls": 0, "new_database_queries": 0, "new_model_samples": 0, "formal_tasks_admitted": 0}
+}
