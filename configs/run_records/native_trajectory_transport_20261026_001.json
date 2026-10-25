@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-26",
+  "status": "OFFLINE_NATIVE_MULTI_TURN_TRANSPORT_VERIFIED",
+  "previous_goal_turn": "PROGRESS: commit fa1ae42 implements injected native loop and read-only session integration; current turn verified its presence before extending transport",
+  "purpose": "Remove a concrete transport incompatibility before prospectively observing complete trajectories; not a research method or evidence of intent drift",
+  "profile": "native-symmetric-trajectory-transport-v1",
+  "implementation": "runtime/deepseek_native_trajectory_transport.py",
+  "implementation_sha256": "b952c6c459e38d3179085ef847c8978e00a90b80d74ba4bbc14f61abafa7456e",
+  "tests": "tests/test_native_trajectory_transport.py",
+  "tests_sha256": "7057b7feb5a65988d9d9278de3e482d1eaae47ae32a7397772c45e853aef6375",
+  "test_command": "python -B -X utf8 -m unittest tests.test_native_trajectory_transport tests.test_native_transport_adapter tests.test_native_trajectory_adapter tests.test_native_action_history tests.test_native_trajectory_counter -q",
+  "new_tests_passed": 13,
+  "combined_tests_passed": 64,
+  "covered": [
+    "All four source-bound symmetric native request histories accepted without mutation",
+    "Historical first-response encoder still rejects multi-turn histories",
+    "Invalid profile, settings, roles, bindings and timeouts rejected before opener creation",
+    "Fixed official endpoint, no environment proxy, redirects refused, bounded response reads",
+    "Credential only in worker stdin and Authorization header; redacted before journaling",
+    "HTTP, timeout, encoding and oversized-response errors retain uncertain billing classification",
+    "Maximum four attempts per transport; failure or journal failure prevents retry",
+    "Injected two-response composition through history, accounting adapter, native transport and HTTP construction; process creation and network mocked"
+  ],
+  "new_API_calls": 0,
+  "new_paid_cost": 0,
+  "research_database_queries": 0,
+  "new_model_performance_evidence": false,
+  "provider_multi_turn_token_parity_verified": false,
+  "synthetic_composition_accounted_micro_cny": 720,
+  "synthetic_accounting_is_not_actual_charge": true,
+  "old_frozen_runs_modified": false,
+  "github_remote_sync_verified": false,
+  "remaining_gates": [
+    "Offline full journal replay verifier including tool/session closure and failure paths",
+    "Conservative whole-horizon and whole-batch admission with current official rates",
+    "Frozen source/database/input-bound launcher with owned hard worker timeout",
+    "Fresh user approval and hidden credential entry for prospective paid batch",
+    "Full final-output semantic assessment; first-action and format scores do not establish C-type intent drift"
+  ]
+}
