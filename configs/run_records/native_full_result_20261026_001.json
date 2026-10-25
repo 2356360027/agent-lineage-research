@@ -1,0 +1,78 @@
+{
+  "date": "2026-10-26",
+  "status": "COMPLETE_NATIVE_DEVELOPMENT_BATCH_AUDITED_AND_BACKED_UP",
+  "prepared": "runtime/runs/native-full-prepared-20261026-001",
+  "prepared_manifest_sha256": "d099f838f25962b1b397d60a51e15caee8d53908e7136a3526e3840bf75559ee",
+  "experiment_archive_manifest_sha256": "36af7956ca1328c0617cea3b7791df6a62ba46f34ec6d4d8dc4dce024a82d490",
+  "audit_sha256": "d515f4bc7ae16cda2b60f922099fea9985483f2832c03a9890f1d888bdfdf3ac",
+  "audit_status": "SEALED_NATIVE_BATCH_REPLAY_VERIFIED",
+  "scope": "Two previously exposed researcher-adapted development pairs from one fixed database; four dependent availability-by-price cells each. No independent confirmation or algorithm comparison.",
+  "completed_trajectories": 8,
+  "model_dispatches": 19,
+  "planned_max_dispatches": 32,
+  "all_final_statuses": "ANSWERED",
+  "scalar_matches_bound_reference": 8,
+  "scalar_mismatches": 0,
+  "unresolved_scalar_formats": 0,
+  "failed_or_unstarted_trajectories": 0,
+  "new_human_reviews": 0,
+  "tool_attempts": 11,
+  "SQL_executions": 8,
+  "cache_read_attempts": 3,
+  "cache_unavailable_responses": 2,
+  "complete_cache_exposures": 1,
+  "total_declared_tool_units": 100,
+  "cells": [
+    {"family":"positive","available":false,"read_cost":1,"route":["cache_unavailable","SQL","answer"],"reference_match":true,"declared_units":10},
+    {"family":"positive","available":false,"read_cost":20,"route":["SQL","answer"],"reference_match":true,"declared_units":10},
+    {"family":"positive","available":true,"read_cost":1,"route":["SQL","answer"],"reference_match":true,"declared_units":10},
+    {"family":"positive","available":true,"read_cost":20,"route":["SQL","answer"],"reference_match":true,"declared_units":10},
+    {"family":"strength","available":false,"read_cost":1,"route":["SQL","answer"],"reference_match":true,"declared_units":10},
+    {"family":"strength","available":false,"read_cost":20,"route":["cache_unavailable","SQL","answer"],"reference_match":true,"declared_units":10},
+    {"family":"strength","available":true,"read_cost":1,"route":["SQL","answer"],"reference_match":true,"declared_units":10},
+    {"family":"strength","available":true,"read_cost":20,"route":["cache_exposed","SQL","answer"],"reference_match":true,"declared_units":30}
+  ],
+  "cost": {
+    "reported_prompt_tokens":37493,
+    "reported_completion_tokens":1190,
+    "client_accounted_micro_cny":84506,
+    "uncertain_reserved_micro_cny":0,
+    "approved_ceiling_micro_cny":700000,
+    "provider_invoice_verified":false,
+    "provider_cap_installed":false,
+    "declared_tool_units_are_not_CNY":true
+  },
+  "findings": [
+    "All eight trajectories recomputed via SQL; no avoided SQL execution or valid-cache reuse savings were demonstrated.",
+    "The strength expensive-available cell read the lossy distinct-name cache, then used COUNT(DISTINCT id) with EXISTS and the stated global Strength maximum. It did not substitute the name-list row count for the entity count.",
+    "The positive cheap-available cell also chose SQL despite a reviewed sufficient cache. This is a local missed reuse opportunity, not evidence of intent drift or an original optimization problem.",
+    "Two attempts requested a cache explicitly marked unavailable. Their unavailable observations were retained, no rows exposed and no declared units charged; model calls and consumed tool opportunities were still counted.",
+    "The narrow native envelope repair and full tool loop worked in this batch, including observed multi-turn reference/provider token-count agreement. This is bounded interface evidence, not a guarantee across payloads/models."
+  ],
+  "interpretation": {
+    "C_type_drift_assessed":false,
+    "harmful_reuse_demonstrated":false,
+    "valid_reuse_savings_demonstrated":false,
+    "method_increment_established":false,
+    "inferential_statistics":false,
+    "supplied_contract_guardrail":true,
+    "historical_protocols_pooled":false,
+    "decision":"Stop retuning or expanding these two development cases to seek the hypothesized failure. Preserve the bounded negative result. A subsequent experiment requires a distinct unresolved identification question, reviewed inputs and fresh authorization; no new batch is launched here."
+  },
+  "private_backup": {
+    "directory":"runtime/runs/native-full-readout-20261026-001",
+    "bundle_sha256":"3fb440057c598ce02ede2ea8b379b3317b860c78ba5b2598535658f4aff87bbe",
+    "verified_files":926,
+    "scope":"Copied source and input records, all model/tool records, manifests, audit and derived readout. External database and tokenizer weights remain referenced by frozen hashes.",
+    "off_device":false,
+    "raw_uploaded":false,
+    "original_records_modified":false
+  },
+  "offline_processing": {
+    "new_API_calls":0,
+    "new_SQL_executions":0,
+    "readout_is_post_run":true,
+    "scalar_rule":"Existing conservative scalar disposition function; not an inferred human semantic label."
+  },
+  "github_remote_sync_verified":false
+}
