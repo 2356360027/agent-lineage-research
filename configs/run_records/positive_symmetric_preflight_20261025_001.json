@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-25",
+  "status": "LOCAL_POSITIVE_SYMMETRIC_PREFLIGHT_PASSED_NO_MODEL_EXPERIMENT",
+  "previous_turn": "Progress: source-bound symmetric positive inputs prepared and tested in commit 777028a.",
+  "script": "scripts/preflight_positive_symmetric.py",
+  "private_output": "runtime/runs/positive-symmetric-preflight-20261025-001",
+  "archive_manifest_sha256": "ef611d9f0a4a7b2f6a97e57acfa8d605ca7a4714cabb1ea7588a6b5948093dba",
+  "input_manifest_sha256": "3c5de085cae60ced24f7615dbf7a2a734e5715520e4c69003ab42cff933331c0",
+  "actual_local_checks": {
+    "readonly_SQL_attempts": 13,
+    "history_cache_reconstruction_queries": 1,
+    "current_query_calls_in_scripted_sessions": 12,
+    "scripted_live_sessions": 8,
+    "tool_attempts_in_sessions": 24,
+    "model_calls": 0,
+    "new_research_samples": 0,
+    "counter_only_three_tool_sequences": 32,
+    "all_four_availability_price_cells_checked": true,
+    "third_slot_read_cache_and_run_sql_dispatched": true,
+    "complete_observations_exposed": true,
+    "unavailable_cache_revealed_no_rows": true,
+    "session_journals_sealed_and_verified": true,
+    "history_and_current_results_match_prior_sealed_snapshot": true,
+    "database_hash_unchanged": true,
+    "nine_shared_protocol_modules_equal_completed_strength_frozen_copy": true
+  },
+  "scope": "The scripted generator emits prescribed tool actions and a final abstention identifying itself as software preflight. It is not an agent observation or new empirical correctness/cost result. Current reference SQL is used only in this private technical preflight, not exposed to the eventual tested model.",
+  "remaining": [
+    "Prepare a task-specific frozen launcher without changing shared protocol modules or completed runs.",
+    "Bind exact admission, input and preflight seals, tokenizer dependencies, current pricing, output location and prospective readout policy.",
+    "Test launch refusal, no-overwrite/no-resume, worker ownership and offline audit before seeking fresh fixed-batch paid approval."
+  ],
+  "paid_execution_authorized": false,
+  "price_quote_made_this_turn": false,
+  "method_increment_established": false,
+  "github": "Only script and aggregate receipt prepared for publication; raw local journals, reference SQL/results and dataset remain ignored. Remote push is not claimed."
+}
