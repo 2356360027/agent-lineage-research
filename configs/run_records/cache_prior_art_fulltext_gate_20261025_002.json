@@ -1,0 +1,65 @@
+{
+  "date": "2026-10-25",
+  "status": "RELEVANT_FULLTEXT_SECTION_REVIEW_NO_NEW_INFERENCE",
+  "previous_goal_turn": "Progress: frozen synthetic interface-calibration code, tests and fee calculation committed as 95e73d9. Fresh paid authorization remains pending; this review does not authorize execution.",
+  "reading_scope": "Primary-paper relevant sections and author repository README. Not a full reproduction, exhaustive literature search, complete appendix review or verified visual replot.",
+  "source_matrix": [
+    {
+      "title": "How Memory Management Impacts LLM Agents: An Empirical Study of Experience-Following Behavior",
+      "url": "https://aclanthology.org/2026.acl-long.27.pdf",
+      "status": "ACL 2026 proceedings paper",
+      "sections": ["3.1-3.4, PDF pages 3-6", "4.1-4.3, PDF pages 6-8"],
+      "facts": "Studies episodic query/execution demonstrations, addition and deletion. History-based deletion uses downstream utility after repeated retrieval. Its RegAgent strict filter still permits error up to one; misaligned replay includes both task/context mismatch and evaluator error. An error-free retrieval comparison is also present, so the work cannot be dismissed as exclusively noisy-memory research.",
+      "correction_to_prior_shorthand": "Evaluator-approved history is not necessarily an exactly correct stored computation. Conversely, the paper already discusses misalignment and error-free comparisons: exact cache provenance alone does not establish novelty.",
+      "unverified": "No tested equivalence between their memory interventions and our availability/price intervention; no new performance numbers imported."
+    },
+    {
+      "title": "CostBench: Evaluating Multi-Turn Cost-Optimal Planning and Adaptation in Dynamic Environments for LLM Tool-Use Agents",
+      "url": "https://aclanthology.org/2026.acl-long.584.pdf",
+      "status": "ACL 2026 proceedings paper",
+      "sections": ["3.1-3.2, PDF pages 3-5", "B.3.1-B.3.2, PDF page 21"],
+      "facts": "Atomic/composite tools offer alternative routes; cost and availability can change while goals remain reachable. Acquired data remain accessible. Appendix B.3.2 excludes non-goal-reaching trajectories from cost/path and task-completion metrics; invalid calls are excluded from cost/path calculations, while invalid-tool-use includes all outcomes.",
+      "our_inference": "Correct cheaper routes and tool-choice sensitivity are already covered. Their conditional metric denominators should not be silently reused as unconditional end-to-end success or actual expenditure in our experiment.",
+      "unverified": "No direct implementation replication or claim that our proposed interpretation effect is absent from all related work."
+    },
+    {
+      "title": "Agent Memory Management author repository",
+      "url": "https://github.com/yuplin2333/agent_memory_manage",
+      "reading": "README and root file listing",
+      "facts": "README limits the release to AgentDriver experiments and provides patches requiring the upstream Agent-Driver project and its data. This is not an immediately executable release of all four paper agents.",
+      "code_commit_pinned": false,
+      "license_chain_verified": false,
+      "downloaded_or_executed": false,
+      "credential_in_source_recommendation_followed": false,
+      "our_inference": "Borrow the experimental distinction as related work, not an unverified ready-made SQL baseline. Verify licenses, source revision and data requirements before any implementation reuse."
+    }
+  ],
+  "evidence_reconciliation": {
+    "negative_control_receipt": "configs/run_records/strength_symmetric_result_20261025_001.json",
+    "negative_control_fact": "One clarified task pair, four dependent conditions, all correct via identical recomputation; no cache reads. No observed first-action/correctness availability or price contrast on this case.",
+    "positive_control_receipt": "configs/run_records/positive_symmetric_result_20261025_001.json",
+    "positive_control_fact": "One correct completed recomputation and three invalid first outputs. These are not three semantic errors, nor evidence that every condition chose recomputation.",
+    "interface_plan_receipt": "configs/run_records/action_encoding_prepared_20261025_001.json",
+    "interpretation": "We have neither demonstrated selective beneficial reuse under the symmetric interface nor a remaining task-interpretation gap after strong baselines. Literature distinctions sharpen the hypothesis but do not supply the missing empirical effect."
+  },
+  "prospective_measurement_gate_not_a_frozen_protocol_amendment": {
+    "principle": "Report practical end-to-end outcomes and conditional diagnostics separately; preserve every planned slot and every incurred call.",
+    "all_planned_slots": ["matched answer", "mismatched answer", "invalid output", "abstention", "unresolved human grading", "infrastructure failure", "not started"],
+    "completed_correct_fraction": "Correct completed slots divided by planned slots is an operational completion measure, not a semantic-error rate; provide the full disposition vector alongside it.",
+    "conditional_answer_correctness": "If also reported, state the explicit valid-and-gradable-answer denominator and never substitute it for all-slot completion.",
+    "cost": "Retain all actual model charges or conservative accounting and all tool attempts, including failed attempts. Separate declared tool units from currency and invoice-verified costs from client estimates.",
+    "descriptive_invalid_rate": "Invalid model outputs divided by observed model-response slots; independently report missing and infrastructure-failed slots. Do not classify missing responses as malformed content.",
+    "paired_effects": "Predefine task-level paired endpoints and incomplete-pair policy before a confirmation study. Dependent conditions/calls are not independent tasks. The current stopped-batch policy forbids successful-prefix treatment-effect claims.",
+    "C_type_endpoint": "Requires observable prior task interpretation inconsistent with the reviewed request plus genuinely later behavior consistent with that interpretation. A wrong answer, cost-suboptimal route, or malformed action is insufficient.",
+    "diagnostic_intervention": "Contract elicitation changes the workflow. Keep elicited-contract diagnostics distinct from ordinary-agent behavior and compare safeguards with fair information and total costs.",
+    "method_gate": "First show a task-fidelity/total-cost gap after direct recomputation, contract-first, independent verification and trusted applicability/recompute baselines; do not name a method merely for rejecting lossy views."
+  },
+  "next_action": "Await fresh authorization for the already frozen interface calibration. If it passes, a separately approved research-context interface check is still necessary; do not treat synthetic format compliance as proof of the proposed mechanism.",
+  "frozen_plan_changed": false,
+  "new_model_calls": 0,
+  "new_SQL_queries": 0,
+  "new_training": false,
+  "new_direction_adopted": false,
+  "publication_ready": false,
+  "remote_push_verified": false
+}
