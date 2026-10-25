@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-25",
+  "status": "ADAPTED_DEVELOPMENT_PAIR_READONLY_ADMISSION_AND_BINDING_COMPLETE",
+  "variants": ["766-distinct-names-clarification-v1", "786-entity-count-clarification-v1"],
+  "reviewed_draft": "reports/cache_relation_review_20261025/CLARIFIED_PAIR_REVIEW_V1.txt",
+  "draft_sha256": "3172efd672168824195ac05d62e07a97c2f0b2cfafaf8f5b7953f63372f015d5",
+  "review_evidence": {
+    "intake": "configs/run_records/strength_clarified_review_intake_20261025_001.json",
+    "process_confirmation": "configs/run_records/strength_clarified_review_confirmation_20261025_001.json",
+    "time_correction": "configs/run_records/strength_clarified_review_time_correction_20261025_001.json",
+    "two_supportive_judgments": true,
+    "independent_human_judgment_then_model_expression": "User attested; not directly observed",
+    "prior_exposure": "Related-task discussions disclosed; not a new blinded review",
+    "timestamps": "User supplied 18:00 and 17:58, mapped in reviewer order on 2026-10-25 UTC+8 from context; original records retained"
+  },
+  "user_scope": {
+    "text": "批准4",
+    "interpretation_communicated": "Approval of review-form item 4, adapted-pair read-only suitability checks; not 4 yuan or paid API execution",
+    "paid_execution_authorized": false
+  },
+  "conditions": {
+    "explicit_researcher_adaptation": true,
+    "original_pair_disposition": "Pending unchanged; both new variants are labelled, not native unmodified benchmark tasks",
+    "equal_contract_visibility": "Required invariant for any later inference configuration, not yet tested in a new runner",
+    "numeric_strength_values_and_nonnull_hero_PK": "Verified on fixed snapshot and schema in strength_snapshot_audit_20261025_001.json",
+    "maximum_scope": "All exact Strength associations with non-NULL values, before restricting by existing heroes, as draft states. Null-hero boundary checked in finite fixtures; no silent task amendment.",
+    "review_draft_modified_after_review": false
+  },
+  "binding": {
+    "script": "scripts/bind_strength_clarified_snapshot.py",
+    "tested_query_and_oracle_source_sha256": "19bede93b3e5f34d4a070df020f0b080d7c2e96036900ccb0cd3191bfe83c293",
+    "database_sha256": "75e94a2c3236ee3bb2c01fb97a1c4b4c1c269bcefd4eab1d04be323d2d0825b1",
+    "private_output": "runtime/runs/strength-clarified-binding-20261025-001",
+    "seal_sha256": "ce8129b72256856eb8d15a8775086c0c945d8bb198758ac9b72fbd9bf7dac649",
+    "archived_files_hash_verified": 13,
+    "real_readonly_queries": 5,
+    "query_breakdown": "Three complete bounded source-table projections for procedural calculation; two adapted task SQL queries",
+    "source_rows": {"heroes": 750, "attributes": 6, "associations": 3738},
+    "adapted_history_rows": 36,
+    "adapted_current_entity_count": 63,
+    "independent_python_matches_SQL": true,
+    "prior_finite_software_checks": 10,
+    "source_database_and_draft_unchanged": true,
+    "model_calls": 0
+  },
+  "scientific_limits": [
+    "One purposively selected, researcher-clarified development pair, same database as previous positive control; not independent-domain confirmation.",
+    "Information loss and wrong direct row counting are verified for these queries; no agent has yet been shown to misuse this cache or reinterpret this current demand.",
+    "Finite program tests do not prove universal SQL correctness. Fixed legacy DB binding is not certification of the full native Arcwise benchmark.",
+    "Classical applicability rejection and recomputation cover the known discrepancy. No new algorithmic advantage or publication-level contribution follows from admission."
+  ],
+  "next_gate": [
+    "Prepare a fixed small development protocol with identical reviewed task/history contracts, feasible recomputation and distinct availability/cost factors.",
+    "Keep ordinary route outcomes separate from temporally prior explicit-contract diagnostics; no C-type inference from final-answer errors alone.",
+    "Bind exact source, task text, data, scorer, endpoint, model and current pricing; validate read-only tool and budget enforcement before execution.",
+    "Obtain explicit batch-specific paid authorization. Do not reuse the prior completed batch's budget approval or chat secrets."
+  ],
+  "privacy": "Raw review material, database projections and query outputs remain local and excluded from public Git; this receipt contains aggregate facts. Local artifacts are not off-device backups."
+}
