@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-25",
+  "status": "USER_APPROVED_FIXED_BATCH_AWAITING_LOCAL_HIDDEN_KEY_INPUT",
+  "prepared": "runtime/runs/positive-symmetric-prepared-20261025-001",
+  "manifest_sha256": "856d339da5de6b79fca6cba9453f2e673328dc8680d35352258ab5726e3298ff",
+  "user_confirmation": "Approved this batch and confirmed available balance at least 0.20 CNY.",
+  "client_ceiling_cny": 0.20,
+  "maximum_model_calls": 16,
+  "maximum_readonly_tool_attempts": 12,
+  "call_horizon_seconds": 600,
+  "owned_worker_seconds": 630,
+  "cleanup_additional": true,
+  "automatic_retry": false,
+  "training": false,
+  "model_calls_started_this_turn": 0,
+  "execution_claim_observed": false,
+  "frozen_preflight": "PASSED",
+  "credential_boundary": "User enters a current key via the frozen launcher hidden terminal prompt. No chat secret reused or saved. This receipt is not proof of execution.",
+  "next": "Run exact frozen command once in user PowerShell. Preserve any failure; do not restart. No background monitor installed."
+}
