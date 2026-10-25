@@ -1,0 +1,52 @@
+{
+  "date": "2026-10-25",
+  "status": "SEALED_CONTEXT_INTERFACE_REPLAY_VERIFIED",
+  "prepared": "runtime/runs/research-context-interface-prepared-20261025-001",
+  "manifest_sha256": "5e2eb2feb716da107c65ee16e7425b751935d4fba8df3ca109df9c4f46a049b7",
+  "experiment_manifest_sha256": "bfa156ed6117042bdeb4b8f92f32ddc175499eb168325246dc79bfd4a6451cbb",
+  "scope": "First-response format check: two exposed development task pairs, eight dependent contexts, two instruction presentations. No semantic correctness endpoint or independent confirmation.",
+  "dispatch_attempts": 16,
+  "original": {"planned":8,"observed":8,"admitted":7,"invalid":1,"failed":0,"not_started":0},
+  "separated": {"planned":8,"observed":8,"admitted":5,"invalid":3,"failed":0,"not_started":0},
+  "descriptive_context_breakdown": {
+    "positive": {"original_admitted":3,"separated_admitted":1,"planned_per_arm":4},
+    "strength": {"original_admitted":4,"separated_admitted":4,"planned_per_arm":4}
+  },
+  "invalid_response_description_post_hoc": [
+    {"id":"positive-cell-0-separated","type":"two concatenated duplicate JSON action objects"},
+    {"id":"positive-cell-1-separated","type":"JSON action object followed by extraneous trailing characters"},
+    {"id":"positive-cell-2-original","type":"two concatenated duplicate JSON action objects"},
+    {"id":"positive-cell-2-separated","type":"JSON action object followed by extraneous trailing characters"}
+  ],
+  "all_finish_reasons": "stop",
+  "model_alias": "deepseek-flash",
+  "remote_weights_verified": false,
+  "reported_prompt_tokens": 22840,
+  "reported_completion_tokens": 1472,
+  "client_accounted_micro_cny": 57456,
+  "approved_ceiling_micro_cny": 150000,
+  "uncertain_reserved_micro_cny": 0,
+  "provider_invoice_verified": false,
+  "provider_cap_installed": false,
+  "SQL_executions": 0,
+  "tool_executions": 0,
+  "training": false,
+  "inferential_statistics": false,
+  "C_type_drift_assessed": false,
+  "task_correctness_assessed": false,
+  "interpretation": "Malformed outputs reoccurred in these research contexts. The separated instruction did not eliminate them and had two fewer admitted responses descriptively. This small dependent sample does not establish population harm, provider root cause, or a causal task-context mechanism. Synthetic fixture results are not pooled with these counts.",
+  "frozen_decision_applied": "separated_has_invalid: do not expand substantive experiments with this candidate; stop repeated prompt tweaking and assess an explicit structured interface offline before any new paid proposal.",
+  "not_permitted": ["Do not take the first JSON object and execute it", "Do not overwrite old invalid responses or scores", "Do not count SQL-looking invalid text as a valid tool action", "Do not infer intent drift from format failure", "Do not retry only failed cells or add repetitions until success"],
+  "next_step_scope": "Offline interface feasibility and failure-policy assessment; no new batch authorized. Any new interface is an explicit protocol version applied fairly to all baselines, not a novel research algorithm.",
+  "private_backup": {
+    "path": "runtime/runs/research-context-interface-backup-20261025-001/private-bundle.tar.gz",
+    "sha256": "7b6fa34b6d06b11805446a6ca5654bd67fe21393e8b3bd4389453100d7c26e0f",
+    "verified_files": 150,
+    "bytes": 115456,
+    "original_files_modified": false,
+    "off_device": false,
+    "raw_public": false
+  },
+  "audit_and_archive_new_API_calls": 0,
+  "github_remote_sync_verified": false
+}
