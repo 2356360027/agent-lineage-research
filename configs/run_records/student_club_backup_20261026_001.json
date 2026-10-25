@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-26",
+  "status": "PRIVATE_CANDIDATE_BACKUP_VERIFIED",
+  "previous_goal_turn": "PROGRESS: required evaluated-agent contract provenance in the mechanical judgment API, passed 45 local tests, and recorded baseline artifact access limits. No new research effect claimed.",
+  "backup": "runtime/runs/student-club-private-backup-20261026-001/private-candidate.tar.gz",
+  "archive_sha256": "5d5391b4e64d47dcdbef1d3f8e69c540c906c3bb7fa2efe342db86b366b4b3a3",
+  "archive_bytes": 1082632,
+  "verified_files": 65,
+  "scope": "DNS-failed preparation, successful fixed SQLite acquisition, structural audit, unfilled independent review form, selected source and sanitized decisions",
+  "verification": "Input manifests checked; archive member names and decompressed file hashes checked against original bytes; original files rehashed after archiving. Reuse of existing output rejected without modifying backup.",
+  "limitations": "Same local disk only, not off-device redundancy. This is a candidate-stage package, not the full project, model environment, or all history.",
+  "raw_uploaded": false,
+  "original_files_modified": false,
+  "model_calls": 0,
+  "SQL_queries": 0,
+  "human_approvals": 0,
+  "review_state": "Only INDEPENDENT_REVIEW.txt is present in the candidate review directory; no completed new reviews supplied in this turn. Do not infer approval from silence.",
+  "next_required_input": "Two independent candidate reviews, especially the event-time versus stored member preference interpretation; then prepare a bounded plan and seek fresh paid approval if still warranted.",
+  "github_remote_sync_verified": false
+}
