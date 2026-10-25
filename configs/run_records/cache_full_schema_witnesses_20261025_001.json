@@ -1,0 +1,51 @@
+{
+  "date": "2026-10-25",
+  "status": "PINNED_SCHEMA_INFORMATION_LOSS_WITNESSES_VERIFIED_NOT_MODEL_EVIDENCE",
+  "previous_goal_turn": "Progress: reduced-schema witnesses and bounded candidate panel established; full-schema validity was still unverified",
+  "script": "scripts/check_cache_full_schema.py",
+  "private_output": "runtime/runs/cache-full-schema-witnesses-20261025-001",
+  "seal_sha256": "f79a22bbdc010f29225b393b63c651ff5fafd9fa9146ccde781d915f60adf972",
+  "checks": {
+    "database_hashes_verified_before_and_after": true,
+    "original_database_access": "mode=ro and query_only; schema metadata only",
+    "exact_sqlite_schema_recreated": true,
+    "foreign_keys_enabled": true,
+    "foreign_key_check": "empty for all four fixtures",
+    "integrity_check": "ok for all four fixtures",
+    "original_task_SQL_unchanged": true,
+    "explicit_insert_columns": true,
+    "unmentioned_columns": "Retain original defaults or NULL; no constraint removal",
+    "observed_schema_objects": "codebase_community: 8 tables; superhero: 10 tables, plus automatically recreated implicit indexes where declared"
+  },
+  "witnesses": [
+    {"history": 537, "current": 555, "same_history": true, "different_current": true, "history_scalar": 2, "current_scalars": [3.0, 5.0]},
+    {"history": 766, "current": 786, "same_history": true, "different_current": true, "history_distinct_names": 1, "current_scalars": [1, 2]}
+  ],
+  "limits": [
+    "These are constructed instances satisfying the declared schemas of fixed legacy BIRD snapshots, not observed real-world examples or official Arcwise database certification.",
+    "Unstored business constraints and human natural-language interpretations are not verified by SQLite integrity checks.",
+    "Non-determination concerns the historical result alone; additional database queries remain permitted and can resolve the answer.",
+    "No method advantage over classical applicability checking and recomputation is established."
+  ],
+  "work_counts": {
+    "exploratory_readonly_schema_queries": 2,
+    "archived_run_readonly_schema_queries": 2,
+    "archived_run_synthetic_reference_queries": 8,
+    "real_task_queries": 0,
+    "model_calls": 0,
+    "new_human_reviews": 0,
+    "formal_tasks_admitted": 0,
+    "software_tests_passed": 10,
+    "test_scope": "6 prior witness tests plus 4 full-schema tests, including rejection of added name uniqueness, NOT NULL and FK violations; tests are not research samples"
+  },
+  "review_packet": {
+    "paths": ["reports/cache_relation_review_20261025/REVIEWER_1.txt", "reports/cache_relation_review_20261025/REVIEWER_2.txt"],
+    "status": "BLANK_NOT_REVIEWED",
+    "pair": [766, 786],
+    "excludes": "No SQL, numerical reference answers, model outputs or researcher witness results in forms",
+    "order": "Task meaning first, relationship second; self-administered order, not enforced blinding",
+    "privacy": "Blank forms public; completed personal answers not automatically authorized for publication",
+    "prior_555": "Pending conclusion retained; no repeated demand for approval",
+    "paid_execution_authorized": false
+  }
+}
