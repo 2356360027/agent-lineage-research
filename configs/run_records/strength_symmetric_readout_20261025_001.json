@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-25",
+  "status": "PROSPECTIVE_SCORER_AND_COMPLETED_TRAJECTORY_REPLAY_TESTED_NOT_LIVE_AUTHORIZED",
+  "previous_goal_turn_classification": "No progress: read existing admission and batch receipts, then restated completed work. This turn adds tested analysis components rather than repeating those checks.",
+  "prior_receipt": "configs/run_records/strength_symmetric_batch_20261025_001.json",
+  "policy": "configs/strength_symmetric_readout_v1.json",
+  "new_components": ["runtime/cache_route_symmetric_readout.py", "runtime/cache_route_symmetric_replay.py"],
+  "scope": {
+    "independent_task_pairs": 1,
+    "dependent_conditions": 4,
+    "task_version": "Researcher-clarified 766 distinct names to 786 entity count, not native benchmark evaluation",
+    "old_completed_experiment_code_changed": false,
+    "new_API_calls": 0,
+    "research_samples": 0,
+    "research_database_used": false
+  },
+  "scoring_rules": [
+    "Only plain scalar integer final answers are automatically compared to the externally bound reference. The expected value is not hardcoded.",
+    "Prose, decimals, units or ambiguous numerical text remains UNCERTAIN awaiting separate review, not automatically wrong.",
+    "All four planned slots are required. Failure, interruption and not-started outcomes remain NOT_COMPLETED; a retained late answer cannot turn a failed run into success.",
+    "First observed action uses only generation one. Invalid first output is not replaced by a later valid action; missing decision after failure is a separate category.",
+    "No C-type demand-drift label, causal estimate or inferential statistics are produced by this readout."
+  ],
+  "replay_rules": [
+    "Completed trajectories reconstruct all adapter/loop messages, saved provider responses, observed tool results, charges and closure accounting without new API or SQL execution.",
+    "Shared fee state is reconstructed in original batch order in tests; cross-record answer, provider, price, exposure and cost tampering is rejected.",
+    "Uses frozen-compatible pure admission logic; it checks local consistency, not independent provider authenticity or SQL correctness.",
+    "Caller must verify complete batch closure, exact source/input provenance and seals before loading effects. The new per-trajectory replay alone does not admit a whole batch."
+  ],
+  "verification": {
+    "targeted_tests_passed": 135,
+    "new_readout_tests": 10,
+    "new_replay_tests": 6,
+    "old_readout_regressions_added": 7,
+    "archive": "runtime/runs/strength-symmetric-software-20261025-004",
+    "archive_sha256": "b8475fd05012cccba616e37ec8f1c5fdc443ee36c3b0665276fa0b929adb7310",
+    "verified_archived_files": 55,
+    "test_data": "Scripted provider records and disposable SQLite fixtures only; not empirical model outputs or human ratings."
+  },
+  "remaining_before_paid_execution": [
+    "Whole-batch reconciliation and failure inventory must preserve all planned slots; do not score a successful prefix of a stopped or inconsistent batch.",
+    "Freeze policy, code, reviewed inputs, reference and owned-worker launcher together; check current endpoint/model settings and prices.",
+    "Obtain explicit batch-specific budget approval and hidden terminal credential input. Existing approvals and pasted secrets are not reused."
+  ],
+  "scientific_position": "Known name-projection information loss is still covered by classical applicability checking plus recomputation. These infrastructure checks add no evidence of agent demand reinterpretation or novel method advantage.",
+  "paid_execution_authorized": false,
+  "github": "Public-safe code and aggregate receipt prepared for local commit. Existing authenticated-push blocker unchanged; no push claimed, no raw research logs or secrets staged."
+}
