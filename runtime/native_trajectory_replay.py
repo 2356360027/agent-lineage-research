@@ -8,6 +8,7 @@ and outer archive manifests. A self-generated hash is not external attestation.
 """
 from copy import deepcopy
 import math
+import json
 from pathlib import Path
 import re
 
@@ -118,7 +119,8 @@ not be smuggled into this map and silently ignored.
     equal(start.get('input_receipt'), input_receipt, 'Source-bound input receipt')
     equal(start.get('history_sql_sha256'), digest(trusted_common['history_sql']), 'History SQL')
     equal(start.get('cache_rows_sha256'), cached_result['sequence_sha256'], 'Cache rows')
-    history = NativeHistory(build_candidate(payload(envelope['messages']))['payload'],
+    initial = json.loads(encoded(build_candidate(payload(envelope['messages']))['payload']))
+    history = NativeHistory(initial,
                             observation_byte_limit=1048576)
     attempts = sql_calls = 0
     for number in range(1, 5):

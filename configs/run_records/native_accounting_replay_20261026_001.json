@@ -1,0 +1,47 @@
+{
+  "date": "2026-10-26",
+  "status": "OFFLINE_API_ACCOUNTING_REPLAY_AND_CANONICAL_WIRE_CHECKS_PASSED",
+  "previous_goal_turn": "PROGRESS: verified 376d9f7 loop/tool replay commit before extending API replay",
+  "code": "runtime/native_accounting_replay.py",
+  "code_sha256": "fd3ccefaa86a50c10a215e1dbbb261da1b70cda87f2efe29a05af96b1f8ecb9c",
+  "tests": "tests/test_native_accounting_replay.py",
+  "tests_sha256": "a89772af6a8ba7e14792676fea5f66c8bf9cf1a5b387f0cb21aa94b5dcbe6bda",
+  "accounting_tests_added": 7,
+  "serialization_regression_tests_added": 1,
+  "combined_tests_passed": 96,
+  "test_command": "python -B -X utf8 -m unittest tests.test_native_accounting_replay tests.test_native_trajectory_replay tests.test_native_symmetric_loop tests.test_native_trajectory_transport tests.test_native_transport_adapter tests.test_native_trajectory_adapter tests.test_native_action_history tests.test_native_trajectory_counter -q",
+  "coverage": [
+    "Cross-bind native transport raw text, adapter raw text and loop raw text",
+    "Recompute full-payload reference count and cumulative cost with a shared batch guard",
+    "Reject resetting the guard per trajectory, changed tickets, timeouts, model/count/output mismatches, missing or extra records",
+    "Keep observed malformed actions charged without promoting them to valid responses",
+    "Failure/incomplete traces not certified as completed; no reconstruction or retry"
+  ],
+  "prospective_serialization_fix": {
+    "problem": "The unlaunched full-loop implementation constructed schema dictionaries in insertion order whereas the journal sorts nested keys; reference schema rendering can depend on that order.",
+    "fix": "Canonicalize the initial candidate payload before counting/sending and reconstruct the same order during replay; test exact serialized tool-schema equality after journal reload on all four turns.",
+    "new_loop_version": "native-symmetric-loop-v2-canonical-wire",
+    "loop_sha256": "5a47ed550a36307bafe5ac0c8383ef8e51b48ff9c8e5d9ad6f6091c94b2e825f",
+    "replay_sha256": "f4a7c235c299dc67ecc1451a4d2db537386677b6d7c6d83f0bffe8951e8e46d1",
+    "prior_frozen_runs_modified": false,
+    "prior_software_test_receipts_retained": true,
+    "new_live_full_trajectory_runs_affected": 0
+  },
+  "new_API_calls": 0,
+  "new_paid_cost": 0,
+  "research_database_queries": 0,
+  "synthetic_fixture_queries": true,
+  "provider_invoice_verified": false,
+  "new_scientific_effect_evidence": false,
+  "draft_policy": "configs/native_full_trajectory_policy_v1.json",
+  "pricing_check": {
+    "source": "https://api-docs.deepseek.com/zh-cn/quick_start/pricing/",
+    "checked_date": "2026-10-26",
+    "conservative_input_output_cny_per_million": [2,8],
+    "conditional_32_call_bound_cny": 0.65536,
+    "proposed_client_cap_cny": 0.70,
+    "paid_batch_authorized": false
+  },
+  "remaining_gate": "Integrate a source/data/input-pinned eight-cell full-trajectory batch runner, outer manifest and failed-inventory audit, frozen launcher and hard owned-worker limit. Then request fresh approval. The draft does not authorize execution or guarantee completion under context/time limits.",
+  "github_remote_sync_verified": false
+}

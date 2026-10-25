@@ -8,7 +8,7 @@ import tempfile
 import unittest
 from unittest.mock import Mock
 
-from runtime.bird_readonly_audit import hash_file, digest, fingerprints
+from runtime.bird_readonly_audit import hash_file, digest, fingerprints, encoded
 from runtime.cache_route_symmetric_design import build
 from runtime.cache_route_symmetric_loop import ObservationBound
 from runtime.cache_route_symmetric_tools import ToolSession
@@ -181,6 +181,19 @@ class Tests(unittest.TestCase):
             self.assertEqual(transport.call_count,1)
             self.assertTrue(guard.terminal)
             self.assertIn('api-g001.provider',self.records)
+        finally: self.close_check(s)
+
+    def test_wire_schema_order_matches_sorted_journal_on_every_turn(self):
+        s=self.session(2)
+        try:
+            self.execute(s,2,[raw(call_id='c1'),raw(call_id='c2'),raw(call_id='c3'),
+                              raw('answer','1','c4')])
+            for request in self.requests:
+                wire=request['payload']
+                reloaded=json.loads(encoded(wire))
+                # Count rendering depends on nested schema order, even though
+                # ordinary dictionary equality would miss the discrepancy.
+                self.assertEqual(json.dumps(wire['tools']),json.dumps(reloaded['tools']))
         finally: self.close_check(s)
 
 

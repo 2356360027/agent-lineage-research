@@ -6,6 +6,7 @@ on failure. Callback deadline checks cannot terminate a blocking callback.
 """
 from copy import deepcopy
 import math
+import json
 import time
 
 from runtime.bird_readonly_audit import digest, encoded
@@ -16,7 +17,7 @@ from runtime.cache_route_symmetric_loop import initial_state, ObservationBound
 from runtime.native_action_interface import build_candidate
 from runtime.native_action_history import NativeHistory
 
-VERSION='native-symmetric-loop-v1'
+VERSION='native-symmetric-loop-v2-canonical-wire'
 
 
 def run(envelope, trusted_common, session, generate, save, observation_bound, *,
@@ -51,7 +52,10 @@ def run(envelope, trusted_common, session, generate, save, observation_bound, *,
         expected=initial_state(envelope,trusted_common)
         if encoded(session.describe())!=encoded(expected):
             raise ValueError('Source-bound session mismatch')
-        history=NativeHistory(build_candidate(payload(envelope['messages']))['payload'],
+        # Journal writes sort keys. Count and transmit that same nested schema
+        # order, not a dict-order variant reconstructed only during auditing.
+        initial=json.loads(encoded(build_candidate(payload(envelope['messages']))['payload']))
+        history=NativeHistory(initial,
                               observation_byte_limit=1048576)
         save('started',dict(protocol=VERSION,envelope=deepcopy(envelope),initial_state=expected,
                             contract_elicited=False,semantic_labels_generated=False))
