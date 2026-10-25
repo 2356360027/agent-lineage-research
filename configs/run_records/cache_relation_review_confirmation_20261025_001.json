@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-25",
+  "status": "HUMAN_REVIEW_WORKFLOW_USER_CONFIRMED_TASK_ADMISSION_STILL_PENDING",
+  "pair": [766, 786],
+  "intake_record": "configs/run_records/cache_relation_review_intake_20261025_001.json",
+  "submission_sha256": "88cf215ec7f0bb0cb7763a4c0f25ce133a1ee1b9113ed710108b91fa0f8efd4b",
+  "confirmation": {
+    "source": "User selected option A in a response annotation in this chat",
+    "user_confirmed_text": "两人先独立作出判断，模型只整理表达",
+    "scope": "This 766-to-786 submission only",
+    "human_review_records_accepted_on_user_attestation": 2,
+    "new_review_rounds": 0,
+    "direct_observation_of_review_process": false,
+    "meaning": "Human judgments preceded model-assisted presentation; not model-first judgments subsequently approved by humans. This is a user attestation, not independently observed process evidence."
+  },
+  "supersession": {
+    "workflow_uncertainty_resolved": true,
+    "historical_intake_and_snapshot_records": "Remain unchanged as records of knowledge at their creation; their awaiting-workflow-confirmation fields are superseded by this receipt only",
+    "raw_review_text": "Preserved unchanged"
+  },
+  "decision": {
+    "both_reviewers_pending_conclusions_preserved": true,
+    "original_pair_admitted": false,
+    "negative_control_admitted": false,
+    "no_new_semantic_judgment_inferred_from_workflow_confirmation": true,
+    "remaining": "Original historical task multiplicity/missing-name policy and evidence/reference spelling consistency remain unresolved. Database facts cannot substitute for human semantic adjudication.",
+    "recommendation": "Do not repeatedly request confirmation of this same workflow. Retain the original pair outside inference until substantive clarification; any researcher-adapted task must be separately labelled and reviewed.",
+    "paid_execution_authorized": false
+  },
+  "work_counts": {
+    "model_calls": 0,
+    "database_queries": 0,
+    "new_model_samples": 0,
+    "formal_tasks_admitted": 0
+  }
+}
