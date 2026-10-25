@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-25",
+  "status": "OFFLINE_NATIVE_HISTORY_STATE_MACHINE_TESTED",
+  "previous_goal_turn": "PROGRESS: d99f732 added explicitly versioned optional-zero-index parsing with legacy behavior preserved",
+  "code": "runtime/native_action_history.py",
+  "tests": "tests/test_native_action_history.py",
+  "new_tests":12,
+  "combined_tests_passed":88,
+  "unchanged_initial_contexts_checked":8,
+  "input_plan": "runtime/runs/native-context-prepared-20261025-003/plan.json",
+  "behavior": [
+    "Explicit READY / response-pending / observation-pending / terminal transitions",
+    "Native assistant tool_calls followed by tool role and matching tool_call_id",
+    "Original function argument string preserved; response-only index not sent as call argument",
+    "Four-generation horizon preserves two exploration opportunities, one SQL recovery opportunity, then terminal response",
+    "Unknown/mismatched/repeated IDs, invalid responses, oversized observations and external failures cannot auto-resume",
+    "No automatic tools, network, token estimation, fee approval or scientific labels"
+  ],
+  "new_model_calls":0,
+  "new_tool_executions":0,
+  "raw_records_modified":false,
+  "old_scores_modified":false,
+  "reference": {
+    "url":"https://api-docs.deepseek.com/guides/tool_calls/",
+    "checked":"2026-10-25",
+    "use":"Non-thinking native assistant/tool message pattern and call-ID binding. Does not establish our multi-turn token counter or semantic correctness."
+  },
+  "remaining_gate": "Implement and independently test multi-turn reference encoding/accounting before any live adapter. Then integrate existing bounded read-only ToolSession, durable exclusive journals and session close verification. Observation byte bound is not a token bound. This helper alone is not a deployable experiment runner.",
+  "scientific_status":"No C-type intent effect or strong-baseline method increment established. Complete trajectories needed; merely reading a cache is not invalid reuse.",
+  "new_paid_batch_authorized":false,
+  "github_remote_sync_verified":false
+}
