@@ -13,6 +13,7 @@ MODULES = (
     'tests.test_cache_route_symmetric_tools', 'tests.test_cache_route_symmetric_design',
     'tests.test_cache_route_symmetric_loop', 'tests.test_cache_intent_tools',
     'tests.test_cache_route_symmetric_capacity',
+    'tests.test_cache_route_symmetric_adapter', 'tests.test_cache_route_symmetric_batch',
     'tests.test_cache_action_horizon', 'tests.test_cache_action_factorial_preview',
     'tests.test_factorial_loop',
 )

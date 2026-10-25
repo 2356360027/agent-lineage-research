@@ -1,0 +1,55 @@
+{
+  "date": "2026-10-25",
+  "status": "INJECTED_PROVIDER_ADAPTER_AND_FIXED_BATCH_TESTED_NOT_LIVE_AUTHORIZED",
+  "previous_turn_classification": "Progress: complete real cache visibility and conditional reference-token capacity verified; source committed at 1eabbe1.",
+  "preflight_record": "configs/run_records/strength_symmetric_preflight_20261025_001.json",
+  "implementation": {
+    "adapter": "runtime/cache_route_symmetric_adapter.py",
+    "batch": "runtime/cache_route_symmetric_batch.py",
+    "new_tests": ["tests/test_cache_route_symmetric_adapter.py", "tests/test_cache_route_symmetric_batch.py"],
+    "old_completed_runners_modified": false,
+    "explicit_backend_modes": ["SCRIPTED_NOT_MODEL", "OFFICIAL_DEVELOPMENT"],
+    "transport_injected_not_created": true,
+    "key_or_network_code_added": false
+  },
+  "batch_scope": {
+    "independent_task_pairs": 1,
+    "dependent_conditions": 4,
+    "maximum_calls": 16,
+    "maximum_tool_attempts": 12,
+    "generation_limit_per_cell": 4,
+    "shared_deadline_seconds": 600,
+    "order_seed": "strength-symmetric-route-development-v1",
+    "source_plan_and_cache_bound_by_digest": true,
+    "researcher_review_admission": "Required upstream, not conferred by code construction or software tests."
+  },
+  "verified_behavior": [
+    "Third-generation cache and SQL actions remain permitted through the provider adapter; old exploration/recovery stage labels are rejected.",
+    "Actual payloads are checked by the symmetric capacity before transport; previous raw assistant output cannot be silently replaced.",
+    "Client cost is reserved before transport. Raw provider responses are journaled before usage/model/shape validation and billing uncertainty is retained after transport failures.",
+    "Reported input tokens must match the reference count; unexpected alias, thinking/function output, multiple choices, missing usage or over-cap output terminates the shared guard.",
+    "A late result is retained and accounted, but no later call starts. Hard interruption of blocking callbacks remains the launcher's responsibility.",
+    "Ordinary malformed or truncated action output is retained as a trajectory outcome, not repaired or silently rerun. Other cells may proceed only without infrastructure failure.",
+    "Infrastructure and finalization failures stop remaining cells, which remain NOT_STARTED in the four-cell result table.",
+    "Existing outputs cannot be overwritten or resumed. Real disposable SQLite and sealed per-cell/batch journals were tested together."
+  ],
+  "verification": {
+    "new_tests_passed": 18,
+    "total_targeted_tests_passed": 112,
+    "test_archive": "runtime/runs/strength-symmetric-software-20261025-003",
+    "archive_sha256": "9539e1940f219876c77f1ff7bcb1d7564c491d86a125418510c56ecfacfdf42c",
+    "archived_files_verified": 48,
+    "official_API_calls": 0,
+    "research_samples": 0,
+    "research_database_used_this_turn": false,
+    "provider_usage_and_responses_in_tests": "Scripted fixtures only, never measured API tokens or model predictions."
+  },
+  "limits": "This is execution infrastructure, not a new inference algorithm or evidence of cache-induced demand reinterpretation. Classical applicability checking plus recomputation remains the baseline to beat.",
+  "remaining": [
+    "Implement fixed descriptive scoring and independently replay/verify journals without imputation; keep prose answers pending human review.",
+    "Freeze source, inputs, readout policy and owned-worker launcher, including current price/date and client fee ceiling.",
+    "Obtain explicit batch approval and hidden terminal credential input before any actual paid dispatch."
+  ],
+  "paid_execution_authorized": false,
+  "github": "Local commit to follow; prior authenticated-push blocker remains. No raw records or credentials are included in this public aggregate receipt."
+}
