@@ -1,0 +1,65 @@
+{
+  "date": "2026-10-25",
+  "status": "OFFLINE_NATIVE_TRANSPORT_AND_BATCH_TESTED_NO_LIVE_LAUNCHER",
+  "previous_goal_turn": "PROGRESS: 64e1b90 added pinned first-request reference token accounting and verified all eight source contexts",
+  "research_status": "Engineering prerequisite; no new method advantage, task success, or C-type intent-drift evidence",
+  "files": ["runtime/deepseek_native_transport.py", "runtime/native_first_response_adapter.py", "runtime/native_context_runner.py"],
+  "fixed_candidate_scope": {
+    "development_task_pairs": 2,
+    "first_response_contexts": 8,
+    "max_calls": 8,
+    "max_output_tokens_per_call": 512,
+    "batch_call_seconds": 600,
+    "proposed_client_ceiling_micro_cny": 100000,
+    "reference_input_tokens_from_prior_offline_audit": 14476,
+    "conditional_cost_micro_cny": 61720,
+    "condition": "Reference prompt counts match provider counts, output <=512/call and supplied conservative rates apply; this is not an installed provider spending cap",
+    "rates_micro_cny_per_token": [2,8],
+    "price_url": "https://api-docs.deepseek.com/zh-cn/quick_start/pricing/",
+    "price_checked_date": "2026-10-25",
+    "price_basis": "deepseek-flash peak input cache miss and peak output; do not assume cache/off-peak discounts",
+    "tools_actually_executed": 0,
+    "SQL_executions": 0,
+    "inference_authorized": false
+  },
+  "transport": {
+    "url": "https://api.deepseek.com/beta/chat/completions",
+    "official_guide": "https://api-docs.deepseek.com/guides/tool_calls/",
+    "legacy_text_validator_modified": false,
+    "redirects_allowed": false,
+    "environment_proxy_used": false,
+    "secret_delivery": "Owned child stdin only; response echoes redacted; never key in argv or journal",
+    "raw_response_kept_before_parsing": true,
+    "automatic_retry": false,
+    "per_request_owned_child_timeout_max_seconds": 90,
+    "provider_cancellation_verified_on_timeout": false
+  },
+  "dispositions": [
+    "All eight contexts retained in fixed source-derived order, never only failed cells",
+    "Malformed native action is an observed invalid response, no repair or execution; continue remaining fixed slots",
+    "Transport failure, ambiguous/missing usage, count mismatch, identity mismatch or late response stops remaining slots",
+    "Unknown billing retains reservation; valid observed usage is accounted even when subsequent admission fails",
+    "Over-reservation usage is recorded and stops; no claim that a client guard can prevent an already-dispatched provider overrun",
+    "Single-call admission does not mean SQL safety, cache applicability or correct interpretation",
+    "Eight admitted responses would pass this limited interface check only, not authorize another experiment"
+  ],
+  "offline_tests": {
+    "command": "python -B -X utf8 -m unittest tests.test_native_context_runner tests.test_native_transport_adapter tests.test_native_action_counter tests.test_native_action_interface tests.test_deepseek_official_transport -q",
+    "passed": 45,
+    "new_transport_adapter_and_batch_tests": 22,
+    "coverage": ["official beta URL", "no redirect/proxy", "secret stdin/redaction", "legacy rejection unchanged", "owned subprocess timeout", "no retries", "full eight-slot completion", "all-invalid completion", "early failure and seven not-started slots", "usage mismatch stops", "missing usage reservation", "late result accounting", "write-before-dispatch failure", "full-plan cost admission", "plan mutation rejection", "exclusive output and journal seals"],
+    "fixtures_not_model_experiments": true
+  },
+  "remaining_before_paid_approval": [
+    "Frozen launcher with source/dependency/input manifests, hidden key entry, exclusive execution claim and outer owned-worker deadline",
+    "Replay audit binding exact provider text, counts, costs and all planned slots, not only hash integrity",
+    "Prepare frozen local batch, recompute its conditional fees and show exact manifest and resource limits to user",
+    "Obtain new batch-specific approval and fresh hidden terminal credential; no reuse of chat secrets"
+  ],
+  "new_API_calls": 0,
+  "SQL_calls": 0,
+  "new_paid_batch_authorized": false,
+  "raw_data_public": false,
+  "github_sync_verified": false,
+  "github_state": "Local commits only; previous credential blocker not bypassed"
+}
