@@ -17,6 +17,7 @@ MODULES = (
     'tests.test_cache_route_symmetric_readout', 'tests.test_superhero_answer_readout',
     'tests.test_cache_route_symmetric_replay',
     'tests.test_cache_route_symmetric_batch_audit',
+    'tests.test_strength_symmetric_launcher', 'tests.test_superhero_launcher',
     'tests.test_cache_action_horizon', 'tests.test_cache_action_factorial_preview',
     'tests.test_factorial_loop',
 )
