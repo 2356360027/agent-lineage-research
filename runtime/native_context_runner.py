@@ -1,5 +1,6 @@
 """Fixed eight first responses; injected transport, no CLI or SQL executor."""
 from copy import deepcopy
+import json
 from pathlib import Path
 import time
 
@@ -19,9 +20,12 @@ def build_plan(requests):
     jobs = [{'id':j['context_id'], 'source_payload':deepcopy(j['payload']),
              'payload':build_candidate(j['payload'])['payload']}
             for j in source['jobs'] if j['arm']=='original']
-    return dict(version=VERSION, jobs=jobs, maximum_calls=MAX_CALLS,
+    plan = dict(version=VERSION, jobs=jobs, maximum_calls=MAX_CALLS,
                 development_task_pairs=2, independent_confirmation=False,
                 SQL_executions=0, tool_executions=0, inference_authorized=False)
+    # Journal serialization sorts keys. Pin that exact nested schema order
+    # BEFORE reference counting, so preparing and reloading count the same text.
+    return json.loads(audit.encoded(plan))
 
 
 def validate(plan):

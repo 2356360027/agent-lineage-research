@@ -1,0 +1,54 @@
+{
+  "date": "2026-10-25",
+  "status": "FROZEN_PREFLIGHT_PASSED_USER_APPROVED_NOT_DISPATCHED",
+  "previous_goal_turn": "PROGRESS: 4cda546 implemented and tested separate native transport and fixed eight-context runner",
+  "prepared": "runtime/runs/native-context-prepared-20261025-003",
+  "manifest_sha256": "f3ca48eebad5d03ae38a17bce26c92b1356f2c1661414310826a47250f65b48e",
+  "launcher": "scripts/run_native_context.py",
+  "policy": "configs/native_context_policy_v1.json",
+  "source_files_frozen": 43,
+  "fixed_scope": {
+    "used_development_task_pairs": 2,
+    "all_first_response_contexts": 8,
+    "max_calls": 8,
+    "max_output_tokens_each": 512,
+    "max_call_seconds": 600,
+    "outer_worker_seconds": 630,
+    "cleanup_additional": true,
+    "client_ceiling_micro_cny": 100000,
+    "reference_input_tokens": [2016,2016,2016,1611,1611,1611,1611,2016],
+    "total_reference_input_tokens": 14508,
+    "conditional_micro_cny": 61784,
+    "provider_spending_cap_installed": false,
+    "provider_prompt_parity_verified": false,
+    "SQL_executions": 0,
+    "tool_executions": 0,
+    "training": false
+  },
+  "tests": {
+    "passed": 54,
+    "command": "python -B -X utf8 -m unittest tests.test_native_context_launcher tests.test_native_context_runner tests.test_native_transport_adapter tests.test_native_action_counter tests.test_native_action_interface tests.test_deepseek_official_transport -q",
+    "new_launcher_tests": 9,
+    "fixtures_only": true,
+    "coverage": ["complete valid and invalid raw-response replay", "cost and request replay", "resealed score tampering rejected", "stopped run inventory only", "wrong approval/date/unfrozen copy before key", "no secret in saved files or argv", "missing claim before transport", "fixed limits", "schema order stable through serialization"]
+  },
+  "frozen_cli_verification": "FROZEN_NATIVE_PREFLIGHT_PASSED; model_calls=0",
+  "preparation_history": [
+    {"directory":"native-context-prepared-20261025-001","status":"PRECHECK_FAILED_RETAINED","reason":"Canonical journal JSON reordered nested schema keys after initial reference counting. No inference. The runner now canonicalizes the complete plan before counting."},
+    {"directory":"native-context-prepared-20261025-002","status":"SUPERSEDED_NOT_RUN","reason":"Passed frozen preflight; replaced by -003 after adding an explicit provider error-object rejection to completed replay audit."},
+    {"directory":"native-context-prepared-20261025-003","status":"CURRENT_VERIFIED_NOT_RUN"}
+  ],
+  "count_change_explanation": "Earlier standalone offline counter used in-memory schema order (14476 total input tokens). Frozen canonical schema order yields 14508. Both are source-derived reference counts, not model usage. Preserve earlier record; no constant offset patch or altered historical result.",
+  "user_approval": {
+    "received": true,
+    "source": "User answer to call_9154c8af71c84537bd1871b8082fbc86",
+    "answer": "批准本批，余额至少0.10元",
+    "scope": "Only the frozen -003 native interface batch and its stated limits",
+    "fresh_hidden_terminal_key_required": true,
+    "reuse_of_chat_secrets": false
+  },
+  "new_API_calls": 0,
+  "scientific_inference": "Interface feasibility only; no task correctness, intent-drift claim, or independent confirmation",
+  "raw_data_public": false,
+  "github_sync_verified": false
+}

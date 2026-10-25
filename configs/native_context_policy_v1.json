@@ -1,0 +1,24 @@
+{
+  "version": "native-context-interface-v1",
+  "scope": "Eight first responses from all contexts of two exposed development pairs; interface feasibility only",
+  "endpoint": "https://api.deepseek.com/beta/chat/completions",
+  "maximum_calls": 8,
+  "maximum_seconds": 600,
+  "outer_worker_seconds": 630,
+  "client_ceiling_micro_cny": 100000,
+  "primary_endpoint": "Exactly one complete native action meeting the unchanged four-action semantic schema",
+  "secondary_engineering_check": "Provider prompt usage equals pinned local reference count; discrepancy terminates without empirical offset adjustment",
+  "failure_policy": "Format-invalid response retained as observed invalid; no repair or retry. Transport, identity, usage or deadline failure stops remaining slots, retaining all not-started slots and unknown billing reserves.",
+  "decision_rules": {
+    "infrastructure_failure": "Stop and audit; no automatic restart",
+    "any_invalid_action": "Do not resume substantive experiments with this interface; review failure without cell-selective retries",
+    "eight_valid_actions": "Limited interface check passed; not task correctness or intent-drift evidence. Further paid experiments require a separate design and approval."
+  },
+  "SQL_execution": false,
+  "tool_execution": false,
+  "training": false,
+  "inferential_statistics": false,
+  "cross_protocol_pooling": false,
+  "original_records_unchanged": true,
+  "raw_records_public": false
+}

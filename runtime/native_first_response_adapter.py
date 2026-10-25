@@ -10,6 +10,17 @@ from runtime.native_action_interface import _load, parse_native_response
 from runtime.native_action_counter import validate_candidate_payload
 
 
+def score_native(raw):
+    try:
+        parsed = parse_native_response(raw)
+        score = {'admitted': True, 'action_kind': parsed['action']['kind'], 'invalid_reason': None}
+    except (ValueError, TypeError, RecursionError) as exc:
+        score = {'admitted': False, 'action_kind': None, 'invalid_reason': type(exc).__name__}
+    score.update(task_correctness_assessed=False, C_type_drift_assessed=False,
+                 SQL_executions=0, tool_executions=0, retry=False)
+    return score
+
+
 class NativeFirstAdapter:
     def __init__(self, *, counter, transport, save, guard, deadline, clock=time.monotonic):
         self.counter, self.transport, self.save, self.guard = counter, transport, save, guard
@@ -59,12 +70,6 @@ class NativeFirstAdapter:
         if (body.get('model') != 'deepseek-flash' or usage['prompt_tokens'] != n
                 or usage['completion_tokens'] > 512):
             raise ValueError('Provider identity/reference count/output mismatch; stop')
-        try:
-            parsed = parse_native_response(raw)
-            score = {'admitted': True, 'action_kind': parsed['action']['kind'], 'invalid_reason': None}
-        except (ValueError, TypeError, RecursionError) as exc:
-            score = {'admitted': False, 'action_kind': None, 'invalid_reason': type(exc).__name__}
-        score.update(task_correctness_assessed=False, C_type_drift_assessed=False,
-                     SQL_executions=0, tool_executions=0, retry=False)
+        score = score_native(raw)
         self.save('score', score)
         return score
