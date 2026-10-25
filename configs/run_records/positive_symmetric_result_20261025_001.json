@@ -1,0 +1,71 @@
+{
+  "date": "2026-10-25",
+  "status": "OFFICIAL_DEVELOPMENT_FINISHED_REPLAY_VERIFIED_WITH_INVALID_ACTIONS",
+  "prepared": "runtime/runs/positive-symmetric-prepared-20261025-001",
+  "prepared_manifest_sha256": "856d339da5de6b79fca6cba9453f2e673328dc8680d35352258ab5726e3298ff",
+  "experiment_manifest_sha256": "d311f854241102cece854e6b7af28c76e713808f6b10002af5af91c9c5243d0c",
+  "audit_status": "SEALED_SYMMETRIC_FINISHED_REPLAY_VERIFIED",
+  "scope": "One researcher-adapted sufficient-history development pair, four dependent conditions; no independent confirmation or training.",
+  "cells": [
+    {"id":"cell-0","cache_available":false,"cache_price":1,"rating":"INVALID_OUTPUT","first_action":"INVALID_OUTPUT","model_calls":1,"tool_calls":0,"diagnostic":"Two concatenated JSON action objects; strict parser rejected the entire response."},
+    {"id":"cell-1","cache_available":false,"cache_price":20,"rating":"MATCH","first_action":"run_sql","model_calls":2,"tool_calls":1,"final_answer":2},
+    {"id":"cell-2","cache_available":true,"cache_price":1,"rating":"INVALID_OUTPUT","first_action":"INVALID_OUTPUT","model_calls":1,"tool_calls":0,"diagnostic":"Two concatenated JSON action objects; strict parser rejected the entire response."},
+    {"id":"cell-3","cache_available":true,"cache_price":20,"rating":"INVALID_OUTPUT","first_action":"INVALID_OUTPUT","model_calls":1,"tool_calls":0,"diagnostic":"JSON action object followed by extraneous trailing characters; strict parser rejected the entire response."}
+  ],
+  "accounting": {
+    "dispatch_attempts": 5,
+    "readonly_SQL_attempts": 1,
+    "cache_reads": 0,
+    "reported_prompt_tokens": 6110,
+    "reported_completion_tokens": 426,
+    "client_accounted_cny": 0.015628,
+    "client_cap_cny": 0.20,
+    "uncertain_reserved_cny": 0,
+    "provider_invoice_verified": false,
+    "automatic_retries": 0,
+    "new_API_calls_during_audit": 0,
+    "new_SQL_queries_during_audit": 0
+  },
+  "diagnostic_evidence": {
+    "scope": "Post-hoc read-only inspection, separate from unchanged frozen dispositions.",
+    "all_four_first_responses_received": true,
+    "all_four_first_finish_reasons": "stop",
+    "all_four_first_reported_model_aliases": "deepseek-flash",
+    "transport_response_text_parsed_content_equals_provider_journal_and_adapter_content": true,
+    "malformed_content_already_present_at_transport_record": true,
+    "no_evidence_of_local_adapter_concatenation": true,
+    "provider_internal_root_cause_known": false,
+    "invalid_content_contains_run_sql_text": true,
+    "invalid_content_recoded_as_valid_action": false,
+    "first_object_extracted_for_execution": false,
+    "original_scores_modified": false
+  },
+  "interpretation": {
+    "observed": "One valid recomputation completed correctly; three trajectories stopped at first-response formatting violations before tools were dispatched.",
+    "not_a_semantic_error_rate": "Three INVALID_OUTPUT records are not three incorrect answers. No valid answer was observed for them.",
+    "no_C_type_claim": true,
+    "legitimate_reuse_demonstrated": false,
+    "universal_recomputation_demonstrated": false,
+    "reason": "Malformed run_sql-looking text is not an admitted action. Four-cell route/cost behavior cannot be inferred from the one successful trajectory.",
+    "method_increment_established": false,
+    "human_reviews_added": 0,
+    "inferential_statistics_computed": false
+  },
+  "decision": {
+    "current_gate": "Interface reliability must be addressed before expanding mechanism or method experiments.",
+    "next": "Use these preserved malformed responses as local parser/transport regression cases; review official structured-output requirements and define a separate fixed interface calibration if needed. Any changed prompt/parser is a new protocol version and needs new paid authorization before inference.",
+    "prohibited_shortcuts": ["Do not silently take the first JSON object", "Do not repair and overwrite original responses or ratings", "Do not count textual SQL proposals as successful execution", "Do not pool only the successful condition with other runs", "Do not rerun the failed-format cells automatically"],
+    "new_batch_started": false
+  },
+  "backup": {
+    "directory": "runtime/runs/positive-symmetric-backup-20261025-001",
+    "archive_sha256": "6bc3301d5c4c500bcbb4ae52650c7aa0800219bb7e1a6f3c363c9c7c383a7cc0",
+    "verified_files": 568,
+    "archive_bytes": 648779,
+    "includes_fixed_database": true,
+    "original_files_modified": false,
+    "off_device_backup": false,
+    "private_local_only": true
+  },
+  "github": "Aggregate receipt only; raw response content, private inputs and database remain ignored. Remote synchronization not claimed; prior user-side authentication blocker unchanged."
+}
