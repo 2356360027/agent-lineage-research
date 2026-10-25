@@ -1,0 +1,41 @@
+{
+  "date":"2026-10-25",
+  "status":"SOURCE_DERIVED_MULTITURN_COUNTER_OFFLINE_CHECKED",
+  "previous_goal_turn":"PROGRESS: b41c8d7 implemented bounded native tool history and tested original-context preservation",
+  "code":"runtime/native_trajectory_counter.py",
+  "tests":"tests/test_native_trajectory_counter.py",
+  "script":"scripts/audit_native_trajectory_counts.py",
+  "reference_revision":"935817c66f5d6e64838f419692545f06787e485f",
+  "reference_file":"deepseek-recipe-encoding/src/v4/dsv41.rs",
+  "reference_sha256":"33f7b0e0c3dde66020a4746ffc6c35df8dd30933e653aaf9071c1beb21439a90",
+  "scope":"Fixed non-thinking four-turn native action profile; string argument, one tool result per call, prescribed recovery and terminal reminders. No generic conversation support.",
+  "source_rules_implemented":[
+    "Tool prompt appended to first system message, same first-request prefix as prior counter",
+    "Assistant call serialized to spaced DSML invoke/parameter tags followed by EOS",
+    "Tool observation uses tool_result wrapper and user-or-blank-line separator",
+    "User reminder after tool result uses blank-line separator",
+    "Required-tools assistant prefix appended before each generation",
+    "Call IDs validate bindings but are not rendered by this reference",
+    "Reserved token literals in argument or observation refused instead of reinterpreted"
+  ],
+  "tests_passed":98,
+  "new_counter_tests":10,
+  "offline_audit":{
+    "directory":"runtime/runs/native-trajectory-counter-audit-20261025-001",
+    "sha256":"4372ed5504ec20a3214140b1d934e8158aab7701eb0f0ba85b11fa3a2954e0c1",
+    "original_initial_contexts":8,
+    "first_counts_unchanged":true,
+    "synthetic_continuation_contexts":24,
+    "synthetic_history":"Identical scripted SELECT 1 proposals and SCRIPTED_ONLY result records, never dispatched or stored as model responses",
+    "input_token_range_for_this_fixture_only":[1611,2257]
+  },
+  "new_API_calls":0,
+  "new_tool_executions":0,
+  "multi_turn_provider_parity_verified":false,
+  "executable_upstream_parity_tested":false,
+  "whole_horizon_worst_case_cost_established":false,
+  "provider_spending_cap_installed":false,
+  "scientific_effect_tested":false,
+  "next_gate":"Integrate prospective adapter with complete raw logging, per-request reservation and provider usage/identity checks, mismatch stop with no retry, and existing read-only session. Establish a conservative fixed-horizon bound before seeking a separately approved batch; synthetic count range is not that bound.",
+  "github_remote_sync_verified":false
+}
