@@ -1,0 +1,60 @@
+{
+  "date": "2026-10-26",
+  "status": "BOUNDED_STATIC_DEVELOPMENT_SCREEN_NOT_ADMISSION",
+  "previous_turn": "PROGRESS: complete eight-cell native development run audited, backed up and recorded in 2ab6b13; all eight scalar matches, all eight SQL recomputations, no demonstrated reuse savings or harmful reuse.",
+  "decision": "Do not retune the two superhero tasks. Inspect one different-domain candidate for data and measurement suitability before proposing any further model experiment.",
+  "source": {
+    "path": "runtime/runs/datasets/arcwise-plat-fixed-20261012-001/arcwise_plat_full_with_diff.json",
+    "revision": "fe766045c55b6875a43b30e9ac7683df5582f8cf",
+    "sha256": "baefe2ca4fbab86c000df72aad9eaa563f7d422e425af2cbff071f656ea4eea8",
+    "total_records": 498,
+    "scope_this_turn": "Read question text for all 48 student_club and 30 financial entries; then question/evidence/SQL for IDs 1317, 1371, 1361, 1380. No database queried or model outputs used for candidate selection.",
+    "exposure": "These screened texts are now development-exposed. Not a held-out confirmation set. No comprehensive proof of absence from all historical prompts or model pretraining is claimed.",
+    "publication_scope": "IDs and analysis only; do not upload original dataset, personal contact fields, or raw reviews."
+  },
+  "shortlist": [
+    {
+      "database": "student_club",
+      "history_id": 1371,
+      "current_id": 1317,
+      "relation": "Same named event: total participants versus participants requesting a Medium T-shirt.",
+      "native_history_provenance": "Both questions are public; the historical-to-current pairing is researcher-created, not a recorded natural user session.",
+      "information_argument": "Even with a fixed attendee count, two assignments of shirt sizes can produce different Medium-subset counts. Thus the historical count alone is not generally sufficient. This is a logical statement, not a model failure or actual snapshot result.",
+      "potential_positive_control": "A separately requested complete event registration roster containing attendee identity and shirt size could support filtering and counting. It would be a researcher-constructed history, not information originally returned by question 1371. Its semantics and provenance must be reviewed independently.",
+      "open_semantic_gates": [
+        "Whether participants are unique members or attendance records; repeated attendance rows must not silently define the answer.",
+        "Whether the event name identifies one event or multiple occurrences and which occurrences the question means.",
+        "Whether orphan or NULL member links exist: the historical SQL counts links without joining member, while the current SQL joins member.",
+        "Whether missing/NULL shirt sizes are simply not Medium and whether requested size is a current member attribute or event-time preference.",
+        "Whether a constructed roster is complete, preserves needed identities/multiplicity and handles empty results."
+      ],
+      "human_approved": false,
+      "snapshot_admitted": false,
+      "model_experiment_authorized": false
+    }
+  ],
+  "deferred": [
+    {
+      "history_id": 1380,
+      "current_id": 1361,
+      "database": "student_club",
+      "reason": "Food spending is expressed as SUM(budget.spent) filtered by category, while pizza cost is SUM(expense.cost) filtered by expense_description. A common accounting universe and reconciliation are not established. Do not present this as a clean subset-count or subset-sum contrast.",
+      "claim_boundary": "Does not establish the original SQL or questions are wrong; only that this pairing is not yet a clean control."
+    }
+  ],
+  "financial_screen": "No pair shortlisted in this bounded pass. This is not an exhaustive search or proof that the domain lacks reusable pairs; no financial reference SQL or database was examined this turn.",
+  "data_acquisition_feasibility": {
+    "existing_inventory": "runtime/runs/datasets/bird-mini-fixed-20261005-002/zip_inventory.json",
+    "expected_inventory_sha256": "68945f56b0ab2219c8f4e9c235b264c8d8a8848c09a7ca0794bb86cf645da1db",
+    "member": "minidev/MINIDEV/dev_databases/student_club/student_club.sqlite",
+    "compressed_bytes_from_old_inventory": 614801,
+    "uncompressed_bytes_from_old_inventory": 2641920,
+    "archive_entity_currently_revalidated": false,
+    "database_downloaded_this_turn": false,
+    "next_step": "Revalidate official archive entity and safely acquire only this member into a new private snapshot; verify source/version mapping before read-only schema and structural checks. Do not rewrite old source manifests or assume Arcwise/mini-dev text equivalence."
+  },
+  "measurement_gate": "Keep the scientific question unchanged. Supplied-correct-contract adherence and unassisted task interpretation are different targets. A future ordinary workflow/contract-first/strong-check comparison needs a separate plan with equal task information, nonbinding budgets, independently reviewed tasks and fresh fee approval. No new method name or automatic wider batch.",
+  "resource_use": {"new_model_calls":0,"new_SQL_queries":0,"new_human_reviews":0,"new_dataset_downloads":0},
+  "formal_tasks_admitted": 0,
+  "github_remote_sync_verified": false
+}
