@@ -1,0 +1,26 @@
+{
+  "version": "research-context-interface-draft-v1",
+  "status": "OFFLINE_DESIGN_NOT_EXECUTION_AUTHORIZATION",
+  "research_stage": "Interface gate before returning to phenomenon and strong-baseline screening; no method increment established",
+  "motivation": "Both arms passed all eight supplied-action encoding fixtures, so the simple calibration did not reproduce malformed outputs in the research workflow.",
+  "selection": "All four first-request contexts from each of the already-used positive and strength symmetric development batches. Retain successful and malformed historical cells alike. Selection of these two batches is post-hoc development debugging, not a representative sample or independent confirmation.",
+  "units": "Two task pairs, eight dependent contexts, sixteen planned first-response calls. Never treat these as sixteen independent tasks.",
+  "intervention": "Replace exactly one canonical action instruction in the system message with the existing separated-alternatives instruction. Hold the entire remaining payload constant within each pair. The instruction is a presentation bundle, not a test of commas alone.",
+  "model_task": "Choose the first action under the unchanged recorded research prompt, unlike the prior supplied-action encoding check. No action is prescribed or graded as semantically correct.",
+  "execution": "No SQL or tool dispatch, even for valid requests. No fabricated tool observations. A future runner must enforce one response per slot and retain all failures. This draft has no API transport or executable paid launcher.",
+  "order": "Fixed SHA-256 context order with alternating first arm; four original-first and four separated-first pairs. No added repetitions based on results.",
+  "primary": "For all sixteen planned slots: normal-finish plus strict whole-response action-schema admission, with invalid, infrastructure-failed and not-started states distinct. No prefix extraction or repair.",
+  "secondary": ["single-JSON syntax validity", "finish reason", "token use and cost", "descriptive paired admission difference only after all slots observed"],
+  "not_endpoints": ["correct action selection", "SQL correctness", "task completion", "C-type interpretation drift", "method superiority"],
+  "historical_comparison": "New paired responses only. Do not estimate a treatment effect by comparing new calls with old failures or pool with synthetic encoding fixtures. Old responses and scores remain unchanged.",
+  "failure_policy": "Malformed content is an observed invalid response, not a transport failure; continue the prespecified sequence. Infrastructure failure stops the batch without retries or completed-prefix contrasts. No replacement of failed cells.",
+  "decision_rules": {
+    "infrastructure_failure": "Audit and resolve the operational cause before interpreting formatting. No automatic rerun.",
+    "separated_has_invalid": "Do not expand substantive experiments with this candidate. Pause prompt tweaking and reassess an explicit structured interface, preserving this failure. Any replacement is a new protocol and separate authorization.",
+    "both_all_admitted": "No observed advantage and no general reliability claim. Keep the original instruction for continuity if proceeding; add no interface component as a research contribution. Any renewed substantive study requires a new frozen design and approval.",
+    "separated_all_admitted_original_has_invalid": "Provisional interface candidate, not root-cause proof. A subsequent substantive development batch must use it equally across every baseline and treatment; no retroactive repair of older results."
+  },
+  "scope_cautions": "Temperature zero does not guarantee reproducibility, and the remote model alias does not independently identify immutable weights. First-response validity does not establish multi-step interface reliability. Do not repeatedly optimize these two tasks until expected cache behavior appears.",
+  "next_research_gate": "Once the interface is usable, test legitimate reuse and direct recomputation under fair information before proposing a new algorithm. A valid route or wrong final answer alone cannot establish demand reinterpretation.",
+  "budget": "Use measured token lengths for planning. Recheck prices, finalize frozen launcher and failure tests, then obtain fresh bounded paid approval. No credentials or previous approvals are reused."
+}
