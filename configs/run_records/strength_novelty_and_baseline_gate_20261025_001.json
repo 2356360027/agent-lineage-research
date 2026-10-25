@@ -1,0 +1,114 @@
+{
+  "date": "2026-10-25",
+  "status": "PROSPECTIVE_INTERPRETATION_AND_BASELINE_FAIRNESS_MEMO_NO_PROTOCOL_CHANGE",
+  "previous_goal_turn_classification": "Progress: new user authorization was recorded in commit 16a64d0. No execution was claimed. This turn relates established prior-art boundaries to the now-frozen specific task and specifies fair baseline inputs.",
+  "execution_observation": {
+    "prepared": "runtime/runs/strength-symmetric-prepared-20261025-001",
+    "directory_listing": "Only inputs, source, manifest.json and PRIVATE_batch_plan.json observed; no execution claim or experiment directory at inspection",
+    "process_query": "Windows CIM query denied access; not bypassed",
+    "live_process_verified": false,
+    "process_stopped_inferred": false,
+    "automatic_restart": false,
+    "monitor_installed": false,
+    "credential_boundary": "Await user hidden terminal input; no chat secret reused"
+  },
+  "local_evidence_scope": {
+    "prior_reviews": ["reports/research_portfolio_review_20261012/READOUT.md", "reports/cache_prior_art_update_20261021/READOUT.md"],
+    "current_admission": "configs/run_records/strength_clarified_admission_20261025_001.json",
+    "verified_boundary": "Admitted current task counts distinct hero IDs; historical task retains distinct full_name only. Prior fixed-snapshot checks found 36 historical rows versus 63 target entities.",
+    "no_new_empirical_effect": true,
+    "frozen_prepared_manifest_sha256": "6083e0a39e1cebf9872cd54a3861c9d917b52da8093289e1cd1933044dbc0840",
+    "frozen_policy_or_source_changed": false
+  },
+  "source_matrix": [
+    {
+      "title": "Apache Calcite Materialized Views",
+      "url": "https://calcite.apache.org/docs/materialized_views.html",
+      "publication_status": "Official software documentation",
+      "reading_this_turn": "View rewriting introduction, structural rewriting and constraint support",
+      "covered": "Equivalence-based view substitution, residual filtering, aggregation rollup and partial rewriting; declared keys and constraints support rewrites.",
+      "our_inference": "Rejecting a lossy name-only projection for entity counting is not itself a novel agent algorithm. A formal optimizer consumes a query; it does not independently establish that an upstream generated query matches a natural-language request.",
+      "not_claimed": "No new Calcite execution on this exact clarified pair this turn; documentation is not proof that every expression shape is supported."
+    },
+    {
+      "title": "CostBench: Evaluating Multi-Turn Cost-Optimal Planning and Adaptation in Dynamic Environments for LLM Tool-Use Agents",
+      "url": "https://aclanthology.org/2026.acl-long.584/",
+      "publication_status": "ACL 2026 long paper, official proceedings metadata",
+      "reading_this_turn": "Official abstract and metadata only",
+      "covered": "Cost-aware planning using atomic/composite tools and adaptation to cost changes or failures in travel planning.",
+      "our_inference": "A cheaper but correct alternative plan, or a different first tool choice, is not sufficient evidence of demand reinterpretation. A pure planning result overlaps this existing evaluation axis.",
+      "not_claimed": "No reproduction, full-paper re-review or imported numerical performance claims."
+    },
+    {
+      "title": "How Memory Management Impacts LLM Agents: An Empirical Study of Experience-Following Behavior",
+      "url": "https://aclanthology.org/2026.acl-long.27/",
+      "publication_status": "ACL 2026 long paper, official proceedings metadata",
+      "reading_this_turn": "Official abstract and metadata only",
+      "covered": "Experience-following, error propagation and misaligned experience replay, including misleading value from apparently correct past executions.",
+      "our_inference": "A correct history being harmful to a later task is already a close topic. Potential additional evidence would require controlled availability/price effects on observable demand interpretation, not merely a new cache-error example.",
+      "not_claimed": "No claim of first discovery, absence of closer work, independent replication or verified equivalence of task settings."
+    }
+  ],
+  "fair_baseline_input_gate": [
+    {
+      "baseline": "No cache, direct recomputation",
+      "inputs": "Same current reviewed task, schema and accessible fixed database; generate the query from those inputs, not from the hidden reference SQL.",
+      "costs": "All generation, failed tools and recomputation; equal successful-solution feasibility.",
+      "interpretation": "Measures whether ordinary direct solving suffices. Existing unavailable-cache cells retain history context and are not automatically an independent no-history baseline."
+    },
+    {
+      "baseline": "Ordinary joint interpretation and planning",
+      "inputs": "The approved four-cell protocol; same common task/history text, tool capabilities and correctness instruction.",
+      "interpretation": "Current batch observes actions and answers, not a temporally prior explicit task contract."
+    },
+    {
+      "baseline": "Contract-first workflow",
+      "inputs": "Model constructs its own contract from the current request before reuse planning; it does not receive a hidden gold contract or reference program unavailable to competitors.",
+      "costs": "Extra contract generation and verification included.",
+      "interpretation": "A future separately frozen method comparison, not a post-hoc modification of the ordinary workflow. Contract elicitation and ordering can change behavior."
+    },
+    {
+      "baseline": "Independent-context verifier",
+      "inputs": "Original current request and necessary public schema/history facts, candidate interpretation/query; no scorer label or expected numeric answer.",
+      "costs": "Verification plus any repair or recomputation included.",
+      "interpretation": "Tests a strong existing safeguard; verification success must not be portrayed as a new named algorithm."
+    },
+    {
+      "baseline": "Structured applicability plus database rewrite/recompute",
+      "inputs": "Same upstream-generated current query/contract and trusted history definition; only genuinely declared constraints, never assumed name uniqueness.",
+      "interpretation": "Can reject incompatible view reuse, but query-equivalence preservation alone cannot correct a query that already encodes the wrong user request."
+    },
+    {
+      "baseline": "Oracle current-query backend control",
+      "inputs": "Human-confirmed/reference current query explicitly supplied as oracle information.",
+      "interpretation": "Useful to localize downstream tool correctness or feasibility; not a fair primary end-to-end method when competitors must infer the current query. Report separately."
+    }
+  ],
+  "outcome_contingent_next_step_memo": [
+    {
+      "observation": "All four conditions correct, with the same or different legitimate routes",
+      "interpretation": "This development case does not demonstrate the proposed failure. Route/cost adaptation alone is not drift.",
+      "next": "Do not enlarge this case by repeatedly changing prices, prompts or seeds until it fails. Review evidence for further independently justified task screening; no automatic new paid batch."
+    },
+    {
+      "observation": "Wrong scalar or inappropriate name-cache row counting",
+      "interpretation": "Observed task error, not automatically C-type demand drift. The formal information-loss boundary remains covered by strong applicability checking.",
+      "next": "Review original task, generated program and tool exposure to separate A/B/D/E or undetermined cause. A future C-type diagnostic needs observable prior task interpretation and independently reviewed subsequent behavior."
+    },
+    {
+      "observation": "A price/availability contrast in this single pair",
+      "interpretation": "A descriptive development contrast only; one task and one realization do not establish a general effect or isolate interpretation from downstream information exposure.",
+      "next": "Do not present significance or causal internal-state claims. Any later confirmation must freeze independent tasks and sampling before results."
+    },
+    {
+      "observation": "Prose answers, abstentions, malformed output or infrastructure stop",
+      "interpretation": "Use the frozen separate dispositions and whole-batch audit. Unclear prose is not automatically wrong; infrastructure failure is not semantic evidence.",
+      "next": "Preserve all records and pending reviews; no silent replacement or successful-prefix effect estimate."
+    }
+  ],
+  "method_innovation_gate": "Before proposing a method, demonstrate a remaining quality-versus-total-cost gap after fair contract-first, independent-verifier and applicability/recompute baselines. Oracle SQL, all-cache rejection or a one-off name-count rule cannot establish the desired end-to-end increment.",
+  "scope": "Interpretation memo for future decisions, not a new preregistration or an amendment to the approved batch; no additional execution authorized.",
+  "new_API_calls": 0,
+  "new_SQL_queries": 0,
+  "new_training": false
+}
