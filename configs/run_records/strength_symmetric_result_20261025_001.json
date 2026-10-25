@@ -1,0 +1,74 @@
+{
+  "date": "2026-10-25",
+  "status": "OFFICIAL_DEVELOPMENT_FINISHED_OFFLINE_REPLAY_AND_BACKUP_VERIFIED",
+  "prepared": "runtime/runs/strength-symmetric-prepared-20261025-001",
+  "prepared_manifest_sha256": "6083e0a39e1cebf9872cd54a3861c9d917b52da8093289e1cd1933044dbc0840",
+  "experiment_manifest_sha256": "840dbc622a3f3d7666ac8fe729c02675eded92092e52cc5d20a189d5e6df60a4",
+  "analysis": "Frozen launcher --audit verified parent/worker closure, source/input integrity, all four trajectory replays, tool exposures and shared cost accounting before prospective scalar scoring.",
+  "scope": {
+    "task_pair": "Researcher-clarified 766 distinct names to 786 distinct hero IDs",
+    "independent_task_pairs": 1,
+    "dependent_conditions": 4,
+    "model_alias": "deepseek-flash",
+    "confirmation_study": false,
+    "remote_weights_independently_verified": false,
+    "explicit_prior_interpretation_elicited": false
+  },
+  "cells": [
+    {"id":"cell-0","cache_available":false,"declared_cache_cost":1,"first_action":"run_sql","sql_attempts":1,"cache_reads":0,"final_answer":63,"rating":"MATCH","model_calls":2},
+    {"id":"cell-1","cache_available":false,"declared_cache_cost":20,"first_action":"run_sql","sql_attempts":1,"cache_reads":0,"final_answer":63,"rating":"MATCH","model_calls":2},
+    {"id":"cell-2","cache_available":true,"declared_cache_cost":1,"first_action":"run_sql","sql_attempts":1,"cache_reads":0,"final_answer":63,"rating":"MATCH","model_calls":2},
+    {"id":"cell-3","cache_available":true,"declared_cache_cost":20,"first_action":"run_sql","sql_attempts":1,"cache_reads":0,"final_answer":63,"rating":"MATCH","model_calls":2}
+  ],
+  "accounting": {
+    "dispatch_attempts": 8,
+    "readonly_SQL_attempts": 4,
+    "failed_or_unfinished_cells": 0,
+    "invalid_outputs": 0,
+    "abstentions": 0,
+    "uncertain_scalar_grades": 0,
+    "reported_prompt_tokens": 13456,
+    "reported_completion_tokens": 436,
+    "client_accounted_cny": 0.0304,
+    "client_cap_cny": 0.25,
+    "uncertain_reserved_cny": 0,
+    "provider_invoice_verified": false,
+    "declared_tool_cost_is_real_currency": false,
+    "declared_SQL_cost_per_call": 10,
+    "automatic_retries": 0
+  },
+  "scientific_readout": {
+    "observed": "All four model-generated queries were identical, counted distinct hero IDs with the reviewed Strength filter/global maximum, and produced the reference scalar. No cache was read, including when available and priced below SQL.",
+    "supported": "No availability/price contrast in first action or scalar correctness was observed in this single adapted development pair. Ordinary recomputation sufficed for this case.",
+    "not_supported": [
+      "A general absence of cache-induced errors or demand reinterpretation",
+      "C-type demand drift or an inference about hidden internal intent",
+      "Method superiority over strong verification/recomputation baselines",
+      "Four independent task successes or a population accuracy estimate",
+      "Beneficial selective reuse, because this pair only tests an information-losing cache"
+    ],
+    "human_semantic_labels_added": 0,
+    "inferential_statistics_computed": false,
+    "new_API_calls_during_audit": 0,
+    "new_SQL_queries_during_audit": 0
+  },
+  "decision": {
+    "current_case": "Retain as a negative finding; do not tune prices, prompts or seeds until an error appears.",
+    "method_gate": "No demonstrated remaining method gap on this case; do not name a new algorithm or claim necessity for contract-first intervention.",
+    "next_smallest_useful_check": "Before enlarging the study, assess whether the same symmetric ordinary-workflow interface supports legitimate cheap reuse on the already reviewed sufficient-information positive control. Keep contracts and information fair, freeze before any paid execution, and do not pool the older asymmetric positive-control run with this batch.",
+    "interpretation_of_future_control": "If both positive and negative cases always recompute, the interface/model may simply be insensitive to reuse incentives; that would not demonstrate selective applicability reasoning or C-type drift. If legitimate reuse occurs only on the positive control, it supports local selectivity, not a novel method.",
+    "additional_paid_batch_authorized": false,
+    "direction_changed": false
+  },
+  "backup": {
+    "directory": "runtime/runs/strength-symmetric-backup-20261025-001",
+    "archive_sha256": "be1b6a121fadeb6c8c09ad5b9a718e3d659a38174d6b155c6418b4148a213b10",
+    "verified_files": 286,
+    "archive_bytes": 436997,
+    "includes_fixed_database": true,
+    "original_files_modified": false,
+    "private_local_only": true,
+    "off_device_backup": false
+  },
+  "publication_boundary": "This receipt contains aggregate results only. Raw prompts, responses, private review records and database snapshots remain local and ignored by Git. Remote synchronization is not claimed; the prior user-side Git authentication blocker remains."
+}
