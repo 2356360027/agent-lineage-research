@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-26",
+  "status": "SYNTHETIC_MEASUREMENT_REGRESSION_TESTED_NOT_TASK_ADMISSION",
+  "previous_goal_turn": "PROGRESS: received and preserved two submitted candidate reviews with SHA256 verification; retained conditional/pending decisions and requested process clarification, rather than declaring unanimous admission.",
+  "change": "Added five in-memory SQLite counterexample/regression tests. No production scorer, frozen experiment source, human label, historical result or original database changed.",
+  "test_file": "tests/test_subset_cache_witnesses.py",
+  "verification": {
+    "command": "python -B -X utf8 -m unittest tests.test_subset_cache_witnesses tests.test_cache_intent_judgment -v",
+    "tests_passed": 40,
+    "new_tests": 5,
+    "complete_roster_enumeration": "156 artificial worlds with zero to three members, sizes Medium/Small/medium/empty/NULL",
+    "scope": "Software checks and constructed counterexamples, not 156 independent research samples. SQLite databases exist only in memory."
+  },
+  "covered_cases": [
+    "Two possible worlds have the same total count but different Medium subset counts.",
+    "An empty population supports a zero subset count under the stipulated common population; a strict subset is not required.",
+    "Complete ID-and-size roster filtering agrees with SQL in the bounded enumeration.",
+    "A truncated roster can fail the same query, so positivity requires independently verified completeness.",
+    "Copying a total can accidentally match a subset count when all participants match. A size perturbation breaks the equality. Final scalar match is not evidence of general semantic equivalence.",
+    "The existing judgment API retains C-type labels only from explicitly supplied observable-contract judgments; missing contracts remain unassessed even with a matching final scalar. Synthetic labels do not authenticate model behavior."
+  ],
+  "consequence_for_future_protocol": [
+    "Report numeric answer match separately from semantic alignment and cache-use validity.",
+    "Do not score every reuse of an insufficient-in-general cache as wrong: a certified zero boundary can be valid. Other independently certified constraints or supplemental reads can also make a specific use valid.",
+    "Do not use these researcher-stipulated synthetic semantics to decide the pending student_club interpretation or admit that task.",
+    "No universal SQL-equivalence proof, automated semantic judge, new method advantage or empirical drift effect is established."
+  ],
+  "resources": {"model_calls": 0, "paid_calls": 0, "actual_dataset_queries": 0},
+  "human_gate": "Still awaiting process confirmation and the conditional reviewer decision; no new human response inferred from automatic continuation.",
+  "github_remote_sync_verified": false,
+  "github_note": "Prior local authentication blocker remains; no credential workaround or repeated push attempted. Raw reviews and original records remain ignored/private."
+}
