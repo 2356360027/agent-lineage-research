@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-26",
+  "status": "OFFLINE_DIAGNOSTIC_DESIGN_GENERATED_NOT_EXECUTABLE_NOT_AUTHORIZED",
+  "previous_goal_turn": "PROGRESS: human supplement recorded and four real readonly reference queries completed; original and member-entity counts agreed, with database unchanged.",
+  "reason_not_reusing_old_runner_unchanged": "The existing symmetric runner supplies human-correct current/shared contracts. Its successful adherence cannot directly measure an independently expressed task interpretation.",
+  "draft": "runtime/runs/student-club-diagnostic-draft-20261026-001",
+  "draft_artifact_manifest_sha256": "5b4d0631300bad7bc85cd979a3744da5db80e89560f3c21ddb4dc6bfb2fc3d34",
+  "design": "One reviewed development pair; ordinary, request-first definition and catalog-first definition workflows, each with all four availability-by-price conditions",
+  "proposed_trajectories": 12,
+  "proposed_max_calls": 56,
+  "proposed_max_tool_attempts": 36,
+  "live_runner_ready": false,
+  "api_fee_bound_verified": false,
+  "paid_approval_requested": false,
+  "tests": {
+    "command": "python -B -X utf8 -m unittest tests.test_student_club_diagnostic_design tests.test_student_club_reference tests.test_subset_cache_witnesses -q",
+    "passed": 12,
+    "new_tests": 5,
+    "coverage": "Full deterministic grid, request-first catalog blindness, within-protocol treatment-only differences, equal action-stage public context, nonbinding tool budgets, rejection of extra reference fields, no fabricated ordinary-flow contract, and preservation of own-definition text",
+    "limits": "Prompt-boundary software tests only, not proof of model behavior, live protocol validity or all possible information leaks"
+  },
+  "next_required_implementation": [
+    "Native task-definition/revision protocol and raw-event linkage",
+    "Same table/column allowlist across arms, rejecting contact-field SQL before execution",
+    "Scripted execution, failure handling and replay tests",
+    "Actual-wire token counting, official rate check, full source freeze and fresh bounded paid approval"
+  ],
+  "scientific_limits": [
+    "Staged own-definition generation is a measurement/intervention protocol, not access to hidden reasoning.",
+    "Ordinary workflow has no inferred C-type label without an actual observed definition.",
+    "Twelve conditions from one pair are not twelve independent tasks; no population significance claim.",
+    "Later tool information differs endogenously; do not label all final-answer differences a pure convenience effect.",
+    "No strong-baseline increment or method effectiveness established."
+  ],
+  "resources_used_this_turn": {"model_calls": 0, "actual_database_queries": 0, "api_cost_cny": 0},
+  "github_remote_sync_verified": false
+}

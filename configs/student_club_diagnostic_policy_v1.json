@@ -1,0 +1,59 @@
+{
+  "status": "PROSPECTIVE_DEVELOPMENT_DESIGN_NOT_LIVE_PREPARATION_OR_APPROVAL",
+  "question": "Does cache availability or declared price change an observable current-task definition before tool execution, and does a later program follow that altered definition?",
+  "task_pair": "student_club 1371 -> 1317; researcher-created history; one development-exposed legacy snapshot",
+  "protocols": {
+    "ordinary": "Four availability-by-price cells without eliciting a task definition. Read out tools and final answer; C-type interpretation usually unassessed.",
+    "request_first": "Four cells with the same current request, public evidence and projected schema at the definition stage; no history, availability or price yet. Each trajectory generates its own definition. Then reveal the full catalog and execute.",
+    "catalog_first": "Four cells eliciting an equally brief definition after revealing history metadata, SQL, availability and price, but before reading any cached result. Then execute."
+  },
+  "model_input_boundary": "Original current question/evidence, relevant schema and historical question/evidence/SQL only. No reference current SQL, correct contract, Medium count, review forms, or suitability labels. Historical result becomes visible only through read_cache when available.",
+  "snapshot_context": "Same readonly snapshot; relevant member entities require no additional student identity filter. No per-arm semantic clarifications. Relevant schema is a declared projection, not represented as the complete database schema.",
+  "resources": {
+    "dependent_trajectories": 12,
+    "independent_task_pairs": 1,
+    "max_model_calls": 56,
+    "max_readonly_tool_attempts": 36,
+    "sql_cost_units": 10,
+    "cache_cost_units": [1,20],
+    "budget_per_trajectory_units": 60,
+    "max_tool_attempts_per_trajectory": 3,
+    "proposed_call_seconds": 600,
+    "proposed_worker_seconds": 630,
+    "cny_bound": null,
+    "pricing_or_token_capacity_verified": false,
+    "automatic_retries": false,
+    "live_execution_authorized": false
+  },
+  "prospective_primary_diagnostic_readouts": [
+    "For explicit-definition trajectories: whole-definition contradiction with the reviewed current task, judged from the agent's exact output before any tool result. Do not require a prescribed field layout, and do not treat missing nonessential text as contradiction.",
+    "For explicit-definition trajectories: wrong observable definition linked to a genuinely later program that matches that wrong definition. Retain history-directed alignment as a separate annotation. Missing, ambiguous or revised linkage is unresolved, not zero."
+  ],
+  "secondary_readouts": [
+    "Final numeric answer match, answer/abstention/invalid response, tool trajectory and actual cache application",
+    "All model tokens, verifier or repair costs if later added, real latency, declared tool units and failures separately",
+    "Request-first versus catalog-first as a compound information-order/elicitation intervention, not a pure token-position or hidden-cognition effect",
+    "Ordinary versus explicit-definition workflows as exploratory measurement-reactivity comparisons"
+  ],
+  "identification_limits": [
+    "Four conditions and repeated calls are not independent tasks; report a descriptive case table, not a population effect or significance claim.",
+    "Request-first definitions have identical initial inputs across cells and do not see treatment until afterward; their initial differences cannot be attributed to hidden price/availability.",
+    "A catalog-first initial definition can reflect metadata exposure, not cached row contents, which have not yet been read.",
+    "Once agents choose different tools, later information differs. Final-answer differences are total workflow outcomes, not exclusively a convenience effect. Do not condition causal claims on the post-treatment cache-reader subgroup.",
+    "Explicit definition may itself prevent drift; a null result here does not rule out drift in ordinary workflows. Correct final answers do not establish correct semantics.",
+    "This is a negative control for insufficient information. No positive reuse benefit or incremental method capability can be established from this pair alone."
+  ],
+  "implementation_gates": [
+    "Bind public inputs and cached scalar to the verified source/sealed audit; validate snapshot and human supplement.",
+    "Implement and test native definition output and any visible revision events. Preserve original agent text, provenance, generation ordering and subsequent actual program linkage; never replace it with gold or verifier reconstruction.",
+    "Action-stage context is reconstructed with the same full public packet and the agent's own prior definition in the diagnostic arms. Explicitly log this staged-pipeline intervention, not a claim of identical conversational histories.",
+    "Enforce identical read-only table/column allowlists for all arms before SQL execution. No member names, email, telephone, address or other unrelated fields may be returned to the API.",
+    "Run scripted mock trajectories, failure/oversize/invalid-output and journal-replay tests; verify equal correct-solution feasibility.",
+    "Recheck official API/model/pricing, tokenize actual serialized requests, freeze code, payloads and budgets, then obtain fresh paid approval and hidden local key input.",
+    "Prepare blinded semantic review of definitions separately from final-answer scoring; obtain independent annotations without replacing their judgment with model labels."
+  ],
+  "stop_rule": "Fixed full grid; stop on transport/accounting/environment integrity failure, retain all attempted/failed/not-started cells, no automatic reruns or effect-based extensions.",
+  "decision_after_run": "If all cells preserve the requirement and recompute correctly, record that boundary without retuning this case for failure. If drift is observed, first rule out ambiguity/reference/interface errors, then test strong verification plus recomputation before proposing a method.",
+  "strong_baselines_not_yet_tested_here": ["Independent-context original-request verifier", "Structured intent match", "Classical reuse applicability plus recomputation", "Metamorphic/counterexample verification"],
+  "new_method_claim": false
+}
