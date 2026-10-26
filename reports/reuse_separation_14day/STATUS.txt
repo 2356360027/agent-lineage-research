@@ -30,7 +30,7 @@ Completed and verified
 - E3 gate blocks writes/ATTACH/schema/extensions, limits compute and output;
  wrong-but-executable answers NEVER trigger oracle-assisted fallback.
  Invalid/refusal/SQL failure gets one predeclared public-Q recomputation.
--29 targeted execution/gate/model-adapter tests passed. Actual isolated worker
+-56 combined scenario/protocol/statistics/execution/gate/adapter tests passed. Actual isolated worker
  tested, along with strict duplicate-field rejection and score reproduction.
 - Bounded primary-source related-work audit and paper sections expanded.
 - Actual two-model E1/E2 figure generated with source data, SVG/PDF/PNG/TIFF;
@@ -104,5 +104,31 @@ Next minimum necessary work (full scope remains)
 GitHub checkpoint
 Terminal push previously stalled at credential-manager authentication and was
 cancelled. Last verified original remote branch:a90ebdb. Local history preserved.
-Authorized GitHub connector will publish an audited snapshot without forcing or
-rewriting the original branch; do not claim synchronization until verified.
+Authorized GitHub connector published47 audited files on a NEW branch:
+experiment/reuse-evidence-20261027, commit625be266edf8f45d6db4c60ce826508e0cf17723.
+All blob hashes and independently reconstructed public tree matched; remote
+file inventory and branch head verified. Original remote branch remainsa90ebdb.
+Local source commit1f132f7e1f84cfa6a005aa018a6bbc0d9e1af30a is preserved.
+Full manuscript update was rejected by the permission reviewer and excluded;
+only already-authorized code, plans, aggregates and figure materials published.
+Explicit full-manuscript disclosure approval is still required. No raw logs,
+DBs, model weights, human forms or secrets were added. No forced history change.
+See configs/run_records/reuse_public_snapshot_20261027.json for the receipt.
+
+Preselected robustness checkpoint (2026-10-27)
+Qwen144/144 and Mistral144/144 complete, both services stopped. Same fixed12
+previously exposed bases,120 coded labels+24 candidate-blind checklist calls
+per model. Both sealed outputs independently rescored twice, identical hashes.
+Latest resource record:configs/run_records/reuse_robustness_mistral_20261027.json
+Cumulative4837 new attempts,1994.9158676001648 owned-service seconds; API0.
+New individual service intervals41.4707354s Qwen/72.4749064s Mistral.
+Tests:63 core tests plus3 analysis-compatibility tests passed.
+Frozen audit v1 failed on nested token-detail metadata; separately hashed v2
+adapter restricts usage accumulation to integer token totals. No inference or
+semantic scoring changed, no model retries; original archives unmodified.
+See ROBUSTNESS_ANALYSIS_REPAIR_V1.txt and ROBUSTNESS_CONCLUSION_V1.txt.
+Main hypothesis advantage remains unsupported; label effects are model/interface
+dependent. Mistral133 valid new responses all applicable;11 invalid. Blind
+checklist not an improvement. No more posthoc prompt rescue or extra task search.
+Pending: clean-directory reproduction, final numeric traceability, local full
+paper completion and E3 visualizations. The14-day goal is NOT complete.

@@ -1,0 +1,25 @@
+Audit-only usage compatibility repair; no additional inference
+
+The frozen Qwen144-call batch completed successfully. The first two requested
+audit invocations (intended output suffixes001 and002) both stopped before
+creating their audit directories at:
+  usage.update(m['usage'])
+  TypeError: unsupported operand type(s) for +: 'dict' and 'dict'
+llama.cpp includes nested prompt_tokens_details. It is metadata, not an additive
+integer counter. This is an analysis-program defect, not model failure and not
+a justification to replace any response. No model calls were retried.
+
+scripts/score_reuse_robustness_v2.py is a bounded compatibility adapter importing
+the original frozen module, retaining its source, manifest, prompts, parser,
+semantic scoring and denominator code. It restricts only dictionary usage
+accumulation to validated prompt_tokens/completion_tokens/total_tokens, checks
+their arithmetic identity, and leaves label-list counters unchanged.
+Adapter SHA256:
+62e527afed22b42bac1cefdb85b23c3202e8450d24b00061a12ddfe6fb8339e6
+The adapter annotates each new summary with its hash, original runner hash,
+repair reason and zero new generation count. Three dedicated unit tests pass.
+
+Qwen audits003/004 use that exact adapter and are byte-identical. Mistral uses
+the same unchanged semantic/generation code and the same audit adapter.
+The original frozen audit module remains unmodified, including its documented
+usage-metadata bug. Reproduction instructions must use the versioned adapter.

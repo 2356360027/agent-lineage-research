@@ -1,0 +1,177 @@
+qwen -- preselected robustness readout v1
+
+144/144 separate local calls,12 previously exposed bases/12 templates/24 contexts.
+Strict original-parser differences: 0
+Rows are counts, not rates. Each semantic class denominator is12.
+Invalid judgments are not successful semantics; shared blind judgments are not independent.
+
+arm/method/price | negative false-applicable/12 | positive applicable/12 | invalid/24 | unknown/24
+candidate_blind:BLIND_CHECKLIST:pNone | 8 | 9 | 0 | 5
+coded:M1:p1 | 11 | 10 | 1 | 1
+coded:M1:p20 | 9 | 10 | 4 | 0
+coded:M2:p1 | 3 | 8 | 0 | 1
+coded:M2:p20 | 0 | 5 | 0 | 0
+coded:M3:pNone | 4 | 8 | 0 | 2
+original:M1:p1 | 5 | 9 | 0 | 1
+original:M1:p10 | 6 | 8 | 0 | 0
+original:M1:p20 | 6 | 8 | 0 | 1
+original:M2:p1 | 6 | 9 | 0 | 0
+original:M2:p10 | 4 | 8 | 0 | 0
+original:M2:p20 | 2 | 7 | 0 | 1
+original:M3:pNone | 8 | 9 | 0 | 0
+original:M4:p1 | 5 | 9 | 0 | 3
+original:M4:p10 | 6 | 8 | 0 | 3
+original:M4:p20 | 6 | 8 | 0 | 3
+
+Paired low-minus-high price contrasts (negative count difference/12):
+{
+  "M1": {
+    "original": {
+      "low_minus_high_false_applicable_count": -1,
+      "negative_denominator": 12,
+      "low_invalid": 0,
+      "high_invalid": 0
+    },
+    "coded": {
+      "low_minus_high_false_applicable_count": 2,
+      "negative_denominator": 12,
+      "low_invalid": 0,
+      "high_invalid": 3
+    }
+  },
+  "M2": {
+    "original": {
+      "low_minus_high_false_applicable_count": 4,
+      "negative_denominator": 12,
+      "low_invalid": 0,
+      "high_invalid": 0
+    },
+    "coded": {
+      "low_minus_high_false_applicable_count": 3,
+      "negative_denominator": 12,
+      "low_invalid": 0,
+      "high_invalid": 0
+    }
+  }
+}
+
+Paired coding and checklist comparisons:
+{
+  "coded:M1:p1 vs original:M1:p1": {
+    "contexts": 24,
+    "changed_labels": 9,
+    "negative_denominator": 12,
+    "new_false_applicable": 11,
+    "original_false_applicable": 5,
+    "positive_denominator": 12,
+    "new_true_applicable": 10,
+    "original_true_applicable": 9,
+    "new_invalid": 1,
+    "original_invalid": 0
+  },
+  "coded:M3:pNone vs original:M3:pNone": {
+    "contexts": 24,
+    "changed_labels": 7,
+    "negative_denominator": 12,
+    "new_false_applicable": 4,
+    "original_false_applicable": 8,
+    "positive_denominator": 12,
+    "new_true_applicable": 8,
+    "original_true_applicable": 9,
+    "new_invalid": 0,
+    "original_invalid": 0
+  },
+  "coded:M1:p20 vs original:M1:p20": {
+    "contexts": 24,
+    "changed_labels": 10,
+    "negative_denominator": 12,
+    "new_false_applicable": 9,
+    "original_false_applicable": 6,
+    "positive_denominator": 12,
+    "new_true_applicable": 10,
+    "original_true_applicable": 8,
+    "new_invalid": 4,
+    "original_invalid": 0
+  },
+  "coded:M2:p1 vs original:M2:p1": {
+    "contexts": 24,
+    "changed_labels": 5,
+    "negative_denominator": 12,
+    "new_false_applicable": 3,
+    "original_false_applicable": 6,
+    "positive_denominator": 12,
+    "new_true_applicable": 8,
+    "original_true_applicable": 9,
+    "new_invalid": 0,
+    "original_invalid": 0
+  },
+  "candidate_blind:BLIND_CHECKLIST:pNone vs original:M3:pNone": {
+    "contexts": 24,
+    "changed_labels": 5,
+    "negative_denominator": 12,
+    "new_false_applicable": 8,
+    "original_false_applicable": 8,
+    "positive_denominator": 12,
+    "new_true_applicable": 9,
+    "original_true_applicable": 9,
+    "new_invalid": 0,
+    "original_invalid": 0
+  },
+  "candidate_blind:BLIND_CHECKLIST:pNone vs original:M4:p1": {
+    "contexts": 24,
+    "changed_labels": 6,
+    "negative_denominator": 12,
+    "new_false_applicable": 8,
+    "original_false_applicable": 5,
+    "positive_denominator": 12,
+    "new_true_applicable": 9,
+    "original_true_applicable": 9,
+    "new_invalid": 0,
+    "original_invalid": 0
+  },
+  "candidate_blind:BLIND_CHECKLIST:pNone vs original:M4:p10": {
+    "contexts": 24,
+    "changed_labels": 6,
+    "negative_denominator": 12,
+    "new_false_applicable": 8,
+    "original_false_applicable": 6,
+    "positive_denominator": 12,
+    "new_true_applicable": 9,
+    "original_true_applicable": 8,
+    "new_invalid": 0,
+    "original_invalid": 0
+  },
+  "candidate_blind:BLIND_CHECKLIST:pNone vs original:M4:p20": {
+    "contexts": 24,
+    "changed_labels": 6,
+    "negative_denominator": 12,
+    "new_false_applicable": 8,
+    "original_false_applicable": 6,
+    "positive_denominator": 12,
+    "new_true_applicable": 9,
+    "original_true_applicable": 8,
+    "new_invalid": 0,
+    "original_invalid": 0
+  },
+  "coded:M2:p20 vs original:M2:p20": {
+    "contexts": 24,
+    "changed_labels": 5,
+    "negative_denominator": 12,
+    "new_false_applicable": 0,
+    "original_false_applicable": 2,
+    "positive_denominator": 12,
+    "new_true_applicable": 5,
+    "original_true_applicable": 7,
+    "new_invalid": 0,
+    "original_invalid": 0
+  }
+}
+
+Limits: fixed code mapping and small preselected subset; not a new held-out sample.
+Checklist/proposal contrast does not alone identify an internal anchoring mechanism.
+Original M4, failed transforms and full main results remain unchanged.
+No new SQL execution or final-answer success evidence in this diagnostic.
+Summary SHA256: c18e1b6830295d8b7aeaee4d2bfae66d1c93d826194964f6e20453b805a720ea
+Inputs SHA256: b9e9894bed1ae6f99bf7cebd6a8a298d15b07f66f189757bdf5fe9184a7507f3
+Cumulative calls: 4693; owned-service seconds: 1922.4409612002023
+All owned services stopped. API cost0; energy not measured.

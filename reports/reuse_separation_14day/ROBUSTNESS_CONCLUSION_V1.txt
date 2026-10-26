@@ -1,0 +1,63 @@
+Preselected cross-model robustness -- bounded interpretation
+
+288/288 new calls completed:144/model on the fixed instance0 of12 held
+templates,24 contexts/model. This is robustness on previously exposed tasks,
+not another288 independent samples. Both model services stopped. Each sealed
+batch audited twice with identical summary and input hashes. New API cost0;
+owned-service interval113.9456418s total, not measured GPU energy. Goal ledger
+now4837 attempts and1994.9158676 owned-service seconds (~33.25min).
+
+Qwen: coding changes behavior but does not rescue the separation hypothesis.
+On negative caches, M1 original low/high false-applicable counts5/6 of12 become
+11/9 under codes; high-coded also has3 invalid negatives. The sign flip is not
+clean semantic evidence because invalid output differs. M2 original6/2 becomes
+3/0, retaining a positive low-high contrast on this subset, not proving a
+universal mechanism. Positive-applicable counts also fall from9/7 to8/5.
+Blind M3 changes from8 false+9 true applicable to4 false+8 true; coded visible
+M2 low is3 false+8 true. Thus the coded blind method still has no safety gain
+over coded visible M2 at equal useful-reuse opportunity. No retrospective
+replacement of original main results is warranted.
+
+Qwen candidate-blind checklist:8/12 negative false-applicable and9/12 positive
+applicable, vs original low-price-proposal M4's5/12 and9/12. This is not an
+improved verifier. It differs in proposal availability and checklist wording;
+the result does not by itself prove or disprove an internal anchoring mechanism.
+
+Mistral: all133 valid new outputs are applicable;11 are invalid, none missing.
+The120 coding calls contain11 invalid outputs;24 checklist outputs are all
+applicable, including all12 insufficient contexts. Coding does not eliminate
+false acceptance. Apparent coded M3 improvement12->10 false-applicable is
+entirely2 invalid negative outputs, alongside3 invalid positive outputs; this
+is not improved semantic competence. All valid coded M1 outputs also label the
+cache applicable even when the action differs. Do not count format fallback as
+successful semantic rejection.
+
+Parser audit clarification:
+The exported field strict_original_parser_discrepancies compares the entire
+parser record, including failure text. Qwen0, Mistral12. All12 Mistral differences
+are only failure='invalid_encoding_or_json' versus 'invalid_json_or_response'.
+There are ZERO changes to valid/admissibility/action. They are not12 changed
+judgments or newly rejected previously accepted outputs. Original raw outputs
+and main results are retained. Audit-only usage correction is separately logged
+in ROBUSTNESS_ANALYSIS_REPAIR_V1.txt; it generated no model calls.
+
+Claim decision at this checkpoint:
+H1: model/interface dependent evidence, not robust cross-model confirmation.
+H2: no stable support for price blindness improving applicability judgment.
+H3: no demonstrated safety/useful-reuse benefit from the proposed separation.
+H4: no advantage established over the operational classical planner+fallback.
+The classic baseline's current formal subset coverage/safety remains important;
+the task supplies correct public SQL to every method, not natural-language-only
+agent understanding. The E3 transform failures prevent an LLM end-to-end
+efficiency claim. The experiment remains useful as a controlled failure/boundary
+study, but does not justify a new superior safe-reuse algorithm title/claim.
+
+Next: complete clean-directory reproduction, number-to-source traceability and
+local paper Methods/Results/Limitations. No more adaptive prompt repairs, models
+or scenario shopping to obtain a positive result. Any optional real-data
+extension stays separately scoped. Publication readiness and venue quality
+cannot be inferred from the number of calls.
+
+Sources: configs/run_records/reuse_robustness_qwen_20261027.json and
+reuse_robustness_mistral_20261027.json, corresponding sealed local archives;
+full main and E3 records remain authoritative for those distinct experiments.

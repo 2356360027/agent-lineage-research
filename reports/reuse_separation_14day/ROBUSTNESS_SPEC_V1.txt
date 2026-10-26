@@ -1,0 +1,49 @@
+Preselected robustness implementation v1 -- frozen before separate calls
+
+Authority: configs/reuse_confirmation_plan_v1.json, preselected_followups.
+Selection is instance0 of each of12 held structural templates, both caches:
+12 bases,24 contexts/model. This is previously exposed held-subset robustness,
+not new independent confirmation and not an additional sample of144 tasks.
+
+Exactly144 calls/model, one batch,600s owned-service deadline,256 max output,
+temperature0,seed20261027,ctx4096, no prompt cache or retries. Same two pinned
+Q5_K_M artifacts and full-content-preserving model-specific transport as main.
+No SQL generation/execution, no API, download, training or intermediate effects.
+
+120 coded-label calls: M1/M2 low1/high20, M3 price-blind for each context.
+Fixed bijection: applicable=A,inapplicable=B,unknown=C;
+reuse=X,recompute=Y,abstain=Z. Preserve per-case enum order from original.
+Retain original semantic definitions and all original task/input information;
+append explicit mapping instruction and replace only output-field enumerations.
+No examples or output rescues. Exact instructions in runtime/reuse_robustness.py.
+M2/M3 equality after price removal and paired price-only invariants are checked.
+The fixed global map tests this coding intervention, not all possible label maps.
+
+24 extra price-blind checklist judgments: original M3 plus the M4 substantive
+checklist, without a proposal label or candidate-authority instruction. Uses
+original verbal labels. Main M4 is retained unchanged. Compare with each of its
+three original proposal-specific outputs, separately, and with original M3.
+Differences do not identify hidden anchoring alone: wording/checklist and proposal
+availability differ; this diagnostic is not a new validated method.
+
+All144 calls completed (or recorded terminal failure) before scoring. Original
+raw responses and actual frozen prompts retained. New parser rejects duplicate
+JSON keys, extra keys, truncation and wrong codes; existing semantic parser then
+checks the decoded object. Original outputs are rescored using that same duplicate
+key guard for fair comparisons; main published results remain untouched. Report
+any resulting strict-vs-main discrepancy, never overwrite main labels.
+
+Report each model/method/price separately: fixed negative/positive denominators12,
+false-applicable, true-applicable, invalid/unknown/missing, unsafe/useful reuse,
+paired label changes, and change in low-minus-high false acceptance. The blind
+label is shared across prices by construction. Checklist versus main M4 is paired
+by context/proposal price, not72 independent observations. Invalid/unknown/missing
+are not counted as semantic successes. No p-value or universal mechanism claim.
+Retain family/template counts. Small fixed subset is descriptive robustness only.
+Tokens, dispatches, service wall interval and cumulative authorized resource
+ledger recorded; no measured energy or monetary saving claim.
+
+Preparation implementation record: first local prepare stopped before creating
+any output directory or inference because old Qwen config lacks model_family.
+Compatibility uses its pinned local-qwen25-7b-q5 alias; no model/prompt/design
+change, no generated response or failed-start replacement. Error preserved here.

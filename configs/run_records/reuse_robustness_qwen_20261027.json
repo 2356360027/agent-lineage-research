@@ -1,0 +1,6435 @@
+{
+  "scope": "PRESELECTED_ROBUSTNESS_DESCRIPTIVE_ONLY",
+  "model_family": "qwen",
+  "manifest_sha256": "a01fc52a7a184fed04fa3b6646b06930fcafb52ccb572eb89805ec9583f74b7d",
+  "methods": {
+    "candidate_blind:BLIND_CHECKLIST:pNone": {
+      "negative_denominator": 12,
+      "positive_denominator": 12,
+      "false_applicable": 8,
+      "true_applicable": 9,
+      "negative_invalid": 0,
+      "positive_invalid": 0,
+      "unknown": 5,
+      "missing": 0,
+      "labels": {
+        "applicable": 17,
+        "inapplicable": 2,
+        "unknown": 5
+      },
+      "actions": {
+        "1": {
+          "unsafe_reuse": 8,
+          "useful_reuse": 9
+        },
+        "20": {
+          "unsafe_reuse": 0,
+          "useful_reuse": 0
+        }
+      }
+    },
+    "coded:M1:p1": {
+      "negative_denominator": 12,
+      "positive_denominator": 12,
+      "false_applicable": 11,
+      "true_applicable": 10,
+      "negative_invalid": 0,
+      "positive_invalid": 1,
+      "unknown": 1,
+      "missing": 0,
+      "labels": {
+        "applicable": 21,
+        "inapplicable": 1,
+        "invalid": 1,
+        "unknown": 1
+      },
+      "actions": {
+        "1": {
+          "unsafe_reuse": 7,
+          "useful_reuse": 7
+        }
+      }
+    },
+    "coded:M1:p20": {
+      "negative_denominator": 12,
+      "positive_denominator": 12,
+      "false_applicable": 9,
+      "true_applicable": 10,
+      "negative_invalid": 3,
+      "positive_invalid": 1,
+      "unknown": 0,
+      "missing": 0,
+      "labels": {
+        "applicable": 19,
+        "inapplicable": 1,
+        "invalid": 4
+      },
+      "actions": {
+        "20": {
+          "unsafe_reuse": 3,
+          "useful_reuse": 0
+        }
+      }
+    },
+    "coded:M2:p1": {
+      "negative_denominator": 12,
+      "positive_denominator": 12,
+      "false_applicable": 3,
+      "true_applicable": 8,
+      "negative_invalid": 0,
+      "positive_invalid": 0,
+      "unknown": 1,
+      "missing": 0,
+      "labels": {
+        "inapplicable": 12,
+        "applicable": 11,
+        "unknown": 1
+      },
+      "actions": {
+        "1": {
+          "unsafe_reuse": 3,
+          "useful_reuse": 8
+        }
+      }
+    },
+    "coded:M2:p20": {
+      "negative_denominator": 12,
+      "positive_denominator": 12,
+      "false_applicable": 0,
+      "true_applicable": 5,
+      "negative_invalid": 0,
+      "positive_invalid": 0,
+      "unknown": 0,
+      "missing": 0,
+      "labels": {
+        "inapplicable": 19,
+        "applicable": 5
+      },
+      "actions": {
+        "20": {
+          "unsafe_reuse": 0,
+          "useful_reuse": 0
+        }
+      }
+    },
+    "coded:M3:pNone": {
+      "negative_denominator": 12,
+      "positive_denominator": 12,
+      "false_applicable": 4,
+      "true_applicable": 8,
+      "negative_invalid": 0,
+      "positive_invalid": 0,
+      "unknown": 2,
+      "missing": 0,
+      "labels": {
+        "inapplicable": 10,
+        "applicable": 12,
+        "unknown": 2
+      },
+      "actions": {
+        "1": {
+          "unsafe_reuse": 4,
+          "useful_reuse": 8
+        },
+        "20": {
+          "unsafe_reuse": 0,
+          "useful_reuse": 0
+        }
+      }
+    },
+    "original:M1:p1": {
+      "negative_denominator": 12,
+      "positive_denominator": 12,
+      "false_applicable": 5,
+      "true_applicable": 9,
+      "negative_invalid": 0,
+      "positive_invalid": 0,
+      "unknown": 1,
+      "missing": 0,
+      "labels": {
+        "inapplicable": 9,
+        "applicable": 14,
+        "unknown": 1
+      },
+      "actions": {
+        "1": {
+          "unsafe_reuse": 2,
+          "useful_reuse": 8
+        }
+      }
+    },
+    "original:M1:p10": {
+      "negative_denominator": 12,
+      "positive_denominator": 12,
+      "false_applicable": 6,
+      "true_applicable": 8,
+      "negative_invalid": 0,
+      "positive_invalid": 0,
+      "unknown": 0,
+      "missing": 0,
+      "labels": {
+        "applicable": 14,
+        "inapplicable": 10
+      },
+      "actions": {
+        "10": {
+          "unsafe_reuse": 3,
+          "useful_reuse": 0
+        }
+      }
+    },
+    "original:M1:p20": {
+      "negative_denominator": 12,
+      "positive_denominator": 12,
+      "false_applicable": 6,
+      "true_applicable": 8,
+      "negative_invalid": 0,
+      "positive_invalid": 0,
+      "unknown": 1,
+      "missing": 0,
+      "labels": {
+        "applicable": 14,
+        "inapplicable": 9,
+        "unknown": 1
+      },
+      "actions": {
+        "20": {
+          "unsafe_reuse": 1,
+          "useful_reuse": 0
+        }
+      }
+    },
+    "original:M2:p1": {
+      "negative_denominator": 12,
+      "positive_denominator": 12,
+      "false_applicable": 6,
+      "true_applicable": 9,
+      "negative_invalid": 0,
+      "positive_invalid": 0,
+      "unknown": 0,
+      "missing": 0,
+      "labels": {
+        "inapplicable": 9,
+        "applicable": 15
+      },
+      "actions": {
+        "1": {
+          "unsafe_reuse": 6,
+          "useful_reuse": 9
+        }
+      }
+    },
+    "original:M2:p10": {
+      "negative_denominator": 12,
+      "positive_denominator": 12,
+      "false_applicable": 4,
+      "true_applicable": 8,
+      "negative_invalid": 0,
+      "positive_invalid": 0,
+      "unknown": 0,
+      "missing": 0,
+      "labels": {
+        "inapplicable": 12,
+        "applicable": 12
+      },
+      "actions": {
+        "10": {
+          "unsafe_reuse": 0,
+          "useful_reuse": 0
+        }
+      }
+    },
+    "original:M2:p20": {
+      "negative_denominator": 12,
+      "positive_denominator": 12,
+      "false_applicable": 2,
+      "true_applicable": 7,
+      "negative_invalid": 0,
+      "positive_invalid": 0,
+      "unknown": 1,
+      "missing": 0,
+      "labels": {
+        "inapplicable": 14,
+        "unknown": 1,
+        "applicable": 9
+      },
+      "actions": {
+        "20": {
+          "unsafe_reuse": 0,
+          "useful_reuse": 0
+        }
+      }
+    },
+    "original:M3:pNone": {
+      "negative_denominator": 12,
+      "positive_denominator": 12,
+      "false_applicable": 8,
+      "true_applicable": 9,
+      "negative_invalid": 0,
+      "positive_invalid": 0,
+      "unknown": 0,
+      "missing": 0,
+      "labels": {
+        "applicable": 17,
+        "inapplicable": 7
+      },
+      "actions": {
+        "1": {
+          "unsafe_reuse": 8,
+          "useful_reuse": 9
+        },
+        "20": {
+          "unsafe_reuse": 0,
+          "useful_reuse": 0
+        }
+      }
+    },
+    "original:M4:p1": {
+      "negative_denominator": 12,
+      "positive_denominator": 12,
+      "false_applicable": 5,
+      "true_applicable": 9,
+      "negative_invalid": 0,
+      "positive_invalid": 0,
+      "unknown": 3,
+      "missing": 0,
+      "labels": {
+        "applicable": 14,
+        "inapplicable": 7,
+        "unknown": 3
+      },
+      "actions": {
+        "1": {
+          "unsafe_reuse": 5,
+          "useful_reuse": 9
+        }
+      }
+    },
+    "original:M4:p10": {
+      "negative_denominator": 12,
+      "positive_denominator": 12,
+      "false_applicable": 6,
+      "true_applicable": 8,
+      "negative_invalid": 0,
+      "positive_invalid": 0,
+      "unknown": 3,
+      "missing": 0,
+      "labels": {
+        "applicable": 14,
+        "unknown": 3,
+        "inapplicable": 7
+      },
+      "actions": {
+        "10": {
+          "unsafe_reuse": 0,
+          "useful_reuse": 0
+        }
+      }
+    },
+    "original:M4:p20": {
+      "negative_denominator": 12,
+      "positive_denominator": 12,
+      "false_applicable": 6,
+      "true_applicable": 8,
+      "negative_invalid": 0,
+      "positive_invalid": 0,
+      "unknown": 3,
+      "missing": 0,
+      "labels": {
+        "applicable": 14,
+        "unknown": 3,
+        "inapplicable": 7
+      },
+      "actions": {
+        "20": {
+          "unsafe_reuse": 0,
+          "useful_reuse": 0
+        }
+      }
+    }
+  },
+  "by_family": {
+    "entity_projection": {
+      "candidate_blind:BLIND_CHECKLIST:pNone": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 2,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 4
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 2,
+            "useful_reuse": 2
+          },
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M1:p1": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 2,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 4
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 1
+          }
+        }
+      },
+      "coded:M1:p20": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 2,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 4
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M2:p1": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 1,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 3,
+          "inapplicable": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 2
+          }
+        }
+      },
+      "coded:M2:p20": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 1,
+          "inapplicable": 3
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M3:pNone": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 2,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 4
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 2,
+            "useful_reuse": 2
+          },
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M1:p1": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 2,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 4
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 2
+          }
+        }
+      },
+      "original:M1:p10": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 2,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 4
+        },
+        "actions": {
+          "10": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M1:p20": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 2,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 4
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M2:p1": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 2,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 4
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 2,
+            "useful_reuse": 2
+          }
+        }
+      },
+      "original:M2:p10": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 2,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 4
+        },
+        "actions": {
+          "10": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M2:p20": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 1,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 1,
+        "missing": 0,
+        "labels": {
+          "unknown": 1,
+          "applicable": 3
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M3:pNone": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 2,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 4
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 2,
+            "useful_reuse": 2
+          },
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M4:p1": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 2,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 4
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 2,
+            "useful_reuse": 2
+          }
+        }
+      },
+      "original:M4:p10": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 2,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 4
+        },
+        "actions": {
+          "10": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M4:p20": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 2,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 4
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      }
+    },
+    "group_coverage": {
+      "candidate_blind:BLIND_CHECKLIST:pNone": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 2,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 4
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 2,
+            "useful_reuse": 2
+          },
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M1:p1": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 2,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 4
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 2
+          }
+        }
+      },
+      "coded:M1:p20": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 1,
+        "true_applicable": 2,
+        "negative_invalid": 1,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 3,
+          "invalid": 1
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M2:p1": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 0,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2,
+          "inapplicable": 2
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 2
+          }
+        }
+      },
+      "coded:M2:p20": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 3,
+          "applicable": 1
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M3:pNone": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 1,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 3,
+          "inapplicable": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 2
+          },
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M1:p1": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 0,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 2,
+          "applicable": 2
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 2
+          }
+        }
+      },
+      "original:M1:p10": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 1,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 3,
+          "inapplicable": 1
+        },
+        "actions": {
+          "10": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M1:p20": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 1,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 3,
+          "inapplicable": 1
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M2:p1": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 1,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 1,
+          "applicable": 3
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 2
+          }
+        }
+      },
+      "original:M2:p10": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 0,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 2,
+          "applicable": 2
+        },
+        "actions": {
+          "10": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M2:p20": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 2,
+          "applicable": 2
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M3:pNone": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 2,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 4
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 2,
+            "useful_reuse": 2
+          },
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M4:p1": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 0,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2,
+          "inapplicable": 2
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 2
+          }
+        }
+      },
+      "original:M4:p10": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 1,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 3,
+          "inapplicable": 1
+        },
+        "actions": {
+          "10": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M4:p20": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 1,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 3,
+          "inapplicable": 1
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      }
+    },
+    "join_multiplicity": {
+      "candidate_blind:BLIND_CHECKLIST:pNone": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 1,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 1,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 2,
+          "applicable": 1,
+          "unknown": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 0
+          },
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M1:p1": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 1,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 1,
+        "unknown": 1,
+        "missing": 0,
+        "labels": {
+          "applicable": 1,
+          "inapplicable": 1,
+          "invalid": 1,
+          "unknown": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M1:p20": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 1,
+        "true_applicable": 0,
+        "negative_invalid": 1,
+        "positive_invalid": 1,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 1,
+          "inapplicable": 1,
+          "invalid": 2
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M2:p1": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 1,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 1,
+        "missing": 0,
+        "labels": {
+          "applicable": 1,
+          "inapplicable": 2,
+          "unknown": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M2:p20": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 0,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 4
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M3:pNone": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 0,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 1,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 3,
+          "unknown": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          },
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M1:p1": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 1,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 1,
+          "inapplicable": 3
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M1:p10": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 1,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 1,
+          "inapplicable": 3
+        },
+        "actions": {
+          "10": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M1:p20": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 1,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 3,
+          "applicable": 1
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M2:p1": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 1,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 1,
+          "inapplicable": 3
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M2:p10": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 0,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 4
+        },
+        "actions": {
+          "10": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M2:p20": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 0,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 4
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M3:pNone": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 1,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 3,
+          "applicable": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 0
+          },
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M4:p1": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 1,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 1,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 2,
+          "applicable": 1,
+          "unknown": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M4:p10": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 1,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 1,
+        "missing": 0,
+        "labels": {
+          "applicable": 1,
+          "inapplicable": 2,
+          "unknown": 1
+        },
+        "actions": {
+          "10": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M4:p20": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 1,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 1,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 2,
+          "applicable": 1,
+          "unknown": 1
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      }
+    },
+    "null_aggregation": {
+      "candidate_blind:BLIND_CHECKLIST:pNone": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 2,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 1,
+        "missing": 0,
+        "labels": {
+          "applicable": 3,
+          "unknown": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 2,
+            "useful_reuse": 1
+          },
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M1:p1": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 2,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 4
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M1:p20": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 2,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 4
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M2:p1": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 0,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 4
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M2:p20": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 0,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 4
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M3:pNone": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 0,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 4
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          },
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M1:p1": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 1,
+        "missing": 0,
+        "labels": {
+          "applicable": 2,
+          "unknown": 1,
+          "inapplicable": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M1:p10": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 1,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 3,
+          "applicable": 1
+        },
+        "actions": {
+          "10": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M1:p20": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 1,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 1,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 2,
+          "unknown": 1,
+          "applicable": 1
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M2:p1": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 2,
+          "applicable": 2
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 1
+          }
+        }
+      },
+      "original:M2:p10": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 1,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 3,
+          "applicable": 1
+        },
+        "actions": {
+          "10": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M2:p20": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 0,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 4
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M3:pNone": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 2,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 3,
+          "inapplicable": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 2,
+            "useful_reuse": 1
+          },
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M4:p1": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 1,
+        "missing": 0,
+        "labels": {
+          "unknown": 1,
+          "applicable": 2,
+          "inapplicable": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 1
+          }
+        }
+      },
+      "original:M4:p10": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 1,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 1,
+        "missing": 0,
+        "labels": {
+          "unknown": 1,
+          "inapplicable": 2,
+          "applicable": 1
+        },
+        "actions": {
+          "10": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M4:p20": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 1,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 1,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 2,
+          "unknown": 1,
+          "applicable": 1
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      }
+    },
+    "ranking_ties": {
+      "candidate_blind:BLIND_CHECKLIST:pNone": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 1,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 1,
+        "missing": 0,
+        "labels": {
+          "applicable": 3,
+          "unknown": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 2
+          },
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M1:p1": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 2,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 4
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 2,
+            "useful_reuse": 2
+          }
+        }
+      },
+      "coded:M1:p20": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 2,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 4
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M2:p1": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 1,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 3,
+          "inapplicable": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 2
+          }
+        }
+      },
+      "coded:M2:p20": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 1,
+          "inapplicable": 3
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M3:pNone": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 1,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 1,
+        "missing": 0,
+        "labels": {
+          "applicable": 3,
+          "unknown": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 2
+          },
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M1:p1": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 1,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 3,
+          "inapplicable": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 2
+          }
+        }
+      },
+      "original:M1:p10": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 1,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 3,
+          "inapplicable": 1
+        },
+        "actions": {
+          "10": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M1:p20": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 1,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 1,
+          "applicable": 3
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M2:p1": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 1,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 3,
+          "inapplicable": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 2
+          }
+        }
+      },
+      "original:M2:p10": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 1,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 3,
+          "inapplicable": 1
+        },
+        "actions": {
+          "10": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M2:p20": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 0,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2,
+          "inapplicable": 2
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M3:pNone": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 1,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 3,
+          "inapplicable": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 2
+          },
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M4:p1": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 1,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 3,
+          "inapplicable": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 2
+          }
+        }
+      },
+      "original:M4:p10": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 1,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 3,
+          "inapplicable": 1
+        },
+        "actions": {
+          "10": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M4:p20": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 1,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 1,
+          "applicable": 3
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      }
+    },
+    "scope": {
+      "candidate_blind:BLIND_CHECKLIST:pNone": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 0,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 2,
+        "missing": 0,
+        "labels": {
+          "unknown": 2,
+          "applicable": 2
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 2
+          },
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M1:p1": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 2,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 4
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 2
+          }
+        }
+      },
+      "coded:M1:p20": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 1,
+        "true_applicable": 2,
+        "negative_invalid": 1,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 3,
+          "invalid": 1
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M2:p1": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 0,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2,
+          "inapplicable": 2
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 2
+          }
+        }
+      },
+      "coded:M2:p20": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 0,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2,
+          "inapplicable": 2
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M3:pNone": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 0,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 2,
+          "applicable": 2
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 2
+          },
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M1:p1": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 0,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 2,
+          "applicable": 2
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 2
+          }
+        }
+      },
+      "original:M1:p10": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 0,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2,
+          "inapplicable": 2
+        },
+        "actions": {
+          "10": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M1:p20": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 0,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 2,
+          "applicable": 2
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M2:p1": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 0,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 2,
+          "applicable": 2
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 2
+          }
+        }
+      },
+      "original:M2:p10": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 0,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 2,
+          "applicable": 2
+        },
+        "actions": {
+          "10": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M2:p20": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 0,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2,
+          "inapplicable": 2
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M3:pNone": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 0,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2,
+          "inapplicable": 2
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 2
+          },
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M4:p1": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 0,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 1,
+        "missing": 0,
+        "labels": {
+          "unknown": 1,
+          "applicable": 2,
+          "inapplicable": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 2
+          }
+        }
+      },
+      "original:M4:p10": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 0,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 1,
+        "missing": 0,
+        "labels": {
+          "applicable": 2,
+          "unknown": 1,
+          "inapplicable": 1
+        },
+        "actions": {
+          "10": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M4:p20": {
+        "negative_denominator": 2,
+        "positive_denominator": 2,
+        "false_applicable": 0,
+        "true_applicable": 2,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 1,
+        "missing": 0,
+        "labels": {
+          "unknown": 1,
+          "applicable": 2,
+          "inapplicable": 1
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      }
+    }
+  },
+  "by_template": {
+    "avg_distinct": {
+      "candidate_blind:BLIND_CHECKLIST:pNone": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 1
+          },
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M1:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M1:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M2:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 2
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M2:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 2
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M3:pNone": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 2
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          },
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M1:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 1,
+        "missing": 0,
+        "labels": {
+          "applicable": 1,
+          "unknown": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M1:p10": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 2
+        },
+        "actions": {
+          "10": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M1:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 1,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 1,
+          "unknown": 1
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M2:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 1,
+          "applicable": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 1
+          }
+        }
+      },
+      "original:M2:p10": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 2
+        },
+        "actions": {
+          "10": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M2:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 2
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M3:pNone": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 1
+          },
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M4:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 1,
+        "missing": 0,
+        "labels": {
+          "unknown": 1,
+          "applicable": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 1
+          }
+        }
+      },
+      "original:M4:p10": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 1,
+        "missing": 0,
+        "labels": {
+          "unknown": 1,
+          "inapplicable": 1
+        },
+        "actions": {
+          "10": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M4:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 1,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 1,
+          "unknown": 1
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      }
+    },
+    "avg_weighted_rollup": {
+      "candidate_blind:BLIND_CHECKLIST:pNone": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 1,
+        "missing": 0,
+        "labels": {
+          "applicable": 1,
+          "unknown": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 0
+          },
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M1:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M1:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M2:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 2
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M2:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 2
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M3:pNone": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 2
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          },
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M1:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 1,
+          "inapplicable": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M1:p10": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 1,
+          "applicable": 1
+        },
+        "actions": {
+          "10": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M1:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 1,
+          "applicable": 1
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M2:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 1,
+          "applicable": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M2:p10": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 1,
+          "inapplicable": 1
+        },
+        "actions": {
+          "10": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M2:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 2
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M3:pNone": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 1,
+          "inapplicable": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 0
+          },
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M4:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 1,
+          "applicable": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M4:p10": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 1,
+          "applicable": 1
+        },
+        "actions": {
+          "10": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M4:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 1,
+          "inapplicable": 1
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      }
+    },
+    "entity_composite": {
+      "candidate_blind:BLIND_CHECKLIST:pNone": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 1
+          },
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M1:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M1:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M2:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 1,
+          "applicable": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 1
+          }
+        }
+      },
+      "coded:M2:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 2
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M3:pNone": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 1
+          },
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M1:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 1
+          }
+        }
+      },
+      "original:M1:p10": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "10": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M1:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M2:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 1
+          }
+        }
+      },
+      "original:M2:p10": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "10": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M2:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 1,
+        "missing": 0,
+        "labels": {
+          "unknown": 1,
+          "applicable": 1
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M3:pNone": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 1
+          },
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M4:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 1
+          }
+        }
+      },
+      "original:M4:p10": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "10": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M4:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      }
+    },
+    "entity_postfilter": {
+      "candidate_blind:BLIND_CHECKLIST:pNone": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 1
+          },
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M1:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 1
+          }
+        }
+      },
+      "coded:M1:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M2:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 1
+          }
+        }
+      },
+      "coded:M2:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 1,
+          "inapplicable": 1
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M3:pNone": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 1
+          },
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M1:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 1
+          }
+        }
+      },
+      "original:M1:p10": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "10": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M1:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M2:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 1
+          }
+        }
+      },
+      "original:M2:p10": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "10": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M2:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M3:pNone": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 1
+          },
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M4:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 1
+          }
+        }
+      },
+      "original:M4:p10": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "10": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M4:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      }
+    },
+    "group_having_loss": {
+      "candidate_blind:BLIND_CHECKLIST:pNone": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 1
+          },
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M1:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 1
+          }
+        }
+      },
+      "coded:M1:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 1,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 1,
+          "invalid": 1
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M2:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 1,
+          "applicable": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 1
+          }
+        }
+      },
+      "coded:M2:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 2
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M3:pNone": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 1,
+          "applicable": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 1
+          },
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M1:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 1,
+          "applicable": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 1
+          }
+        }
+      },
+      "original:M1:p10": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "10": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M1:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M2:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 1,
+          "applicable": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 1
+          }
+        }
+      },
+      "original:M2:p10": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 1,
+          "applicable": 1
+        },
+        "actions": {
+          "10": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M2:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 2
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M3:pNone": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 1
+          },
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M4:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 1,
+          "inapplicable": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 1
+          }
+        }
+      },
+      "original:M4:p10": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "10": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M4:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      }
+    },
+    "group_max_ties": {
+      "candidate_blind:BLIND_CHECKLIST:pNone": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 1
+          },
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M1:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 1
+          }
+        }
+      },
+      "coded:M1:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M2:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 1,
+          "inapplicable": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 1
+          }
+        }
+      },
+      "coded:M2:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 1,
+          "applicable": 1
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M3:pNone": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 1
+          },
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M1:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 1,
+          "inapplicable": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 1
+          }
+        }
+      },
+      "original:M1:p10": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 1,
+          "applicable": 1
+        },
+        "actions": {
+          "10": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M1:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 1,
+          "applicable": 1
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M2:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 1
+          }
+        }
+      },
+      "original:M2:p10": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 1,
+          "inapplicable": 1
+        },
+        "actions": {
+          "10": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M2:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M3:pNone": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 1
+          },
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M4:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 1,
+          "applicable": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 1
+          }
+        }
+      },
+      "original:M4:p10": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 1,
+          "applicable": 1
+        },
+        "actions": {
+          "10": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M4:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 1,
+          "applicable": 1
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      }
+    },
+    "join_antijoin": {
+      "candidate_blind:BLIND_CHECKLIST:pNone": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 1,
+          "applicable": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 0
+          },
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M1:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 1,
+          "inapplicable": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M1:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 1,
+          "inapplicable": 1
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M2:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 1,
+          "inapplicable": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M2:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 2
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M3:pNone": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 2
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          },
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M1:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 1,
+          "inapplicable": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M1:p10": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 1,
+          "inapplicable": 1
+        },
+        "actions": {
+          "10": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M1:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 1,
+          "applicable": 1
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M2:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 1,
+          "inapplicable": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M2:p10": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 2
+        },
+        "actions": {
+          "10": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M2:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 2
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M3:pNone": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 1,
+          "applicable": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 0
+          },
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M4:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 1,
+          "applicable": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M4:p10": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 1,
+          "inapplicable": 1
+        },
+        "actions": {
+          "10": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M4:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 1,
+          "applicable": 1
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      }
+    },
+    "join_intersection": {
+      "candidate_blind:BLIND_CHECKLIST:pNone": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 1,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 1,
+          "unknown": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          },
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M1:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 1,
+        "unknown": 1,
+        "missing": 0,
+        "labels": {
+          "invalid": 1,
+          "unknown": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M1:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 0,
+        "negative_invalid": 1,
+        "positive_invalid": 1,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "invalid": 2
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M2:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 1,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 1,
+          "unknown": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M2:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 2
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M3:pNone": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 1,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 1,
+          "unknown": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          },
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M1:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 2
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M1:p10": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 2
+        },
+        "actions": {
+          "10": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M1:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 2
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M2:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 2
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M2:p10": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 2
+        },
+        "actions": {
+          "10": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M2:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 2
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M3:pNone": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 2
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          },
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M4:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 1,
+        "missing": 0,
+        "labels": {
+          "unknown": 1,
+          "inapplicable": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M4:p10": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 1,
+        "missing": 0,
+        "labels": {
+          "unknown": 1,
+          "inapplicable": 1
+        },
+        "actions": {
+          "10": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M4:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 1,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 1,
+          "unknown": 1
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      }
+    },
+    "rank_partitioned": {
+      "candidate_blind:BLIND_CHECKLIST:pNone": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 1
+          },
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M1:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 1
+          }
+        }
+      },
+      "coded:M1:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M2:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 1
+          }
+        }
+      },
+      "coded:M2:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 1,
+          "inapplicable": 1
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M3:pNone": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 1
+          },
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M1:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 1
+          }
+        }
+      },
+      "original:M1:p10": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "10": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M1:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M2:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 1
+          }
+        }
+      },
+      "original:M2:p10": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "10": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M2:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 1,
+          "applicable": 1
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M3:pNone": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 1
+          },
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M4:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 1
+          }
+        }
+      },
+      "original:M4:p10": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "10": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M4:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      }
+    },
+    "rank_topk_ties": {
+      "candidate_blind:BLIND_CHECKLIST:pNone": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 1,
+        "missing": 0,
+        "labels": {
+          "applicable": 1,
+          "unknown": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 1
+          },
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M1:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 1
+          }
+        }
+      },
+      "coded:M1:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M2:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 1,
+          "applicable": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 1
+          }
+        }
+      },
+      "coded:M2:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 0,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 2
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M3:pNone": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 1,
+        "missing": 0,
+        "labels": {
+          "applicable": 1,
+          "unknown": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 1
+          },
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M1:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 1,
+          "inapplicable": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 1
+          }
+        }
+      },
+      "original:M1:p10": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 1,
+          "inapplicable": 1
+        },
+        "actions": {
+          "10": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M1:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 1,
+          "applicable": 1
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M2:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 1,
+          "inapplicable": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 1
+          }
+        }
+      },
+      "original:M2:p10": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 1,
+          "inapplicable": 1
+        },
+        "actions": {
+          "10": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M2:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 1,
+          "inapplicable": 1
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M3:pNone": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 1,
+          "inapplicable": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 1
+          },
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M4:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 1,
+          "inapplicable": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 1
+          }
+        }
+      },
+      "original:M4:p10": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 1,
+          "inapplicable": 1
+        },
+        "actions": {
+          "10": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M4:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 1,
+          "applicable": 1
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      }
+    },
+    "scope_boundary": {
+      "candidate_blind:BLIND_CHECKLIST:pNone": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 1,
+        "missing": 0,
+        "labels": {
+          "applicable": 1,
+          "unknown": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 1
+          },
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M1:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 1
+          }
+        }
+      },
+      "coded:M1:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 1,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 1,
+          "invalid": 1
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M2:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 1,
+          "applicable": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 1
+          }
+        }
+      },
+      "coded:M2:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 1,
+          "applicable": 1
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M3:pNone": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 1,
+          "inapplicable": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 1
+          },
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M1:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 1,
+          "applicable": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 1
+          }
+        }
+      },
+      "original:M1:p10": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 1,
+          "inapplicable": 1
+        },
+        "actions": {
+          "10": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M1:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 1,
+          "applicable": 1
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M2:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 1,
+          "inapplicable": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 1
+          }
+        }
+      },
+      "original:M2:p10": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 1,
+          "inapplicable": 1
+        },
+        "actions": {
+          "10": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M2:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 1,
+          "inapplicable": 1
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M3:pNone": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 1,
+          "applicable": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 1
+          },
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M4:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 1,
+          "applicable": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 1
+          }
+        }
+      },
+      "original:M4:p10": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 1,
+          "inapplicable": 1
+        },
+        "actions": {
+          "10": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M4:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 1,
+          "applicable": 1
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      }
+    },
+    "scope_joint_group": {
+      "candidate_blind:BLIND_CHECKLIST:pNone": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 1,
+        "missing": 0,
+        "labels": {
+          "unknown": 1,
+          "applicable": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 1
+          },
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M1:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 1,
+            "useful_reuse": 1
+          }
+        }
+      },
+      "coded:M1:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 1,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 2
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M2:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 1,
+          "inapplicable": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 1
+          }
+        }
+      },
+      "coded:M2:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 1,
+          "inapplicable": 1
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "coded:M3:pNone": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 1,
+          "applicable": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 1
+          },
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M1:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 1,
+          "applicable": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 1
+          }
+        }
+      },
+      "original:M1:p10": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 1,
+          "inapplicable": 1
+        },
+        "actions": {
+          "10": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M1:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 1,
+          "applicable": 1
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M2:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 1,
+          "applicable": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 1
+          }
+        }
+      },
+      "original:M2:p10": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "inapplicable": 1,
+          "applicable": 1
+        },
+        "actions": {
+          "10": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M2:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 1,
+          "inapplicable": 1
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M3:pNone": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 0,
+        "missing": 0,
+        "labels": {
+          "applicable": 1,
+          "inapplicable": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 1
+          },
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M4:p1": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 1,
+        "missing": 0,
+        "labels": {
+          "unknown": 1,
+          "applicable": 1
+        },
+        "actions": {
+          "1": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 1
+          }
+        }
+      },
+      "original:M4:p10": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 1,
+        "missing": 0,
+        "labels": {
+          "applicable": 1,
+          "unknown": 1
+        },
+        "actions": {
+          "10": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      },
+      "original:M4:p20": {
+        "negative_denominator": 1,
+        "positive_denominator": 1,
+        "false_applicable": 0,
+        "true_applicable": 1,
+        "negative_invalid": 0,
+        "positive_invalid": 0,
+        "unknown": 1,
+        "missing": 0,
+        "labels": {
+          "unknown": 1,
+          "applicable": 1
+        },
+        "actions": {
+          "20": {
+            "unsafe_reuse": 0,
+            "useful_reuse": 0
+          }
+        }
+      }
+    }
+  },
+  "new_usage": {
+    "prompt_tokens": 89496,
+    "completion_tokens": 3691,
+    "total_tokens": 93187
+  },
+  "new_http_seconds": 37.25301039963961,
+  "goal_new_attempts_total": 4693,
+  "goal_service_seconds_total": 1922.4409612002023,
+  "warning": "12 preselected previously exposed bases; not new independent confirmation. Fixed map only. Checklist removal is not isolated evidence of internal anchoring. Original main results unchanged.",
+  "all_actual_prompts_match_freeze": true,
+  "prepared": "runtime/runs/reuse-robustness-qwen-prepared-20261027-001",
+  "summary_sha256": "c18e1b6830295d8b7aeaee4d2bfae66d1c93d826194964f6e20453b805a720ea",
+  "input_hashes_sha256": "b9e9894bed1ae6f99bf7cebd6a8a298d15b07f66f189757bdf5fe9184a7507f3",
+  "source_rescoring_repeated": true,
+  "dispatch_attempts": 144,
+  "owned_service_seconds": 41.47073539998382,
+  "cold_start_seconds": 3.1051376999821514,
+  "all_services_closed": true,
+  "actual_API_cny": 0,
+  "energy_measured": false,
+  "strict_original_parser_discrepancies": 0,
+  "analysis_repair": {
+    "kind": "AUDIT_ONLY_USAGE_METADATA_COMPATIBILITY",
+    "adapter_sha256": "62e527afed22b42bac1cefdb85b23c3202e8450d24b00061a12ddfe6fb8339e6",
+    "original_runner_sha256": "00c583a7e673273b0903c1ee6b4340311aaeab203a1f3000924272fb244c58a2",
+    "reason": "v1 Counter.update failed on nested prompt_tokens_details; not a model failure",
+    "changed_inference_prompts_or_semantic_scoring": false,
+    "new_generations": 0,
+    "usage_fields_aggregated": [
+      "prompt_tokens",
+      "completion_tokens",
+      "total_tokens"
+    ]
+  },
+  "paired_comparisons": {
+    "coded:M1:p1 vs original:M1:p1": {
+      "contexts": 24,
+      "changed_labels": 9,
+      "negative_denominator": 12,
+      "new_false_applicable": 11,
+      "original_false_applicable": 5,
+      "positive_denominator": 12,
+      "new_true_applicable": 10,
+      "original_true_applicable": 9,
+      "new_invalid": 1,
+      "original_invalid": 0
+    },
+    "coded:M3:pNone vs original:M3:pNone": {
+      "contexts": 24,
+      "changed_labels": 7,
+      "negative_denominator": 12,
+      "new_false_applicable": 4,
+      "original_false_applicable": 8,
+      "positive_denominator": 12,
+      "new_true_applicable": 8,
+      "original_true_applicable": 9,
+      "new_invalid": 0,
+      "original_invalid": 0
+    },
+    "coded:M1:p20 vs original:M1:p20": {
+      "contexts": 24,
+      "changed_labels": 10,
+      "negative_denominator": 12,
+      "new_false_applicable": 9,
+      "original_false_applicable": 6,
+      "positive_denominator": 12,
+      "new_true_applicable": 10,
+      "original_true_applicable": 8,
+      "new_invalid": 4,
+      "original_invalid": 0
+    },
+    "coded:M2:p1 vs original:M2:p1": {
+      "contexts": 24,
+      "changed_labels": 5,
+      "negative_denominator": 12,
+      "new_false_applicable": 3,
+      "original_false_applicable": 6,
+      "positive_denominator": 12,
+      "new_true_applicable": 8,
+      "original_true_applicable": 9,
+      "new_invalid": 0,
+      "original_invalid": 0
+    },
+    "candidate_blind:BLIND_CHECKLIST:pNone vs original:M3:pNone": {
+      "contexts": 24,
+      "changed_labels": 5,
+      "negative_denominator": 12,
+      "new_false_applicable": 8,
+      "original_false_applicable": 8,
+      "positive_denominator": 12,
+      "new_true_applicable": 9,
+      "original_true_applicable": 9,
+      "new_invalid": 0,
+      "original_invalid": 0
+    },
+    "candidate_blind:BLIND_CHECKLIST:pNone vs original:M4:p1": {
+      "contexts": 24,
+      "changed_labels": 6,
+      "negative_denominator": 12,
+      "new_false_applicable": 8,
+      "original_false_applicable": 5,
+      "positive_denominator": 12,
+      "new_true_applicable": 9,
+      "original_true_applicable": 9,
+      "new_invalid": 0,
+      "original_invalid": 0
+    },
+    "candidate_blind:BLIND_CHECKLIST:pNone vs original:M4:p10": {
+      "contexts": 24,
+      "changed_labels": 6,
+      "negative_denominator": 12,
+      "new_false_applicable": 8,
+      "original_false_applicable": 6,
+      "positive_denominator": 12,
+      "new_true_applicable": 9,
+      "original_true_applicable": 8,
+      "new_invalid": 0,
+      "original_invalid": 0
+    },
+    "candidate_blind:BLIND_CHECKLIST:pNone vs original:M4:p20": {
+      "contexts": 24,
+      "changed_labels": 6,
+      "negative_denominator": 12,
+      "new_false_applicable": 8,
+      "original_false_applicable": 6,
+      "positive_denominator": 12,
+      "new_true_applicable": 9,
+      "original_true_applicable": 8,
+      "new_invalid": 0,
+      "original_invalid": 0
+    },
+    "coded:M2:p20 vs original:M2:p20": {
+      "contexts": 24,
+      "changed_labels": 5,
+      "negative_denominator": 12,
+      "new_false_applicable": 0,
+      "original_false_applicable": 2,
+      "positive_denominator": 12,
+      "new_true_applicable": 5,
+      "original_true_applicable": 7,
+      "new_invalid": 0,
+      "original_invalid": 0
+    }
+  },
+  "price_contrasts": {
+    "M1": {
+      "original": {
+        "low_minus_high_false_applicable_count": -1,
+        "negative_denominator": 12,
+        "low_invalid": 0,
+        "high_invalid": 0
+      },
+      "coded": {
+        "low_minus_high_false_applicable_count": 2,
+        "negative_denominator": 12,
+        "low_invalid": 0,
+        "high_invalid": 3
+      }
+    },
+    "M2": {
+      "original": {
+        "low_minus_high_false_applicable_count": 4,
+        "negative_denominator": 12,
+        "low_invalid": 0,
+        "high_invalid": 0
+      },
+      "coded": {
+        "low_minus_high_false_applicable_count": 3,
+        "negative_denominator": 12,
+        "low_invalid": 0,
+        "high_invalid": 0
+      }
+    }
+  }
+}
