@@ -1,0 +1,74 @@
+{
+  "status": "VERIFIED_PUBLIC_SNAPSHOT",
+  "date": "2026-10-27",
+  "repository": "2356360027/agent-lineage-research",
+  "branch": "experiment/reuse-evidence-20261027",
+  "commit": "852b99b83443a7459dd4efd29f33d1313e09efc4",
+  "tree": "f0e6101019efee33cfc67ab3c53e957148063299",
+  "parent": "f61b0d287292761cff9cd77ccac7812378e0085f",
+  "local_source_commit": "482bfb691ab0d7b0645e7b502128820139933095",
+  "files_count": 11,
+  "files": [
+    {
+      "path": "configs/run_records/reuse_reproduction_public_snapshot_20261027.json",
+      "blob_sha": "45c0945306f18a0fc72b6283775e8305aa445762",
+      "sha256": "e55c62d6dc148483075800104e344b33813eb81af28b3ca1726f5e9205af484f"
+    },
+    {
+      "path": "reports/reuse_separation_14day/FIGURE_EXECUTION_CONTRACT_V1.txt",
+      "blob_sha": "a88c59dee8d1cfd3f6a9a6da3a2ca55e1c2c9803",
+      "sha256": "a7ce60a405dd7a7bc9234eee838502f3d22168cc32450b9fbf76f7c27d5adf8c"
+    },
+    {
+      "path": "reports/reuse_separation_14day/FIGURE_EXECUTION_LEGEND_V1.txt",
+      "blob_sha": "71bc4aa1a53919912b54a3faeca3ce6704d9e44c",
+      "sha256": "bdb4147f3e8c03b741e9d87e883cc5537cc17c69726326420c825fb86806c232"
+    },
+    {
+      "path": "reports/reuse_separation_14day/STATUS.txt",
+      "blob_sha": "e10fcf5b3141cec6674b659793b5c0f1e3d9d909",
+      "sha256": "c185842d937dfdc4ebdb5a16d6667618a5dd2c3f7200412fc7a1033b98e5e277"
+    },
+    {
+      "path": "reports/reuse_separation_14day/figures/execution-v4/QA_REVIEW.txt",
+      "blob_sha": "d3f50b196a000ca2a70f763f9579baa4f7995105",
+      "sha256": "f84c3598ff0dbfa3405c2d2486a2ce6e3078723a988accfb2f48d5ee2f8e4e8f"
+    },
+    {
+      "path": "reports/reuse_separation_14day/figures/execution-v4/execution.pdf",
+      "blob_sha": "bf8caa896ca09b4172c8a882ea5bd75a598ca640",
+      "sha256": "d51146671b5e52f275e8fdcf23846d7d38eb44a9c45e159371f91018c734ade8"
+    },
+    {
+      "path": "reports/reuse_separation_14day/figures/execution-v4/execution.svg",
+      "blob_sha": "0f04d553ec46339d75ede6cdbdc554d9cc67f7d6",
+      "sha256": "7e9783e83e5730a0adb8df7bfb28ec0a0964b5e1f1630162b2bd16b53556f7ac"
+    },
+    {
+      "path": "reports/reuse_separation_14day/figures/execution-v4/qa.json",
+      "blob_sha": "190985f8160f36627aba962365bd064f35f1b2d3",
+      "sha256": "47fc16a536316535ba206e33f42c2bb609191ecd706ad60cfcea4ff3a4be2cb1"
+    },
+    {
+      "path": "reports/reuse_separation_14day/figures/execution-v4/source_data.json",
+      "blob_sha": "09b9bf2c65df97d68307daea1314aa7b8ecde05f",
+      "sha256": "5450b168cc7655f420b3dca9eef8362eb760d5118678b3f1a0d0b2a974093ecf"
+    },
+    {
+      "path": "scripts/plot_reuse_execution.py",
+      "blob_sha": "7db18bcf084b82400defe3adf966fb4e7f0fe640",
+      "sha256": "93cf379134bf186212c23a7b783dcf4d847f1827de96ac9172e3891f1d93c36c"
+    },
+    {
+      "path": "tests/test_reuse_execution_figure.py",
+      "blob_sha": "44b05522bb835f16d7b6c95addfeda7626d04eb2",
+      "sha256": "a85c43cc6ebe787e42061b7db8070fa2123ca5a833b3ecbe6bd69183d96ba221"
+    }
+  ],
+  "blob_hashes_verified": true,
+  "independent_tree_reconstruction_verified": true,
+  "remote_file_inventory_and_head_verified": true,
+  "new_full_manuscript_included": false,
+  "raw_logs_databases_forms_weights_credentials_included": false,
+  "force_push": false
+}

@@ -1,0 +1,45 @@
+{
+  "status": "PRIVATE_SOURCE_TABLE_AUDIT_PASSED",
+  "manuscript_claim_audit_complete": false,
+  "new_model_calls": 0,
+  "new_sql_execution": false,
+  "sources": [
+    {
+      "record": "configs/run_records/reuse_confirmation_qwen_20261027.json",
+      "record_sha256": "6cd30a7c06ed37df1358fe3a845d6abbddb91f4109145780f529d9160b5363c4",
+      "sealed_summary_sha256": "f8003fb0d1a0259ca7fbe132651bca5bf617f8b2e19aaf1b0a816be873fd4c03",
+      "private_summary_and_aggregate_checks": "PASS"
+    },
+    {
+      "record": "configs/run_records/reuse_confirmation_mistral_20261027.json",
+      "record_sha256": "0ee6171ef01e826454c1b2386e98c2b3b30067f6112652c2c2d01d3ab0d55efc",
+      "sealed_summary_sha256": "5edda1b87f51dbbdf38d7611201dd8ff4f868f55a5f748248ae6645225b8b279",
+      "private_summary_and_aggregate_checks": "PASS"
+    },
+    {
+      "record": "configs/run_records/reuse_e3_qwen_20261027.json",
+      "record_sha256": "0271edab82926ce5adba5b9584a556d7fb037c11b5d21f87ee5b64637d7b634b",
+      "sealed_summary_sha256": "3489f05eb7c98eb6b254fd8f3c808889c4630c02ea04f92b2ac223c0a8d745cb",
+      "private_summary_and_aggregate_checks": "PASS"
+    },
+    {
+      "record": "configs/run_records/reuse_e3_mistral_20261027.json",
+      "record_sha256": "458863b235eb58ac7e9b46343fec5764a6ed132e034db783ec26ace0e46af660",
+      "sealed_summary_sha256": "b1165d7481f4c9122d3af9d0a4e222e65f1874f21ed63981e4c49dc07999b81c",
+      "private_summary_and_aggregate_checks": "PASS"
+    },
+    {
+      "record": "configs/run_records/reuse_robustness_qwen_20261027.json",
+      "record_sha256": "0d1661cdf1a9d10e61bead3e8c9db01b607053e2bfde1e132c26be45dab910ac",
+      "sealed_summary_sha256": "c18e1b6830295d8b7aeaee4d2bfae66d1c93d826194964f6e20453b805a720ea",
+      "private_summary_and_aggregate_checks": "PASS"
+    },
+    {
+      "record": "configs/run_records/reuse_robustness_mistral_20261027.json",
+      "record_sha256": "dceccc6c643d125659a2985d0059bb07c432242773880c02f2eaa842f529c586",
+      "sealed_summary_sha256": "b238b29bd35d75870f09ea25a41416a9b49fa79abb5203e9c68b0ac207691c57",
+      "private_summary_and_aggregate_checks": "PASS"
+    }
+  ],
+  "table_sha256": "024f98a8778386cda6e3b921f013dcfd9b2e4e879551907ea5837897fa0f65dd"
+}

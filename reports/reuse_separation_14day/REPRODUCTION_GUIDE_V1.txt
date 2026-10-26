@@ -88,8 +88,31 @@ Scientific interpretation and remaining work
 Read CONFIRMATION_*_READOUT_V1.txt, E3_*_READOUT_V1.txt and
 ROBUSTNESS_CONCLUSION_V1.txt separately. Do not pool models, prices, repeated
 conditions or development data into independent tasks. Failure/unknown outputs
-remain in planned denominators. Full manuscript numerical traceability, E3
-visualization and final requirement audit remain separate release tasks.
+remain in planned denominators. The E3 visualization is now in figures/execution-v4.
+Full manuscript numerical traceability and final requirement audit remain
+separate release tasks.
+
+5. Rebuild complete result tables (CPU only)
+python -B -X utf8 scripts/audit_reuse_result_tables.py --output runtime/runs/result-tables-public-local-001
+python -B -X utf8 -m unittest tests.test_reuse_result_tables tests.test_reuse_execution_figure -v
+
+The first command needs public aggregate records only; it explicitly reports
+PUBLIC_TABLES_ONLY, not a private-source audit. The second command currently
+runs 20 guard tests (11 table checks and 9 E3 figure checks). Those 20 are not
+additional model experiments and do not change the historical 66-test clean
+reproduction receipt. Output directories must be new; no overwrite is allowed.
+
+With the original private prepared archives AND scoring audit directories:
+python -B -X utf8 scripts/audit_reuse_result_tables.py --verify-private --output runtime/runs/result-tables-private-local-001
+
+This checks all six summary and input-hash ledger digests, prepared manifest
+digests, main per-case label/action counts, agreement and token totals, E3
+per-cell outcomes/cost means, and exported robustness aggregates. It does not
+rerun model inference, the bootstrap or the entire frozen scorer. Action
+reassignment bounds in these tables are explicitly a post-outcome supplement;
+they were absent from the original exported action contrasts. This distinction
+is not erased by an audit passing. The archived verified table/audit is under
+reports/reuse_separation_14day/result-tables-v1/.
 
 Public/private boundary
 Public: reviewed code, frozen plans, aggregate records, figure source aggregates,

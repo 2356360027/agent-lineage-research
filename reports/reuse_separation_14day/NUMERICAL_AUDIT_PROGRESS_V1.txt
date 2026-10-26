@@ -1,0 +1,58 @@
+Numerical traceability checkpoint — 2026-10-27
+
+Scope completed in this checkpoint
+- Six public main/E3/robustness result records linked by SHA256 to the sealed
+  private summary, input-hash ledger and prepared manifest.
+- Main labels recounted for every method and price from per-case observations;
+  low-price actions and family counts recounted from per-case decisions.
+- M4/M1 agreement, complete physical token measurements and classical export
+  checked against their sealed sources.
+- All E3 method/price groups checked against per-cell outcomes, logical calls
+  and means at each cache-construction amortization choice (1/10/100).
+- Robustness methods/family/template/usage aggregates checked against sealed
+  summaries. Original text is not exported.
+- Complete reader-facing result tables generated in result-tables-v1, including
+  labels, unresolved counts, intervals, bounds, all families/templates, E3
+  conditions and robustness cases. Public-only generation reproduces the same
+  numbers; only the explicit private-verification status line differs.
+
+Newly identified reporting gap
+The frozen main summaries contain unresolved-label bounds for price contrasts
+and M3-vs-M2 label contrasts, but do not contain equivalent bounds for primary
+action contrasts. The new appendix adds post-outcome algebraic bounds, clearly
+marked as a reporting supplement. It does not claim that those statistics were
+exported before outcomes. Original frozen scores and artifacts are untouched.
+
+The supplement bounds each unresolved M1 action's binary endpoint by 0 and 1,
+separately on positive and negative bases. It verifies against sealed decisions
+that M1 invalid labels correspond to unresolved actions and controller methods
+have resolved fallback actions. Equal family/template cell sizes are checked.
+Unknown/invalid labels followed by deterministic recomputation are observed
+actions, not unresolved actions. No score is imputed or silently replaced.
+For Mistral M3 minus M1 at low price, unsafe-reuse difference bounds are
+11/96 to 28/96; useful-reuse difference bounds are 6/96 to 33/96.
+These ranges do not demonstrate candidate superiority over the verifier or
+classical comparator, nor do they measure population uncertainty.
+
+Engineering evidence
+- 11 synthetic table-audit guard tests passed; with 9 existing E3 figure tests,
+  the combined command passed 20 tests.
+- An in-memory mutation of Qwen M1 low-price false-accept count was rejected
+  against the unchanged sealed observations. No source was modified.
+- First appendix construction stopped before writing any output because action
+  bounds were absent. This exposed the gap rather than filling it silently.
+- Private audit completed at runtime/runs/reuse-result-table-audit-20261027-002.
+- Independent public-only rebuild is at
+  runtime/runs/reuse-result-table-public-rebuild-20261027-001.
+- Public table/audit: reports/reuse_separation_14day/result-tables-v1.
+- No new model calls, SQL execution, paid API usage, weights or GPU service.
+  Existing goal inference ledger remains 4837 attempts.
+
+What is NOT yet certified
+This is not complete paragraph-by-paragraph manuscript-number verification.
+Development/calibration paragraphs, prose/claim correspondence, bibliography
+and a final requirement-by-requirement release audit remain to be checked.
+Hash linkage and matching aggregates do not independently prove raw inference
+truth, a causal interpretation, or a general mathematical safety guarantee.
+Earlier frozen-source and clean-directory rescoring remain separate evidence.
+The complete local manuscript has not been cleared for public upload.

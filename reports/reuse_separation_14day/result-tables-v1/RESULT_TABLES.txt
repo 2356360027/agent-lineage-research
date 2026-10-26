@@ -1,0 +1,370 @@
+COMPLETE CONFIRMATION / EXECUTION / ROBUSTNESS RESULT TABLES
+Generated from sealed aggregate records; no inference, retries or new SQL execution.
+Private source audit: PASS
+This is NOT a completed manuscript-number or semantic-claim audit.
+Models are separate. Price variants are not independent tasks.
+All differences/bands/bounds below are percentage points, not relative improvements.
+Resampling bands concern selected templates/bases, not population coverage.
+Unresolved reassignment bounds are sensitivity ranges, not confidence intervals.
+Counters retain unknown/invalid outputs; neither is a correct rejection.
+
+QWEN: E1/E2
+bases=96; templates=12; families=6; calls=1920
+Physical labels: {"applicable": 1268, "inapplicable": 587, "unknown": 65}
+method price false_applicable/negative_n accepted_positive/positive_n negative_statuses positive_statuses
+M1 1 55/96 79/96 {"applicable": 55, "inapplicable": 37, "unknown": 4} {"applicable": 79, "inapplicable": 16, "unknown": 1}
+M1 10 58/96 68/96 {"applicable": 58, "inapplicable": 33, "unknown": 5} {"applicable": 68, "inapplicable": 24, "unknown": 4}
+M1 20 62/96 70/96 {"applicable": 62, "inapplicable": 31, "unknown": 3} {"applicable": 70, "inapplicable": 25, "unknown": 1}
+M2 1 47/96 74/96 {"applicable": 47, "inapplicable": 48, "unknown": 1} {"applicable": 74, "inapplicable": 21, "unknown": 1}
+M2 10 46/96 70/96 {"applicable": 46, "inapplicable": 47, "unknown": 3} {"applicable": 70, "inapplicable": 26}
+M2 20 26/96 60/96 {"applicable": 26, "inapplicable": 68, "unknown": 2} {"applicable": 60, "inapplicable": 36}
+M3 1 71/96 90/96 {"applicable": 71, "inapplicable": 23, "unknown": 2} {"applicable": 90, "inapplicable": 6}
+M3 10 71/96 90/96 {"applicable": 71, "inapplicable": 23, "unknown": 2} {"applicable": 90, "inapplicable": 6}
+M3 20 71/96 90/96 {"applicable": 71, "inapplicable": 23, "unknown": 2} {"applicable": 90, "inapplicable": 6}
+M4 1 55/96 79/96 {"applicable": 55, "inapplicable": 33, "unknown": 8} {"applicable": 79, "inapplicable": 14, "unknown": 3}
+M4 10 58/96 68/96 {"applicable": 58, "inapplicable": 28, "unknown": 10} {"applicable": 68, "inapplicable": 22, "unknown": 6}
+M4 20 62/96 70/96 {"applicable": 62, "inapplicable": 26, "unknown": 8} {"applicable": 70, "inapplicable": 23, "unknown": 3}
+
+Low-price actions: method unsafe/negative_n useful/positive_n unresolved_actions(all classes)
+M1 38/96 62/96 0
+M2 47/96 74/96 0
+M3 71/96 90/96 0
+M4 55/96 79/96 0
+M5 0/96 0/96 0
+M6 0/96 80/96 0
+
+Primary price contrast (low minus high)
+contrast difference resampling_band unresolved_reassignment_bounds
+M1 -7.29 [-17.71, 3.13] [-10.42, -3.13]
+  family differences: {"entity_projection": "0.00", "group_coverage": "0.00", "join_multiplicity": "0.00", "null_aggregation": "-25.00", "ranking_ties": "-6.25", "scope": "-12.50"}
+  template differences: {"avg_distinct": "-37.50", "avg_weighted_rollup": "-12.50", "entity_composite": "0.00", "entity_postfilter": "0.00", "group_having_loss": "12.50", "group_max_ties": "-12.50", "join_antijoin": "-12.50", "join_intersection": "12.50", "rank_partitioned": "0.00", "rank_topk_ties": "-12.50", "scope_boundary": "-37.50", "scope_joint_group": "12.50"}
+M2 21.88 [5.21, 38.54] [19.79, 22.92]
+  family differences: {"entity_projection": "18.75", "group_coverage": "12.50", "join_multiplicity": "18.75", "null_aggregation": "18.75", "ranking_ties": "50.00", "scope": "12.50"}
+  template differences: {"avg_distinct": "12.50", "avg_weighted_rollup": "25.00", "entity_composite": "25.00", "entity_postfilter": "12.50", "group_having_loss": "50.00", "group_max_ties": "-25.00", "join_antijoin": "37.50", "join_intersection": "0.00", "rank_partitioned": "100.00", "rank_topk_ties": "0.00", "scope_boundary": "0.00", "scope_joint_group": "25.00"}
+
+Secondary hidden minus visible label contrast, by price
+contrast difference resampling_band unresolved_reassignment_bounds
+1 25.00 [14.58, 35.42] [23.96, 27.08]
+  family differences: {"entity_projection": "0.00", "group_coverage": "37.50", "join_multiplicity": "0.00", "null_aggregation": "75.00", "ranking_ties": "37.50", "scope": "0.00"}
+  template differences: {"avg_distinct": "75.00", "avg_weighted_rollup": "75.00", "entity_composite": "0.00", "entity_postfilter": "0.00", "group_having_loss": "50.00", "group_max_ties": "25.00", "join_antijoin": "0.00", "join_intersection": "0.00", "rank_partitioned": "0.00", "rank_topk_ties": "75.00", "scope_boundary": "0.00", "scope_joint_group": "0.00"}
+10 26.04 [14.58, 37.50] [22.92, 28.13]
+  family differences: {"entity_projection": "0.00", "group_coverage": "50.00", "join_multiplicity": "6.25", "null_aggregation": "50.00", "ranking_ties": "37.50", "scope": "12.50"}
+  template differences: {"avg_distinct": "50.00", "avg_weighted_rollup": "50.00", "entity_composite": "0.00", "entity_postfilter": "0.00", "group_having_loss": "62.50", "group_max_ties": "37.50", "join_antijoin": "12.50", "join_intersection": "0.00", "rank_partitioned": "0.00", "rank_topk_ties": "75.00", "scope_boundary": "0.00", "scope_joint_group": "25.00"}
+20 46.88 [33.33, 61.46] [44.79, 48.96]
+  family differences: {"entity_projection": "18.75", "group_coverage": "50.00", "join_multiplicity": "18.75", "null_aggregation": "93.75", "ranking_ties": "87.50", "scope": "12.50"}
+  template differences: {"avg_distinct": "87.50", "avg_weighted_rollup": "100.00", "entity_composite": "25.00", "entity_postfilter": "12.50", "group_having_loss": "100.00", "group_max_ties": "0.00", "join_antijoin": "37.50", "join_intersection": "0.00", "rank_partitioned": "100.00", "rank_topk_ties": "75.00", "scope_boundary": "0.00", "scope_joint_group": "25.00"}
+
+Primary low-price action contrasts: M3 minus comparator
+contrast difference resampling_band unresolved_reassignment_bounds
+M3_minus_M1_unsafe_reuse 34.38 [20.83, 47.92] [34.38, 34.38]
+  Bounds are a POST-OUTCOME reporting supplement, not an originally exported frozen statistic.
+  family differences: {"entity_projection": "6.25", "group_coverage": "62.50", "join_multiplicity": "18.75", "null_aggregation": "93.75", "ranking_ties": "37.50", "scope": "-12.50"}
+  template differences: {"avg_distinct": "87.50", "avg_weighted_rollup": "100.00", "entity_composite": "12.50", "entity_postfilter": "0.00", "group_having_loss": "62.50", "group_max_ties": "62.50", "join_antijoin": "50.00", "join_intersection": "-12.50", "rank_partitioned": "0.00", "rank_topk_ties": "75.00", "scope_boundary": "0.00", "scope_joint_group": "-25.00"}
+M3_minus_M1_useful_reuse 29.17 [19.79, 39.58] [29.17, 29.17]
+  Bounds are a POST-OUTCOME reporting supplement, not an originally exported frozen statistic.
+  family differences: {"entity_projection": "0.00", "group_coverage": "37.50", "join_multiplicity": "25.00", "null_aggregation": "87.50", "ranking_ties": "25.00", "scope": "0.00"}
+  template differences: {"avg_distinct": "100.00", "avg_weighted_rollup": "75.00", "entity_composite": "0.00", "entity_postfilter": "0.00", "group_having_loss": "62.50", "group_max_ties": "12.50", "join_antijoin": "25.00", "join_intersection": "25.00", "rank_partitioned": "0.00", "rank_topk_ties": "50.00", "scope_boundary": "0.00", "scope_joint_group": "0.00"}
+M3_minus_M2_unsafe_reuse 25.00 [14.58, 35.42] [25.00, 25.00]
+  Bounds are a POST-OUTCOME reporting supplement, not an originally exported frozen statistic.
+  family differences: {"entity_projection": "0.00", "group_coverage": "37.50", "join_multiplicity": "0.00", "null_aggregation": "75.00", "ranking_ties": "37.50", "scope": "0.00"}
+  template differences: {"avg_distinct": "75.00", "avg_weighted_rollup": "75.00", "entity_composite": "0.00", "entity_postfilter": "0.00", "group_having_loss": "50.00", "group_max_ties": "25.00", "join_antijoin": "0.00", "join_intersection": "0.00", "rank_partitioned": "0.00", "rank_topk_ties": "75.00", "scope_boundary": "0.00", "scope_joint_group": "0.00"}
+M3_minus_M2_useful_reuse 16.67 [10.42, 23.96] [16.67, 16.67]
+  Bounds are a POST-OUTCOME reporting supplement, not an originally exported frozen statistic.
+  family differences: {"entity_projection": "0.00", "group_coverage": "18.75", "join_multiplicity": "6.25", "null_aggregation": "75.00", "ranking_ties": "0.00", "scope": "0.00"}
+  template differences: {"avg_distinct": "75.00", "avg_weighted_rollup": "75.00", "entity_composite": "0.00", "entity_postfilter": "0.00", "group_having_loss": "37.50", "group_max_ties": "0.00", "join_antijoin": "0.00", "join_intersection": "12.50", "rank_partitioned": "0.00", "rank_topk_ties": "0.00", "scope_boundary": "0.00", "scope_joint_group": "0.00"}
+M3_minus_M4_unsafe_reuse 16.67 [2.08, 31.25] [16.67, 16.67]
+  Bounds are a POST-OUTCOME reporting supplement, not an originally exported frozen statistic.
+  family differences: {"entity_projection": "0.00", "group_coverage": "31.25", "join_multiplicity": "12.50", "null_aggregation": "37.50", "ranking_ties": "37.50", "scope": "-18.75"}
+  template differences: {"avg_distinct": "62.50", "avg_weighted_rollup": "12.50", "entity_composite": "0.00", "entity_postfilter": "0.00", "group_having_loss": "12.50", "group_max_ties": "50.00", "join_antijoin": "37.50", "join_intersection": "-12.50", "rank_partitioned": "0.00", "rank_topk_ties": "75.00", "scope_boundary": "0.00", "scope_joint_group": "-37.50"}
+M3_minus_M4_useful_reuse 11.46 [6.22, 17.71] [11.46, 11.46]
+  Bounds are a POST-OUTCOME reporting supplement, not an originally exported frozen statistic.
+  family differences: {"entity_projection": "0.00", "group_coverage": "12.50", "join_multiplicity": "6.25", "null_aggregation": "50.00", "ranking_ties": "0.00", "scope": "0.00"}
+  template differences: {"avg_distinct": "62.50", "avg_weighted_rollup": "37.50", "entity_composite": "0.00", "entity_postfilter": "0.00", "group_having_loss": "12.50", "group_max_ties": "12.50", "join_antijoin": "0.00", "join_intersection": "12.50", "rank_partitioned": "0.00", "rank_topk_ties": "0.00", "scope_boundary": "0.00", "scope_joint_group": "0.00"}
+M3_minus_M5_unsafe_reuse 73.96 [61.46, 85.42] [73.96, 73.96]
+  Bounds are a POST-OUTCOME reporting supplement, not an originally exported frozen statistic.
+  family differences: {"entity_projection": "100.00", "group_coverage": "100.00", "join_multiplicity": "50.00", "null_aggregation": "93.75", "ranking_ties": "87.50", "scope": "12.50"}
+  template differences: {"avg_distinct": "87.50", "avg_weighted_rollup": "100.00", "entity_composite": "100.00", "entity_postfilter": "100.00", "group_having_loss": "100.00", "group_max_ties": "100.00", "join_antijoin": "100.00", "join_intersection": "0.00", "rank_partitioned": "100.00", "rank_topk_ties": "75.00", "scope_boundary": "0.00", "scope_joint_group": "25.00"}
+M3_minus_M5_useful_reuse 93.75 [87.50, 98.96] [93.75, 93.75]
+  Bounds are a POST-OUTCOME reporting supplement, not an originally exported frozen statistic.
+  family differences: {"entity_projection": "100.00", "group_coverage": "100.00", "join_multiplicity": "75.00", "null_aggregation": "87.50", "ranking_ties": "100.00", "scope": "100.00"}
+  template differences: {"avg_distinct": "100.00", "avg_weighted_rollup": "75.00", "entity_composite": "100.00", "entity_postfilter": "100.00", "group_having_loss": "100.00", "group_max_ties": "100.00", "join_antijoin": "87.50", "join_intersection": "62.50", "rank_partitioned": "100.00", "rank_topk_ties": "100.00", "scope_boundary": "100.00", "scope_joint_group": "100.00"}
+M3_minus_M6_unsafe_reuse 73.96 [61.46, 85.42] [73.96, 73.96]
+  Bounds are a POST-OUTCOME reporting supplement, not an originally exported frozen statistic.
+  family differences: {"entity_projection": "100.00", "group_coverage": "100.00", "join_multiplicity": "50.00", "null_aggregation": "93.75", "ranking_ties": "87.50", "scope": "12.50"}
+  template differences: {"avg_distinct": "87.50", "avg_weighted_rollup": "100.00", "entity_composite": "100.00", "entity_postfilter": "100.00", "group_having_loss": "100.00", "group_max_ties": "100.00", "join_antijoin": "100.00", "join_intersection": "0.00", "rank_partitioned": "100.00", "rank_topk_ties": "75.00", "scope_boundary": "0.00", "scope_joint_group": "25.00"}
+M3_minus_M6_useful_reuse 10.42 [4.17, 15.63] [10.42, 10.42]
+  Bounds are a POST-OUTCOME reporting supplement, not an originally exported frozen statistic.
+  family differences: {"entity_projection": "0.00", "group_coverage": "0.00", "join_multiplicity": "75.00", "null_aggregation": "-12.50", "ranking_ties": "0.00", "scope": "0.00"}
+  template differences: {"avg_distinct": "0.00", "avg_weighted_rollup": "-25.00", "entity_composite": "0.00", "entity_postfilter": "0.00", "group_having_loss": "0.00", "group_max_ties": "0.00", "join_antijoin": "87.50", "join_intersection": "62.50", "rank_partitioned": "0.00", "rank_topk_ties": "0.00", "scope_boundary": "0.00", "scope_joint_group": "0.00"}
+
+Family low-price actions (class denominators retained):
+entity_projection M1 unsafe=15/16 useful=16/16
+entity_projection M2 unsafe=16/16 useful=16/16
+entity_projection M3 unsafe=16/16 useful=16/16
+entity_projection M4 unsafe=16/16 useful=16/16
+entity_projection M5 unsafe=0/16 useful=0/16
+entity_projection M6 unsafe=0/16 useful=16/16
+group_coverage M1 unsafe=6/16 useful=10/16
+group_coverage M2 unsafe=10/16 useful=13/16
+group_coverage M3 unsafe=16/16 useful=16/16
+group_coverage M4 unsafe=11/16 useful=14/16
+group_coverage M5 unsafe=0/16 useful=0/16
+group_coverage M6 unsafe=0/16 useful=16/16
+join_multiplicity M1 unsafe=5/16 useful=8/16
+join_multiplicity M2 unsafe=8/16 useful=11/16
+join_multiplicity M3 unsafe=8/16 useful=12/16
+join_multiplicity M4 unsafe=6/16 useful=11/16
+join_multiplicity M5 unsafe=0/16 useful=0/16
+join_multiplicity M6 unsafe=0/16 useful=0/16
+null_aggregation M1 unsafe=0/16 useful=0/16
+null_aggregation M2 unsafe=3/16 useful=2/16
+null_aggregation M3 unsafe=15/16 useful=14/16
+null_aggregation M4 unsafe=9/16 useful=6/16
+null_aggregation M5 unsafe=0/16 useful=0/16
+null_aggregation M6 unsafe=0/16 useful=16/16
+ranking_ties M1 unsafe=8/16 useful=12/16
+ranking_ties M2 unsafe=8/16 useful=16/16
+ranking_ties M3 unsafe=14/16 useful=16/16
+ranking_ties M4 unsafe=8/16 useful=16/16
+ranking_ties M5 unsafe=0/16 useful=0/16
+ranking_ties M6 unsafe=0/16 useful=16/16
+scope M1 unsafe=4/16 useful=16/16
+scope M2 unsafe=2/16 useful=16/16
+scope M3 unsafe=2/16 useful=16/16
+scope M4 unsafe=5/16 useful=16/16
+scope M5 unsafe=0/16 useful=0/16
+scope M6 unsafe=0/16 useful=16/16
+Classical audit: {"baseline_engines": {"CALCITE_HEP_MV_RULES": 32, "CALCITE_UPSTREAM_SUBSTITUTION": 40, "CLASSICAL_BAG_PROJECTION": 8, "NONE": 112}, "cache_only_rewrites": 80, "completed": 192, "false_admissibility": 0, "model_calls": 0, "negative_contexts": 96, "phase": "confirmation", "planned": 192, "planner_statuses": {"PLANNED": 192}, "positive_contexts": 96, "rewrite_execution_errors": 0, "rewrites_matching_snapshot": 80, "status": "COMPLETED_CONFIRMATION_PLANNER", "stress_column_mismatches": 0, "stress_value_mismatches": 0, "stress_worlds_checked": 1520, "warning": "Fixed confirmation scope. Successful fixed-snapshot execution alone is not general equivalence. No-rewrite/parse/timeout states remain unknown and require recomputation. No model-method comparison yet."}
+M4/M1 agreement: {"internal_mechanism_proven": false, "planned": 576, "same": 556}
+Physical token usage: {"completion_tokens": 53728, "prompt_tokens": 1156382, "total_tokens": 1210110}
+Owned service seconds (not electricity): 593.8678945000283
+
+QWEN: E3
+bases=12; templates=12; logical_cells=432
+method price n final_correct cache_first_correct fallbacks no_answer logical_calls cost_seconds_at_1_10_100_cache_uses first_statuses
+M1 1 24 24 0 10 0 34 {"1": 0.3759379028918071, "10": 0.3757981666298898, "100": 0.3757841930036981} {"INVALID_OUTPUT": 10, "RECOMPUTED": 14}
+M1 10 24 23 0 11 1 35 {"1": 0.3729786453304041, "10": 0.3728389090684869, "100": 0.37282493544229506} {"INVALID_OUTPUT": 11, "RECOMPUTED": 12, "UNRESOLVED_ACTION_NO_FINAL_ANSWER": 1}
+M1 20 24 24 0 8 0 32 {"1": 0.36414160551184366, "10": 0.36400186924992645, "100": 0.36398789562373474} {"INVALID_OUTPUT": 8, "RECOMPUTED": 16}
+M2 1 24 24 0 15 0 39 {"1": 0.3743592859471998, "10": 0.3742195496852825, "100": 0.37420557605909077} {"INVALID_OUTPUT": 15, "RECOMPUTED": 9}
+M2 10 24 24 0 0 0 24 {"1": 0.26724134927529425, "10": 0.267101613013377, "100": 0.2670876393871852} {"RECOMPUTED": 24}
+M2 20 24 24 0 0 0 24 {"1": 0.2814216201041442, "10": 0.2812818838422269, "100": 0.2812679102160352} {"RECOMPUTED": 24}
+M3 1 24 24 0 17 0 41 {"1": 0.39642357083494667, "10": 0.39628383457302935, "100": 0.39626986094683764} {"INVALID_OUTPUT": 17, "RECOMPUTED": 7}
+M3 10 24 24 0 0 0 24 {"1": 0.2828899534470717, "10": 0.2827502171851544, "100": 0.2827362435589627} {"RECOMPUTED": 24}
+M3 20 24 24 0 0 0 24 {"1": 0.28288724093611867, "10": 0.2827475046742014, "100": 0.28273353104800963} {"RECOMPUTED": 24}
+M4 1 24 24 0 14 0 62 {"1": 0.7186072677692331, "10": 0.7184675315073158, "100": 0.7184535578811241} {"INVALID_OUTPUT": 14, "RECOMPUTED": 10}
+M4 10 24 24 0 0 0 48 {"1": 0.6142592402491572, "10": 0.61411950398724, "100": 0.6141055303610483} {"RECOMPUTED": 24}
+M4 20 24 24 0 0 0 48 {"1": 0.6251472318909994, "10": 0.6250074956290822, "100": 0.6249935220028905} {"RECOMPUTED": 24}
+M5 1 24 24 0 0 0 0 {"1": 0.0004785291724450265, "10": 0.0004785291724450265, "100": 0.0004785291724450265} {"RECOMPUTED": 24}
+M5 10 24 24 0 0 0 0 {"1": 0.00047448333255791414, "10": 0.00047448333255791414, "100": 0.00047448333255791414} {"RECOMPUTED": 24}
+M5 20 24 24 0 0 0 0 {"1": 0.000471016649195614, "10": 0.000471016649195614, "100": 0.000471016649195614} {"RECOMPUTED": 24}
+M6 1 24 24 10 0 0 0 {"1": 0.9422731875044216, "10": 0.9421334512425044, "100": 0.9421194776163127} {"EXECUTED": 10, "RECOMPUTED": 14}
+M6 10 24 24 0 0 0 0 {"1": 0.9422646458454741, "10": 0.9421249095835568, "100": 0.9421109359573651} {"RECOMPUTED": 24}
+M6 20 24 24 0 0 0 0 {"1": 0.9422655333279787, "10": 0.9421257970660615, "100": 0.9421118234398698} {"RECOMPUTED": 24}
+Physical new conversion usage: {"calls": 75, "http_seconds": 6.5574198993854225, "input_tokens": 44257, "output_tokens": 150}
+Logical price workflows charge full decision incl M4 proposal; M3 shared physical calls not independent. Cold allocated uniformly, not directly observed cell latency. JVM startup included in classical wall time. Tiny fixture timings are not production speedups. Scoring/counterworld CPU excluded from method cost; actual CPU phase reported separately. M5 not charged unused cache. Others charged cache construction even when recomputing; amortization1/10/100. Wrong cheap answers are not efficiency gains.
+Fixed instance0 of12 selected held templates; 432cells are not432 independent tasks. Correct public SQL supplied to all. Frozen negative information-loss witnesses override lucky snapshot matches. No model repair or oracle-triggered fallback. Finite-world correctness is not a universal proof.
+
+QWEN: FIXED-SUBSET ROBUSTNESS (not new independent confirmation)
+condition false_applicable/negative_n accepted_positive/positive_n negative_invalid positive_invalid unknown missing
+candidate_blind:BLIND_CHECKLIST:pNone 8/12 9/12 0 0 5 0
+coded:M1:p1 11/12 10/12 0 1 1 0
+coded:M1:p20 9/12 10/12 3 1 0 0
+coded:M2:p1 3/12 8/12 0 0 1 0
+coded:M2:p20 0/12 5/12 0 0 0 0
+coded:M3:pNone 4/12 8/12 0 0 2 0
+original:M1:p1 5/12 9/12 0 0 1 0
+original:M1:p10 6/12 8/12 0 0 0 0
+original:M1:p20 6/12 8/12 0 0 1 0
+original:M2:p1 6/12 9/12 0 0 0 0
+original:M2:p10 4/12 8/12 0 0 0 0
+original:M2:p20 2/12 7/12 0 0 1 0
+original:M3:pNone 8/12 9/12 0 0 0 0
+original:M4:p1 5/12 9/12 0 0 3 0
+original:M4:p10 6/12 8/12 0 0 3 0
+original:M4:p20 6/12 8/12 0 0 3 0
+Physical new usage: {"completion_tokens": 3691, "prompt_tokens": 89496, "total_tokens": 93187}
+
+MISTRAL: E1/E2
+bases=96; templates=12; families=6; calls=1920
+Physical labels: {"applicable": 1792, "invalid": 128}
+method price false_applicable/negative_n accepted_positive/positive_n negative_statuses positive_statuses
+M1 1 79/96 69/96 {"applicable": 79, "invalid": 17} {"applicable": 69, "invalid": 27}
+M1 10 82/96 68/96 {"applicable": 82, "invalid": 14} {"applicable": 68, "invalid": 28}
+M1 20 79/96 83/96 {"applicable": 79, "invalid": 17} {"applicable": 83, "invalid": 13}
+M2 1 96/96 96/96 {"applicable": 96} {"applicable": 96}
+M2 10 96/96 96/96 {"applicable": 96} {"applicable": 96}
+M2 20 96/96 96/96 {"applicable": 96} {"applicable": 96}
+M3 1 96/96 96/96 {"applicable": 96} {"applicable": 96}
+M3 10 96/96 96/96 {"applicable": 96} {"applicable": 96}
+M3 20 96/96 96/96 {"applicable": 96} {"applicable": 96}
+M4 1 96/96 93/96 {"applicable": 96} {"applicable": 93, "invalid": 3}
+M4 10 95/96 94/96 {"applicable": 95, "invalid": 1} {"applicable": 94, "invalid": 2}
+M4 20 95/96 91/96 {"applicable": 95, "invalid": 1} {"applicable": 91, "invalid": 5}
+
+Low-price actions: method unsafe/negative_n useful/positive_n unresolved_actions(all classes)
+M1 68/96 63/96 44
+M2 96/96 96/96 0
+M3 96/96 96/96 0
+M4 96/96 93/96 0
+M5 0/96 0/96 0
+M6 0/96 80/96 0
+
+Primary price contrast (low minus high)
+contrast difference resampling_band unresolved_reassignment_bounds
+M1 0.00 [-10.42, 11.46] [-17.71, 17.71]
+  family differences: {"entity_projection": "6.25", "group_coverage": "12.50", "join_multiplicity": "-12.50", "null_aggregation": "0.00", "ranking_ties": "-12.50", "scope": "6.25"}
+  template differences: {"avg_distinct": "0.00", "avg_weighted_rollup": "0.00", "entity_composite": "-12.50", "entity_postfilter": "25.00", "group_having_loss": "25.00", "group_max_ties": "0.00", "join_antijoin": "-12.50", "join_intersection": "-12.50", "rank_partitioned": "0.00", "rank_topk_ties": "-25.00", "scope_boundary": "0.00", "scope_joint_group": "12.50"}
+M2 0.00 [0.00, 0.00] [0.00, 0.00]
+  family differences: {"entity_projection": "0.00", "group_coverage": "0.00", "join_multiplicity": "0.00", "null_aggregation": "0.00", "ranking_ties": "0.00", "scope": "0.00"}
+  template differences: {"avg_distinct": "0.00", "avg_weighted_rollup": "0.00", "entity_composite": "0.00", "entity_postfilter": "0.00", "group_having_loss": "0.00", "group_max_ties": "0.00", "join_antijoin": "0.00", "join_intersection": "0.00", "rank_partitioned": "0.00", "rank_topk_ties": "0.00", "scope_boundary": "0.00", "scope_joint_group": "0.00"}
+
+Secondary hidden minus visible label contrast, by price
+contrast difference resampling_band unresolved_reassignment_bounds
+1 0.00 [0.00, 0.00] [0.00, 0.00]
+  family differences: {"entity_projection": "0.00", "group_coverage": "0.00", "join_multiplicity": "0.00", "null_aggregation": "0.00", "ranking_ties": "0.00", "scope": "0.00"}
+  template differences: {"avg_distinct": "0.00", "avg_weighted_rollup": "0.00", "entity_composite": "0.00", "entity_postfilter": "0.00", "group_having_loss": "0.00", "group_max_ties": "0.00", "join_antijoin": "0.00", "join_intersection": "0.00", "rank_partitioned": "0.00", "rank_topk_ties": "0.00", "scope_boundary": "0.00", "scope_joint_group": "0.00"}
+10 0.00 [0.00, 0.00] [0.00, 0.00]
+  family differences: {"entity_projection": "0.00", "group_coverage": "0.00", "join_multiplicity": "0.00", "null_aggregation": "0.00", "ranking_ties": "0.00", "scope": "0.00"}
+  template differences: {"avg_distinct": "0.00", "avg_weighted_rollup": "0.00", "entity_composite": "0.00", "entity_postfilter": "0.00", "group_having_loss": "0.00", "group_max_ties": "0.00", "join_antijoin": "0.00", "join_intersection": "0.00", "rank_partitioned": "0.00", "rank_topk_ties": "0.00", "scope_boundary": "0.00", "scope_joint_group": "0.00"}
+20 0.00 [0.00, 0.00] [0.00, 0.00]
+  family differences: {"entity_projection": "0.00", "group_coverage": "0.00", "join_multiplicity": "0.00", "null_aggregation": "0.00", "ranking_ties": "0.00", "scope": "0.00"}
+  template differences: {"avg_distinct": "0.00", "avg_weighted_rollup": "0.00", "entity_composite": "0.00", "entity_postfilter": "0.00", "group_having_loss": "0.00", "group_max_ties": "0.00", "join_antijoin": "0.00", "join_intersection": "0.00", "rank_partitioned": "0.00", "rank_topk_ties": "0.00", "scope_boundary": "0.00", "scope_joint_group": "0.00"}
+
+Primary low-price action contrasts: M3 minus comparator
+contrast difference resampling_band unresolved_reassignment_bounds
+M3_minus_M1_unsafe_reuse 29.17 [18.75, 39.58] [11.46, 29.17]
+  Bounds are a POST-OUTCOME reporting supplement, not an originally exported frozen statistic.
+  family differences: {"entity_projection": "50.00", "group_coverage": "18.75", "join_multiplicity": "18.75", "null_aggregation": "6.25", "ranking_ties": "56.25", "scope": "25.00"}
+  template differences: {"avg_distinct": "12.50", "avg_weighted_rollup": "0.00", "entity_composite": "50.00", "entity_postfilter": "50.00", "group_having_loss": "12.50", "group_max_ties": "25.00", "join_antijoin": "25.00", "join_intersection": "12.50", "rank_partitioned": "62.50", "rank_topk_ties": "50.00", "scope_boundary": "50.00", "scope_joint_group": "0.00"}
+M3_minus_M1_useful_reuse 34.38 [22.92, 45.83] [6.25, 34.38]
+  Bounds are a POST-OUTCOME reporting supplement, not an originally exported frozen statistic.
+  family differences: {"entity_projection": "6.25", "group_coverage": "25.00", "join_multiplicity": "43.75", "null_aggregation": "31.25", "ranking_ties": "68.75", "scope": "31.25"}
+  template differences: {"avg_distinct": "12.50", "avg_weighted_rollup": "50.00", "entity_composite": "0.00", "entity_postfilter": "12.50", "group_having_loss": "0.00", "group_max_ties": "50.00", "join_antijoin": "50.00", "join_intersection": "37.50", "rank_partitioned": "75.00", "rank_topk_ties": "62.50", "scope_boundary": "12.50", "scope_joint_group": "50.00"}
+M3_minus_M2_unsafe_reuse 0.00 [0.00, 0.00] [0.00, 0.00]
+  Bounds are a POST-OUTCOME reporting supplement, not an originally exported frozen statistic.
+  family differences: {"entity_projection": "0.00", "group_coverage": "0.00", "join_multiplicity": "0.00", "null_aggregation": "0.00", "ranking_ties": "0.00", "scope": "0.00"}
+  template differences: {"avg_distinct": "0.00", "avg_weighted_rollup": "0.00", "entity_composite": "0.00", "entity_postfilter": "0.00", "group_having_loss": "0.00", "group_max_ties": "0.00", "join_antijoin": "0.00", "join_intersection": "0.00", "rank_partitioned": "0.00", "rank_topk_ties": "0.00", "scope_boundary": "0.00", "scope_joint_group": "0.00"}
+M3_minus_M2_useful_reuse 0.00 [0.00, 0.00] [0.00, 0.00]
+  Bounds are a POST-OUTCOME reporting supplement, not an originally exported frozen statistic.
+  family differences: {"entity_projection": "0.00", "group_coverage": "0.00", "join_multiplicity": "0.00", "null_aggregation": "0.00", "ranking_ties": "0.00", "scope": "0.00"}
+  template differences: {"avg_distinct": "0.00", "avg_weighted_rollup": "0.00", "entity_composite": "0.00", "entity_postfilter": "0.00", "group_having_loss": "0.00", "group_max_ties": "0.00", "join_antijoin": "0.00", "join_intersection": "0.00", "rank_partitioned": "0.00", "rank_topk_ties": "0.00", "scope_boundary": "0.00", "scope_joint_group": "0.00"}
+M3_minus_M4_unsafe_reuse 0.00 [0.00, 0.00] [0.00, 0.00]
+  Bounds are a POST-OUTCOME reporting supplement, not an originally exported frozen statistic.
+  family differences: {"entity_projection": "0.00", "group_coverage": "0.00", "join_multiplicity": "0.00", "null_aggregation": "0.00", "ranking_ties": "0.00", "scope": "0.00"}
+  template differences: {"avg_distinct": "0.00", "avg_weighted_rollup": "0.00", "entity_composite": "0.00", "entity_postfilter": "0.00", "group_having_loss": "0.00", "group_max_ties": "0.00", "join_antijoin": "0.00", "join_intersection": "0.00", "rank_partitioned": "0.00", "rank_topk_ties": "0.00", "scope_boundary": "0.00", "scope_joint_group": "0.00"}
+M3_minus_M4_useful_reuse 3.13 [0.00, 8.33] [3.13, 3.13]
+  Bounds are a POST-OUTCOME reporting supplement, not an originally exported frozen statistic.
+  family differences: {"entity_projection": "0.00", "group_coverage": "0.00", "join_multiplicity": "6.25", "null_aggregation": "0.00", "ranking_ties": "6.25", "scope": "6.25"}
+  template differences: {"avg_distinct": "0.00", "avg_weighted_rollup": "0.00", "entity_composite": "0.00", "entity_postfilter": "0.00", "group_having_loss": "0.00", "group_max_ties": "0.00", "join_antijoin": "0.00", "join_intersection": "12.50", "rank_partitioned": "12.50", "rank_topk_ties": "0.00", "scope_boundary": "12.50", "scope_joint_group": "0.00"}
+M3_minus_M5_unsafe_reuse 100.00 [100.00, 100.00] [100.00, 100.00]
+  Bounds are a POST-OUTCOME reporting supplement, not an originally exported frozen statistic.
+  family differences: {"entity_projection": "100.00", "group_coverage": "100.00", "join_multiplicity": "100.00", "null_aggregation": "100.00", "ranking_ties": "100.00", "scope": "100.00"}
+  template differences: {"avg_distinct": "100.00", "avg_weighted_rollup": "100.00", "entity_composite": "100.00", "entity_postfilter": "100.00", "group_having_loss": "100.00", "group_max_ties": "100.00", "join_antijoin": "100.00", "join_intersection": "100.00", "rank_partitioned": "100.00", "rank_topk_ties": "100.00", "scope_boundary": "100.00", "scope_joint_group": "100.00"}
+M3_minus_M5_useful_reuse 100.00 [100.00, 100.00] [100.00, 100.00]
+  Bounds are a POST-OUTCOME reporting supplement, not an originally exported frozen statistic.
+  family differences: {"entity_projection": "100.00", "group_coverage": "100.00", "join_multiplicity": "100.00", "null_aggregation": "100.00", "ranking_ties": "100.00", "scope": "100.00"}
+  template differences: {"avg_distinct": "100.00", "avg_weighted_rollup": "100.00", "entity_composite": "100.00", "entity_postfilter": "100.00", "group_having_loss": "100.00", "group_max_ties": "100.00", "join_antijoin": "100.00", "join_intersection": "100.00", "rank_partitioned": "100.00", "rank_topk_ties": "100.00", "scope_boundary": "100.00", "scope_joint_group": "100.00"}
+M3_minus_M6_unsafe_reuse 100.00 [100.00, 100.00] [100.00, 100.00]
+  Bounds are a POST-OUTCOME reporting supplement, not an originally exported frozen statistic.
+  family differences: {"entity_projection": "100.00", "group_coverage": "100.00", "join_multiplicity": "100.00", "null_aggregation": "100.00", "ranking_ties": "100.00", "scope": "100.00"}
+  template differences: {"avg_distinct": "100.00", "avg_weighted_rollup": "100.00", "entity_composite": "100.00", "entity_postfilter": "100.00", "group_having_loss": "100.00", "group_max_ties": "100.00", "join_antijoin": "100.00", "join_intersection": "100.00", "rank_partitioned": "100.00", "rank_topk_ties": "100.00", "scope_boundary": "100.00", "scope_joint_group": "100.00"}
+M3_minus_M6_useful_reuse 16.67 [16.67, 16.67] [16.67, 16.67]
+  Bounds are a POST-OUTCOME reporting supplement, not an originally exported frozen statistic.
+  family differences: {"entity_projection": "0.00", "group_coverage": "0.00", "join_multiplicity": "100.00", "null_aggregation": "0.00", "ranking_ties": "0.00", "scope": "0.00"}
+  template differences: {"avg_distinct": "0.00", "avg_weighted_rollup": "0.00", "entity_composite": "0.00", "entity_postfilter": "0.00", "group_having_loss": "0.00", "group_max_ties": "0.00", "join_antijoin": "100.00", "join_intersection": "100.00", "rank_partitioned": "0.00", "rank_topk_ties": "0.00", "scope_boundary": "0.00", "scope_joint_group": "0.00"}
+
+Family low-price actions (class denominators retained):
+entity_projection M1 unsafe=8/16 useful=15/16
+entity_projection M2 unsafe=16/16 useful=16/16
+entity_projection M3 unsafe=16/16 useful=16/16
+entity_projection M4 unsafe=16/16 useful=16/16
+entity_projection M5 unsafe=0/16 useful=0/16
+entity_projection M6 unsafe=0/16 useful=16/16
+group_coverage M1 unsafe=13/16 useful=12/16
+group_coverage M2 unsafe=16/16 useful=16/16
+group_coverage M3 unsafe=16/16 useful=16/16
+group_coverage M4 unsafe=16/16 useful=16/16
+group_coverage M5 unsafe=0/16 useful=0/16
+group_coverage M6 unsafe=0/16 useful=16/16
+join_multiplicity M1 unsafe=13/16 useful=9/16
+join_multiplicity M2 unsafe=16/16 useful=16/16
+join_multiplicity M3 unsafe=16/16 useful=16/16
+join_multiplicity M4 unsafe=16/16 useful=15/16
+join_multiplicity M5 unsafe=0/16 useful=0/16
+join_multiplicity M6 unsafe=0/16 useful=0/16
+null_aggregation M1 unsafe=15/16 useful=11/16
+null_aggregation M2 unsafe=16/16 useful=16/16
+null_aggregation M3 unsafe=16/16 useful=16/16
+null_aggregation M4 unsafe=16/16 useful=16/16
+null_aggregation M5 unsafe=0/16 useful=0/16
+null_aggregation M6 unsafe=0/16 useful=16/16
+ranking_ties M1 unsafe=7/16 useful=5/16
+ranking_ties M2 unsafe=16/16 useful=16/16
+ranking_ties M3 unsafe=16/16 useful=16/16
+ranking_ties M4 unsafe=16/16 useful=15/16
+ranking_ties M5 unsafe=0/16 useful=0/16
+ranking_ties M6 unsafe=0/16 useful=16/16
+scope M1 unsafe=12/16 useful=11/16
+scope M2 unsafe=16/16 useful=16/16
+scope M3 unsafe=16/16 useful=16/16
+scope M4 unsafe=16/16 useful=15/16
+scope M5 unsafe=0/16 useful=0/16
+scope M6 unsafe=0/16 useful=16/16
+Classical audit: {"baseline_engines": {"CALCITE_HEP_MV_RULES": 32, "CALCITE_UPSTREAM_SUBSTITUTION": 40, "CLASSICAL_BAG_PROJECTION": 8, "NONE": 112}, "cache_only_rewrites": 80, "completed": 192, "false_admissibility": 0, "model_calls": 0, "negative_contexts": 96, "phase": "confirmation", "planned": 192, "planner_statuses": {"PLANNED": 192}, "positive_contexts": 96, "rewrite_execution_errors": 0, "rewrites_matching_snapshot": 80, "status": "COMPLETED_CONFIRMATION_PLANNER", "stress_column_mismatches": 0, "stress_value_mismatches": 0, "stress_worlds_checked": 1520, "warning": "Fixed confirmation scope. Successful fixed-snapshot execution alone is not general equivalence. No-rewrite/parse/timeout states remain unknown and require recomputation. No model-method comparison yet."}
+M4/M1 agreement: {"internal_mechanism_proven": false, "planned": 576, "same": 460}
+Physical token usage: {"completion_tokens": 93347, "prompt_tokens": 1336074, "total_tokens": 1429421}
+Owned service seconds (not electricity): 881.6957979002036
+
+MISTRAL: E3
+bases=12; templates=12; logical_cells=432
+method price n final_correct cache_first_correct fallbacks no_answer logical_calls cost_seconds_at_1_10_100_cache_uses first_statuses
+M1 1 24 20 0 17 4 41 {"1": 1.4958104345866705, "10": 1.4956751683544247, "100": 1.4956616417311999} {"INVALID_OUTPUT": 17, "RECOMPUTED": 3, "UNRESOLVED_ACTION_NO_FINAL_ANSWER": 4}
+M1 10 24 19 0 17 5 41 {"1": 1.4928292804161625, "10": 1.4926940141839165, "100": 1.4926804875606916} {"INVALID_OUTPUT": 17, "RECOMPUTED": 2, "UNRESOLVED_ACTION_NO_FINAL_ANSWER": 5}
+M1 20 24 21 0 15 3 39 {"1": 1.3229004545056007, "10": 1.3227651882733547, "100": 1.32275166165013} {"INVALID_OUTPUT": 14, "RECOMPUTED": 6, "SQL_ERROR": 1, "UNRESOLVED_ACTION_NO_FINAL_ANSWER": 3}
+M2 1 24 24 0 24 0 48 {"1": 1.899865923255221, "10": 1.8997306570229753, "100": 1.8997171303997504} {"INVALID_OUTPUT": 23, "SQL_ERROR": 1}
+M2 10 24 24 0 0 0 24 {"1": 0.4264361704323771, "10": 0.42630090420013095, "100": 0.42628737757690643} {"RECOMPUTED": 24}
+M2 20 24 24 0 0 0 24 {"1": 0.4279618912805745, "10": 0.4278266250483284, "100": 0.4278130984251038} {"RECOMPUTED": 24}
+M3 1 24 24 0 24 0 48 {"1": 1.8609151857961794, "10": 1.8607799195639334, "100": 1.8607663929407086} {"INVALID_OUTPUT": 23, "SQL_ERROR": 1}
+M3 10 24 24 0 0 0 24 {"1": 0.40390303714593756, "10": 0.4037677709136915, "100": 0.40375424429046686} {"RECOMPUTED": 24}
+M3 20 24 24 0 0 0 24 {"1": 0.40392737881848007, "10": 0.403792112586234, "100": 0.40377858596300936} {"RECOMPUTED": 24}
+M4 1 24 24 0 24 0 72 {"1": 2.355725068735866, "10": 2.3555898025036197, "100": 2.3555762758803955} {"INVALID_OUTPUT": 23, "SQL_ERROR": 1}
+M4 10 24 24 0 0 0 48 {"1": 0.9168947242311939, "10": 0.9167594579989479, "100": 0.9167459313757232} {"RECOMPUTED": 24}
+M4 20 24 24 0 0 0 48 {"1": 0.9179585075738336, "10": 0.9178232413415874, "100": 0.9178097147183628} {"RECOMPUTED": 24}
+M5 1 24 24 0 0 0 0 {"1": 0.0004798250107948358, "10": 0.0004798250107948358, "100": 0.0004798250107948358} {"RECOMPUTED": 24}
+M5 10 24 24 0 0 0 0 {"1": 0.0004824666636219869, "10": 0.0004824666636219869, "100": 0.0004824666636219869} {"RECOMPUTED": 24}
+M5 20 24 24 0 0 0 0 {"1": 0.00048248751166587073, "10": 0.00048248751166587073, "100": 0.00048248751166587073} {"RECOMPUTED": 24}
+M6 1 24 24 10 0 0 0 {"1": 0.942280587478308, "10": 0.9421453212460619, "100": 0.9421317946228372} {"EXECUTED": 10, "RECOMPUTED": 14}
+M6 10 24 24 0 0 0 0 {"1": 0.9422632791441478, "10": 0.9421280129119016, "100": 0.942114486288677} {"RECOMPUTED": 24}
+M6 20 24 24 0 0 0 0 {"1": 0.9422634541454803, "10": 0.9421281879132342, "100": 0.9421146612900095} {"RECOMPUTED": 24}
+Physical new conversion usage: {"calls": 121, "http_seconds": 175.04110459936783, "input_tokens": 84991, "output_tokens": 23259}
+Logical price workflows charge full decision incl M4 proposal; M3 shared physical calls not independent. Cold allocated uniformly, not directly observed cell latency. JVM startup included in classical wall time. Tiny fixture timings are not production speedups. Scoring/counterworld CPU excluded from method cost; actual CPU phase reported separately. M5 not charged unused cache. Others charged cache construction even when recomputing; amortization1/10/100. Wrong cheap answers are not efficiency gains.
+Fixed instance0 of12 selected held templates; 432cells are not432 independent tasks. Correct public SQL supplied to all. Frozen negative information-loss witnesses override lucky snapshot matches. No model repair or oracle-triggered fallback. Finite-world correctness is not a universal proof.
+
+MISTRAL: FIXED-SUBSET ROBUSTNESS (not new independent confirmation)
+condition false_applicable/negative_n accepted_positive/positive_n negative_invalid positive_invalid unknown missing
+candidate_blind:BLIND_CHECKLIST:pNone 12/12 12/12 0 0 0 0
+coded:M1:p1 11/12 12/12 1 0 0 0
+coded:M1:p20 12/12 12/12 0 0 0 0
+coded:M2:p1 11/12 10/12 1 2 0 0
+coded:M2:p20 12/12 10/12 0 2 0 0
+coded:M3:pNone 10/12 9/12 2 3 0 0
+original:M1:p1 10/12 10/12 2 2 0 0
+original:M1:p10 11/12 8/12 1 4 0 0
+original:M1:p20 10/12 11/12 2 1 0 0
+original:M2:p1 12/12 12/12 0 0 0 0
+original:M2:p10 12/12 12/12 0 0 0 0
+original:M2:p20 12/12 12/12 0 0 0 0
+original:M3:pNone 12/12 12/12 0 0 0 0
+original:M4:p1 12/12 12/12 0 0 0 0
+original:M4:p10 12/12 12/12 0 0 0 0
+original:M4:p20 12/12 12/12 0 0 0 0
+Physical new usage: {"completion_tokens": 7368, "prompt_tokens": 103530, "total_tokens": 110898}
+
+SCOPE: Tables preserve all listed methods/prices and both models. No raw response text is exported.
+Source audit recounts main per-case labels/actions and E3 per-cell outcomes/costs; it checks
+sealed hashes and exported robustness aggregates. It does not rerun the bootstrap, reconstruct
+raw model responses, verify causal interpretation, or certify every prose numeral.
+Action reassignment bounds are an explicitly post-outcome supplement: unresolved actions
+are assigned endpoint 0 or 1; deterministic fallback actions remain observed, not unresolved.
+This supplements an incomplete uncertainty report; it does not retroactively meet a freeze requirement.
+Frozen-source rescoring and clean-directory reproduction are separate evidence.

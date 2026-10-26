@@ -178,3 +178,23 @@ descriptive scope. M1–M4 have no successful model-generated cache conversion;
 high final accuracy is obtained through recomputation/fallback, not useful reuse.
 No new scientific experiment or model generation. Full manuscript number
 traceability and final completion audit remain; inference budget unchanged.
+
+E3 figure release:11 public files verified at GitHub commit
+852b99b83443a7459dd4efd29f33d1313e09efc4, tree
+f0e6101019efee33cfc67ab3c53e957148063299. All blobs, independently reconstructed
+tree, changed-file inventory and branch head match. Local source482bfb6;
+9 plotting-integrity tests pass. Full paper remains local, not in this release.
+Receipt:configs/run_records/reuse_e3_figure_public_snapshot_20261027.json.
+
+Result-table source audit checkpoint (2026-10-27)
+Six main/E3/robustness aggregate records verified against sealed summaries and
+manifest/hash ledgers. Main labels/actions and E3 outcomes/cost means recounted.
+Complete reader-facing tables: result-tables-v1/RESULT_TABLES.txt and audit.json.
+11 new guard tests and 9 E3 figure tests pass; public-only table rebuild has
+identical numerical content. No new model or SQL execution; ledger4837 unchanged.
+Found a reporting gap: original exported action contrasts omitted unresolved
+action bounds. These are now separately marked POST-OUTCOME algebraic sensitivity
+supplements, not retroactively called frozen analyses. See
+NUMERICAL_AUDIT_PROGRESS_V1.txt. Original scores, failures and sealed inputs remain
+unchanged. Full manuscript paragraph-level traceability and final goal audit
+remain incomplete; no new inference or positive-result search is indicated.
