@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-26",
+  "status": "FIXED_SNAPSHOT_READONLY_REFERENCE_VERIFIED_DEVELOPMENT_NEGATIVE_CONTROL",
+  "pair": "student_club 1371 -> 1317",
+  "human_supplement": {
+    "process": "User confirmed two reviewers judged independently before model-only presentation assistance",
+    "admission": "User's affirmative answer relayed reviewer 2 agreement to readonly negative-control verification and no additional student identity filter",
+    "scope": "Not a new independent review form, not formal confirmation-set admission, not paid experiment approval",
+    "receipt_sha256": "3f1da3ec48aa5bb7c1c182c680f532786c59e1cffd1f3b06370582860f44762d",
+    "original_and_prior_pending_records_preserved": true
+  },
+  "execution": {
+    "directory": "runtime/runs/student-club-reference-20261026-001",
+    "database_sha256": "eb89bcfe97eefa386a27904ec5aa15159811a7eac894ec659a36e48fa9f76b77",
+    "question_source_sha256": "baefe2ca4fbab86c000df72aad9eaa563f7d422e425af2cbff071f656ea4eea8",
+    "artifact_manifest_sha256": "87f7a03c676893c157a1bd87fb88da086c3559107b039373904e88c694000f84",
+    "queries": "Original H, original C, independently expressed DISTINCT-member EXISTS H and C; four count-only reads",
+    "historical_count": 17,
+    "current_medium_count": 7,
+    "original_and_entity_variants_agree": true,
+    "dataset_bytes_unchanged": true,
+    "source_and_private_review_receipts_copied": true,
+    "output_hashes_and_scalar_replay_verified": true,
+    "automatic_retries": 0,
+    "model_calls": 0,
+    "api_spending_cny": 0
+  },
+  "tests": {
+    "command": "python -B -X utf8 -m unittest tests.test_student_club_reference tests.test_subset_cache_witnesses -v",
+    "passed": 7,
+    "new_tests": 2,
+    "type": "Synthetic software tests, not model observations",
+    "coverage": "Count-output shape/types and completion; empty population; duplicate attendance, multiple same-name events, case-sensitive matching, orphan/NULL members and NULL/lowercase sizes"
+  },
+  "interpretation": [
+    "Development negative control is suitable for planning the next bounded model check under this reviewed scope and fixed snapshot.",
+    "Historical total alone lacks the size distribution; copying 17 would not answer the current query whose audited value is 7. No model has been tested on this pair yet.",
+    "Native H is not a positive reuse cache. Any complete roster remains a separately constructed task and needs its own admitted design.",
+    "Single-snapshot equality of SQL variants does not establish universal equivalence; structural checks explain why counted entities and attendance rows agree here.",
+    "The pair is researcher-created and development-exposed. The legacy database is not certified as the corrected Arcwise snapshot.",
+    "No claim of cache-induced interpretation drift, causal effect, or gain over strong checks plus recomputation."
+  ],
+  "next_gate": "Prepare a frozen small development design separating availability from cost, with unchanged task information and correct recomputation feasible. Clarify observable-contract measurement vs ordinary workflow; obtain fresh bounded fee approval before calls.",
+  "github_remote_sync_verified": false,
+  "privacy": "Raw reviews, reference SQL, responses and original database stay in ignored private paths. Only code and this aggregate receipt are intended for public version control."
+}
