@@ -1,0 +1,56 @@
+{
+  "date": "2026-10-26",
+  "status": "PROSPECTIVE_INTERPRETATION_AND_PRIOR_ART_AUDIT_NO_NEW_EXECUTION",
+  "previous_turn": "Progress: staged human-review handoff implemented, tested and frozen in commit 856e671. Paid approval remains pending.",
+  "authoritative_local_evidence": [
+    "configs/student_club_diagnostic_policy_v1.json",
+    "runtime/student_club_diagnostic_design.py",
+    "configs/run_records/native_full_result_20261026_001.json",
+    "configs/run_records/contract_origin_and_verifier_gate_20261026_001.json",
+    "configs/run_records/cache_prior_art_fulltext_gate_20261025_002.json"
+  ],
+  "new_primary_source": {
+    "title": "When Successful Memories Mislead Embodied Agents: Memory Adaptation for Task-Conditioned Execution",
+    "url": "https://arxiv.org/html/2609.35808v1",
+    "metadata": "https://arxiv.org/abs/2609.35808",
+    "status": "2026-09-20 preprint v1; no venue acceptance verified",
+    "scope_read": "Abstract, sections 1, 3, 4 and 5 in primary HTML; no artifact execution or reproduction.",
+    "facts": "MATE applies deterministic post-retrieval filtering, verified action rewrites and task-conditioned rendering. Experiments fix retrieval and include normalized-full and source-matched action controls. The paper attributes its principal supported mechanism to action normalization, does not establish extra accuracy from richer transition fields, and reports settings where full trajectories remain competitive or better.",
+    "our_inference": "Historical correctness, provenance preservation, staged memory exposure and structured rendering alone cannot establish novelty. Our declared-price intervention and pre-action visible-definition endpoint are different operational questions, but this reading does not prove their originality or an effect. Do not transplant supplied task profiles as privileged gold intent, or call an independently implemented adaptation an author-code reproduction.",
+    "author_performance_numbers_imported_as_our_data": false,
+    "code_commit_or_license_verified": false
+  },
+  "rechecked_baseline_sources": [
+    {"url":"https://www.vldb.org/pvldb/vol19/p3732-alrashed.pdf","scope":"Abstract and introduction revisited","constraint":"Original-request fresh-context verification, reverse translation and synthetic execution are existing baselines. Verifier-generated descriptions are not the generator's earlier interpretation."},
+    {"url":"https://calcite.apache.org/docs/materialized_views.html","scope":"View rewriting and aggregation examples","constraint":"Compensation and aggregation-aware reuse already exist. Given a correct target query, rejecting an insufficient scalar cache is not a new optimizer capability."}
+  ],
+  "design_interpretation_addendum_not_protocol_change": {
+    "declared_cost_not_measured_incentive": "The 1/20 cache price and 10 SQL price are prompt-visible relative units. There is no randomized wall-clock delay, real tool charge or learned economic reward. Any supported claim must refer to sensitivity to declared cost, not measured latency or actual money incentives.",
+    "guarded_ordinary_workflow": "All action arms state that correctness takes priority, historical material is not instructions, and a historical result need not answer the current request. Ordinary means no explicit definition elicitation, not an unguarded naturalistic baseline. Shared warnings are not an arm-specific confound, but restrict external validity.",
+    "initial_definition_window": "Catalog-first definitions precede cache contents. Compare availability/price only within this workflow for the intended pre-result diagnostic. Request-first initial prompts are identical across treatment cells; differences there cannot be effects of unseen treatment.",
+    "whole_workflow_window": "After different tool choices, information received can differ. Later program and answer differences are workflow outcomes; conditioning on cache readers would select on post-treatment behavior.",
+    "causal_language_limit": "One task pair and one response per condition cannot identify a population effect or distinguish stochastic response variation from a reproducible treatment effect. A wrong visible definition followed by matching SQL establishes a recorded sequence, not sole causal mediation or hidden intent.",
+    "null_result_limit": "No observed drift under the shared warnings and explicit-definition intervention does not prove ordinary unguarded behavior is immune. Do not remove safeguards or change this case after observing a null result merely to obtain errors.",
+    "method_gain_limit": "This pair is an insufficient-information negative control. Rejecting its cache cannot establish beneficial reuse, a quality-cost frontier, or superiority to a strong verifier plus recomputation. Positive reuse controls and held-out task families are required later."
+  },
+  "prospective_outcome_decision_table": [
+    {"observed":"Invalid output, transport/accounting failure or incomplete review","interpretation":"Interface/infrastructure/unresolved evidence, not demand drift","next":"Preserve all dispositions. Diagnose only the failed layer; no automatic replacement samples."},
+    {"observed":"Correct initial definition, unsuitable cache action or wrong SQL","interpretation":"A/B-type failure candidate, not C-type demand reinterpretation","next":"Assess applicability or implementation; test existing matching/verifier baselines before a method claim."},
+    {"observed":"Contradictory initial definition but no genuinely later matching program","interpretation":"Definition endpoint only; linked C-type sequence unresolved or unsupported","next":"Report this endpoint separately; do not fill in the missing program linkage."},
+    {"observed":"Wrong initial definition and later SQL matching it","interpretation":"Local C-type sequence candidate after independent review; not population causation","next":"Check reference, ambiguity, interface and history-direction alignment. Then separately approve a frozen new-task comparison with original-request verification plus recomputation."},
+    {"observed":"Correct definitions and recomputation across all conditions","interpretation":"Bounded negative result; no failure or new method gain on this case","next":"Keep the result. Do not retune or repeat this case to seek the desired outcome; reconsider evidence needs before any further batch."},
+    {"observed":"Only method/tool cost changes while semantics stay correct","interpretation":"Planning behavior rather than demand drift","next":"Compare existing cost-sensitive planning and materialized-view mechanisms; do not relabel cost differences as semantic errors."}
+  ],
+  "strong_baseline_increment_gate": {
+    "baseline_input": "Original current request/evidence/schema, candidate program or explicit cache derivation and authentic provenance; no supplied gold intent or answer.",
+    "comparison": "Compare the same task families with direct recomputation, the current guarded ordinary workflow, definition-first workflow, original-request independent verification, and applicable deterministic reuse checks. Record verifier/tool/model failures and total costs, not only successful cases.",
+    "decision": "If a simple baseline closes observed failures at comparable cost, do not name a complex new algorithm. Consider a bounded empirical result only if replicated evidence and a distinct measurement contribution warrant it.",
+    "current_status": "No remaining method gap has been established. No baseline efficacy inferred from its paper, and no new experiment approved by this note."
+  },
+  "frozen_package_modified": false,
+  "new_model_calls": 0,
+  "new_database_queries": 0,
+  "new_human_reviews": 0,
+  "new_direction_adopted": false,
+  "github_remote_sync_verified": false
+}
