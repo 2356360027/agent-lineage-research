@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-26",
+  "status": "COMPLETED_CROSS_RECORD_VERIFIED_STAGE_A_AWAITING_HUMANS",
+  "prepared": "runtime/runs/student-club-diagnostic-prepared-20261026-002",
+  "manifest_sha256": "0f72df5bb2e13ee830d455acc0ee42c8b838b6866a9b64bbc27888397c2b07a8",
+  "archive_manifest_sha256": "95df6c02c2561efb65b88692c043ceea6513f662d4412b9ea230a66b5ed71da6",
+  "launch_claim_utc": "2026-10-26T11:58:54.936674+00:00",
+  "worker_outcome": "OFFICIAL_NATIVE_DEVELOPMENT_FINISHED",
+  "task_pairs": 1,
+  "dependent_trajectories": 12,
+  "answered_dispositions": 12,
+  "model_dispatch_attempts": 32,
+  "readonly_tool_attempts": 12,
+  "client_accounted_micro_cny": 105856,
+  "uncertain_reserved_micro_cny": 0,
+  "approved_client_ceiling_micro_cny": 1100000,
+  "provider_invoice_verified": false,
+  "provider_spending_cap_installed": false,
+  "audit_status": "SEALED_STUDENT_CLUB_BATCH_REPLAY_VERIFIED",
+  "audit_new_model_calls": 0,
+  "audit_new_database_queries": 0,
+  "human_review": {
+    "stage_a_items_per_reviewer": 8,
+    "new_human_ratings_received": 0,
+    "stage_b_released": false,
+    "handoff_sha256": "9834e4cf0526f987e2563895ca8e6ad8c27452a7736e131069534d086baaec7f",
+    "stage_a_seal_sha256": "da26ad2f696937c865e7b513288637c69c00ae40ada70ca6038247c29e6f02fe"
+  },
+  "backup": {
+    "private_path": "runtime/runs/student-club-diagnostic-20261026-002-verified-backup.zip",
+    "files_verified_by_content_hash": 911,
+    "sha256": "4b9ca842ff4130655e64e4308ef35ab5bf9cb57bdbe2629445820d1fcd6f9cc4",
+    "off_device": false,
+    "raw_uploaded": false
+  },
+  "duplicate_launch": "User's later invocation was refused by existing-claim/output guard before a new worker or credential prompt. No marker removed and no rerun performed.",
+  "answer_correctness_assessed_this_turn": false,
+  "C_type_drift_assessed": false,
+  "method_increment_established": false,
+  "independent_confirmation": false,
+  "github_remote_sync_verified": false,
+  "next": "Two reviewers separately assess their Stage A forms; lock both before releasing later-program forms. No new paid batch authorized."
+}
