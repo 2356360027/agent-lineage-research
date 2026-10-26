@@ -1,0 +1,56 @@
+{
+  "date": "2026-10-26",
+  "previous_goal_turn": "PROGRESS: 5df35d0 admitted pinned inputs and implemented offline wire conversion",
+  "status": "REFERENCE_COUNTER_AND_INJECTED_ACCOUNTING_TESTED_NOT_LIVE_BATCH_READY",
+  "changes": [
+    "Source-derived native rendering covers isolated definitions, action schemas, revision acknowledgments and terminal schemas without modifying historical native counters.",
+    "Adapter owns a second independently replayed DefinitionHistory and compares each incoming request with its own received responses; an operator cannot substitute an earlier definition or action before dispatch.",
+    "Counted wire payload hash bound to sent wire object; each dispatch reserves conservative input/output cost, saves pending request and raw response, then settles trustworthy usage.",
+    "Model identity, input-count mismatch, output overrun, timeout, unknown usage, write failure and malformed history stop without retries. Unknown charges remain reserved. Invalid model action ends that trajectory without silently replacing it."
+  ],
+  "reference_check": {
+    "private_output": "runtime/runs/student-club-native-tokens-20261026-001",
+    "artifact_sha256": "3202052579121b66dfcf65e25049b4812d13c875265e431171d54a030c6501b9",
+    "recipe_revision": "935817c66f5d6e64838f419692545f06787e485f",
+    "tokenizer_sha256": "c90dfa01249db1be4245780a052ede752e1361c612ac6d08e2bdada7d599476b",
+    "tokenizers_version": "0.22.1",
+    "first_request_counts_per_condition": {"request_first":593,"catalog_first":809,"ordinary":1031},
+    "conditions_per_protocol":4,
+    "first_request_tokens_total":9732,
+    "initial_environment_failure": "Direct import failed because the default interpreter lacks tokenizers. No installation or global environment edit was made. Reused the already pinned local dependency directory after validating its package hashes against the previously approved manifest d099f838f25962b1b397d60a51e15caee8d53908e7136a3526e3840bf75559ee.",
+    "provider_prompt_parity_verified":false,
+    "executable_upstream_parity_tested":false,
+    "full_horizon_capacity_proven":false
+  },
+  "pricing_check": {
+    "checked_date": "2026-10-26",
+    "source": "https://api-docs.deepseek.com/zh-cn/quick_start/pricing/",
+    "model_alias": "deepseek-flash",
+    "documented_version": "DeepSeek-V4.1-Flash-1017",
+    "conservative_peak_cny_per_million_input_uncached":2,
+    "conservative_peak_cny_per_million_output":8,
+    "discounts_assumed":false,
+    "tool_schema_source": "https://api-docs.deepseek.com/guides/tool_calls/",
+    "documented_strict_base_url": "https://api.deepseek.com/beta",
+    "max_generations":56,
+    "first_generations":12,
+    "remaining_generations":44,
+    "max_reference_input_per_call":8192,
+    "max_output_per_call":512,
+    "conditional_input_tokens_bound":370180,
+    "conditional_output_tokens_bound":28672,
+    "conditional_micro_cny_bound":969736,
+    "formula": "(9732 + 44*8192)*2 + (56*512)*8 micro-CNY",
+    "caveat": "Conditional on frozen inputs, admitted reference context counts, provider count agreement and output/rate caps. Not an invoice, provider-side spending cap, paid approval or proof every possible trajectory fits; oversized requests stop instead of truncating."
+  },
+  "verification": {
+    "new_tests":11,
+    "combined_tests_passed":76,
+    "command": "python -B -X utf8 -m unittest tests.test_student_club_native_accounting tests.test_student_club_input_admission tests.test_student_club_native_wire tests.test_student_club_diagnostic_loop tests.test_student_club_definition_history tests.test_student_club_diagnostic_design tests.test_student_club_readonly tests.test_student_club_reference tests.test_subset_cache_witnesses tests.test_native_trajectory_adapter tests.test_native_trajectory_counter -q",
+    "scope": "Synthetic software tests and real-input local tokenization, not model inference or research effect estimates"
+  },
+  "resources": {"api_calls":0,"api_cost_cny":0,"real_dataset_queries":0},
+  "remaining": ["Validated HTTP transport for this specific new profile", "Freeze batch driver and complete runtime inventory", "End-to-end scripted adapter/batch replay and independent review export", "Fresh bounded paid approval; hidden local key input"],
+  "github_remote_sync_verified": false,
+  "research_conclusion": "No new evidence of cache-induced task-definition drift or benefit beyond strong baselines"
+}
