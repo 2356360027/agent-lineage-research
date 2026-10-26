@@ -1,0 +1,41 @@
+Confirmation figure contract — before plotting
+
+Claim: in this held-structure suite, price effects depend on model/output
+protocol, and price-blind routing does not demonstrate a safer useful-reuse
+tradeoff than the strong controls. No universal cache-induced intent drift.
+
+Evidence chain: panels a/b show every declared price for the two preregistered
+price-visible label formats M1/M2, one panel/model. Panels c/d show low-price
+unsafe AND useful reuse for all six methods, one panel/model. Action comparison
+is the hero row, so safety is never displayed without retained useful reuse.
+Mistral invalid outputs stay in fixed denominators; saturation is explicitly
+not interpreted as reliable cost invariance.
+
+Archetype: quantitative grid, wider lower-row evidence region. Python is the
+saved exclusive backend. No private template or external artwork is reused.
+
+Export:183mm wide x140mm high, Arial fallback,7pt labels,8pt panel letters,
+white background, vector PDF/SVG with editable text,600dpi PNG,300dpi inspection
+preview. No chart title claiming algorithm superiority. All line axes include
+zero and full0-100% scale; numeric labels show observed rates only.
+
+Inputs: sealed, publicly auditable per-model aggregate run records. Source-data
+export copies both aggregate records without raw text or individual answers.
+Record and data-source hashes in QA artifact. No illustrative observations,
+interpolation fits, data exclusions, effect-based row selection or repaired
+invalid outputs. Main a/b focus on M1/M2 specified H1 contrasts; M3/M4 full
+price counts remain in exported source data. c/d use the prespecified low-price
+action comparison; all price action results remain in source summary archives.
+
+Statistics:96 base scenarios per model,12 selected templates x8 instances,
+six families; positive and negative cache denominator96 each. Prices/cache
+variants are paired, not independent replicates. Temperature0,one fixed seed.
+The displayed rates are descriptive counts/96; no inferential error bars or
+p-values. Frozen clustered contrasts and unresolved sensitivity bounds are
+reported in readouts rather than fabricated per-bar intervals. No biological
+replicates. No training. Correct public SQL supplied to all methods.
+
+QA: validate source, inspect final PNG and vector text/page dimensions. Check
+clipping, panel labels, grayscale shape/hatch distinction, denominators and
+invalid-output caveat. Manuscript figure is a draft, not an assertion of any
+particular journal's current acceptance/specification compliance.

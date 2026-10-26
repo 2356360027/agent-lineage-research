@@ -1,0 +1,46 @@
+Mistral transport accounting amendment — 2026-10-27, before held-out inference
+
+Frozen failed calibration
+reuse-mistral-calibration-prepared-20261027-001 planned40 development calls,
+using the first two lexicographic development bases. It stopped after1 response:
+preflight counted624 input tokens, actual chat response reported625. The owned
+service closed. No retry/resume or replacement of the remaining39 calls occurs.
+The failed manifest and original response stay unchanged. This is not a complete
+40-call calibration and contributes no effect estimate or successful study.
+
+Diagnosis, without generating replacement answers
+The pinned GGUF metadata has add_bos_token=true, BOS token1. The exact b11850
+server code uses add_special=true for chat completion tokenization, whereas our
+preflight sent false. A separate owned service audited all76 dynamic prompt
+variants without calling a generation endpoint: true tokens were exactly
+[BOS1]+false tokens in every case;625 equals the preserved response usage.
+All original instruction/data strings were preserved and all context bounds fit.
+Model loaded GPU snapshot7267MiB of16303MiB; not peak memory/energy. The one
+recorded response ended normally and parsed under the existing strict parser.
+Both services stopped. Diagnostic model generations=0.
+Reference: https://github.com/ggml-org/llama.cpp/blob/b11850/tools/server/server-context.cpp#L4765
+Audit: runtime/runs/reuse-mistral-token-diagnostic-20261027-001
+Public record: configs/run_records/reuse_mistral_calibration_20261027.json
+
+Single documented engineering correction
+Future Mistral preflight uses add_special=true. It does NOT accept a numeric
+tolerance, modify actual model inputs, omit instructions or disable count checks.
+The one-user full-instruction concatenation remains unchanged. Qwen's completed
+frozen source/results are not edited. No researcher prompt/label/case/seed change
+is selected from calibration correctness. The failed calibration is not rerun.
+
+Decision for the separate second-model matrix
+Proceed with the preselected1920-call held-structure matrix, same192 contexts,
+six methods/three prices, same M1..M4 instructions, seed/temperature/output cap.
+The partial calibration plus exact diagnosis establishes loading, rendering,
+parser and accounting compatibility, not performance or reliability across all
+tasks. All future prompts are still independently sized before generation and
+actual usage must match. Any renewed transport/count failure aborts the remaining
+held matrix; no silent retries or replacement. Invalid/truncated outputs remain
+visible rather than triggering prompt tuning. The resource record includes the
+failed1 call and both service intervals. Other model outputs are not pooled.
+
+There are2433 new-goal attempts and807.798351700109 owned-service seconds before
+this matrix.1920 more calls and10x600s reservation remain within10000/72000 bounds.
+No paidAPI/cloud/training/download is introduced. This is engineering repair,
+not evidence that any semantic intervention works. Full goal remains active.

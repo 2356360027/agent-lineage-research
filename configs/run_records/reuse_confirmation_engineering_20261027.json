@@ -1,0 +1,17 @@
+{
+  "status": "CONFIRMATION_AND_FOLLOWUP_ENGINEERING_CHECKED",
+  "date": "2026-10-27",
+  "main_manifest_sha256": "54d390de3503cf8d6e76f90a53355c9a1f5568a3756a4a356b16cfafa6375a9d",
+  "main_summary_sha256": "f8003fb0d1a0259ca7fbe132651bca5bf617f8b2e19aaf1b0a816be873fd4c03",
+  "frozen_regression": {"tests":24,"exit_code":0,"modules":["tests.test_reuse_development","tests.test_reuse_protocol","tests.test_reuse_statistics","tests.test_reuse_scenarios"]},
+  "working_regression": {"tests":49,"exit_code":0,"modules":["tests.test_reuse_development","tests.test_reuse_calcite_adapter","tests.test_reuse_protocol","tests.test_reuse_statistics","tests.test_reuse_scenarios","tests.test_reuse_mistral_transport","tests.test_reuse_readonly_execution","tests.test_inspect_reuse_gguf"]},
+  "recorded_pre_E3_bug": "The initial readonly authorizer rejected20 COUNT(*) positive fixtures because SQLite reported database=None for the columnless read. Fixed only this explicit cache-count authorization path and added a regression test before any E3 model generation. No research output was retried or changed.",
+  "classical_archive": "runtime/runs/reuse-calcite-confirmation-20261027-001",
+  "classical_archive_index_sha256": "d6903bb3f4be4c7bcb59b96bcbe5b2906ce519eaca1673c0617681e3f02c1bb2",
+  "classical_summary_sha256": "ca026f3123460e7c47d0f10ee668181be58bc72fc33561fe430d3413d0525c23",
+  "E3_fixture_checks_are_model_results": false,
+  "E3_model_generations": 0,
+  "second_model_generations": 0,
+  "raw_outputs_public": false,
+  "goal_complete": false
+}

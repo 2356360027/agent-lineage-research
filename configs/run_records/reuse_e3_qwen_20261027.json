@@ -1,0 +1,531 @@
+{
+  "status": "E3_COMPLETED_FROZEN_SCORE_REPRODUCED",
+  "model_family": "qwen",
+  "manifest_sha256": "44341a75c3ebe825d8326ab57d27ce9df6332e88770c7fc56b414e1a26e76f35",
+  "logical_cells": 432,
+  "bases": 12,
+  "templates": 12,
+  "groups": {
+    "M1": {
+      "1": {
+        "n": 24,
+        "positive_n": 12,
+        "negative_n": 12,
+        "first_statuses": {
+          "INVALID_OUTPUT": 10,
+          "RECOMPUTED": 14
+        },
+        "reuse_selected": 10,
+        "negative_reuse_selected": 2,
+        "final_correct": 24,
+        "no_final_answer": 0,
+        "fallbacks": 10,
+        "cache_first_correct": 0,
+        "positive_cache_first_correct": 0,
+        "negative_snapshot_lucky_cache_matches": 0,
+        "same_SQL_correct_in_both_test_worlds": 0,
+        "logical_calls": 34,
+        "logical_input_tokens": 19771,
+        "logical_output_tokens": 724,
+        "mean_component_latency_seconds": 0.33001272499677725,
+        "mean_modeled_total_seconds_by_cache_uses": {
+          "1": 0.3759379028918071,
+          "10": 0.3757981666298898,
+          "100": 0.3757841930036981
+        }
+      },
+      "10": {
+        "n": 24,
+        "positive_n": 12,
+        "negative_n": 12,
+        "first_statuses": {
+          "INVALID_OUTPUT": 11,
+          "RECOMPUTED": 12,
+          "UNRESOLVED_ACTION_NO_FINAL_ANSWER": 1
+        },
+        "reuse_selected": 11,
+        "negative_reuse_selected": 3,
+        "final_correct": 23,
+        "no_final_answer": 1,
+        "fallbacks": 11,
+        "cache_first_correct": 0,
+        "positive_cache_first_correct": 0,
+        "negative_snapshot_lucky_cache_matches": 0,
+        "same_SQL_correct_in_both_test_worlds": 0,
+        "logical_calls": 35,
+        "logical_input_tokens": 20384,
+        "logical_output_tokens": 706,
+        "mean_component_latency_seconds": 0.3239640249909523,
+        "mean_modeled_total_seconds_by_cache_uses": {
+          "1": 0.3729786453304041,
+          "10": 0.3728389090684869,
+          "100": 0.37282493544229506
+        }
+      },
+      "20": {
+        "n": 24,
+        "positive_n": 12,
+        "negative_n": 12,
+        "first_statuses": {
+          "RECOMPUTED": 16,
+          "INVALID_OUTPUT": 8
+        },
+        "reuse_selected": 8,
+        "negative_reuse_selected": 1,
+        "final_correct": 24,
+        "no_final_answer": 0,
+        "fallbacks": 8,
+        "cache_first_correct": 0,
+        "positive_cache_first_correct": 0,
+        "negative_snapshot_lucky_cache_matches": 0,
+        "same_SQL_correct_in_both_test_worlds": 0,
+        "logical_calls": 32,
+        "logical_input_tokens": 18663,
+        "logical_output_tokens": 721,
+        "mean_component_latency_seconds": 0.3243953125056578,
+        "mean_modeled_total_seconds_by_cache_uses": {
+          "1": 0.36414160551184366,
+          "10": 0.36400186924992645,
+          "100": 0.36398789562373474
+        }
+      }
+    },
+    "M2": {
+      "1": {
+        "n": 24,
+        "positive_n": 12,
+        "negative_n": 12,
+        "first_statuses": {
+          "INVALID_OUTPUT": 15,
+          "RECOMPUTED": 9
+        },
+        "reuse_selected": 15,
+        "negative_reuse_selected": 6,
+        "final_correct": 24,
+        "no_final_answer": 0,
+        "fallbacks": 15,
+        "cache_first_correct": 0,
+        "positive_cache_first_correct": 0,
+        "negative_snapshot_lucky_cache_matches": 0,
+        "same_SQL_correct_in_both_test_worlds": 0,
+        "logical_calls": 39,
+        "logical_input_tokens": 22193,
+        "logical_output_tokens": 638,
+        "mean_component_latency_seconds": 0.31298689583006006,
+        "mean_modeled_total_seconds_by_cache_uses": {
+          "1": 0.3743592859471998,
+          "10": 0.3742195496852825,
+          "100": 0.37420557605909077
+        }
+      },
+      "10": {
+        "n": 24,
+        "positive_n": 12,
+        "negative_n": 12,
+        "first_statuses": {
+          "RECOMPUTED": 24
+        },
+        "reuse_selected": 0,
+        "negative_reuse_selected": 0,
+        "final_correct": 24,
+        "no_final_answer": 0,
+        "fallbacks": 0,
+        "cache_first_correct": 0,
+        "positive_cache_first_correct": 0,
+        "negative_snapshot_lucky_cache_matches": 0,
+        "same_SQL_correct_in_both_test_worlds": 0,
+        "logical_calls": 24,
+        "logical_input_tokens": 13398,
+        "logical_output_tokens": 586,
+        "mean_component_latency_seconds": 0.2522105958244841,
+        "mean_modeled_total_seconds_by_cache_uses": {
+          "1": 0.26724134927529425,
+          "10": 0.267101613013377,
+          "100": 0.2670876393871852
+        }
+      },
+      "20": {
+        "n": 24,
+        "positive_n": 12,
+        "negative_n": 12,
+        "first_statuses": {
+          "RECOMPUTED": 24
+        },
+        "reuse_selected": 0,
+        "negative_reuse_selected": 0,
+        "final_correct": 24,
+        "no_final_answer": 0,
+        "fallbacks": 0,
+        "cache_first_correct": 0,
+        "positive_cache_first_correct": 0,
+        "negative_snapshot_lucky_cache_matches": 0,
+        "same_SQL_correct_in_both_test_worlds": 0,
+        "logical_calls": 24,
+        "logical_input_tokens": 13398,
+        "logical_output_tokens": 623,
+        "mean_component_latency_seconds": 0.26639086665333406,
+        "mean_modeled_total_seconds_by_cache_uses": {
+          "1": 0.2814216201041442,
+          "10": 0.2812818838422269,
+          "100": 0.2812679102160352
+        }
+      }
+    },
+    "M3": {
+      "1": {
+        "n": 24,
+        "positive_n": 12,
+        "negative_n": 12,
+        "first_statuses": {
+          "INVALID_OUTPUT": 17,
+          "RECOMPUTED": 7
+        },
+        "reuse_selected": 17,
+        "negative_reuse_selected": 8,
+        "final_correct": 24,
+        "no_final_answer": 0,
+        "fallbacks": 17,
+        "cache_first_correct": 0,
+        "positive_cache_first_correct": 0,
+        "negative_snapshot_lucky_cache_matches": 0,
+        "same_SQL_correct_in_both_test_worlds": 0,
+        "logical_calls": 41,
+        "logical_input_tokens": 23042,
+        "logical_output_tokens": 663,
+        "mean_component_latency_seconds": 0.328872295828963,
+        "mean_modeled_total_seconds_by_cache_uses": {
+          "1": 0.39642357083494667,
+          "10": 0.39628383457302935,
+          "100": 0.39626986094683764
+        }
+      },
+      "10": {
+        "n": 24,
+        "positive_n": 12,
+        "negative_n": 12,
+        "first_statuses": {
+          "RECOMPUTED": 24
+        },
+        "reuse_selected": 0,
+        "negative_reuse_selected": 0,
+        "final_correct": 24,
+        "no_final_answer": 0,
+        "fallbacks": 0,
+        "cache_first_correct": 0,
+        "positive_cache_first_correct": 0,
+        "negative_snapshot_lucky_cache_matches": 0,
+        "same_SQL_correct_in_both_test_worlds": 0,
+        "logical_calls": 24,
+        "logical_input_tokens": 13062,
+        "logical_output_tokens": 629,
+        "mean_component_latency_seconds": 0.26785919999626157,
+        "mean_modeled_total_seconds_by_cache_uses": {
+          "1": 0.2828899534470717,
+          "10": 0.2827502171851544,
+          "100": 0.2827362435589627
+        }
+      },
+      "20": {
+        "n": 24,
+        "positive_n": 12,
+        "negative_n": 12,
+        "first_statuses": {
+          "RECOMPUTED": 24
+        },
+        "reuse_selected": 0,
+        "negative_reuse_selected": 0,
+        "final_correct": 24,
+        "no_final_answer": 0,
+        "fallbacks": 0,
+        "cache_first_correct": 0,
+        "positive_cache_first_correct": 0,
+        "negative_snapshot_lucky_cache_matches": 0,
+        "same_SQL_correct_in_both_test_worlds": 0,
+        "logical_calls": 24,
+        "logical_input_tokens": 13062,
+        "logical_output_tokens": 629,
+        "mean_component_latency_seconds": 0.2678564874853085,
+        "mean_modeled_total_seconds_by_cache_uses": {
+          "1": 0.28288724093611867,
+          "10": 0.2827475046742014,
+          "100": 0.28273353104800963
+        }
+      }
+    },
+    "M4": {
+      "1": {
+        "n": 24,
+        "positive_n": 12,
+        "negative_n": 12,
+        "first_statuses": {
+          "INVALID_OUTPUT": 14,
+          "RECOMPUTED": 10
+        },
+        "reuse_selected": 14,
+        "negative_reuse_selected": 5,
+        "final_correct": 24,
+        "no_final_answer": 0,
+        "fallbacks": 14,
+        "cache_first_correct": 0,
+        "positive_cache_first_correct": 0,
+        "negative_snapshot_lucky_cache_matches": 0,
+        "same_SQL_correct_in_both_test_worlds": 0,
+        "logical_calls": 62,
+        "logical_input_tokens": 36758,
+        "logical_output_tokens": 1456,
+        "mean_component_latency_seconds": 0.6454488291589465,
+        "mean_modeled_total_seconds_by_cache_uses": {
+          "1": 0.7186072677692331,
+          "10": 0.7184675315073158,
+          "100": 0.7184535578811241
+        }
+      },
+      "10": {
+        "n": 24,
+        "positive_n": 12,
+        "negative_n": 12,
+        "first_statuses": {
+          "RECOMPUTED": 24
+        },
+        "reuse_selected": 0,
+        "negative_reuse_selected": 0,
+        "final_correct": 24,
+        "no_final_answer": 0,
+        "fallbacks": 0,
+        "cache_first_correct": 0,
+        "positive_cache_first_correct": 0,
+        "negative_snapshot_lucky_cache_matches": 0,
+        "same_SQL_correct_in_both_test_worlds": 0,
+        "logical_calls": 48,
+        "logical_input_tokens": 28570,
+        "logical_output_tokens": 1401,
+        "mean_component_latency_seconds": 0.5843529958607784,
+        "mean_modeled_total_seconds_by_cache_uses": {
+          "1": 0.6142592402491572,
+          "10": 0.61411950398724,
+          "100": 0.6141055303610483
+        }
+      },
+      "20": {
+        "n": 24,
+        "positive_n": 12,
+        "negative_n": 12,
+        "first_statuses": {
+          "RECOMPUTED": 24
+        },
+        "reuse_selected": 0,
+        "negative_reuse_selected": 0,
+        "final_correct": 24,
+        "no_final_answer": 0,
+        "fallbacks": 0,
+        "cache_first_correct": 0,
+        "positive_cache_first_correct": 0,
+        "negative_snapshot_lucky_cache_matches": 0,
+        "same_SQL_correct_in_both_test_worlds": 0,
+        "logical_calls": 48,
+        "logical_input_tokens": 28568,
+        "logical_output_tokens": 1422,
+        "mean_component_latency_seconds": 0.5952409875026206,
+        "mean_modeled_total_seconds_by_cache_uses": {
+          "1": 0.6251472318909994,
+          "10": 0.6250074956290822,
+          "100": 0.6249935220028905
+        }
+      }
+    },
+    "M5": {
+      "1": {
+        "n": 24,
+        "positive_n": 12,
+        "negative_n": 12,
+        "first_statuses": {
+          "RECOMPUTED": 24
+        },
+        "reuse_selected": 0,
+        "negative_reuse_selected": 0,
+        "final_correct": 24,
+        "no_final_answer": 0,
+        "fallbacks": 0,
+        "cache_first_correct": 0,
+        "positive_cache_first_correct": 0,
+        "negative_snapshot_lucky_cache_matches": 0,
+        "same_SQL_correct_in_both_test_worlds": 0,
+        "logical_calls": 0,
+        "logical_input_tokens": 0,
+        "logical_output_tokens": 0,
+        "mean_component_latency_seconds": 0.0004785291724450265,
+        "mean_modeled_total_seconds_by_cache_uses": {
+          "1": 0.0004785291724450265,
+          "10": 0.0004785291724450265,
+          "100": 0.0004785291724450265
+        }
+      },
+      "10": {
+        "n": 24,
+        "positive_n": 12,
+        "negative_n": 12,
+        "first_statuses": {
+          "RECOMPUTED": 24
+        },
+        "reuse_selected": 0,
+        "negative_reuse_selected": 0,
+        "final_correct": 24,
+        "no_final_answer": 0,
+        "fallbacks": 0,
+        "cache_first_correct": 0,
+        "positive_cache_first_correct": 0,
+        "negative_snapshot_lucky_cache_matches": 0,
+        "same_SQL_correct_in_both_test_worlds": 0,
+        "logical_calls": 0,
+        "logical_input_tokens": 0,
+        "logical_output_tokens": 0,
+        "mean_component_latency_seconds": 0.00047448333255791414,
+        "mean_modeled_total_seconds_by_cache_uses": {
+          "1": 0.00047448333255791414,
+          "10": 0.00047448333255791414,
+          "100": 0.00047448333255791414
+        }
+      },
+      "20": {
+        "n": 24,
+        "positive_n": 12,
+        "negative_n": 12,
+        "first_statuses": {
+          "RECOMPUTED": 24
+        },
+        "reuse_selected": 0,
+        "negative_reuse_selected": 0,
+        "final_correct": 24,
+        "no_final_answer": 0,
+        "fallbacks": 0,
+        "cache_first_correct": 0,
+        "positive_cache_first_correct": 0,
+        "negative_snapshot_lucky_cache_matches": 0,
+        "same_SQL_correct_in_both_test_worlds": 0,
+        "logical_calls": 0,
+        "logical_input_tokens": 0,
+        "logical_output_tokens": 0,
+        "mean_component_latency_seconds": 0.000471016649195614,
+        "mean_modeled_total_seconds_by_cache_uses": {
+          "1": 0.000471016649195614,
+          "10": 0.000471016649195614,
+          "100": 0.000471016649195614
+        }
+      }
+    },
+    "M6": {
+      "1": {
+        "n": 24,
+        "positive_n": 12,
+        "negative_n": 12,
+        "first_statuses": {
+          "EXECUTED": 10,
+          "RECOMPUTED": 14
+        },
+        "reuse_selected": 10,
+        "negative_reuse_selected": 0,
+        "final_correct": 24,
+        "no_final_answer": 0,
+        "fallbacks": 0,
+        "cache_first_correct": 10,
+        "positive_cache_first_correct": 10,
+        "negative_snapshot_lucky_cache_matches": 0,
+        "same_SQL_correct_in_both_test_worlds": 10,
+        "logical_calls": 0,
+        "logical_input_tokens": 0,
+        "logical_output_tokens": 0,
+        "mean_component_latency_seconds": 0.9421179249911802,
+        "mean_modeled_total_seconds_by_cache_uses": {
+          "1": 0.9422731875044216,
+          "10": 0.9421334512425044,
+          "100": 0.9421194776163127
+        }
+      },
+      "10": {
+        "n": 24,
+        "positive_n": 12,
+        "negative_n": 12,
+        "first_statuses": {
+          "RECOMPUTED": 24
+        },
+        "reuse_selected": 0,
+        "negative_reuse_selected": 0,
+        "final_correct": 24,
+        "no_final_answer": 0,
+        "fallbacks": 0,
+        "cache_first_correct": 0,
+        "positive_cache_first_correct": 0,
+        "negative_snapshot_lucky_cache_matches": 0,
+        "same_SQL_correct_in_both_test_worlds": 0,
+        "logical_calls": 0,
+        "logical_input_tokens": 0,
+        "logical_output_tokens": 0,
+        "mean_component_latency_seconds": 0.9421093833322326,
+        "mean_modeled_total_seconds_by_cache_uses": {
+          "1": 0.9422646458454741,
+          "10": 0.9421249095835568,
+          "100": 0.9421109359573651
+        }
+      },
+      "20": {
+        "n": 24,
+        "positive_n": 12,
+        "negative_n": 12,
+        "first_statuses": {
+          "RECOMPUTED": 24
+        },
+        "reuse_selected": 0,
+        "negative_reuse_selected": 0,
+        "final_correct": 24,
+        "no_final_answer": 0,
+        "fallbacks": 0,
+        "cache_first_correct": 0,
+        "positive_cache_first_correct": 0,
+        "negative_snapshot_lucky_cache_matches": 0,
+        "same_SQL_correct_in_both_test_worlds": 0,
+        "logical_calls": 0,
+        "logical_input_tokens": 0,
+        "logical_output_tokens": 0,
+        "mean_component_latency_seconds": 0.9421102708147373,
+        "mean_modeled_total_seconds_by_cache_uses": {
+          "1": 0.9422655333279787,
+          "10": 0.9421257970660615,
+          "100": 0.9421118234398698
+        }
+      }
+    }
+  },
+  "physical_new_transform_usage": {
+    "calls": 75,
+    "input_tokens": 44257,
+    "output_tokens": 150,
+    "http_seconds": 6.5574198993854225
+  },
+  "physical_reused_decision_usage": {
+    "calls": 240,
+    "input_tokens": 138914,
+    "output_tokens": 6697,
+    "http_seconds": 67.56400189979468
+  },
+  "decision_service_accounting": {
+    "physical_calls_whole_matrix": 1920,
+    "whole_matrix_owned_service_seconds": 593.8678945000283,
+    "whole_matrix_cold_start_seconds": 28.560942600131966,
+    "selected_unique_physical_decision_calls": 240,
+    "allocation": "Uniform cold-start share per physical call; not directly measured workflow latency"
+  },
+  "new_transform_cold_seconds": 5.560996399959549,
+  "new_owned_service_seconds": 12.94455069990363,
+  "cpu_phase_seconds": 72.5650913999416,
+  "all_services_closed": true,
+  "goal_new_attempts_total": 4428,
+  "goal_service_seconds_total": 1702.4387003002162,
+  "actual_API_cny": 0,
+  "energy_measured": false,
+  "cost_warning": "Logical price workflows charge full decision incl M4 proposal; M3 shared physical calls not independent. Cold allocated uniformly, not directly observed cell latency. JVM startup included in classical wall time. Tiny fixture timings are not production speedups. Scoring/counterworld CPU excluded from method cost; actual CPU phase reported separately. M5 not charged unused cache. Others charged cache construction even when recomputing; amortization1/10/100. Wrong cheap answers are not efficiency gains.",
+  "scope_warning": "Fixed instance0 of12 selected held templates; 432cells are not432 independent tasks. Correct public SQL supplied to all. Frozen negative information-loss witnesses override lucky snapshot matches. No model repair or oracle-triggered fallback. Finite-world correctness is not a universal proof.",
+  "prepared": "runtime/runs/reuse-e3-qwen-prepared-20261027-001",
+  "summary_sha256": "3489f05eb7c98eb6b254fd8f3c808889c4630c02ea04f92b2ac223c0a8d745cb",
+  "input_hashes_sha256": "3daf5ffb2553dbf5729419f9d406313faff54a8273d9c490eb73d5919eb06c45",
+  "source_rescoring_repeated": true
+}

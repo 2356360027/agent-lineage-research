@@ -1,0 +1,41 @@
+mistral E3: actual cache transformations and measured fallback
+12 preselected bases/templates,24 positive/negative contexts,432 logical cells.
+Not432 independent tasks. Correct public SQL supplied; tiny controlled fixtures.
+
+method price final_correct/24 cache_first_correct fallback no_answer reuse_selected
+M1 1: 20/24 0 17 4 17; first={'RECOMPUTED': 3, 'INVALID_OUTPUT': 17, 'UNRESOLVED_ACTION_NO_FINAL_ANSWER': 4}
+M1 10: 19/24 0 17 5 17; first={'UNRESOLVED_ACTION_NO_FINAL_ANSWER': 5, 'INVALID_OUTPUT': 17, 'RECOMPUTED': 2}
+M1 20: 21/24 0 15 3 15; first={'RECOMPUTED': 6, 'INVALID_OUTPUT': 14, 'UNRESOLVED_ACTION_NO_FINAL_ANSWER': 3, 'SQL_ERROR': 1}
+M2 1: 24/24 0 24 0 24; first={'INVALID_OUTPUT': 23, 'SQL_ERROR': 1}
+M2 10: 24/24 0 0 0 0; first={'RECOMPUTED': 24}
+M2 20: 24/24 0 0 0 0; first={'RECOMPUTED': 24}
+M3 1: 24/24 0 24 0 24; first={'INVALID_OUTPUT': 23, 'SQL_ERROR': 1}
+M3 10: 24/24 0 0 0 0; first={'RECOMPUTED': 24}
+M3 20: 24/24 0 0 0 0; first={'RECOMPUTED': 24}
+M4 1: 24/24 0 24 0 24; first={'INVALID_OUTPUT': 23, 'SQL_ERROR': 1}
+M4 10: 24/24 0 0 0 0; first={'RECOMPUTED': 24}
+M4 20: 24/24 0 0 0 0; first={'RECOMPUTED': 24}
+M5 1: 24/24 0 0 0 0; first={'RECOMPUTED': 24}
+M5 10: 24/24 0 0 0 0; first={'RECOMPUTED': 24}
+M5 20: 24/24 0 0 0 0; first={'RECOMPUTED': 24}
+M6 1: 24/24 10 0 0 10; first={'EXECUTED': 10, 'RECOMPUTED': 14}
+M6 10: 24/24 0 0 0 0; first={'RECOMPUTED': 24}
+M6 20: 24/24 0 0 0 0; first={'RECOMPUTED': 24}
+
+Costs (per-cell logical workflow; price1; no electricity measurement):
+M1: {"logical_calls": 41, "logical_input_tokens": 27991, "logical_output_tokens": 4475, "mean_component_latency_seconds": 1.4671369041510236, "mean_modeled_total_seconds_by_cache_uses": {"1": 1.4958104345866705, "10": 1.4956751683544247, "100": 1.4956616417311999}}
+M2: {"logical_calls": 48, "logical_input_tokens": 32374, "logical_output_tokens": 5732, "mean_component_latency_seconds": 1.8651103374819893, "mean_modeled_total_seconds_by_cache_uses": {"1": 1.899865923255221, "10": 1.8997306570229753, "100": 1.8997171303997504}}
+M3: {"logical_calls": 48, "logical_input_tokens": 31990, "logical_output_tokens": 5630, "mean_component_latency_seconds": 1.8261596000229474, "mean_modeled_total_seconds_by_cache_uses": {"1": 1.8609151857961794, "10": 1.8607799195639334, "100": 1.8607663929407086}}
+M4: {"logical_calls": 72, "logical_input_tokens": 49853, "logical_output_tokens": 6917, "mean_component_latency_seconds": 2.307216954160443, "mean_modeled_total_seconds_by_cache_uses": {"1": 2.355725068735866, "10": 2.3555898025036197, "100": 2.3555762758803955}}
+M5: {"logical_calls": 0, "logical_input_tokens": 0, "logical_output_tokens": 0, "mean_component_latency_seconds": 0.0004798250107948358, "mean_modeled_total_seconds_by_cache_uses": {"1": 0.0004798250107948358, "10": 0.0004798250107948358, "100": 0.0004798250107948358}}
+M6: {"logical_calls": 0, "logical_input_tokens": 0, "logical_output_tokens": 0, "mean_component_latency_seconds": 0.9421302916647013, "mean_modeled_total_seconds_by_cache_uses": {"1": 0.942280587478308, "10": 0.9421453212460619, "100": 0.9421317946228372}}
+
+Logical price workflows charge full decision incl M4 proposal; M3 shared physical calls not independent. Cold allocated uniformly, not directly observed cell latency. JVM startup included in classical wall time. Tiny fixture timings are not production speedups. Scoring/counterworld CPU excluded from method cost; actual CPU phase reported separately. M5 not charged unused cache. Others charged cache construction even when recomputing; amortization1/10/100. Wrong cheap answers are not efficiency gains.
+Fixed instance0 of12 selected held templates; 432cells are not432 independent tasks. Correct public SQL supplied to all. Frozen negative information-loss witnesses override lucky snapshot matches. No model repair or oracle-triggered fallback. Finite-world correctness is not a universal proof.
+Invalid output and explicit refusal are distinct. Neither is an executed correct cache conversion.
+Final correctness recovered by public-Q fallback is not useful reuse or semantic validation.
+Physical new generation usage: {"calls": 121, "input_tokens": 84991, "output_tokens": 23259, "http_seconds": 175.04110459936783}
+Cumulative goal attempts: 4549
+Cumulative owned-service seconds: 1880.9702258002185
+Summary SHA256: b1165d7481f4c9122d3af9d0a4e222e65f1874f21ed63981e4c49dc07999b81c
+Remaining work includes label controls, final synthesis, figures, reproduction and public release.

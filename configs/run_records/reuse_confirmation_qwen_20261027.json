@@ -1,0 +1,1263 @@
+{
+  "status": "CONFIRMATION_COMPLETED_FROZEN_RESCORE_IDENTICAL",
+  "model": "Qwen2.5-7B-Instruct-Q5_K_M",
+  "scope": "SYNTHETIC_CONFIRMATION_E1_E2_ONLY",
+  "date": "2026-10-27",
+  "prepared": "runtime/runs/reuse-confirmation-qwen-prepared-20261027-001",
+  "manifest_sha256": "54d390de3503cf8d6e76f90a53355c9a1f5568a3756a4a356b16cfafa6375a9d",
+  "summary_sha256": "f8003fb0d1a0259ca7fbe132651bca5bf617f8b2e19aaf1b0a816be873fd4c03",
+  "input_hashes_sha256": "3b875b4b9378818952f9ef206144d9beb7de687b6eabb2cfba32ac1cdfd0be94",
+  "responses": 1920,
+  "dispatch_attempts": 1920,
+  "missing": 0,
+  "planned_bases": 96,
+  "structural_templates": 12,
+  "families": 6,
+  "physical_judgment_status_counts": {
+    "applicable": 1268,
+    "inapplicable": 587,
+    "unknown": 65
+  },
+  "labels": {
+    "M1": {
+      "1": {
+        "negative_n": 96,
+        "positive_n": 96,
+        "negative_labels": {
+          "applicable": 55,
+          "inapplicable": 37,
+          "unknown": 4
+        },
+        "positive_labels": {
+          "applicable": 79,
+          "inapplicable": 16,
+          "unknown": 1
+        },
+        "false_applicable": 55,
+        "positive_applicable": 79
+      },
+      "10": {
+        "negative_n": 96,
+        "positive_n": 96,
+        "negative_labels": {
+          "applicable": 58,
+          "inapplicable": 33,
+          "unknown": 5
+        },
+        "positive_labels": {
+          "applicable": 68,
+          "inapplicable": 24,
+          "unknown": 4
+        },
+        "false_applicable": 58,
+        "positive_applicable": 68
+      },
+      "20": {
+        "negative_n": 96,
+        "positive_n": 96,
+        "negative_labels": {
+          "applicable": 62,
+          "inapplicable": 31,
+          "unknown": 3
+        },
+        "positive_labels": {
+          "applicable": 70,
+          "inapplicable": 25,
+          "unknown": 1
+        },
+        "false_applicable": 62,
+        "positive_applicable": 70
+      }
+    },
+    "M2": {
+      "1": {
+        "negative_n": 96,
+        "positive_n": 96,
+        "negative_labels": {
+          "applicable": 47,
+          "inapplicable": 48,
+          "unknown": 1
+        },
+        "positive_labels": {
+          "applicable": 74,
+          "inapplicable": 21,
+          "unknown": 1
+        },
+        "false_applicable": 47,
+        "positive_applicable": 74
+      },
+      "10": {
+        "negative_n": 96,
+        "positive_n": 96,
+        "negative_labels": {
+          "applicable": 46,
+          "inapplicable": 47,
+          "unknown": 3
+        },
+        "positive_labels": {
+          "applicable": 70,
+          "inapplicable": 26
+        },
+        "false_applicable": 46,
+        "positive_applicable": 70
+      },
+      "20": {
+        "negative_n": 96,
+        "positive_n": 96,
+        "negative_labels": {
+          "inapplicable": 68,
+          "applicable": 26,
+          "unknown": 2
+        },
+        "positive_labels": {
+          "applicable": 60,
+          "inapplicable": 36
+        },
+        "false_applicable": 26,
+        "positive_applicable": 60
+      }
+    },
+    "M3": {
+      "1": {
+        "negative_n": 96,
+        "positive_n": 96,
+        "negative_labels": {
+          "applicable": 71,
+          "inapplicable": 23,
+          "unknown": 2
+        },
+        "positive_labels": {
+          "applicable": 90,
+          "inapplicable": 6
+        },
+        "false_applicable": 71,
+        "positive_applicable": 90
+      },
+      "10": {
+        "negative_n": 96,
+        "positive_n": 96,
+        "negative_labels": {
+          "applicable": 71,
+          "inapplicable": 23,
+          "unknown": 2
+        },
+        "positive_labels": {
+          "applicable": 90,
+          "inapplicable": 6
+        },
+        "false_applicable": 71,
+        "positive_applicable": 90
+      },
+      "20": {
+        "negative_n": 96,
+        "positive_n": 96,
+        "negative_labels": {
+          "applicable": 71,
+          "inapplicable": 23,
+          "unknown": 2
+        },
+        "positive_labels": {
+          "applicable": 90,
+          "inapplicable": 6
+        },
+        "false_applicable": 71,
+        "positive_applicable": 90
+      }
+    },
+    "M4": {
+      "1": {
+        "negative_n": 96,
+        "positive_n": 96,
+        "negative_labels": {
+          "applicable": 55,
+          "inapplicable": 33,
+          "unknown": 8
+        },
+        "positive_labels": {
+          "applicable": 79,
+          "inapplicable": 14,
+          "unknown": 3
+        },
+        "false_applicable": 55,
+        "positive_applicable": 79
+      },
+      "10": {
+        "negative_n": 96,
+        "positive_n": 96,
+        "negative_labels": {
+          "applicable": 58,
+          "inapplicable": 28,
+          "unknown": 10
+        },
+        "positive_labels": {
+          "applicable": 68,
+          "inapplicable": 22,
+          "unknown": 6
+        },
+        "false_applicable": 58,
+        "positive_applicable": 68
+      },
+      "20": {
+        "negative_n": 96,
+        "positive_n": 96,
+        "negative_labels": {
+          "applicable": 62,
+          "inapplicable": 26,
+          "unknown": 8
+        },
+        "positive_labels": {
+          "applicable": 70,
+          "inapplicable": 23,
+          "unknown": 3
+        },
+        "false_applicable": 62,
+        "positive_applicable": 70
+      }
+    }
+  },
+  "low_price_actions": {
+    "M1": {
+      "negative_n": 96,
+      "positive_n": 96,
+      "unsafe_reuse": 38,
+      "useful_reuse": 62,
+      "unresolved_actions": 0
+    },
+    "M2": {
+      "negative_n": 96,
+      "positive_n": 96,
+      "unsafe_reuse": 47,
+      "useful_reuse": 74,
+      "unresolved_actions": 0
+    },
+    "M3": {
+      "negative_n": 96,
+      "positive_n": 96,
+      "unsafe_reuse": 71,
+      "useful_reuse": 90,
+      "unresolved_actions": 0
+    },
+    "M4": {
+      "negative_n": 96,
+      "positive_n": 96,
+      "unsafe_reuse": 55,
+      "useful_reuse": 79,
+      "unresolved_actions": 0
+    },
+    "M5": {
+      "negative_n": 96,
+      "positive_n": 96,
+      "unsafe_reuse": 0,
+      "useful_reuse": 0,
+      "unresolved_actions": 0
+    },
+    "M6": {
+      "negative_n": 96,
+      "positive_n": 96,
+      "unsafe_reuse": 0,
+      "useful_reuse": 80,
+      "unresolved_actions": 0
+    }
+  },
+  "by_family_low_price": {
+    "entity_projection": {
+      "M1": {
+        "negative_n": 16,
+        "positive_n": 16,
+        "unsafe_reuse": 15,
+        "useful_reuse": 16
+      },
+      "M2": {
+        "negative_n": 16,
+        "positive_n": 16,
+        "unsafe_reuse": 16,
+        "useful_reuse": 16
+      },
+      "M3": {
+        "negative_n": 16,
+        "positive_n": 16,
+        "unsafe_reuse": 16,
+        "useful_reuse": 16
+      },
+      "M4": {
+        "negative_n": 16,
+        "positive_n": 16,
+        "unsafe_reuse": 16,
+        "useful_reuse": 16
+      },
+      "M5": {
+        "negative_n": 16,
+        "positive_n": 16,
+        "unsafe_reuse": 0,
+        "useful_reuse": 0
+      },
+      "M6": {
+        "negative_n": 16,
+        "positive_n": 16,
+        "unsafe_reuse": 0,
+        "useful_reuse": 16
+      }
+    },
+    "group_coverage": {
+      "M1": {
+        "negative_n": 16,
+        "positive_n": 16,
+        "unsafe_reuse": 6,
+        "useful_reuse": 10
+      },
+      "M2": {
+        "negative_n": 16,
+        "positive_n": 16,
+        "unsafe_reuse": 10,
+        "useful_reuse": 13
+      },
+      "M3": {
+        "negative_n": 16,
+        "positive_n": 16,
+        "unsafe_reuse": 16,
+        "useful_reuse": 16
+      },
+      "M4": {
+        "negative_n": 16,
+        "positive_n": 16,
+        "unsafe_reuse": 11,
+        "useful_reuse": 14
+      },
+      "M5": {
+        "negative_n": 16,
+        "positive_n": 16,
+        "unsafe_reuse": 0,
+        "useful_reuse": 0
+      },
+      "M6": {
+        "negative_n": 16,
+        "positive_n": 16,
+        "unsafe_reuse": 0,
+        "useful_reuse": 16
+      }
+    },
+    "join_multiplicity": {
+      "M1": {
+        "negative_n": 16,
+        "positive_n": 16,
+        "unsafe_reuse": 5,
+        "useful_reuse": 8
+      },
+      "M2": {
+        "negative_n": 16,
+        "positive_n": 16,
+        "unsafe_reuse": 8,
+        "useful_reuse": 11
+      },
+      "M3": {
+        "negative_n": 16,
+        "positive_n": 16,
+        "unsafe_reuse": 8,
+        "useful_reuse": 12
+      },
+      "M4": {
+        "negative_n": 16,
+        "positive_n": 16,
+        "unsafe_reuse": 6,
+        "useful_reuse": 11
+      },
+      "M5": {
+        "negative_n": 16,
+        "positive_n": 16,
+        "unsafe_reuse": 0,
+        "useful_reuse": 0
+      },
+      "M6": {
+        "negative_n": 16,
+        "positive_n": 16,
+        "unsafe_reuse": 0,
+        "useful_reuse": 0
+      }
+    },
+    "null_aggregation": {
+      "M1": {
+        "negative_n": 16,
+        "positive_n": 16,
+        "unsafe_reuse": 0,
+        "useful_reuse": 0
+      },
+      "M2": {
+        "negative_n": 16,
+        "positive_n": 16,
+        "unsafe_reuse": 3,
+        "useful_reuse": 2
+      },
+      "M3": {
+        "negative_n": 16,
+        "positive_n": 16,
+        "unsafe_reuse": 15,
+        "useful_reuse": 14
+      },
+      "M4": {
+        "negative_n": 16,
+        "positive_n": 16,
+        "unsafe_reuse": 9,
+        "useful_reuse": 6
+      },
+      "M5": {
+        "negative_n": 16,
+        "positive_n": 16,
+        "unsafe_reuse": 0,
+        "useful_reuse": 0
+      },
+      "M6": {
+        "negative_n": 16,
+        "positive_n": 16,
+        "unsafe_reuse": 0,
+        "useful_reuse": 16
+      }
+    },
+    "ranking_ties": {
+      "M1": {
+        "negative_n": 16,
+        "positive_n": 16,
+        "unsafe_reuse": 8,
+        "useful_reuse": 12
+      },
+      "M2": {
+        "negative_n": 16,
+        "positive_n": 16,
+        "unsafe_reuse": 8,
+        "useful_reuse": 16
+      },
+      "M3": {
+        "negative_n": 16,
+        "positive_n": 16,
+        "unsafe_reuse": 14,
+        "useful_reuse": 16
+      },
+      "M4": {
+        "negative_n": 16,
+        "positive_n": 16,
+        "unsafe_reuse": 8,
+        "useful_reuse": 16
+      },
+      "M5": {
+        "negative_n": 16,
+        "positive_n": 16,
+        "unsafe_reuse": 0,
+        "useful_reuse": 0
+      },
+      "M6": {
+        "negative_n": 16,
+        "positive_n": 16,
+        "unsafe_reuse": 0,
+        "useful_reuse": 16
+      }
+    },
+    "scope": {
+      "M1": {
+        "negative_n": 16,
+        "positive_n": 16,
+        "unsafe_reuse": 4,
+        "useful_reuse": 16
+      },
+      "M2": {
+        "negative_n": 16,
+        "positive_n": 16,
+        "unsafe_reuse": 2,
+        "useful_reuse": 16
+      },
+      "M3": {
+        "negative_n": 16,
+        "positive_n": 16,
+        "unsafe_reuse": 2,
+        "useful_reuse": 16
+      },
+      "M4": {
+        "negative_n": 16,
+        "positive_n": 16,
+        "unsafe_reuse": 5,
+        "useful_reuse": 16
+      },
+      "M5": {
+        "negative_n": 16,
+        "positive_n": 16,
+        "unsafe_reuse": 0,
+        "useful_reuse": 0
+      },
+      "M6": {
+        "negative_n": 16,
+        "positive_n": 16,
+        "unsafe_reuse": 0,
+        "useful_reuse": 16
+      }
+    }
+  },
+  "methods": {
+    "M1": {
+      "planned_decision_cells": 576,
+      "unique_planned_judgments": 576,
+      "judgment_status_counts": {
+        "applicable": 392,
+        "inapplicable": 166,
+        "unknown": 18
+      },
+      "negative_decision_cells": 288,
+      "unsafe_reuse": 108,
+      "useful_reuse": 62,
+      "useful_reuse_opportunities": 96,
+      "action_matches_oracle_policy": 323,
+      "unresolved_actions": 1,
+      "judgment_action_conflicts": 0,
+      "known_declared_cost_cells": 575,
+      "mean_declared_route_cost_known_cells_only": 9.808695652173913,
+      "missing_cost_cells": 1,
+      "logical_workflow_calls_planned": 576,
+      "logical_workflow_responses_recorded": 576,
+      "logical_input_tokens_observed": 346131,
+      "logical_output_tokens_observed": 16704,
+      "logical_generation_http_seconds_observed": 168.25790230033454
+    },
+    "M2": {
+      "planned_decision_cells": 576,
+      "unique_planned_judgments": 576,
+      "judgment_status_counts": {
+        "applicable": 323,
+        "inapplicable": 246,
+        "unknown": 7
+      },
+      "negative_decision_cells": 288,
+      "unsafe_reuse": 47,
+      "useful_reuse": 74,
+      "useful_reuse_opportunities": 96,
+      "action_matches_oracle_policy": 507,
+      "unresolved_actions": 0,
+      "judgment_action_conflicts": 0,
+      "known_declared_cost_cells": 576,
+      "mean_declared_route_cost_known_cells_only": 8.109375,
+      "missing_cost_cells": 0,
+      "logical_workflow_calls_planned": 576,
+      "logical_workflow_responses_recorded": 576,
+      "logical_input_tokens_observed": 334899,
+      "logical_output_tokens_observed": 14921,
+      "logical_generation_http_seconds_observed": 154.15108979912475
+    },
+    "M3": {
+      "planned_decision_cells": 576,
+      "unique_planned_judgments": 192,
+      "judgment_status_counts": {
+        "applicable": 161,
+        "inapplicable": 29,
+        "unknown": 2
+      },
+      "negative_decision_cells": 288,
+      "unsafe_reuse": 71,
+      "useful_reuse": 90,
+      "useful_reuse_opportunities": 96,
+      "action_matches_oracle_policy": 499,
+      "unresolved_actions": 0,
+      "judgment_action_conflicts": 0,
+      "known_declared_cost_cells": 576,
+      "mean_declared_route_cost_known_cells_only": 7.484375,
+      "missing_cost_cells": 0,
+      "logical_workflow_calls_planned": 192,
+      "logical_workflow_responses_recorded": 192,
+      "logical_input_tokens_observed": 109009,
+      "logical_output_tokens_observed": 5026,
+      "logical_generation_http_seconds_observed": 51.59536620124709
+    },
+    "M4": {
+      "planned_decision_cells": 576,
+      "unique_planned_judgments": 576,
+      "judgment_status_counts": {
+        "applicable": 392,
+        "inapplicable": 146,
+        "unknown": 38
+      },
+      "negative_decision_cells": 288,
+      "unsafe_reuse": 55,
+      "useful_reuse": 79,
+      "useful_reuse_opportunities": 96,
+      "action_matches_oracle_policy": 504,
+      "unresolved_actions": 0,
+      "judgment_action_conflicts": 0,
+      "known_declared_cost_cells": 576,
+      "mean_declared_route_cost_known_cells_only": 7.90625,
+      "missing_cost_cells": 0,
+      "logical_workflow_calls_planned": 1152,
+      "logical_workflow_responses_recorded": 1152,
+      "logical_input_tokens_observed": 712474,
+      "logical_output_tokens_observed": 33781,
+      "logical_generation_http_seconds_observed": 341.1433072014479
+    },
+    "M5": {
+      "planned_decision_cells": 576,
+      "unique_planned_judgments": 0,
+      "judgment_status_counts": {},
+      "negative_decision_cells": 288,
+      "unsafe_reuse": 0,
+      "useful_reuse": 0,
+      "useful_reuse_opportunities": 96,
+      "action_matches_oracle_policy": 480,
+      "unresolved_actions": 0,
+      "judgment_action_conflicts": 0,
+      "known_declared_cost_cells": 576,
+      "mean_declared_route_cost_known_cells_only": 10,
+      "missing_cost_cells": 0,
+      "logical_workflow_calls_planned": 0,
+      "logical_workflow_responses_recorded": 0,
+      "logical_input_tokens_observed": 0,
+      "logical_output_tokens_observed": 0,
+      "logical_generation_http_seconds_observed": 0
+    },
+    "M6": {
+      "planned_decision_cells": 576,
+      "unique_planned_judgments": 0,
+      "judgment_status_counts": {},
+      "negative_decision_cells": 288,
+      "unsafe_reuse": 0,
+      "useful_reuse": 80,
+      "useful_reuse_opportunities": 96,
+      "action_matches_oracle_policy": 560,
+      "unresolved_actions": 0,
+      "judgment_action_conflicts": 0,
+      "known_declared_cost_cells": 576,
+      "mean_declared_route_cost_known_cells_only": 8.75,
+      "missing_cost_cells": 0,
+      "logical_workflow_calls_planned": 0,
+      "logical_workflow_responses_recorded": 0,
+      "logical_input_tokens_observed": 0,
+      "logical_output_tokens_observed": 0,
+      "logical_generation_http_seconds_observed": 0
+    }
+  },
+  "price_contrasts": {
+    "M1": {
+      "paired_bases": 96,
+      "template_clusters": 12,
+      "families": 6,
+      "weighted_difference": -0.07291666666666667,
+      "bootstrap_95_resampling_band": [
+        -0.17708333333333334,
+        0.03125
+      ],
+      "bootstrap_replicates": 2000,
+      "seed": 20261028,
+      "degenerate_band": false,
+      "family_differences": {
+        "null_aggregation": -0.25,
+        "entity_projection": 0,
+        "group_coverage": 0.0,
+        "join_multiplicity": 0.0,
+        "ranking_ties": -0.0625,
+        "scope": -0.125
+      },
+      "template_differences": {
+        "avg_distinct": -0.375,
+        "avg_weighted_rollup": -0.125,
+        "entity_composite": 0,
+        "entity_postfilter": 0,
+        "group_having_loss": 0.125,
+        "group_max_ties": -0.125,
+        "join_antijoin": -0.125,
+        "join_intersection": 0.125,
+        "rank_partitioned": 0,
+        "rank_topk_ties": -0.125,
+        "scope_boundary": -0.375,
+        "scope_joint_group": 0.125
+      },
+      "claim_limit": "Sensitivity to resampling observed purposive templates and bases, not a population safety guarantee. A [0,0] band with no observed errors does NOT prove zero error risk or equivalence. No independent n from price variants.",
+      "unresolved_low": 4,
+      "unresolved_high": 3,
+      "unresolved_worst_case_difference_bounds": [
+        -0.10416666666666667,
+        -0.03125
+      ]
+    },
+    "M2": {
+      "paired_bases": 96,
+      "template_clusters": 12,
+      "families": 6,
+      "weighted_difference": 0.21875,
+      "bootstrap_95_resampling_band": [
+        0.052083333333333336,
+        0.3854166666666667
+      ],
+      "bootstrap_replicates": 2000,
+      "seed": 20261028,
+      "degenerate_band": false,
+      "family_differences": {
+        "null_aggregation": 0.1875,
+        "entity_projection": 0.1875,
+        "group_coverage": 0.125,
+        "join_multiplicity": 0.1875,
+        "ranking_ties": 0.5,
+        "scope": 0.125
+      },
+      "template_differences": {
+        "avg_distinct": 0.125,
+        "avg_weighted_rollup": 0.25,
+        "entity_composite": 0.25,
+        "entity_postfilter": 0.125,
+        "group_having_loss": 0.5,
+        "group_max_ties": -0.25,
+        "join_antijoin": 0.375,
+        "join_intersection": 0,
+        "rank_partitioned": 1,
+        "rank_topk_ties": 0,
+        "scope_boundary": 0,
+        "scope_joint_group": 0.25
+      },
+      "claim_limit": "Sensitivity to resampling observed purposive templates and bases, not a population safety guarantee. A [0,0] band with no observed errors does NOT prove zero error risk or equivalence. No independent n from price variants.",
+      "unresolved_low": 1,
+      "unresolved_high": 2,
+      "unresolved_worst_case_difference_bounds": [
+        0.19791666666666666,
+        0.22916666666666666
+      ]
+    }
+  },
+  "action_contrasts": {
+    "M3_minus_M1_unsafe_reuse": {
+      "paired_bases": 96,
+      "template_clusters": 12,
+      "families": 6,
+      "weighted_difference": 0.34375,
+      "bootstrap_95_resampling_band": [
+        0.20833333333333334,
+        0.4791666666666667
+      ],
+      "bootstrap_replicates": 2000,
+      "seed": 20261028,
+      "degenerate_band": false,
+      "family_differences": {
+        "null_aggregation": 0.9375,
+        "entity_projection": 0.0625,
+        "group_coverage": 0.625,
+        "join_multiplicity": 0.1875,
+        "ranking_ties": 0.375,
+        "scope": -0.125
+      },
+      "template_differences": {
+        "avg_distinct": 0.875,
+        "avg_weighted_rollup": 1,
+        "entity_composite": 0.125,
+        "entity_postfilter": 0,
+        "group_having_loss": 0.625,
+        "group_max_ties": 0.625,
+        "join_antijoin": 0.5,
+        "join_intersection": -0.125,
+        "rank_partitioned": 0,
+        "rank_topk_ties": 0.75,
+        "scope_boundary": 0,
+        "scope_joint_group": -0.25
+      },
+      "claim_limit": "Sensitivity to resampling observed purposive templates and bases, not a population safety guarantee. A [0,0] band with no observed errors does NOT prove zero error risk or equivalence. No independent n from price variants."
+    },
+    "M3_minus_M1_useful_reuse": {
+      "paired_bases": 96,
+      "template_clusters": 12,
+      "families": 6,
+      "weighted_difference": 0.2916666666666667,
+      "bootstrap_95_resampling_band": [
+        0.19791666666666666,
+        0.3958333333333333
+      ],
+      "bootstrap_replicates": 2000,
+      "seed": 20261028,
+      "degenerate_band": false,
+      "family_differences": {
+        "null_aggregation": 0.875,
+        "entity_projection": 0,
+        "group_coverage": 0.375,
+        "join_multiplicity": 0.25,
+        "ranking_ties": 0.25,
+        "scope": 0
+      },
+      "template_differences": {
+        "avg_distinct": 1,
+        "avg_weighted_rollup": 0.75,
+        "entity_composite": 0,
+        "entity_postfilter": 0,
+        "group_having_loss": 0.625,
+        "group_max_ties": 0.125,
+        "join_antijoin": 0.25,
+        "join_intersection": 0.25,
+        "rank_partitioned": 0,
+        "rank_topk_ties": 0.5,
+        "scope_boundary": 0,
+        "scope_joint_group": 0
+      },
+      "claim_limit": "Sensitivity to resampling observed purposive templates and bases, not a population safety guarantee. A [0,0] band with no observed errors does NOT prove zero error risk or equivalence. No independent n from price variants."
+    },
+    "M3_minus_M2_unsafe_reuse": {
+      "paired_bases": 96,
+      "template_clusters": 12,
+      "families": 6,
+      "weighted_difference": 0.25,
+      "bootstrap_95_resampling_band": [
+        0.14583333333333334,
+        0.3541666666666667
+      ],
+      "bootstrap_replicates": 2000,
+      "seed": 20261028,
+      "degenerate_band": false,
+      "family_differences": {
+        "null_aggregation": 0.75,
+        "entity_projection": 0,
+        "group_coverage": 0.375,
+        "join_multiplicity": 0,
+        "ranking_ties": 0.375,
+        "scope": 0
+      },
+      "template_differences": {
+        "avg_distinct": 0.75,
+        "avg_weighted_rollup": 0.75,
+        "entity_composite": 0,
+        "entity_postfilter": 0,
+        "group_having_loss": 0.5,
+        "group_max_ties": 0.25,
+        "join_antijoin": 0,
+        "join_intersection": 0,
+        "rank_partitioned": 0,
+        "rank_topk_ties": 0.75,
+        "scope_boundary": 0,
+        "scope_joint_group": 0
+      },
+      "claim_limit": "Sensitivity to resampling observed purposive templates and bases, not a population safety guarantee. A [0,0] band with no observed errors does NOT prove zero error risk or equivalence. No independent n from price variants."
+    },
+    "M3_minus_M2_useful_reuse": {
+      "paired_bases": 96,
+      "template_clusters": 12,
+      "families": 6,
+      "weighted_difference": 0.16666666666666666,
+      "bootstrap_95_resampling_band": [
+        0.10416666666666667,
+        0.23958333333333334
+      ],
+      "bootstrap_replicates": 2000,
+      "seed": 20261028,
+      "degenerate_band": false,
+      "family_differences": {
+        "null_aggregation": 0.75,
+        "entity_projection": 0,
+        "group_coverage": 0.1875,
+        "join_multiplicity": 0.0625,
+        "ranking_ties": 0,
+        "scope": 0
+      },
+      "template_differences": {
+        "avg_distinct": 0.75,
+        "avg_weighted_rollup": 0.75,
+        "entity_composite": 0,
+        "entity_postfilter": 0,
+        "group_having_loss": 0.375,
+        "group_max_ties": 0,
+        "join_antijoin": 0,
+        "join_intersection": 0.125,
+        "rank_partitioned": 0,
+        "rank_topk_ties": 0,
+        "scope_boundary": 0,
+        "scope_joint_group": 0
+      },
+      "claim_limit": "Sensitivity to resampling observed purposive templates and bases, not a population safety guarantee. A [0,0] band with no observed errors does NOT prove zero error risk or equivalence. No independent n from price variants."
+    },
+    "M3_minus_M4_unsafe_reuse": {
+      "paired_bases": 96,
+      "template_clusters": 12,
+      "families": 6,
+      "weighted_difference": 0.16666666666666666,
+      "bootstrap_95_resampling_band": [
+        0.020833333333333332,
+        0.3125
+      ],
+      "bootstrap_replicates": 2000,
+      "seed": 20261028,
+      "degenerate_band": false,
+      "family_differences": {
+        "null_aggregation": 0.375,
+        "entity_projection": 0,
+        "group_coverage": 0.3125,
+        "join_multiplicity": 0.125,
+        "ranking_ties": 0.375,
+        "scope": -0.1875
+      },
+      "template_differences": {
+        "avg_distinct": 0.625,
+        "avg_weighted_rollup": 0.125,
+        "entity_composite": 0,
+        "entity_postfilter": 0,
+        "group_having_loss": 0.125,
+        "group_max_ties": 0.5,
+        "join_antijoin": 0.375,
+        "join_intersection": -0.125,
+        "rank_partitioned": 0,
+        "rank_topk_ties": 0.75,
+        "scope_boundary": 0,
+        "scope_joint_group": -0.375
+      },
+      "claim_limit": "Sensitivity to resampling observed purposive templates and bases, not a population safety guarantee. A [0,0] band with no observed errors does NOT prove zero error risk or equivalence. No independent n from price variants."
+    },
+    "M3_minus_M4_useful_reuse": {
+      "paired_bases": 96,
+      "template_clusters": 12,
+      "families": 6,
+      "weighted_difference": 0.11458333333333333,
+      "bootstrap_95_resampling_band": [
+        0.06223958333333335,
+        0.17708333333333334
+      ],
+      "bootstrap_replicates": 2000,
+      "seed": 20261028,
+      "degenerate_band": false,
+      "family_differences": {
+        "null_aggregation": 0.5,
+        "entity_projection": 0,
+        "group_coverage": 0.125,
+        "join_multiplicity": 0.0625,
+        "ranking_ties": 0,
+        "scope": 0
+      },
+      "template_differences": {
+        "avg_distinct": 0.625,
+        "avg_weighted_rollup": 0.375,
+        "entity_composite": 0,
+        "entity_postfilter": 0,
+        "group_having_loss": 0.125,
+        "group_max_ties": 0.125,
+        "join_antijoin": 0,
+        "join_intersection": 0.125,
+        "rank_partitioned": 0,
+        "rank_topk_ties": 0,
+        "scope_boundary": 0,
+        "scope_joint_group": 0
+      },
+      "claim_limit": "Sensitivity to resampling observed purposive templates and bases, not a population safety guarantee. A [0,0] band with no observed errors does NOT prove zero error risk or equivalence. No independent n from price variants."
+    },
+    "M3_minus_M5_unsafe_reuse": {
+      "paired_bases": 96,
+      "template_clusters": 12,
+      "families": 6,
+      "weighted_difference": 0.7395833333333334,
+      "bootstrap_95_resampling_band": [
+        0.6145833333333334,
+        0.8541666666666666
+      ],
+      "bootstrap_replicates": 2000,
+      "seed": 20261028,
+      "degenerate_band": false,
+      "family_differences": {
+        "null_aggregation": 0.9375,
+        "entity_projection": 1,
+        "group_coverage": 1,
+        "join_multiplicity": 0.5,
+        "ranking_ties": 0.875,
+        "scope": 0.125
+      },
+      "template_differences": {
+        "avg_distinct": 0.875,
+        "avg_weighted_rollup": 1,
+        "entity_composite": 1,
+        "entity_postfilter": 1,
+        "group_having_loss": 1,
+        "group_max_ties": 1,
+        "join_antijoin": 1,
+        "join_intersection": 0,
+        "rank_partitioned": 1,
+        "rank_topk_ties": 0.75,
+        "scope_boundary": 0,
+        "scope_joint_group": 0.25
+      },
+      "claim_limit": "Sensitivity to resampling observed purposive templates and bases, not a population safety guarantee. A [0,0] band with no observed errors does NOT prove zero error risk or equivalence. No independent n from price variants."
+    },
+    "M3_minus_M5_useful_reuse": {
+      "paired_bases": 96,
+      "template_clusters": 12,
+      "families": 6,
+      "weighted_difference": 0.9375,
+      "bootstrap_95_resampling_band": [
+        0.875,
+        0.9895833333333334
+      ],
+      "bootstrap_replicates": 2000,
+      "seed": 20261028,
+      "degenerate_band": false,
+      "family_differences": {
+        "null_aggregation": 0.875,
+        "entity_projection": 1,
+        "group_coverage": 1,
+        "join_multiplicity": 0.75,
+        "ranking_ties": 1,
+        "scope": 1
+      },
+      "template_differences": {
+        "avg_distinct": 1,
+        "avg_weighted_rollup": 0.75,
+        "entity_composite": 1,
+        "entity_postfilter": 1,
+        "group_having_loss": 1,
+        "group_max_ties": 1,
+        "join_antijoin": 0.875,
+        "join_intersection": 0.625,
+        "rank_partitioned": 1,
+        "rank_topk_ties": 1,
+        "scope_boundary": 1,
+        "scope_joint_group": 1
+      },
+      "claim_limit": "Sensitivity to resampling observed purposive templates and bases, not a population safety guarantee. A [0,0] band with no observed errors does NOT prove zero error risk or equivalence. No independent n from price variants."
+    },
+    "M3_minus_M6_unsafe_reuse": {
+      "paired_bases": 96,
+      "template_clusters": 12,
+      "families": 6,
+      "weighted_difference": 0.7395833333333334,
+      "bootstrap_95_resampling_band": [
+        0.6145833333333334,
+        0.8541666666666666
+      ],
+      "bootstrap_replicates": 2000,
+      "seed": 20261028,
+      "degenerate_band": false,
+      "family_differences": {
+        "null_aggregation": 0.9375,
+        "entity_projection": 1,
+        "group_coverage": 1,
+        "join_multiplicity": 0.5,
+        "ranking_ties": 0.875,
+        "scope": 0.125
+      },
+      "template_differences": {
+        "avg_distinct": 0.875,
+        "avg_weighted_rollup": 1,
+        "entity_composite": 1,
+        "entity_postfilter": 1,
+        "group_having_loss": 1,
+        "group_max_ties": 1,
+        "join_antijoin": 1,
+        "join_intersection": 0,
+        "rank_partitioned": 1,
+        "rank_topk_ties": 0.75,
+        "scope_boundary": 0,
+        "scope_joint_group": 0.25
+      },
+      "claim_limit": "Sensitivity to resampling observed purposive templates and bases, not a population safety guarantee. A [0,0] band with no observed errors does NOT prove zero error risk or equivalence. No independent n from price variants."
+    },
+    "M3_minus_M6_useful_reuse": {
+      "paired_bases": 96,
+      "template_clusters": 12,
+      "families": 6,
+      "weighted_difference": 0.10416666666666667,
+      "bootstrap_95_resampling_band": [
+        0.041666666666666664,
+        0.15625
+      ],
+      "bootstrap_replicates": 2000,
+      "seed": 20261028,
+      "degenerate_band": false,
+      "family_differences": {
+        "null_aggregation": -0.125,
+        "entity_projection": 0,
+        "group_coverage": 0,
+        "join_multiplicity": 0.75,
+        "ranking_ties": 0,
+        "scope": 0
+      },
+      "template_differences": {
+        "avg_distinct": 0,
+        "avg_weighted_rollup": -0.25,
+        "entity_composite": 0,
+        "entity_postfilter": 0,
+        "group_having_loss": 0,
+        "group_max_ties": 0,
+        "join_antijoin": 0.875,
+        "join_intersection": 0.625,
+        "rank_partitioned": 0,
+        "rank_topk_ties": 0,
+        "scope_boundary": 0,
+        "scope_joint_group": 0
+      },
+      "claim_limit": "Sensitivity to resampling observed purposive templates and bases, not a population safety guarantee. A [0,0] band with no observed errors does NOT prove zero error risk or equivalence. No independent n from price variants."
+    }
+  },
+  "H2_M3_minus_M2_false_applicability": {
+    "1": {
+      "paired_bases": 96,
+      "template_clusters": 12,
+      "families": 6,
+      "weighted_difference": 0.25,
+      "bootstrap_95_resampling_band": [
+        0.14583333333333334,
+        0.3541666666666667
+      ],
+      "bootstrap_replicates": 2000,
+      "seed": 20261028,
+      "degenerate_band": false,
+      "family_differences": {
+        "null_aggregation": 0.75,
+        "entity_projection": 0,
+        "group_coverage": 0.375,
+        "join_multiplicity": 0,
+        "ranking_ties": 0.375,
+        "scope": 0
+      },
+      "template_differences": {
+        "avg_distinct": 0.75,
+        "avg_weighted_rollup": 0.75,
+        "entity_composite": 0,
+        "entity_postfilter": 0,
+        "group_having_loss": 0.5,
+        "group_max_ties": 0.25,
+        "join_antijoin": 0,
+        "join_intersection": 0,
+        "rank_partitioned": 0,
+        "rank_topk_ties": 0.75,
+        "scope_boundary": 0,
+        "scope_joint_group": 0
+      },
+      "claim_limit": "Sensitivity to resampling observed purposive templates and bases, not a population safety guarantee. A [0,0] band with no observed errors does NOT prove zero error risk or equivalence. No independent n from price variants.",
+      "unresolved_worst_case_bounds": [
+        0.23958333333333334,
+        0.2708333333333333
+      ]
+    },
+    "10": {
+      "paired_bases": 96,
+      "template_clusters": 12,
+      "families": 6,
+      "weighted_difference": 0.2604166666666667,
+      "bootstrap_95_resampling_band": [
+        0.14583333333333334,
+        0.375
+      ],
+      "bootstrap_replicates": 2000,
+      "seed": 20261028,
+      "degenerate_band": false,
+      "family_differences": {
+        "null_aggregation": 0.5,
+        "entity_projection": 0,
+        "group_coverage": 0.5,
+        "join_multiplicity": 0.0625,
+        "ranking_ties": 0.375,
+        "scope": 0.125
+      },
+      "template_differences": {
+        "avg_distinct": 0.5,
+        "avg_weighted_rollup": 0.5,
+        "entity_composite": 0,
+        "entity_postfilter": 0,
+        "group_having_loss": 0.625,
+        "group_max_ties": 0.375,
+        "join_antijoin": 0.125,
+        "join_intersection": 0,
+        "rank_partitioned": 0,
+        "rank_topk_ties": 0.75,
+        "scope_boundary": 0,
+        "scope_joint_group": 0.25
+      },
+      "claim_limit": "Sensitivity to resampling observed purposive templates and bases, not a population safety guarantee. A [0,0] band with no observed errors does NOT prove zero error risk or equivalence. No independent n from price variants.",
+      "unresolved_worst_case_bounds": [
+        0.22916666666666666,
+        0.28125
+      ]
+    },
+    "20": {
+      "paired_bases": 96,
+      "template_clusters": 12,
+      "families": 6,
+      "weighted_difference": 0.46875,
+      "bootstrap_95_resampling_band": [
+        0.3333333333333333,
+        0.6145833333333334
+      ],
+      "bootstrap_replicates": 2000,
+      "seed": 20261028,
+      "degenerate_band": false,
+      "family_differences": {
+        "null_aggregation": 0.9375,
+        "entity_projection": 0.1875,
+        "group_coverage": 0.5,
+        "join_multiplicity": 0.1875,
+        "ranking_ties": 0.875,
+        "scope": 0.125
+      },
+      "template_differences": {
+        "avg_distinct": 0.875,
+        "avg_weighted_rollup": 1,
+        "entity_composite": 0.25,
+        "entity_postfilter": 0.125,
+        "group_having_loss": 1,
+        "group_max_ties": 0,
+        "join_antijoin": 0.375,
+        "join_intersection": 0,
+        "rank_partitioned": 1,
+        "rank_topk_ties": 0.75,
+        "scope_boundary": 0,
+        "scope_joint_group": 0.25
+      },
+      "claim_limit": "Sensitivity to resampling observed purposive templates and bases, not a population safety guarantee. A [0,0] band with no observed errors does NOT prove zero error risk or equivalence. No independent n from price variants.",
+      "unresolved_worst_case_bounds": [
+        0.4479166666666667,
+        0.4895833333333333
+      ]
+    }
+  },
+  "M4_M1_label_agreement": {
+    "same": 556,
+    "planned": 576,
+    "internal_mechanism_proven": false
+  },
+  "classical": {
+    "status": "COMPLETED_CONFIRMATION_PLANNER",
+    "phase": "confirmation",
+    "planned": 192,
+    "completed": 192,
+    "model_calls": 0,
+    "planner_statuses": {
+      "PLANNED": 192
+    },
+    "baseline_engines": {
+      "NONE": 112,
+      "CALCITE_UPSTREAM_SUBSTITUTION": 40,
+      "CLASSICAL_BAG_PROJECTION": 8,
+      "CALCITE_HEP_MV_RULES": 32
+    },
+    "positive_contexts": 96,
+    "negative_contexts": 96,
+    "cache_only_rewrites": 80,
+    "false_admissibility": 0,
+    "rewrites_matching_snapshot": 80,
+    "rewrite_execution_errors": 0,
+    "stress_worlds_checked": 1520,
+    "stress_value_mismatches": 0,
+    "stress_column_mismatches": 0,
+    "warning": "Fixed confirmation scope. Successful fixed-snapshot execution alone is not general equivalence. No-rewrite/parse/timeout states remain unknown and require recomputation. No model-method comparison yet."
+  },
+  "physical_tokens": {
+    "prompt_tokens": 1156382,
+    "completion_tokens": 53728,
+    "total_tokens": 1210110
+  },
+  "prompt_token_range": [
+    494,
+    917
+  ],
+  "server_seconds": 593.8678945000283,
+  "cold_start_seconds": [
+    3.0643009000923485,
+    4.559144300059415,
+    2.5497250999324024,
+    2.538167499937117,
+    3.0713939999695867,
+    2.5366225000470877,
+    2.5658569000661373,
+    2.5572405999992043,
+    2.553188499994576,
+    2.565302300034091
+  ],
+  "seconds_including_preflight": 650.3256256998284,
+  "goal_new_attempts_total": 2432,
+  "goal_service_seconds_total": 800.6933268000545,
+  "all_services_closed": true,
+  "source_rescoring_repeated": true,
+  "actual_prompts_reconstructed": true,
+  "model_E3_calls": 0,
+  "actual_API_cny": 0,
+  "energy_measured": false,
+  "warning": "Confirmation formal constructed suite only. M3 labels are shared across prices by design, not an observed invariance. Unknown/invalid/missing labels are not correct semantic judgments. Controllers fall back to recompute; that safety fallback is not valid semantic classification. Declared route costs exclude generation/planning/cache construction; actual tokens and times are separate. M4 proposal costs counted although physically shared with M1. Classical rewrites have separate executed audits, not agent E3 success. Resampling bands are not population confidence or zero-risk guarantees."
+}

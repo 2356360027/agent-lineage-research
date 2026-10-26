@@ -1,0 +1,26 @@
+Figure QA review —2026-10-27
+Final plotting source preflight:14 PASS,0 WARN,0 FAIL after explicit vector
+export names and dimensions. No data or analysis changed during layout QA.
+
+Rendered300dpi preview inspected: four panel titles, letters, axes, units,
+zero baselines, method labels, legends, denominators and invalid-output note
+are visible without clipping. An earlier draft placed point annotations
+between overlapping lines; final version places higher/lower series labels
+above/below respectively. Colour is supplemented by markers/dashes and hatching.
+
+SVG width518.740157pt and height396.850394pt correspond to183x140mm;
+96 editable text elements. PDF generated from the identical Matplotlib figure
+with embedded Type42 fonts. TIFF4322x3307 pixels at600dpi verified readable.
+The compressed-TIFF draft failed in the local encoder, leaving a zero-byte
+draft raster; final uncompressed TIFF succeeded. Draft exports are retained
+locally but are not the delivery bundle.
+
+No observations excluded or altered. Data are sealed actual aggregate records.
+No synthetic plotting points, smoothing, image manipulation or fake intervals.
+Mistral's lower apparent M1 false-acceptance than M2 includes invalid outputs;
+the caption and source data retain this limitation. Format failures are NOT
+valid semantic refusals. Zero observed baseline errors are NOT a safety proof.
+Descriptive percentages are rounded in labels; source counts stay exact.
+
+This is an internal manuscript figure, not a declaration of submission-ready
+compliance with a specific journal's current author instructions.

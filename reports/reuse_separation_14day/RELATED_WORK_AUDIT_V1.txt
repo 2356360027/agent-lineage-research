@@ -1,0 +1,85 @@
+Bounded primary-source literature audit — checked2026-10-27
+Not a systematic review or evidence that no other related work exists.
+Sources below were opened; reading scope is explicit. No external performance
+number is inserted into our own experimental tables.
+
+1. Classical aggregation/view reuse (core antecedent, not our invention)
+Srivastava, Dar, Jagadish and Levy, Answering Queries with Aggregation Using
+Views, VLDB1996, pp318–329.
+https://www.vldb.org/conf/1996/P318.PDF
+Read abstract/introduction and formalization, pp318–320. The paper treats
+multiset-equivalent SQL rewrites and sufficient aggregation information. It
+already relates missing columns/groups/multiplicities to reuse feasibility.
+Implication: our six families test known semantic issues; contribution cannot
+be discovering that views lose information. Our question is price exposure in
+LLM classification/action, compared against an executable classical baseline.
+
+2. GPTCache (response-level semantic caching)
+https://aclanthology.org/2023.nlposs-1.24/
+https://aclanthology.org/2023.nlposs-1.24.pdf
+Read sections3–5. Similarity retrieval is followed by evaluation, with a tradeoff
+between false hits and coverage; negative hits are explicitly discussed.
+Implication: unsafe similarity hits are not novel. Our formal cache-transform
+test is not a reproduced GPTCache benchmark and does not establish superiority
+over its configurable implementations. Bibliographic caveat: Anthology lists
+Fu Bang; PDF header lists Bang Fu and Di Feng. Retain canonical venue citation
+for now, resolve discrepancy before submission; do not silently invent metadata.
+
+3. CacheSpec (especially close recent overlap)
+Chen, Feng, Piao, Hu and Li, CacheSpec: Finding the Sweet Spot for Small Models
+in Large Language Models, EMNLP2026; arXiv2607.20507v2, revised2026-08-22.
+https://aclanthology.org/2026.emnlp-main.1223/
+https://arxiv.org/html/2607.20507v2
+Read sections3.1–3.5 and B.1–B.5. Small-model variable extraction feeds reusable
+programs; field/type checks and fallback precede execution. The paper analyzes
+cache-error propagation and binding/scale errors. Its v1 title was MiniCache;
+do not cite v1 as if it were the same final version.
+Implication: structured reuse, validation, fallback and cache-error propagation
+are already studied. Our remaining distinction is a controlled price-only
+intervention on explicit applicability, not a new reuse architecture. We have
+not reproduced their code/results; no comparative efficacy claim is justified.
+
+4. Economic-rationality evaluation
+Raman, Lundy, Amouyal, Levine, Leyton-Brown and Tennenholtz. STEER: Assessing
+the Economic Rationality of Large Language Models. ICML2024, PMLR235.
+https://proceedings.mlr.press/v235/raman24b.html
+Read official abstract/metadata only; PDF fetch failed in this audit. STEER
+assesses fine-grained rationality elements across14 models. Our specific
+semantic-feasibility-versus-price intervention requires its own evidence;
+do not claim the general study of irrational model decisions is new.
+
+5. Verification without ground-truth feedback
+Huang et al. Large Language Models Cannot Self-Correct Reasoning Yet.
+arXiv2310.01798v2 (2024-03-14).
+https://arxiv.org/html/2310.01798v2
+Read sections3.2–4. It separates intrinsic self-correction from oracle-guided
+stopping and reports degradation in its reasoning settings. This motivates
+reporting verification costs and forbidding correctness-triggered fallback.
+It does not prove our M4 must fail or that all verification is ineffective.
+Fresh-context cache verification differs from multi-round reasoning correction.
+
+6. SQL semantic evaluation
+Zhong, Yu and Klein. Semantic Evaluation for Text-to-SQL with Distilled Test
+Suites. EMNLP2020, pp396–411.
+https://aclanthology.org/2020.emnlp-main.29/
+Rechecked official abstract/metadata; existing project work already cites it.
+Execution over several generated databases approximates semantic accuracy.
+Our explicit same-H/different-Q witness establishes an information deficit;
+passing a finite set of positive execution tests still is not a universal proof.
+
+Working novelty judgment, based jointly on sources and our actual Qwen evidence
+Do NOT claim: first semantic cache, first check-before-reuse, first mismatch
+diagnosis, new view rewriting, or proven superiority of price isolation.
+Potential empirical contribution: hold all public information constant, vary
+declared cost, separately measure applicability/action/execution, and show where
+candidate separation does not help relative to classical rules. This is a
+bounded controlled-evaluation contribution, not yet an accepted-paper claim.
+Qwen M1 and M2 have different price-contrast directions; M3 was less safe.
+Second-family, label-control and E3 outcomes still determine the final scope.
+
+Remaining bounded checks
+- Verify CacheSpec's linked code/license and exact interfaces without launching
+  new large-model workloads or rebranding an incomplete port as reproduction.
+- Complete cost-routing/selective-execution references and bibliography hygiene.
+- Do not extend the experiment matrix because a new paper or negative result
+  creates pressure to find a favorable comparison.

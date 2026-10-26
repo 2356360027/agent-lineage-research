@@ -1,0 +1,106 @@
+Held-structure confirmation protocol v1 — 2026-10-27
+Defined after the sealed development findings and before confirmation model calls.
+
+Decision after development review
+Retain all six methods, their exact prompt wording and the original candidate
+set. The candidate price-hidden method failed to improve development safety.
+That is evidence to preserve, not a reason to mine new tasks or tune the method.
+M4's144/144 agreement with M1 was checked against reconstructed actual prompts:
+the verifier received a fresh context, original public data and candidate label,
+but not price/action/reason. Treat agreement as a measured outcome, not a proven
+internal mechanism and not a reason to delete this comparator. A separately
+planned candidate-blind diagnostic is disclosed below; it does not replace M4.
+Calcite rule paths and generic projection rule are unchanged. Timeout states
+remain unknown. No gold labels, base rows or private transforms enter M6.
+
+Data freeze
+Use the already archived confirmation_candidate split, with exactly96 bases,
+192 cache contexts, six families and12 held structural templates. Each template
+has8 controlled instances; these are correlated, not96 semantic mechanisms.
+All192 cached outputs are obtained by actually executing H. Every insufficient
+cache has a legal same-H/different-Q witness; sufficient controls have stated
+transforms/rules and finite cross-checks. Cases remain synthetic controls.
+Keep public data digest:
+5a2964adbf052bad02f586ee4b2fc6bfe18c4e3a3a95eb79b905261c66628e65
+No cases are removed or replaced according to model outcomes or planner coverage.
+The default96 is retained on the pre-outcome planning grid, not a power claim.
+For q=.25 and within-template rho=.25, the approximate95% half-width is .166.
+Small effects and population generalization can remain unresolved.
+
+Primary E1/E2
+Per model: M1=576, M2=576, M3=192, M4=576 =>1920 physical calls.
+M3 labels reused at three prices, not independent outputs. M4 verifies every
+price-specific M1 label independently; charge proposal+verification logically.
+M5 always recomputes; M6 uses a cache-only classical rewrite or recomputes.
+Public Q SQL is correct and supplied identically to all methods. Prices alone
+change between matched conditions. Tie goes to recompute. Declared cost is not
+API price, measured latency or a causal energy intervention.
+
+The first main endpoint is low-minus-high false-applicability on96 insufficient
+caches, separately for M1 AND M2. Always report both; M2's positive development
+direction must not hide M1's contrary direction. The second main endpoint is
+M3 minus the prespecified strong comparators M4/M6, also M2, for low-price unsafe
+reuse (96 negatives), jointly with useful reuse (96 positives). Compare all
+specified methods, not whichever comparator later makes the candidate look best.
+H2 (M3-M2 labels at low price) and H3 (M3-M1 low-price actions) remain separate.
+Tie/high price, false rejection, format errors, unknown, failures and resources
+are also reported. Invalid judgment followed by recompute is not valid semantics.
+Use planned denominators, including wholly missing bases. Report conservative
+reassignment bounds for unresolved labels. Equal-family/equal-template paired
+resampling uses2000 draws and seed20261028. Its band describes these selected
+templates, not a guaranteed population interval; [0,0] is not zero-risk proof.
+No p-value fishing, post-outcome sample growth or method success requirement.
+
+Execution and record integrity
+Existing Qwen Q5_K_M and pinned b11850 first; temperature0, seed20261027,
+context4096, output cap256, parallel1, no prompt cache or enforced JSON grammar.
+Ten complete-base batches:9x200+120. Each owns a loopback server, runs at most
+600seconds, then closes it. Verify all weights/runtime against pinned SHA256.
+Tokenize all dynamic verifier variants before each batch. Reject overflow;
+require usage to equal the count. No output truncation accepted as valid.
+Invalid outputs remain recorded; transport/count/deadline failures stop the
+remaining matrix, preserving all pending cells. No silent resume or retry.
+Only progress/operational errors may be inspected until all batches terminal.
+All actual prompts must reconstruct from frozen inputs and M1 labels afterward.
+Repeat frozen-source rescoring and compare hashes. Raw data remain local.
+
+Second model
+Use the independently selected Mistral-7B-Instruct-v0.3 Q5_K_M artifact pinned
+in configs/second_model_candidate_20261027.json. It is a third-party quantization,
+not asserted identical to the latest upstream floating-point model. Exact model
+identity, template handling and assets are frozen in its own prepared archive.
+If its embedded template cannot accept a system message, preserve the complete
+system instruction by a disclosed concatenation; never silently drop it.
+A development-only format preflight precedes its confirmation calls. Do not
+change methods according to Mistral's held-out outcomes. Report families/models
+separately. If unavailable, document the blocker and keep single-model limits.
+
+Preselected E3 and robustness followups, not yet implemented/executed here
+Select instance0 from EACH held structural template, both caches:12 bases,
+24 contexts. This is fixed now, not chosen by error or significance. E3 includes
+all six methods and all3 prices. Recorded reuse actions get one SQL-generation
+attempt over only the cache; no model repair rounds. Recompute executes publicQ.
+Read-only engine, allowlisted relations/functions, bounded time/result size;
+record rejected SQL, incorrect result, fallback and cost separately. Never
+use the private oracle transform as if produced by a model. Measure cache
+construction and amortize over1,10,100 uses, not just free-cache best cases.
+At most288 additional model transform calls per model, often fewer. Exact
+execution code/prompt is frozen before this separate batch; E1/E2 is not E3.
+
+Label-control: on the same24 contexts, M1/M2 at prices1/20 plus M3, fixed coded
+label bijection, at most120 calls/model. One separately reported candidate-blind
+checklist verifier per context adds24 calls/model. The latter diagnoses whether
+the exposed proposal matters; it is not retroactive improvement of M4. Freeze
+these exact alternate prompts before their calls, with no manual answer edits.
+
+Resource reservation and stopping scope
+At this freeze,512 model attempts and206.8254323 owned-service seconds were used.
+Two confirmation models reserve3840 calls; E3 reserves<=576; robustness<=288.
+With a bounded second-model calibration this is well below10000. Never treat
+remaining allowance as a target to exhaust. No paid API, server or training.
+One new weight artifact ~5.14GB is within20GB allowance. Resource state is
+rechecked for each new prepared run; actual use is recorded, not estimated away.
+
+Completion still requires E3, second-model/robustness outcomes or verified limits,
+actual figures, full paper, bounded literature audit and clean reproduction.
+This protocol alone is not the completed14-day goal.

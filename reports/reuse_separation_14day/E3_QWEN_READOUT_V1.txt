@@ -1,0 +1,41 @@
+qwen E3: actual cache transformations and measured fallback
+12 preselected bases/templates,24 positive/negative contexts,432 logical cells.
+Not432 independent tasks. Correct public SQL supplied; tiny controlled fixtures.
+
+method price final_correct/24 cache_first_correct fallback no_answer reuse_selected
+M1 1: 24/24 0 10 0 10; first={'INVALID_OUTPUT': 10, 'RECOMPUTED': 14}
+M1 10: 23/24 0 11 1 11; first={'INVALID_OUTPUT': 11, 'RECOMPUTED': 12, 'UNRESOLVED_ACTION_NO_FINAL_ANSWER': 1}
+M1 20: 24/24 0 8 0 8; first={'RECOMPUTED': 16, 'INVALID_OUTPUT': 8}
+M2 1: 24/24 0 15 0 15; first={'INVALID_OUTPUT': 15, 'RECOMPUTED': 9}
+M2 10: 24/24 0 0 0 0; first={'RECOMPUTED': 24}
+M2 20: 24/24 0 0 0 0; first={'RECOMPUTED': 24}
+M3 1: 24/24 0 17 0 17; first={'INVALID_OUTPUT': 17, 'RECOMPUTED': 7}
+M3 10: 24/24 0 0 0 0; first={'RECOMPUTED': 24}
+M3 20: 24/24 0 0 0 0; first={'RECOMPUTED': 24}
+M4 1: 24/24 0 14 0 14; first={'INVALID_OUTPUT': 14, 'RECOMPUTED': 10}
+M4 10: 24/24 0 0 0 0; first={'RECOMPUTED': 24}
+M4 20: 24/24 0 0 0 0; first={'RECOMPUTED': 24}
+M5 1: 24/24 0 0 0 0; first={'RECOMPUTED': 24}
+M5 10: 24/24 0 0 0 0; first={'RECOMPUTED': 24}
+M5 20: 24/24 0 0 0 0; first={'RECOMPUTED': 24}
+M6 1: 24/24 10 0 0 10; first={'EXECUTED': 10, 'RECOMPUTED': 14}
+M6 10: 24/24 0 0 0 0; first={'RECOMPUTED': 24}
+M6 20: 24/24 0 0 0 0; first={'RECOMPUTED': 24}
+
+Costs (per-cell logical workflow; price1; no electricity measurement):
+M1: {"logical_calls": 34, "logical_input_tokens": 19771, "logical_output_tokens": 724, "mean_component_latency_seconds": 0.33001272499677725, "mean_modeled_total_seconds_by_cache_uses": {"1": 0.3759379028918071, "10": 0.3757981666298898, "100": 0.3757841930036981}}
+M2: {"logical_calls": 39, "logical_input_tokens": 22193, "logical_output_tokens": 638, "mean_component_latency_seconds": 0.31298689583006006, "mean_modeled_total_seconds_by_cache_uses": {"1": 0.3743592859471998, "10": 0.3742195496852825, "100": 0.37420557605909077}}
+M3: {"logical_calls": 41, "logical_input_tokens": 23042, "logical_output_tokens": 663, "mean_component_latency_seconds": 0.328872295828963, "mean_modeled_total_seconds_by_cache_uses": {"1": 0.39642357083494667, "10": 0.39628383457302935, "100": 0.39626986094683764}}
+M4: {"logical_calls": 62, "logical_input_tokens": 36758, "logical_output_tokens": 1456, "mean_component_latency_seconds": 0.6454488291589465, "mean_modeled_total_seconds_by_cache_uses": {"1": 0.7186072677692331, "10": 0.7184675315073158, "100": 0.7184535578811241}}
+M5: {"logical_calls": 0, "logical_input_tokens": 0, "logical_output_tokens": 0, "mean_component_latency_seconds": 0.0004785291724450265, "mean_modeled_total_seconds_by_cache_uses": {"1": 0.0004785291724450265, "10": 0.0004785291724450265, "100": 0.0004785291724450265}}
+M6: {"logical_calls": 0, "logical_input_tokens": 0, "logical_output_tokens": 0, "mean_component_latency_seconds": 0.9421179249911802, "mean_modeled_total_seconds_by_cache_uses": {"1": 0.9422731875044216, "10": 0.9421334512425044, "100": 0.9421194776163127}}
+
+Logical price workflows charge full decision incl M4 proposal; M3 shared physical calls not independent. Cold allocated uniformly, not directly observed cell latency. JVM startup included in classical wall time. Tiny fixture timings are not production speedups. Scoring/counterworld CPU excluded from method cost; actual CPU phase reported separately. M5 not charged unused cache. Others charged cache construction even when recomputing; amortization1/10/100. Wrong cheap answers are not efficiency gains.
+Fixed instance0 of12 selected held templates; 432cells are not432 independent tasks. Correct public SQL supplied to all. Frozen negative information-loss witnesses override lucky snapshot matches. No model repair or oracle-triggered fallback. Finite-world correctness is not a universal proof.
+Invalid output and explicit refusal are distinct. Neither is an executed correct cache conversion.
+Final correctness recovered by public-Q fallback is not useful reuse or semantic validation.
+Physical new generation usage: {"calls": 75, "input_tokens": 44257, "output_tokens": 150, "http_seconds": 6.5574198993854225}
+Cumulative goal attempts: 4428
+Cumulative owned-service seconds: 1702.4387003002162
+Summary SHA256: 3489f05eb7c98eb6b254fd8f3c808889c4630c02ea04f92b2ac223c0a8d745cb
+Remaining work includes label controls, final synthesis, figures, reproduction and public release.

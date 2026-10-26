@@ -11,7 +11,8 @@ from runtime.reuse_separation import parse_response, route
 from runtime.reuse_statistics import paired_price_rows, clustered_difference
 
 
-def evaluate(cases, responses, measurements, planner_rows):
+def evaluate(cases, responses, measurements, planner_rows, scope='development'):
+    if scope not in ('development','confirmation'):raise ValueError('Explicit analysis scope required')
     jobs=schedule(cases)
     by_case={c['case_id']:c for c in cases}
     by_job={j['job_id']:j for j in jobs}
@@ -103,13 +104,28 @@ def evaluate(cases, responses, measurements, planner_rows):
                     'value':int(a[endpoint])-int(b[endpoint]),
                     'M3_unresolved':a['unresolved_action'],'baseline_unresolved':b['unresolved_action']})
             contrasts['M3_minus_'+baseline+'_'+endpoint]={'paired_rows':rows,**clustered_difference(rows)}
-    return {'scope':'SYNTHETIC_DEVELOPMENT_E1_E2_ONLY','expected_calls':len(jobs),
+    h2={}
+    for price in PRICES:
+        selected={(r['base_id'],r['method']):r for r in observations
+                  if r['method'] in ('M2','M3') and not r['sufficient'] and r['price']==price}
+        rows=[]
+        for base in bases:
+            a,b=selected[base,'M3'],selected[base,'M2']
+            left,right=a['admissibility']=='applicable',b['admissibility']=='applicable'
+            ua,ub=a['admissibility'] in ('unknown','invalid','missing'),b['admissibility'] in ('unknown','invalid','missing')
+            rows.append({'base_id':base,'family':a['family'],'template':a['template'],
+                'value':int(left)-int(right),'M3_unresolved':ua,'M2_unresolved':ub,
+                'min_difference':int(left)-int(right or ub),'max_difference':int(left or ua)-int(right)})
+        h2[str(price)]={'paired_rows':rows,**clustered_difference(rows),
+            'unresolved_worst_case_bounds':[mean(r['min_difference'] for r in rows),mean(r['max_difference'] for r in rows)]}
+    return {'scope':'SYNTHETIC_'+scope.upper()+'_E1_E2_ONLY','expected_calls':len(jobs),
         'responses_recorded':len(responses),'missing_calls':len(jobs)-len(responses),
         'planned_bases':len(bases),'structural_templates':len({c['template'] for c in cases}),
         'methods':methods,'price_contrasts':price_contrasts,'action_contrasts':contrasts,
+        'H2_M3_minus_M2_false_applicability':h2,
         'physical_judgments':physical,'observations':observations,'decisions':decisions,
         'model_transformations_executed':0,'model_final_answers_scored':0,
-        'warning':'Development only. M3 labels are shared across prices by design, not an observed '
+        'warning':scope.capitalize()+' formal constructed suite only. M3 labels are shared across prices by design, not an observed '
           'invariance. Unknown/invalid/missing labels are not correct semantic judgments. Controllers '
           'fall back to recompute; that safety fallback is not valid semantic classification. '
           'Declared route costs exclude generation/planning/cache construction; actual tokens and '

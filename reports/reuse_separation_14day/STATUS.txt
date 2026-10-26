@@ -1,100 +1,108 @@
 14-day research goal — ACTIVE, not complete
-Updated: 2026-10-27, Day 1
-Objective SHA256: a84a80211c74099e98cf4a939c5092b7aab6443fa93083ac5d0dd1abd35e78c3
-Target: genuine reproducible research package by 2026-11-10 (within 14 days).
+Updated:2026-10-27, Day1 execution checkpoint
+Objective SHA256:a84a80211c74099e98cf4a939c5092b7aab6443fa93083ac5d0dd1abd35e78c3
+Target: full reproducible research package by2026-11-10. Negative results count;
+a smaller completed matrix is not a substitute for the full objective.
 
-Completed today
-- Read the user's updated full objective; preserved all historical runs.
-- Reverified RTX 5080 16GB, existing Q5_K_M weights, llama.cpp build11850.
-- Implemented separated labels/actions, shared controller, 4 model workflows
-  and two deterministic controls for a 32-call calibration.
-- Executed real historical queries for cache contents; negative collision
-  witnesses and positive transforms checked; private oracle excluded from input.
-- Frozen code/config/inputs/assets and completed exactly 32 local generations.
-- Verified hashes, exact frozen-source rescoring, no truncation and no prompt
-  caching. Closed owned local inference service.
-- Drafted Introduction, formal problem and experimental scope.
-- Built and offline-verified six-family data: 24 development bases and 96
-  confirmation candidates; 120 negative witnesses and 120 positive transforms.
-- Verified 768 additional fixed-random-world positive checks and 18 new tests.
-- Implemented full M4 per-price proposal/verification matrix and completed all
-  480 development calls in 200/200/80 batches. 1920 per confirmation model
-  remain planned, with zero confirmation model calls started.
-- Added sample-size sensitivity and clustered paired analysis. Current analysis
-  code requires the planned base list to detect wholly missing pairs.
-- Ran actual Calcite 1.40.0 HEP + SubstitutionVisitor and a public-query generic
-  bag-projection rule on all 48 development contexts: 18 positive rewrites,
-  zero negative accepts, two recorded 60-second planner timeouts. Selected
-  rewrites passed fixed snapshots and 342 additional finite checks.
-- Passed 27 targeted tests; frozen-source test rerun passed 23 without Calcite.
-  Final combined regression passed35 with normal approved local permissions;
-  sandbox-only run had one temporary-directory access error, not a model retry.
-- Reconstructed all 480 actual prompts, reverified archive hashes, repeated
-  frozen-source scoring exactly, retained every raw response and failure record.
-- Checked second-family Mistral candidate metadata/license and pinned artifact
-  hash. No new weights downloaded or second-model inference performed yet.
+Completed and verified
+- Existing RTX5080/Qwen Q5_K_M/llama.cpp b11850 verified; no duplicate downloads.
+-32 new local throughput calls and480 development calls completed, separate
+ from historical24 calls. All failed/negative records preserved.
+- Six-family suite:24 development bases/12templates,96 held bases/12different
+ templates. Actual historical queries generate cache. Positive structural
+ transforms and negative same-cache/different-answer counterworlds checked.
+- Qwen held matrix:1920 calls, all complete. Two identical frozen rescores,
+ actual prompts reconstructed and input hashes verified.65 unknown labels;
+ no invalid/missing/truncated responses.
+- Mistral held matrix:1920 calls, all complete. Two identical frozen rescores.
+ 128 strict-format invalid responses,1792 applicable; no valid inapplicable
+ or unknown labels. No posthoc repair of responses or replacement samples.
+- Failed Mistral development calibration retained:1 attempted response,39
+ unattempted. BOS token-accounting mismatch diagnosed with76 zero-generation
+ rendered variants. Adapter preserves full instructions; correction only to
+ exact preflight counting. No replacement40-call run.
+- Actual Calcite/rules baseline:192 held contexts,80 positive rewrites,0negative
+ accepts,0timeouts,1520 finite stress checks. Development2timeouts retained.
+- E3 fixed instance0/12held templates/24contexts/6methods/3prices:432cells/model.
+ Qwen75 and Mistral121 actual new SQL-generation calls; all recorded decisions
+ retained. Each model completed432 isolated read-only execution workflows.
+ Two identical frozen rescoring runs per model, including same-SQL worlds.
+- E3 gate blocks writes/ATTACH/schema/extensions, limits compute and output;
+ wrong-but-executable answers NEVER trigger oracle-assisted fallback.
+ Invalid/refusal/SQL failure gets one predeclared public-Q recomputation.
+-29 targeted execution/gate/model-adapter tests passed. Actual isolated worker
+ tested, along with strict duplicate-field rejection and score reproduction.
+- Bounded primary-source related-work audit and paper sections expanded.
+- Actual two-model E1/E2 figure generated with source data, SVG/PDF/PNG/TIFF;
+ source preflight14PASS,0WARN,0FAIL; rendered visual QA and vector text checked.
+ Final figure bundle is figures/confirmation-v3; failed draft exports retained
+ locally and excluded from delivery. No plotting data invented.
 
-New-goal resource ledger
-Completed model generations: 512 / 10000 cap (32 calibration + 480 development).
-Failed or uncertain model attempts: 0.
-New downloads: 0 / 20GB cap (existing assets reused).
-Owned inference-service wall interval: 206.8254323 seconds / 20h conservative budget.
-New development service time: 189.5640323 seconds; including preflight: 207.1505157.
-Development input/output tokens: 275771 / 13172; exact tokenization checked.
-API cost: 0. GPU active time/electricity: not measured.
-No remote server, training or paid API. No background process remains running.
-Earlier 24-call calibration is historical development evidence, not rerun or
-counted as new confirmation data. Do not use the short-call speed as a guarantee
-for much longer model trajectories.
+Resource ledger (latest completed run record:reuse_e3_mistral_20261027.json)
+4549/10000 new-goal attempts:
+32 calibration+480 development+1920Qwen+1aborted Mistral calibration+
+1920Mistral+75Qwen E3+121Mistral E3.
+Owned local inference-service intervals:1880.9702258002185 seconds /20h cap.
+Includes zero-generation token diagnosis; does not claim measured GPU energy.
+New weights:5,136,175,328 bytes /20GB cap. All owned services closed.
+No live model/SQL worker remains at this checkpoint. No paidAPI, remote server
+or weight training. Only CPU scoring/plotting/public-release work continues.
 
-Current evidence boundary
-The two-base calibration had no false applicability. The broader, separately
-reported 24-base development DOES have errors; do not pool the protocols.
-Low-price unsafe/useful reuse counts (each denominator 24):
-  M1 joint: 9 / 17; M2 visible-label controller: 8 / 20;
-  M3 hidden-label controller: 14 / 20; M4 verifier: 13 / 19;
-  M5 recompute: 0 / 0; M6 classical: 0 / 18.
-E1 negative false labels low/high: M1 13/15, M2 8/2 (out of24 each).
-M2 supports the proposed price direction in development; M1 does not.
-M3 is NOT safer than M2 at low price. A lower declared cost driven by wrong
-reuse is not an efficiency gain. M4 labels equal M1 labels in 144/144 cells;
-this is observed agreement, not proof of internal anchoring.
-No new superior-method, guaranteed-safe reuse, or universal intent-drift claim.
-E3 has not been run. H1/H2/H3/H4 must remain separate.
+Current evidence and claim boundary
+Qwen H1 negative false labels low/high: M1=55/62, M2=47/26 (n96).
+Price direction appears in M2, not M1. Price-blind M3 false accepts71/96,
+worse than M2 at low price. Candidate safety superiority is not supported.
+Qwen low-price unsafe/useful: M1=38/62,M2=47/74,M3=71/90,M4=55/79,
+M5=0/0,M6=0/80 (each separate negative/positive denominator96).
 
-Next execution checkpoint
-1. Review completed development errors and strong-verifier prompt/transport,
-   retaining the negative result. Do not tune prompts just to make M3 win.
-2. Decide and freeze final methods/analysis and the already constructed 96-base
-   confirmation candidates before ANY confirmation model output. Current results
-   motivate an empirical boundary study, not a claimed algorithm improvement.
-3. Verify/download the pinned different-family model within the 20GB allowance;
-   inspect embedded chat template so system instructions are not silently lost.
-4. Execute frozen confirmation and E3 selected transformations/cost accounting;
-   hold formal-task, actual-action and natural-language claims distinct.
+Mistral M2/M3 accept all96 negative contexts. M1 low/high false labels79/79,
+17 invalid negatives at each extreme. Zero price contrast under saturation
+is not evidence of robust semantic invariance. M2 price effect did NOT
+replicate in this configuration. M3/M4 superiority remains unsupported.
+Mistral low-price unsafe/useful:M1=68/63,M2=96/96,M3=96/96,M4=96/93,
+M5=0/0,M6=0/80. M1 also has44 unresolved actions/192 at low price.
 
-Remaining goal deliverables (not yet done)
-- Limited documented protocol-review decision after completed development.
-- Frozen confirmation suite and main results.
-- Second model license/version checks and local replication if feasible.
-- E3 real agent-selected transformations and full cost accounting.
-- Optional separately reported reviewed real-data extension.
-- Complete related work, final claim selection, actual figures and paper.
-- Clean-directory reproduction and audited public release.
+E3 Qwen:75/75 outputs bare null, invalid under required object schema.
+No model-produced SQL executes successfully. Predetermined fallback recovers
+them; one pre-existing unresolved M1 tied-price action has no final answer.
+E3 Mistral:117 invalid outputs,4 SQL errors among121 generated conversions;
+22 responses stopped at the fixed256-token output cap (all retained).
+no correct model cache conversion. M1 final answers20/19/21 of24 at low/tie/high,
+with4/5/3 unresolved actions. M2/M3/M4 have24/24 final answers per price,
+but solely through direct recomputation or fallback, NOT successful reuse.
+M5 both models24/24. M6 low price10 correct positive cache transforms,0negative
+reuse,24/24 final answers; same10 SQL transforms pass the two test worlds.
+Tiny-fixture timing and supplied correctQ do not establish production speedup.
+H4 not established. High recovered accuracy is not safe useful-reuse success.
 
-Artifacts
-PROTOCOL_DAY1.txt — frozen batch scope, not full preregistration.
-DAY1_READOUT.txt — actual result and limitations.
-PAPER_DRAFT.txt — initial prose; no invented Results section.
-runtime/runs/reuse-separation-day1-prepared-20261027-001 — local raw/source archive.
-runtime/runs/reuse-separation-day1-audit-20261027-001.json — read-only rescore audit.
-DATA_AND_MATRIX_V1.txt — new verified data, full matrix, planning sensitivity.
-runtime/runs/reuse-six-family-candidate-20261027-001 — offline candidate archive,
-  not final confirmation freeze and not a completed model/planner experiment.
-DEVELOPMENT_PROTOCOL_V1.txt — frozen development scope and baseline engineering.
-DEVELOPMENT_READOUT_V1.txt — actual 480-call results, negative findings retained.
-configs/run_records/reuse_development_20261027.json — publishable aggregates.
-runtime/runs/reuse-calcite-development-20261027-001 — all48 planner attempts.
-runtime/runs/reuse-development-prepared-20261027-001 — local source/raw/usage archive.
-runtime/runs/reuse-development-audit-20261027-001 and -002 — identical rescoring.
-configs/second_model_candidate_20261027.json — metadata only; not downloaded.
+Frozen aggregates and readouts
+configs/run_records/reuse_confirmation_qwen_20261027.json
+configs/run_records/reuse_confirmation_mistral_20261027.json
+configs/run_records/reuse_mistral_calibration_20261027.json
+configs/run_records/reuse_e3_qwen_20261027.json
+configs/run_records/reuse_e3_mistral_20261027.json
+CONFIRMATION_QWEN_READOUT_V1.txt / CONFIRMATION_MISTRAL_READOUT_V1.txt
+CROSS_MODEL_CHECKPOINT_V1.txt / MISTRAL_TRANSPORT_AMENDMENT_V1.txt
+E3_QWEN_READOUT_V1.txt / E3_MISTRAL_READOUT_V1.txt
+PAPER_DRAFT.txt / RELATED_WORK_AUDIT_V1.txt
+FIGURE_CONFIRMATION_CONTRACT_V1.txt / FIGURE_CONFIRMATION_LEGEND_V1.txt
+Raw/frozen source under ignored runtime/runs; never public by default.
+
+Next minimum necessary work (full scope remains)
+1. Implement/run ONLY preselected label/mapping controls and candidate-blind
+ verifier diagnostic. Keep original M4 and both failed E3 protocols unchanged.
+ No posthoc main-prompt rescue, extra task selection or replacing failed calls.
+2. Complete final claim audit: currently favors bounded empirical/negative
+ findings, not a new superior safe-reuse algorithm or inevitable intent drift.
+3. Finish literature/code-repro checks, Methods/results/limitations, E3 figures
+ and full paper narrative. Do not import outside performance into our results.
+4. Clean-directory reproduction, exact number traceability, audited public
+ release and final requirement-by-requirement goal audit remain required.
+5. Optional reviewed real-data extension stays separate; lack of more human
+ forms must not block independent formal-task work.
+
+GitHub checkpoint
+Terminal push previously stalled at credential-manager authentication and was
+cancelled. Last verified original remote branch:a90ebdb. Local history preserved.
+Authorized GitHub connector will publish an audited snapshot without forcing or
+rewriting the original branch; do not claim synchronization until verified.

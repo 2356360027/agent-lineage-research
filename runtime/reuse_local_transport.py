@@ -88,6 +88,13 @@ class OwnedLocal:
         save(self.output/'props.json',self.request('/props'))
         if conf['model_alias'] not in [m['id'] for m in models['data']]:
             raise ValueError('Served alias mismatch')
+        gpu=subprocess.run(['nvidia-smi','--query-gpu=name,memory.total,memory.used','--format=csv,noheader'],
+            capture_output=True,timeout=15,
+            creationflags=subprocess.CREATE_NO_WINDOW if os.name=='nt' else 0)
+        save(self.output/'gpu_loaded.json',{'returncode':gpu.returncode,
+            'stdout':gpu.stdout.decode(errors='replace'),'stderr':gpu.stderr.decode(errors='replace'),
+            'measurement':'Snapshot after model load, not peak memory or energy'})
+        if gpu.returncode:raise RuntimeError('Loaded GPU inspection failed')
 
     def stop(self):
         if self.proc is not None and self.proc.poll() is None:

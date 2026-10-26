@@ -1,0 +1,22 @@
+{
+  "status": "DOWNLOADED_HASH_VERIFIED_METADATA_INSPECTED_NOT_YET_INFERRED",
+  "date": "2026-10-27",
+  "candidate_spec": "configs/second_model_candidate_20261027.json",
+  "local_archive": "runtime/runs/reuse-mistral-assets-20261027-001",
+  "download_receipt_sha256": "f497c15ef998afb8788e89cefb3138815e6fe22807ed41dcf78727f62af3aead",
+  "metadata_record": "runtime/runs/reuse-mistral-metadata-20261027-001.json",
+  "metadata_record_sha256": "b303b7ff0170ab818d5d5bcce099936526c8d4187ceda2ed7b8294beeae2954b",
+  "filename": "Mistral-7B-Instruct-v0.3-Q5_K_M.gguf",
+  "model_sha256": "0374072546aaf1257d1e34610edb11b691730d8ef7d44b5629693a2dd8e8d472",
+  "new_weight_bytes": 5136175328,
+  "download_wall_seconds": 864.2652749000117,
+  "automatic_retry": false,
+  "template_sha256": "26a59556925c987317ce5291811ba3b7f32ec4c647c400c6cc7e3a9993007ba7",
+  "embedded_template_supports_system_role": false,
+  "planned_transport_adaptation": "prepend full system instruction verbatim, two newlines, then full user data, in one user message",
+  "model_generations": 0,
+  "paid_API_cny": 0,
+  "inference_compatibility_established": false,
+  "required_before_confirmation": ["development-only interface and throughput calibration", "exact rendered instruction/token checks", "GPU memory and service-lifecycle check", "freeze second-model source/config without outcome-based method changes"],
+  "limitations": "Third-party quantization selected before confirmation model effects. Embedded metadata inspected without executing template or loading tensors. This record does not establish cross-model replication."
+}

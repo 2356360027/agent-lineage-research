@@ -1,0 +1,69 @@
+Cross-model checkpoint — 2026-10-27 (E1/E2 only)
+Full14-day objective remains active. No paidAPI, weight training or new cloud run.
+
+Both unchanged held-structure matrices are complete:1920 calls/model,
+96 bases,12 purposively selected structural templates, six families.
+Two frozen-source rescores per model matched byte-for-byte in summary and
+input hashes. Prices and methods are repeated measurements, not new tasks.
+Qwen and Mistral results remain separate; no pooled significance claim.
+
+Qwen2.5-7B-Instruct Q5_K_M
+Negative false-applicability at low/high price: M1=55/62 of96;
+M2=47/26 of96. M2 supports the proposed direction within this controlled
+matrix; M1 does not. Price-blind M3 has71/96 false accepts, worse than
+price-visible M2 at low price. Separation safety superiority is not supported.
+65 physical unknown judgments, zero invalid/missing/truncated responses.
+
+Mistral-7B-Instruct-v0.3 Q5_K_M
+All1920 responses are archived;128 invalid under the frozen strict parser,
+1792 valid applicable labels; no valid inapplicable or unknown labels.
+M1 has116 invalid/576; M4 has12 invalid/576; M2 and M3 have zero invalid.
+Invalid output is retained, not repaired or reinterpreted as a correct refusal.
+M1 negative false-applicable low/high=79/79 of96, with17 invalid at each price.
+M2 negative false-applicable low/high=96/96 of96. Its zero contrast reflects
+saturated false acceptance, not evidence that the model reliably ignores cost.
+M3 also accepts all96 negatives. H2 superiority is not supported.
+Low-price unsafe/useful action counts (96-negative/96-positive denominators):
+  M1 68/63, with44 unresolved actions out of192;
+  M2 96/96; M3 96/96; M4 96/93; M5 0/0; M6 0/80.
+All-valid-label acceptance and128 invalid outputs limit any mechanism claim.
+Preselected label/interface controls remain necessary; do not tune a new main
+prompt retrospectively or present a successful second-model price replication.
+
+Model transport and failed calibration
+Mistral's embedded template does not accept a system role. Both instruction
+texts were retained verbatim via the documented concatenation adapter, with
+rendered-input and exact-token verification. This is an explicit transport
+difference, not an unreported interchangeable model swap.
+The separate40-call development calibration stopped after1 response because
+preflight omitted BOS while chat included it.39 calls remain unattempted.
+A zero-generation diagnostic verified the exact BOS difference for76 variants.
+The repair changed only preflight token accounting; old source/data remain
+unchanged. The main held matrix was then separately frozen; no40-call rerun.
+This history must remain in Methods/limitations and the resource ledger.
+
+Strong baseline and claim decision
+Actual Calcite/rule baseline:0/96 negative accepts,80/96 positive rewrites.
+Both models received the same correct public SQL as this baseline. This is
+formal reuse evaluation, not raw natural-language intent understanding.
+Neither model currently demonstrates a safety/utility advantage over this
+baseline. H4 is not established by labels or declared prices; E3 must add
+actual transformation, fallback and full cost measurements.
+Do not title the paper as a proven new safe-reuse algorithm or inevitable
+cache-induced intent drift. The current defensible contribution is a bounded
+evaluation separating labels, actions, execution and information sufficiency.
+Final paper positioning waits for preselected execution and robustness checks.
+
+Resource checkpoint before E3
+4353 new-goal attempts:32 calibration+480 development+1920 Qwen+1 failed
+Mistral calibration dispatch+1920 Mistral. Failed calibration counts as cost.
+1689.4941496003125 seconds owned-service time, including zero-generation
+tokenization diagnostic;20h cap. No energy consumption measurement.
+Mistral main input/output tokens=1336074/93347; all10 services closed.
+
+Sources
+configs/run_records/reuse_confirmation_qwen_20261027.json
+configs/run_records/reuse_confirmation_mistral_20261027.json
+configs/run_records/reuse_mistral_calibration_20261027.json
+Qwen summary SHA256 f8003fb0d1a0259ca7fbe132651bca5bf617f8b2e19aaf1b0a816be873fd4c03
+Mistral summary SHA256 5edda1b87f51dbbdf38d7611201dd8ff4f868f55a5f748248ae6645225b8b279

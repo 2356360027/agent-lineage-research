@@ -1,0 +1,25 @@
+Fig. 1 | Semantic judgments and reuse decisions across local models
+
+a,b False-applicable judgments on insufficient caches across declared cache
+prices for Qwen2.5-7B-Instruct and Mistral-7B-Instruct-v0.3, respectively
+(both Q5_K_M). Circles/solid grey: M1 joint judgment and action; squares/dashed
+blue: M2 price-visible judgment with deterministic routing. Recompute price
+is fixed at10. c,d Low-price unsafe reuse (hatched amber, negative-cache
+denominator) and useful reuse (solid teal, positive-cache denominator) for the
+same models. M3 is price-blind judgment and routing; M4 is joint proposal plus
+fresh-context verifier; M5 always recomputes; M6 uses actual classical view
+rewriting/rules with recomputation fallback.
+
+Each rate has96 contexts of the indicated sufficiency class:12 purposively
+selected held structural templates with eight paired base instances each,
+covering six families. Cache variants, methods and prices are paired, not
+independent samples. One fixed decoding seed and temperature0 were used.
+These are descriptive counts/96 without error bars or per-panel significance
+tests; paired clustered contrasts and unresolved-output sensitivity bounds
+are reported separately. Invalid and unknown outputs remain in denominators;
+invalid outputs are not valid semantic refusals. Mistral has128/1920 invalid
+physical responses and saturated applicable labeling among valid responses;
+its zero price contrast is not evidence of reliable semantic invariance.
+Correct public SQL is supplied to every method. Action-level useful reuse
+does not establish executable conversion or final-answer success. Source data
+are provided as a Source Data file.

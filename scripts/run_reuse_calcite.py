@@ -1,7 +1,8 @@
 """Run pinned upstream Calcite on public six-family SQL/cache inputs.
 
 Preflight uses one positive instance per DEVELOPMENT template (12 queries).
-Full development uses 48 contexts. No confirmation cases or model calls here.
+Full development uses 48 contexts; frozen confirmation uses 192 contexts.
+Same planner/rules for both splits. No model calls or private oracle selection.
 Each invocation has new immutable artifacts; compilation/errors are preserved.
 """
 import argparse
@@ -170,13 +171,15 @@ def run(candidate,output,phase,dependency_design,wheel):
         path=(candidate/name).resolve()
         if not path.is_relative_to(candidate) or sha(path)!=expected:
             raise ValueError('Candidate archive changed')
-    private=json.loads((candidate/'development.private.json').read_bytes())
-    public={r['case_id']:r for r in json.loads((candidate/'development.calcite-inputs.json').read_bytes())}
+    split='confirmation_candidate' if phase=='confirmation' else 'development'
+    private=json.loads((candidate/(split+'.private.json')).read_bytes())
+    public={r['case_id']:r for r in json.loads((candidate/(split+'.calcite-inputs.json')).read_bytes())}
     if phase=='preflight':
         cases=[c for c in private if c['instance']==0 and c['audit']['sufficient']]
-    elif phase=='development': cases=private
-    else: raise ValueError('Development only')
-    if len(cases)!=(12 if phase=='preflight' else 48): raise ValueError('Fixed scope mismatch')
+    elif phase in ('development','confirmation'): cases=private
+    else: raise ValueError('Unknown fixed phase')
+    if len(cases)!={'preflight':12,'development':48,'confirmation':192}[phase]:
+        raise ValueError('Fixed scope mismatch')
     sg=load_sqlglot(wheel)
     inputs=[]
     for case in cases:
@@ -266,7 +269,8 @@ def run(candidate,output,phase,dependency_design,wheel):
         records.append(record)
         save(output/f'{i:02d}.audit.json',record)
         print(f'Completed planner {i+1}/{len(cases)}',flush=True)
-    summary={'status':'COMPLETED_DEVELOPMENT_PLANNER' if len(records)==len(cases) else 'INCOMPLETE',
+    summary={'status':('COMPLETED_CONFIRMATION_PLANNER' if phase=='confirmation' else
+                      'COMPLETED_DEVELOPMENT_PLANNER') if len(records)==len(cases) else 'INCOMPLETE',
         'phase':phase,'planned':len(cases),'completed':len(records),'model_calls':0,
         'planner_statuses':dict(Counter(r['planner_status'] for r in records)),
         'baseline_engines':dict(Counter(r['baseline_engine'] for r in records)),
@@ -279,7 +283,7 @@ def run(candidate,output,phase,dependency_design,wheel):
         'stress_worlds_checked':sum(r.get('rewrite_stress',{}).get('worlds',0) for r in records),
         'stress_value_mismatches':sum(r.get('rewrite_stress',{}).get('value_mismatches',0) for r in records),
         'stress_column_mismatches':sum(r.get('rewrite_stress',{}).get('column_mismatches',0) for r in records),
-        'rows':records,'warning':'Development only. Successful fixed-snapshot execution alone is not general equivalence. '
+        'rows':records,'warning':'Fixed '+phase+' scope. Successful fixed-snapshot execution alone is not general equivalence. '
           'No-rewrite/parse/timeout states remain unknown and require recomputation. No model-method comparison yet.'}
     save(output/'summary.json',summary)
     save(output/'sha256.json',{str(p.relative_to(output)).replace('\\','/'):sha(p)
@@ -290,6 +294,6 @@ def run(candidate,output,phase,dependency_design,wheel):
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--candidate',required=True,type=Path);p.add_argument('--output',required=True,type=Path)
-    p.add_argument('--phase',choices=['preflight','development'],required=True)
+    p.add_argument('--phase',choices=['preflight','development','confirmation'],required=True)
     p.add_argument('--dependency-design',required=True,type=Path);p.add_argument('--wheel',required=True,type=Path)
     a=p.parse_args();run(a.candidate,a.output,a.phase,a.dependency_design,a.wheel)

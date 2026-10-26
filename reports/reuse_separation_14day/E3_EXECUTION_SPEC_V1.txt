@@ -1,0 +1,99 @@
+E3 execution followup specification — 2026-10-27
+Written while Qwen E1/E2 confirmation runs; no confirmation effects read.
+This text specifies behavior. It does not claim an E3 experiment is complete.
+
+Selection and scope
+Keep the previously frozen instance0 of each held structural template, both
+cache contexts:12 bases,24 contexts. All6 methods and3 prices =>432 logical
+cells per model. No selection by an observed mistake or significance. This is
+a formal, researcher-constructed small database workload. It cannot establish
+real production SQL speedups or natural-language interpretation accuracy.
+
+For a recorded reuse action by M1/M2/M3/M4, make exactly one fresh transformation
+generation. No adaptive repair. At most288 calls/model before considering which
+actions actually reused. Reuse across different logical methods/prices is NOT
+silently deduplicated; if physical sharing is introduced, record it explicitly
+and allocate its full logical cost. M4 includes its M1 proposal and verifier.
+For a recompute action, execute the original public Q on a fresh readonly
+fixture database, with no model-generated replacement Q. For unresolved action,
+record no final answer; do not infer a successful recomputation.
+M6 uses its already selected classical rewrite on reuse, publicQ on recompute;
+no oracle-generated replacement for a failed rewrite. M5 always runs publicQ.
+
+Transform prompt and input, same for M1-M4
+System instruction:
+You are executing a previously selected cache-reuse action. Independently check
+whether a defensible cache-only conversion is possible. Return exactly one JSON
+object with the field "sql": either one SQLite SELECT/WITH query string, or null
+if you cannot produce a defensible conversion. Never invent missing values.
+The only accessible relation is cache with the supplied columns and actual rows.
+The original database tables are NOT accessible in this step. They appear only
+to specify the current and historical tasks. Preserve requested output columns,
+NULL behavior, and row multiplicity; use real division where required. You may
+use SELECT, CTEs, subqueries, aggregation, joins of cache, and SQLite window
+functions in the explicitly supplied allowlist. No writes, ATTACH, PRAGMA,
+extension loading, external files, nondeterministic functions, or multiple SQL
+statements. A null refusal is allowed even though reuse was selected earlier.
+Do not include markdown, additional fields or commentary.
+
+User data: the exact frozen public context (request, original SQL, historical
+SQL, cache/schema/constraints/completeness/provenance), plus the execution
+function allowlist. No private world, current answer, gold label, oracle SQL,
+method name, price or earlier free-text justification is supplied. Output cap
+256, temperature0, fixed seed; original model/runtime and exact token checks.
+
+Execution gate
+runtime/reuse_readonly_execution.py implements an ephemeral in-memory database
+containing only cache. Its SQLite authorizer permits only SELECT/read of cache
+and the documented function allowlist. Writes, attaching databases, PRAGMA,
+schema reads, hidden rowid and extensions are denied. Built-in size and expression
+limits, progress/VM-step/time limits, output row/byte bounds apply. This is an
+application-level gate, not a claim of general OS sandbox security. Run-level
+owned-process deadlines remain required in addition to this gate.
+No incomplete rows are returned as a truncated correct answer. A strict JSON
+parser retains malformed/truncated outputs as failures and null as explicit
+abstention. No fence removal or rewriting of generated SQL.
+
+Predetermined fallback, NOT oracle-assisted repair
+Malformed output, explicit refusal, denied/invalid SQL, timeout/resource limit
+or execution failure triggers one publicQ recomputation. Record the failed
+first attempt AND fallback answer/cost. An EXECUTED but wrong cache answer does
+NOT trigger fallback based on hidden correctness. The scorer observes correctness
+only after execution; it never controls the method's decision or fallback.
+Report first-attempt success, final-after-fallback success and all failure types
+separately. A recovered final answer does not erase a false-applicability label
+or unsafe initial reuse action in E1/E2.
+
+Answer and information-loss checks
+Require exact requested column names and unordered bag equality at fixed numeric
+tolerance abs=rel=1e-12, preserving NULL and duplicate multiplicity. Counterworld
+execution uses the SAME generated SQL after freezing that response. All negative
+contexts have same-H/different-Q worlds. A lucky match on the observed snapshot
+is not a safe generic conversion. Finite positive execution checks likewise do
+not prove every legal world; keep structural witness/rule evidence distinct.
+
+Cost
+Separately record model cold-start/service intervals, per-request prompt/output
+tokens and HTTP times, classical planning time (including timeout/failure),
+database/cache setup, history-query execution, transform execution, recompute
+and fallback. Cache construction is amortized over prespecified1/10/100 uses.
+Existing judgments may be physically reused as E3 inputs but their logical
+decision costs remain charged. Keep shared physical totals separate from method
+workflow totals. Declared prices1/10/20 are never substituted for measured time.
+No electricity figure without a measurement. Do not present cheaper wrong
+answers or oracle-triggered repairs as a quality-preserving efficiency gain.
+
+Engineering checks before freezing E3 source
+The first authorizer prototype rejected COUNT(*) because this SQLite build
+reports its columnless read with database=None. This was found by a programmatic
+fixture, NOT model data; accept only that narrowly scoped columnless cache read.
+The fixed gate passes all120 predefined positive transforms across dev/held data.
+Those tests are compatibility checks, not E3 model successes. Preserve the
+development bug in this note. Add attacks/resource/NULL/multiplicity tests.
+Exact runner/source/allowlist/config and all planned cells must be hashed before
+any E3 generation. A model run is still pending at the time of this specification.
+
+Implementation references (primary documentation checked2026-10-27)
+https://docs.python.org/3/library/sqlite3.html
+https://www.sqlite.org/c3ref/set_authorizer.html
+https://www.sqlite.org/limits.html

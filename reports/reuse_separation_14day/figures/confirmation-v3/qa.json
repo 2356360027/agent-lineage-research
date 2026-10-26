@@ -1,0 +1,19 @@
+{
+  "backend": "python",
+  "width_mm": 183,
+  "height_mm": 140,
+  "source_hashes": {
+    "reuse_confirmation_qwen_20261027.json": "6cd30a7c06ed37df1358fe3a845d6abbddb91f4109145780f529d9160b5363c4",
+    "reuse_confirmation_mistral_20261027.json": "0ee6171ef01e826454c1b2386e98c2b3b30067f6112652c2c2d01d3ab0d55efc"
+  },
+  "n_base_per_model": 96,
+  "n_templates": 12,
+  "n_instances_per_template": 8,
+  "before_after_counts": "All1920 physical responses/model retained in source records; no exclusions.",
+  "panel_scope": "a/b all prices of prespecified M1/M2; c/d all six methods at prespecified price1.",
+  "missing_or_invalid": "Retained in denominator, not counted as false-applicable nor as valid semantic judgment.",
+  "error_bars": "None: descriptive rates. Frozen paired clustered contrasts reported separately.",
+  "no_external_artwork": true,
+  "no_image_manipulation": true,
+  "source_validation_and_visual_inspection": "Pending separate preflight and rendered inspection."
+}

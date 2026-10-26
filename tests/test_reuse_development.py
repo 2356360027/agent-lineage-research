@@ -76,5 +76,26 @@ class Tests(unittest.TestCase):
                 self.assertNotIn('candidate_action',data)
                 self.assertEqual(data['candidate_admissibility'],'inapplicable')
 
+    def test_confirmation_scope_and_planned_denominators(self):
+        cases=build_suite('confirmation_candidate')
+        jobs=schedule(cases)
+        self.assertEqual(len(jobs),1920)
+        self.assertEqual([len(c) for c in batches(jobs)],[200]*9+[120])
+        self.assertFalse({c['template'] for c in cases}&{c['template'] for c in self.cases})
+        conf={'scope':'CONFIRMATION_ONLY','planned_calls':1920,'batch_sizes':[200]*9+[120],
+            'server_seconds_limit':600,'max_tokens':256,'context_size':4096,
+            'max_attempts_new_goal_before':512,'service_seconds_new_goal_before':206.8254323,
+            'port':18090,'seed':20261027}
+        validate_config(conf)
+        wrong=dict(conf);wrong['planned_calls']=1940
+        with self.assertRaises(ValueError):validate_config(wrong)
+        planner=[{'case_id':c['case_id'],'admissibility':'unknown','planner_status':'PLANNED'} for c in cases]
+        result=evaluate(cases,{}, {},planner,scope='confirmation')
+        self.assertEqual(result['scope'],'SYNTHETIC_CONFIRMATION_E1_E2_ONLY')
+        self.assertEqual(result['missing_calls'],1920)
+        self.assertEqual(result['methods']['M1']['planned_decision_cells'],576)
+        self.assertEqual(result['price_contrasts']['M2']['paired_bases'],96)
+        self.assertEqual(result['H2_M3_minus_M2_false_applicability']['1']['unresolved_worst_case_bounds'],[-1,1])
+
 
 if __name__=='__main__':unittest.main()

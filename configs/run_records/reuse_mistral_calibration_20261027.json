@@ -1,0 +1,37 @@
+{
+  "status": "CALIBRATION_ABORTED_TOKEN_ACCOUNTING_DIAGNOSED_NOT_RESUMED",
+  "prepared": "runtime/runs/reuse-mistral-calibration-prepared-20261027-001",
+  "manifest_sha256": "d4d255567d0ee46952f79360c2b0893dc22189e1d1a5224a61f734bce60a450b",
+  "planned_calls": 40,
+  "dispatch_attempts": 1,
+  "responses_recorded": 1,
+  "unattempted": 39,
+  "failure": "add_special=false preflight gave624; actual completion used625",
+  "reported_usage": {
+    "completion_tokens": 41,
+    "prompt_tokens": 625,
+    "total_tokens": 666,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "usage_validated_during_original_run": false,
+  "usage_match_explained_by_later_zero_generation_diagnostic": true,
+  "original_response_format_valid": true,
+  "original_response_finish_reason": "stop",
+  "raw_and_failed_manifest_preserved": true,
+  "effect_estimate_not_reported": true,
+  "calibration_owned_service_seconds": 3.6747859000461176,
+  "diagnostic_owned_service_seconds": 3.4302390000084415,
+  "diagnostic_variants": 76,
+  "diagnostic_model_calls": 0,
+  "diagnostic_archive": "runtime/runs/reuse-mistral-token-diagnostic-20261027-001",
+  "diagnostic_index_sha256": "6a247d2d44116a7d623e47b6892e3f02ddc0dfb00793c322bdce6b46bb19293d",
+  "failed_batch_index_sha256": "df26ed714888c2d76818f7711975708b3360aaa401d537d57b7281fa83f5e86a",
+  "goal_new_attempts_total": 2433,
+  "goal_service_seconds_total": 807.798351700109,
+  "automatic_retry": false,
+  "replacement_of_failed_calls": false,
+  "paid_API_cny": 0,
+  "next_gate": "No second40-call rerun. A separately frozen held-out matrix may use the corrected exact add_special=true count. All remaining39 calibration cells remain missing. Stop on any renewed count/transport failure; keep all invalid outputs. No prompt, model, seed or case changes based on response correctness."
+}
