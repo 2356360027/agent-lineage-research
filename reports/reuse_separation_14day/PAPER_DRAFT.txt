@@ -1,0 +1,118 @@
+WORKING DRAFT — 2026-10-27; no confirmation or novel-method claim
+
+When Is Reuse Safe?
+Separating Semantic Admissibility from Cost in Language Agents
+
+1. Introduction
+
+A language agent may be offered a correctly computed historical result while
+facing a different current request. A trustworthy origin does not establish
+that the historical result contains the information required by that request.
+For example, a distinct-name list can discard entity multiplicities, whereas a
+sum together with a nonnull count can retain exactly the information required
+for an average. The suitability of those results depends on the task and the
+retained information, not their declared prices.
+
+This study asks whether exposing prices changes a language model's explicit
+judgment of semantic admissibility, and whether separating that judgment from
+cost-based action selection changes the quality-cost trade-off. We distinguish
+three observable stages: the applicability label, the selected action, and the
+executed result. A wrong action does not by itself identify a changed task
+interpretation. Likewise, a model's short explanation is not direct evidence
+of its internal reasoning mechanism.
+
+The proposed evaluation holds the current request, historical query, cached
+rows, schema constraints, and trusted-source assumptions fixed while varying
+only declared price. It contrasts joint judgment/action generation, visible-
+price and hidden-price judgments with a shared deterministic controller, an
+independent verifier, and classical reuse/recompute policies. The classical
+comparison is indispensable: checking whether a query can be answered from a
+materialized view is an established problem, not a novelty claim of this work.
+Apache Calcite documents view substitution, residual predicates, join and
+aggregate rewriting, and the use of schema constraints [1].
+
+Candidate contributions, conditional on completed evidence:
+(a) a controlled diagnostic separating price-sensitive labels from decisions;
+(b) reproducible formal tasks with executed caches and information-loss witnesses;
+(c) an empirical comparison of separation against strong verification and
+classical controls, including null results and full execution costs.
+No novel SQL rewriting algorithm or guaranteed-safe LLM certificate is claimed.
+If classical rules or independent verification fully explain any benefit, the
+paper must be an empirical boundary study, not a new-algorithm success story.
+
+2. Problem formulation
+
+Let S be the public schema and constraints, H the historical query, Q the
+current query, and c the complete observed cache. Let W(S,H,c) be the set of
+legal databases D such that H(D)=c. Provenance guarantees that the current and
+historical queries refer to the same immutable snapshot; its contents are not
+otherwise revealed. A reusable result requires an allowed transformation T
+such that T(c)=Q(D) for every D in W(S,H,c). For the evaluation, T must be
+expressible using the disclosed cache-only operations; mere existence without
+an allowed implementation is insufficient.
+
+One negative certificate is a pair D1,D2 satisfying the public constraints with
+H(D1)=H(D2)=c but Q(D1) != Q(D2). It proves that c cannot uniquely determine the
+requested answer under those assumptions. A lack of a found counterexample is
+not a proof. Positive controls instead have a justified executable transform
+within a declared supported grammar. Multiple-database testing is related to
+prior text-to-SQL semantic evaluation [2], but finite testing and formal
+sufficiency must not be conflated.
+
+Let a_hat be the model's applicable/inapplicable/unknown label and p the stated
+reuse price. The shared controller selects reuse only if a_hat=applicable and
+p is strictly below the known-correct recomputation price; otherwise it
+recomputes if permitted or abstains. This controller removes stochastic action
+encoding but cannot guarantee safety when the applicability model is wrong.
+An invariant hidden-price output is a consequence of the interface design,
+not evidence that a model learned price invariance.
+
+3. Evaluation plan
+
+Six information-loss families: entity projection, NULL-sensitive aggregates,
+scope/time, complete versus truncated groups, join multiplicity, and ties.
+Development and confirmation must be separated by structural subtemplate and
+database instance. Default 24 development and 96 confirmation bases are a
+resource plan, not a power guarantee; final confirmation size and analysis
+will be frozen before model outputs are inspected. A base, not a price variant
+or repeated sample, is the paired analysis unit; shared templates also require
+cluster-aware reporting. Invalid/unknown outputs are retained separately.
+
+E1 compares explicit labels under price intervention. E2 compares actions and
+reuse retention. E3 executes selected transforms/read-only queries and measures
+actual costs including verification, fallback, and amortized cache creation.
+Formal current SQL is public to every comparator in the controlled study.
+Results therefore do not establish natural-language interpretation accuracy.
+Any BIRD extension is separate, read-only, and restricted to reviewed semantics.
+
+4. Current development status, not paper Results
+
+One new 32-generation local calibration over two bases has finished and been
+verified against frozen source. No negative context was falsely accepted at
+any price. The joint method missed both cheap sufficient reuse opportunities;
+price isolation, independent verification and narrow classical rules each
+retained both. These observations motivate stage-separated measurement but do
+not establish a price-induced false-acceptance effect or an advantage over
+strong baselines. Confirmation, a second model, actual agent execution and
+end-to-end cost comparisons have NOT yet been completed.
+
+5. Limitations to retain in the eventual manuscript
+
+Small quantized local models, synthetic formal requests, selected templates,
+declared prices rather than invoices, and developer-exposed examples restrict
+generalization. Supplying correct current SQL simplifies semantic grounding.
+Optional human reviews have their recorded timing/independence limitations.
+The planned empirical intervention cannot establish that caching necessarily
+induces intent drift. No effect sizes or statistical significance are filled
+in before the corresponding frozen experiments finish.
+
+References checked on 2026-10-27
+[1] Apache Calcite. Materialized Views. Official documentation.
+    https://calcite.apache.org/docs/materialized_views.html
+[2] Ruiqi Zhong, Tao Yu, and Dan Klein. 2020. Semantic Evaluation for
+    Text-to-SQL with Distilled Test Suites. EMNLP, 396–411.
+    https://aclanthology.org/2020.emnlp-main.29/
+
+Related-work coverage remains incomplete: semantic caches, tool verification,
+cost-sensitive/abstaining agents, and stronger reproducible implementations
+still need a bounded primary-source audit before novelty claims.

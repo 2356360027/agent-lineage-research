@@ -1,0 +1,58 @@
+14-day research goal — ACTIVE, not complete
+Updated: 2026-10-27, Day 1
+Objective SHA256: a84a80211c74099e98cf4a939c5092b7aab6443fa93083ac5d0dd1abd35e78c3
+Target: genuine reproducible research package by 2026-11-10 (within 14 days).
+
+Completed today
+- Read the user's updated full objective; preserved all historical runs.
+- Reverified RTX 5080 16GB, existing Q5_K_M weights, llama.cpp build11850.
+- Implemented separated labels/actions, shared controller, 4 model workflows
+  and two deterministic controls for a 32-call calibration.
+- Executed real historical queries for cache contents; negative collision
+  witnesses and positive transforms checked; private oracle excluded from input.
+- Frozen code/config/inputs/assets and completed exactly 32 local generations.
+- Verified hashes, exact frozen-source rescoring, no truncation and no prompt
+  caching. Closed owned local inference service.
+- Drafted Introduction, formal problem and experimental scope.
+
+New-goal resource ledger
+Completed model generations: 32 / 10000 cap.
+Failed or uncertain model attempts: 0.
+New downloads: 0 / 20GB cap (existing assets reused).
+Owned inference-service wall interval: 17.2614 seconds / 20h conservative budget.
+Run including hash preflight: 23.2705 seconds.
+API cost: 0. GPU active time/electricity: not measured.
+No remote server, training or paid API. No background process remains running.
+Earlier 24-call calibration is historical development evidence, not rerun or
+counted as new confirmation data. Do not use the short-call speed as a guarantee
+for much longer model trajectories.
+
+Current evidence boundary
+No false applicability at any price in this tiny new batch. M3, M4 and narrow
+M6 tied on action correctness/useful reuse. Novel method increment remains
+unproven. H1/H2/H3/H4 must remain separate; no intent-drift conclusion.
+
+Next execution checkpoint
+1. Extend development generator to six families and 24 bases; design actual
+   structural subtemplate holdouts, not renamed or reseeded copies.
+2. Finalize M4 full schedule, decision/label metrics, and broaden classical
+   baseline; share identical public information and account all real calls.
+3. Add sample-size sensitivity and paired/template-clustered analysis code.
+4. Freeze main protocol and confirmation input hashes before any confirmation
+   outputs. Do not adjust prompts merely to restore the old low-price error.
+
+Remaining goal deliverables (not yet done)
+- 24-base development suite and limited interface revision decision.
+- Frozen confirmation suite and main results.
+- Second model license/version checks and local replication if feasible.
+- E3 real agent-selected transformations and full cost accounting.
+- Optional separately reported reviewed real-data extension.
+- Complete related work, final claim selection, actual figures and paper.
+- Clean-directory reproduction and audited public release.
+
+Artifacts
+PROTOCOL_DAY1.txt — frozen batch scope, not full preregistration.
+DAY1_READOUT.txt — actual result and limitations.
+PAPER_DRAFT.txt — initial prose; no invented Results section.
+runtime/runs/reuse-separation-day1-prepared-20261027-001 — local raw/source archive.
+runtime/runs/reuse-separation-day1-audit-20261027-001.json — read-only rescore audit.

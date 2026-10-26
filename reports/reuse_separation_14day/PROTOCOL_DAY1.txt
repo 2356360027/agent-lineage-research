@@ -1,0 +1,88 @@
+When Is Reuse Safe? — Day-1 execution protocol
+Date: 2026-10-27. Status: DEVELOPMENT ONLY, before new model calls.
+Objective source: goal-objective.md attachment supplied by the user, 14-day research package.
+Target window: start 2026-10-27; deliver within 14 days, by 2026-11-10.
+
+Question and scope
+Separate H1 (price changes applicability judgments), H2 (price isolation improves
+judgments), H3 (controller reduces unsafe actions while retaining reuse), and H4
+(increment beyond independent strong verification). Neither wrong reuse nor a
+rationale/action inconsistency establishes natural-language intent drift.
+
+The previous 24 generations remain a distinct development run. No old results
+are pooled. Current calibration supplies ACTUAL cached rows and public formal
+current SQL to all methods. This is a changed protocol, not a direct replication
+of the earlier description-only task. It is not a natural-language benchmark.
+
+Fixed new scope
+2 development bases: entity projection; nullable-score aggregation.
+Each has a sufficient and a lossy cache: 4 public contexts.
+Historical SQL is really executed on researcher-constructed SQLite worlds.
+Private oracle worlds and current results are never model inputs.
+Every negative includes an executable identical-cache/different-current-answer
+witness. Every positive has a classical transformation. Values are bounded to
+avoid integer overflow; AVG uses nonnull count and real division.
+These bases inherit old conceptual families. They are NOT unseen confirmation
+structures. Confirmation data are not generated or queried in this batch.
+
+32 new local generations
+M1: public price, applicability plus action, 4 contexts x prices 1/10/20 = 12.
+M2: public price, applicability only, same contexts/prices = 12.
+M3: price hidden, applicability only, 4 contexts = 4.
+M4: fresh price-hidden verifier of the M1 low-price applicability proposal = 4.
+M4 never receives price, candidate action, or candidate reasoning. It gets the
+complete public original request/cache and a verification checklist. Its M1
+proposal cost MUST also be counted, despite reusing that stored generation.
+M3/M4 labels are reused across 3 prices. Invariance is by construction, not an
+observed price effect. M4 here uses only one proposal per context; a future full
+comparison must preregister proposal dependence and charge all calls.
+M5: always recompute; 12 deterministic cells, no semantic label.
+M6: narrow classical rule recognizer + recompute; 12 deterministic cells.
+M6 reads the SAME public current/history SQL and constraints; unknown outside
+supported grammar. It is not novel, nor a fair comparator for unreviewed NL.
+
+Shared controller
+Applicable and reuse strictly cheaper -> reuse. Otherwise recompute when legal.
+Invalid/unknown stays explicitly recorded; fallback recompute does not turn an
+invalid judgment into a correct semantic prediction. No legal fallback -> abstain.
+Price tie -> recompute. Declared recompute cost=10; prices are not real money.
+
+Invariants and instrumentation
+For M1/M2, removal of only the costs object must make all 3 prompts identical.
+M2 without costs must equal M3 exactly, including the system prompt.
+Action/label order is balanced across the 4 contexts and fixed within prices.
+Random fixed block order; dependency-respecting random order within blocks.
+No additional warmup generation. Mark first generation and cold startup.
+Disable prefix caching and context shift; retain actual token/caching timings.
+Template/tokenize before dispatch; refuse rather than truncate input >4096
+including 256 output tokens and 64-token safety margin.
+Temperature=0, seed=20261027, concurrency=1, no forced JSON grammar.
+
+Frozen inputs and safety
+Freeze source, cases, jobs, asset specification, config, and SHA256 manifest.
+Recheck complete weights and extracted executable/DLLs against pinned archives.
+New immutable prepared/run directory; no resume or silent retry.
+Loopback-only owned llama.cpp process, no web UI; terminate in finally.
+Server+calls <=600 seconds, cleanup <=15 seconds; total with hashing <=3600.
+No network downloads, API keys, paid APIs, remote machines, training or SQL from
+models. Current SQL executes only for PRIVATE ORACLE validation, not as an agent
+action. Agent execution/correct-answer efficacy therefore remains E3 pending.
+
+Scoring after the entire fixed batch
+Retain each raw output, request, dispatch record, timing and failure.
+Report explicit applicability, invalid/unknown, actions, unsafe reuse, useful
+reuse, and judgment/action conflict separately. All planned cells stay in
+denominators; missing outputs are reported, not scored as successful.
+This is throughput/interface calibration with two bases, not a powered efficacy
+study. Do not claim H1-H4 established from this batch or count 72 action cells as
+72 independent tasks. A full formal-query classical baseline may solve all
+supported cases; this is an important limit on possible novelty.
+
+Next gates (not yet completed)
+Complete six-family, 24-base development generator and structural split design.
+Sensitivity analysis for confirmation sample size BEFORE seeing its outputs.
+Freeze 96-base default confirmation inputs, stopping rules and clustered analysis.
+Confirm across a second licensed local model if available within the 20GB cap.
+Run actual transformations/current SQL for E3 and include full verifier/tool costs.
+Finish paper and reproducible package; keep null results and choose a bounded
+empirical conclusion if there is no incremental method benefit.

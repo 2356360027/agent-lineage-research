@@ -1,0 +1,86 @@
+Day 1 — actual local calibration, 2026-10-27
+Working title: When Is Reuse Safe? Separating Semantic Admissibility from Cost in Language Agents
+
+WHAT FINISHED
+32/32 new Qwen2.5-7B-Instruct Q5_K_M generations on the existing local machine.
+2 development bases, 4 actual-cache contexts, 3 declared prices. These are NOT
+32 independent tasks. No confirmation inputs or outputs were used.
+8 new unit tests passed, plus 8 tests of the inherited local modules.
+All 32 outputs passed strict JSON parsing and ended normally. No generation
+retries or failures. An initial offline test was blocked by Windows sandbox
+temporary-directory permission; the authorized normal-permission test passed.
+
+OBSERVED RESULTS
+                           unsafe reuse   useful cheap reuse / opportunities
+M1 joint judgment/action       0                    0/2
+M2 price-visible judgment      0                    1/2
+M3 price-blind judgment         0                    2/2
+M4 independent verifier        0                    2/2
+M5 always recompute            0                    0/2
+M6 classical rules             0                    2/2
+
+Each method has 12 price/action cells. M3 and M4 each have only 4 unique model
+judgments, reused across prices. M4 also incurs its 4 M1 proposal calls. This
+calibration shares those proposals with M1; its logical workflow cost is not
+just the 4 verifier generations. M6 uses narrow rules on the shared formal SQL.
+
+Semantic labels:
+M1 exact labels 11/12; 1 unknown. M2 9/12; it rejected the sufficient SUM+COUNT
+cache at all 3 prices. M3 4/4. M4 2/4; its two negative verdicts were unknown,
+not correctly classified inapplicable. All methods made zero false-applicable
+judgments on the negative contexts in this small batch.
+For both M1 and M2, negative false-applicable counts were 0/2 at each price.
+Thus the observed low-minus-high false-acceptance difference is zero here;
+two bases cannot establish that a price effect is absent in a population.
+
+M1 marked both cheap sufficient caches applicable, yet chose recompute.
+Some correct labels or actions had inaccurate free-text explanations. The
+original outputs remain local. Reasons are not treated as hidden mechanism
+evidence, and their quality is not silently substituted for the frozen labels.
+The frozen judgment_action_conflicts metric only counts negative/unknown label
+followed by reuse; the two positive-label/cheap-recompute policy violations are
+instead visible in action_matches_policy and useful-reuse counts.
+
+HYPOTHESES
+H1: not supported by this calibration; retain the zero difference.
+H2: developmental hint on a positive aggregate cache, not the prespecified
+    negative false-acceptance endpoint; no confirmation claim.
+H3: developmental evidence of avoidable conservative action choice; there was
+    no unsafe action to reduce in this batch. Full E3 execution remains pending.
+H4: no advantage established. M3, independent verification, and classical rules
+    achieved the same observed safe/useful action profile. Classical rules need
+    no model generations on this supported formal subset.
+
+This protocol differs from the old 24-call description-only calibration in
+several respects (actual cache, SQL, prompts, labels). Do not pool runs or claim
+that separation alone explains a difference from that old run.
+
+PERFORMANCE AND REPRODUCIBILITY
+14532 input tokens, 799 output tokens, 0 cached prompt tokens.
+All preflight template-token counts exactly matched provider usage.
+Generation HTTP time total 9.7584 s; median 0.3049 s; max 0.4047 s.
+Cold startup 6.5788 s; owned server interval 17.2614 s including cleanup.
+Total run with model/runtime hashing 23.2705 s. These are wall times, not
+metered GPU activity or electric energy. API cost 0; energy was not measured.
+Prompt lengths <=517 tokens here; do not extrapolate these short responses to
+full SQL/agent trajectories or assume all future tasks have this throughput.
+Owned server shutdown was independently checked: no llama-server remained.
+
+Model/runtime assets were SHA256 verified, including extracted DLL/executable
+bytes against the pinned downloaded archives. Prompt cache was disabled; raw
+usage also reports zero cached tokens. Source/input/output hashes verified.
+Frozen-source rescoring reproduced all score fields exactly. Raw records stay
+under ignored runtime/runs and are not part of the public Git commit.
+
+Prepared: runtime/runs/reuse-separation-day1-prepared-20261027-001
+Manifest SHA256: 2835ebc7bbad02e13c2435570776ecf415037ce2713cf92ee3a9fa24421f208f
+Summary SHA256: e4cfab370fff8ce0852cff853ac0a0899b3e96622a1214070430589f24f40188
+Audit: runtime/runs/reuse-separation-day1-audit-20261027-001.json
+
+NEXT MINIMUM STEP
+Complete a six-family development generator with executable negative witnesses
+and genuinely different held-out structural subtemplates. Implement the full
+M4 proposal-verifier schedule and broaden the classical comparator rather than
+claiming victory over a lookup-sized baseline. Then freeze sample-size analysis
+and confirmation protocol before producing confirmation model outputs.
+Do not revise prompts merely because the cheap-cache failure disappeared.
