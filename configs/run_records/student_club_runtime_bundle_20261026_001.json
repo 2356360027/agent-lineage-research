@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-26",
+  "status": "OFFLINE_SOURCE_AND_EVIDENCE_STAGING_VERIFIED_NOT_LIVE_READY",
+  "previous_commit": "ef50826",
+  "bundle": {
+    "private_output": "runtime/runs/student-club-runtime-staging-20261026-002",
+    "manifest_sha256": "4de0b65f1a09d9918169715f1ca0378cdfbd8948ae0d9205072cdc4f2641a762",
+    "source_and_policy_files": 51,
+    "evidence_files": 77,
+    "copied_evidence": "Pinned database preparation, structure audit, reference results, prospective draft, task source and human-review intake; private only",
+    "tokenizer_assets": "Existing external assets remain SHA256-bound; no new download",
+    "source_scope": "Conservative static runtime/scripts imports, package initializers and explicitly seeded subprocess entrypoints. Not a universal proof of all dynamic execution paths.",
+    "loaded_project_imports": "Frozen verifier rejected any project module outside the copied source inventory",
+    "superseded_staging_preserved": "student-club-runtime-staging-20261026-001 retained; -002 adds source-name traversal validation, without changing the research design"
+  },
+  "verification": {
+    "new_tests": 5,
+    "combined_tests_passed": 95,
+    "frozen_directory_subprocess_verify": "OFFLINE_STAGING_VERIFIED",
+    "input_admission_repeated_on_copied_evidence": true,
+    "real_database_queries": 0,
+    "api_calls": 0,
+    "new_tests_cover": ["Transitive static import closure", "Missing and relative imports refused", "Traversal refused", "Real closure includes worker modules but excludes unrelated dirty module", "Existing/outside output refused", "Wrong manifest refused before input/counter loading"]
+  },
+  "resources": {"api_calls": 0, "api_cost_cny": 0, "new_weight_downloads": 0},
+  "remaining": ["Owned hard-timeout live launcher with fresh fixed-batch approval", "Read-only audit and unfilled independent semantic review export", "Final executable package and failure tests", "Fresh budget approval and hidden local credential input"],
+  "github_remote_sync_verified": false,
+  "research_conclusion": "Reproducibility infrastructure only. No new model effects, semantic labels or efficacy evidence."
+}
