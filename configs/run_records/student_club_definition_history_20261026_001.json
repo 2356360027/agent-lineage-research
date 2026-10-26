@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-26",
+  "status": "OFFLINE_DEFINITION_HISTORY_TESTED_NOT_LIVE_BATCH_READY",
+  "module_version": "student-club-definition-history-offline-v1",
+  "source_sha256": "29efbe47980ee6cade98c3699feeeb5198b5c0fe2136aa4d195b3afc3ebeb4bc",
+  "test_sha256": "fc30346119896e57266989d539db6c734a04398eceba04d9261e109899ca035c",
+  "changes": [
+    "Prospective job validated exactly against the existing diagnostic design; no changes to the frozen offline draft.",
+    "Initial visible definition and revisions preserved from original raw native response text, with append-only event links and timestamps.",
+    "Raw response journaled before parsing. Malformed output, reused IDs and horizon violations stop without automatic retry.",
+    "Each action links to its latest genuinely earlier definition. Revisions never relabel earlier actions. Definitions after any tool observation marked post_result.",
+    "Ordinary workflow has no elicited definition and no inferred definition from SQL.",
+    "Definition protocols reconstruct a new action context after the first response; this intervention is explicit, not claimed to be one uninterrupted model conversation.",
+    "Revisions consume existing action-generation slots, not extra tool attempts. Four-action-generation horizon preserved."
+  ],
+  "verification": {
+    "new_tests": 10,
+    "combined_tests_passed": 28,
+    "command": "python -B -X utf8 -m unittest tests.test_student_club_definition_history tests.test_student_club_diagnostic_design tests.test_student_club_reference tests.test_subset_cache_witnesses tests.test_student_club_readonly -v",
+    "initial_test_failure": "One of ten tests initially failed because the duplicate-field fixture attempted replacement in an escaped outer JSON string and did not actually introduce a duplicate. The fixture now explicitly sets the inner argument string with duplicate keys. Parser behavior was not relaxed; all 28 combined tests subsequently passed.",
+    "coverage": ["All twelve synthetic conditions retain combined maxima of 56 generations and 36 tool observations", "Exact wrong-definition text preserved without gold correction", "Before/after observation revision provenance and earlier-action links", "Ordinary no-definition branch", "Duplicate keys, NaN, extra text, truncated/multiple-choice envelopes rejected", "Generation exhaustion and reused call IDs rejected", "Bounded observation IDs and mutated jobs rejected", "Journal write failure stops; sealed journal integrity verifies"],
+    "scope": "Synthetic local software tests, not model research results"
+  },
+  "resources": {"api_calls": 0, "api_cost_cny": 0, "real_dataset_queries": 0},
+  "limitations": [
+    "Logical requests are not provider-ready payloads. No transport, tokenizer or billing parity is established for the new definition tools.",
+    "Caller must authenticate public source inputs and observations and seal the journal. This state machine alone is not an execution authority or a provenance attestation.",
+    "No semantic grading, causal inference or automatic A/B/C label is performed.",
+    "Definition elicitation and revision affordances can change behavior; comparisons with ordinary workflow are protocol comparisons, not passive measurements."
+  ],
+  "remaining": ["Bound source/cache admission and injected complete runner", "Scripted end-to-end failure and exposure checks", "New native wire rendering and token accounting", "Freeze batch, verify current prices and obtain fresh paid approval"],
+  "github_remote_sync_verified": false
+}
