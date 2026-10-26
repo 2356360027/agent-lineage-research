@@ -1,0 +1,41 @@
+{
+  "date": "2026-10-26",
+  "previous_goal_turn": "PROGRESS: afe5db9 connected full injected definition/revision/read-only workflow and added end-to-end software checks",
+  "status": "PINNED_INPUTS_VERIFIED_NATIVE_WIRE_CONVERSION_TESTED_NOT_PAID_READY",
+  "input_admission_version": "student-club-pinned-input-admission-v1",
+  "native_wire_version": "student-club-native-wire-offline-v1",
+  "actual_local_input_check": {
+    "status": "PINNED_DEVELOPMENT_INPUTS_VERIFIED_ONLY",
+    "data_seal_sha256": "be4a94f661392566dacda976dd3bdc2f478448297b5d9b04e7cf3a0149f66be4",
+    "structure_seal_sha256": "b244e5279fbb17a51cd08319f4705d59a3dfe86312534079c2a48b336f1db601",
+    "reference_seal_sha256": "87f7a03c676893c157a1bd87fb88da086c3559107b039373904e88c694000f84",
+    "draft_seal_sha256": "5b4d0631300bad7bc85cd979a3744da5db80e89560f3c21ddb4dc6bfb2fc3d34",
+    "database_sha256": "eb89bcfe97eefa386a27904ec5aa15159811a7eac894ec659a36e48fa9f76b77",
+    "task_sha256": "baefe2ca4fbab86c000df72aad9eaa563f7d422e425af2cbff071f656ea4eea8",
+    "public_input_sha256": "186d324c1e5fa55334b1758b10e20029bf63feee789e59e11708cf056f4f0c33",
+    "cache_sequence_sha256": "e1ac985972b0cbaaff137a69c42ead744ed040407ebb3b62f28c97d5df9f872a",
+    "checks": ["All four pinned manifests and their complete contents", "Current and archived review receipt hashes match the reference plan", "Human process confirmation plus later admission supplement", "Current/historical question and evidence, SQL and database bindings", "All four reference responses are complete typed scalar counts and agree with the sealed summary", "Only historical scalar result promoted to cache; current answer retained separately for private scoring"],
+    "scope": "One researcher-paired development case on the legacy snapshot; not corrected benchmark certification or independent reviewer identity verification"
+  },
+  "wire_checks": [
+    "Definition request uses isolated record_definition schema and preserves request-first blinding",
+    "Action context contains exact own-definition text rather than gold contract",
+    "Original assistant argument strings and tool observations preserved through revisions",
+    "Ordinary workflow does not acquire a definition or revision schema",
+    "Generation horizon, native function schemas, nonterminal assistant/result pairs and call IDs structurally validated",
+    "Canonical serialization prevents disk reload from changing nested schema order"
+  ],
+  "verification": {
+    "new_tests_passed": 8,
+    "combined_tests_passed": 43,
+    "command": "python -B -X utf8 -m unittest tests.test_student_club_input_admission tests.test_student_club_native_wire tests.test_student_club_diagnostic_loop tests.test_student_club_definition_history tests.test_student_club_diagnostic_design tests.test_student_club_readonly tests.test_student_club_reference tests.test_subset_cache_witnesses -q",
+    "actual_admission_invoked": true,
+    "database_queries_by_admission": 0,
+    "tests_are_model_evidence": false
+  },
+  "resources": {"api_calls":0,"api_cost_cny":0,"real_dataset_queries":0},
+  "remaining": ["New schema-aware reference tokenizer rendering and per-call accounting", "Owned-history transport adapter and failure/no-retry checks", "Current official model/endpoint/pricing verification", "Freeze source and full batch accounting, prepare independent semantic review, obtain fresh paid approval"],
+  "warnings": ["Wire conversion is not a transport, authorization or provenance attestation", "Pinned input loader returns a PRIVATE operator packet: never pass its private scoring or review data to the model", "Existing native adapters/counters reject this new profile and must not be bypassed"],
+  "github_remote_sync_verified": false,
+  "research_conclusion": "No new model evidence or method gain established; next target remains the fixed developmental diagnostic, not an expanded efficacy experiment"
+}
