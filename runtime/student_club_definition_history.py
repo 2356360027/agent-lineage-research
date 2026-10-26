@@ -13,6 +13,9 @@ from runtime.student_club_diagnostic_design import build, bind_definition, canon
 
 VERSION = 'student-club-definition-history-offline-v2-byte-cap'
 DEFINITION_NAMES = {'record_definition', 'revise_definition'}
+INTERFACE_INSTRUCTION = ('Return exactly one offered function call, with no separate text. '
+    'record_definition and revise_definition only record your visible task description; '
+    'they do not execute database queries or other external tools.')
 
 
 def definition_tool(name):
@@ -132,9 +135,7 @@ class DefinitionHistory:
         request = {'phase': self.phase, 'generation': self.generations,
             'action_generation': self.action_generations, 'context': deepcopy(context),
             'messages': deepcopy(self.messages), 'tools': tools,
-            'interface_instruction': ('Return exactly one offered function call, with no separate text. '
-                'record_definition and revise_definition only record your visible task description; '
-                'they do not execute database queries or other external tools.'),
+            'interface_instruction': INTERFACE_INSTRUCTION,
             'inference_authorized': False, 'provider_payload_validated': False}
         self.allowed = set(names)
         self.request_event = self._event('generation_requested', request)

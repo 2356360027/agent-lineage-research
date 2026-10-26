@@ -3,11 +3,39 @@ from copy import deepcopy
 import json
 import unittest
 
-from runtime.student_club_native_wire import payload
+from runtime.student_club_native_wire import payload, validate_wire
 from tests.test_student_club_definition_history import make, response
 
 
 class Tests(unittest.TestCase):
+    def test_reverse_validation_for_all_phases(self):
+        for protocol in ('ordinary','request_first','catalog_first'):
+            h,_=make(protocol)
+            request=h.begin()
+            self.assertEqual(validate_wire(payload(request)),request)
+            if protocol!='ordinary':
+                h.accept(response('record_definition','own definition'))
+                request=h.begin()
+                self.assertEqual(validate_wire(payload(request)),request)
+            for i in range(3):
+                h.accept(response('run_sql','SELECT 1',f'sql{i}'))
+                h.observe(f'sql{i}','{"tool_observation":{}}')
+                request=h.begin()
+                self.assertEqual(validate_wire(payload(request)),request)
+
+    def test_reverse_validation_rejects_wire_tampering(self):
+        h,_=make('ordinary');wire=payload(h.begin())
+        for mutate in (
+            lambda x:x.update(model='other'),lambda x:x.update(temperature=False),
+            lambda x:x.update(max_tokens=513),lambda x:x.update(stream=True),
+            lambda x:x.update(tool_choice='auto'),lambda x:x.update(extra=1),
+            lambda x:x['messages'][0].update(content='other'),
+            lambda x:x['messages'][1].update(content='{"a":1,"a":2}'),
+            lambda x:x['messages'].append({'role':'user','content':'extra'}),
+            lambda x:x['tools'][0]['function'].update(strict=False)):
+            bad=deepcopy(wire);mutate(bad)
+            with self.assertRaises(ValueError):validate_wire(bad)
+
     def test_definition_blinding_and_exact_own_text_in_action(self):
         h,_=make('request_first'); first=h.begin(); before=deepcopy(first)
         p=payload(first)
