@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-26",
+  "status": "EVENT_REPLAY_AND_UNFILLED_REVIEW_PACKET_COMPONENTS_TESTED",
+  "previous_commit": "d2d9e00",
+  "changes": [
+    "Reconstruct definition/history events from retained original responses and observations; compare derived requests, definitions, revisions and action links instead of trusting edited summaries.",
+    "Preserve exact initial/revised definition text, raw-response linkage and genuinely later issued SQL. Event replay does not certify SQL execution, billing, archive authenticity or semantic correctness.",
+    "Require all twelve conditions before constructing review drafts. Invalid model outputs stay in coverage; unfinished or failed histories are refused rather than scored as correct or removed.",
+    "Build two unfilled reviewer packets. Stage A shows current task and exact initial definition only; Stage B contains preceding definitions and subsequent issued programs and must be withheld until both Stage A reviews are locked.",
+    "Keep condition mapping and coverage private; ordinary workflows without elicited definitions remain unassessed. Exact model wording can reveal condition, so masking is partial rather than guaranteed blinding."
+  ],
+  "verification": {
+    "new_tests": 7,
+    "combined_tests_passed": 102,
+    "integration": "Actual journals produced by scripted twelve-cell batch successfully replayed into 8 initial-definition items and 8 linked-program items; zero model calls and no human labels",
+    "tampering_cases": ["Operator-replaced definition", "Action linked to later/nonexistent definition", "Missing event", "Missing condition", "Incomplete or failed history"],
+    "command": "python -B -X utf8 -m unittest tests.test_student_club_review_packets tests.test_student_club_runtime_bundle tests.test_student_club_native_batch tests.test_student_club_native_transport tests.test_student_club_native_accounting tests.test_student_club_input_admission tests.test_student_club_native_wire tests.test_student_club_diagnostic_loop tests.test_student_club_definition_history tests.test_student_club_diagnostic_design tests.test_student_club_readonly tests.test_student_club_reference tests.test_subset_cache_witnesses tests.test_native_trajectory_adapter tests.test_native_trajectory_counter -q"
+  },
+  "resources": {"api_calls": 0, "api_cost_cny": 0, "real_dataset_queries": 0, "new_human_ratings": 0},
+  "remaining": ["Bind event replay to independently verified full API/accounting/tool and batch archives", "File export with Stage A lock/release enforcement", "Owned-timeout paid launcher and final source freeze", "Fresh paid approval and hidden local key input"],
+  "github_remote_sync_verified": false,
+  "research_conclusion": "Software validation only. No evidence yet for cache-induced semantic drift or improvement beyond strong baselines."
+}
