@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-26",
+  "status": "FIXED_BATCH_DRIVER_SCRIPTED_TESTED_NOT_AUTHORIZED_FOR_LIVE_USE",
+  "previous_commit": "1f1adc1",
+  "implementation": {
+    "module": "runtime.student_club_native_batch",
+    "task_pairs": 1,
+    "dependent_conditions": 12,
+    "max_model_calls": 56,
+    "max_tool_attempts": 36,
+    "max_seconds": 600,
+    "proposed_ceiling_micro_cny": 1100000,
+    "automatic_retries": false,
+    "same_output_resumption": false,
+    "independent_confirmation": false
+  },
+  "verification": {
+    "new_batch_tests": 7,
+    "combined_tests_passed": 90,
+    "full_scripted_replay": {"response_callbacks": 56, "synthetic_readonly_tool_attempts": 36, "real_model_calls": 0},
+    "failure_cases": ["Transport timeout with uncertain billing reserve", "Invalid model action retained without replacement while other cells continue", "Input token mismatch stops whole batch", "Late response accounted but no new cell dispatched", "Tool archive failure preserves partial files and stops", "Changed plan rejected", "Conditional budget violation rejected before output"],
+    "command": "python -B -X utf8 -m unittest tests.test_student_club_native_batch tests.test_student_club_native_transport tests.test_student_club_native_accounting tests.test_student_club_input_admission tests.test_student_club_native_wire tests.test_student_club_diagnostic_loop tests.test_student_club_definition_history tests.test_student_club_diagnostic_design tests.test_student_club_readonly tests.test_student_club_reference tests.test_subset_cache_witnesses tests.test_native_trajectory_adapter tests.test_native_trajectory_counter -q",
+    "real_input_plan_sha256": "be80f8b200fdac62e0cf9c2688164a50a15dc62af9fce01596ea297596038f35",
+    "actual_initial_reference_tokens": 9732,
+    "conditional_micro_cny_bound": 969736,
+    "rates_micro_cny_per_token": [2, 8],
+    "pricing_source_receipt": "configs/run_records/student_club_native_accounting_20261026_001.json",
+    "provider_prompt_parity_verified": false,
+    "full_horizon_fit_guaranteed": false,
+    "paid_approval": false
+  },
+  "resources": {"api_calls": 0, "api_cost_cny": 0, "real_dataset_queries": 0},
+  "remaining": ["Complete executable source freeze and owned timeout launcher", "Independent semantic-review export", "Fresh fixed-batch paid approval and hidden local credential input"],
+  "github_remote_sync_verified": false,
+  "research_conclusion": "Software and real-input admission checks only; no new model-behavior evidence or method-efficacy claim"
+}
