@@ -11,7 +11,7 @@ from datetime import datetime, timezone
 from runtime.native_action_interface import _load, parse_native_response_v2, tool_definitions
 from runtime.student_club_diagnostic_design import build, bind_definition, canonical, sha
 
-VERSION = 'student-club-definition-history-offline-v1'
+VERSION = 'student-club-definition-history-offline-v2-byte-cap'
 DEFINITION_NAMES = {'record_definition', 'revise_definition'}
 
 
@@ -190,7 +190,7 @@ class DefinitionHistory:
 
     def observe(self, call_id, content):
         if (self.state != 'AWAIT_OBSERVATION' or call_id != self.pending['call_id']
-                or type(content) is not str or not content or len(content.encode()) > 1024):
+                or type(content) is not str or not content or len(content.encode()) > 1048576):
             raise ValueError('Expected bounded observation for exact pending call')
         self._event('tool_observation', self.pending | {'content': content,
             'observation_authenticated_here': False})

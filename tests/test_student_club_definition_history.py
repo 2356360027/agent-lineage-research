@@ -138,11 +138,20 @@ class Tests(unittest.TestCase):
 
     def test_bad_observations_and_mutated_job_rejected(self):
         h, records = make('ordinary'); h.begin(); h.accept(response('run_sql', 'SELECT 1'))
-        for call_id, content in [('wrong', '{}'), ('c1', 'x'*1025), ('c1', '')]:
+        for call_id, content in [('wrong', '{}'), ('c1', 'x'*1048577), ('c1', '')]:
             with self.assertRaises(ValueError): h.observe(call_id, content)
         self.assertFalse(events(records, 'tool_observation'))
         job = deepcopy(build(common())['jobs'][0]); job['price'] = 0
         with self.assertRaises(ValueError): DefinitionHistory(common(), job, lambda *a: None)
+
+    def test_recording_byte_guard_is_not_a_token_counter(self):
+        h, records = make('ordinary'); h.begin(); h.accept(response('run_sql', 'SELECT 1'))
+        text = json.dumps({'tool_observation': {'text': '中文'*300}}, ensure_ascii=False)
+        self.assertGreater(len(text.encode()), 1024)
+        h.observe('c1', text)
+        self.assertEqual(events(records, 'tool_observation')[0]['value']['content'], text)
+        # The outer loop must separately apply its actual tokenizer policy.
+        self.assertEqual(h.state, 'READY')
 
     def test_journal_failure_stops_and_sealed_round_trip(self):
         h, records = make()

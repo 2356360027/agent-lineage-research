@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-26",
+  "status": "INJECTED_FULL_WORKFLOW_TESTED_NOT_LIVE_BATCH_READY",
+  "previous_turn_classification": "progress: committed an offline definition provenance state machine and tests in 9b0b4c2",
+  "changes": [
+    "Added injected complete workflow joining the prospective diagnostic design, visible-definition history and fixed column-scoped read-only session.",
+    "Initial session checks exact availability, price, snapshot, budget, policy and historical scalar-cache shape/SQL fingerprint. These checks do not replace sealed-source admission.",
+    "Raw callback and tool results are journaled before parsing, deadline checks and exposure admission. Revisions consume action generations without tool dispatch.",
+    "Session transitions, unavailable-cache exposure, complete-or-oversize observation policy and terminal generation limits enforced.",
+    "Definition history v2 separates its 1MiB recording byte guard from the outer 1024-token observation limit; v1 incorrectly imposed an additional 1024-byte restriction. Prior commit and receipt retained."
+  ],
+  "verification": {
+    "command": "python -B -X utf8 -m unittest tests.test_student_club_diagnostic_loop tests.test_student_club_definition_history tests.test_student_club_diagnostic_design tests.test_student_club_readonly tests.test_student_club_reference tests.test_subset_cache_witnesses -q",
+    "tests_passed": 35,
+    "new_loop_tests": 6,
+    "new_byte_guard_test": 1,
+    "synthetic_grid": {"conditions":12,"scripted_generation_callbacks":52,"synthetic_tool_attempts":24,"model_api_calls":0},
+    "coverage": [
+      "Ordinary, request-first and catalog-first protocols crossed with availability and price; exact declared charges and unchanged synthetic database",
+      "Raw initial and revised definitions link to genuinely later actions; unavailable-cache observations never expose rows",
+      "Malformed responses and callback failures retained without retry",
+      "Late response retained without tool dispatch",
+      "Injected state drift and unavailable-cache leak detected before exposure",
+      "Oversized observation withheld entirely with explicit status while full private result remains",
+      "Wrong historical SQL cache binding rejected before generation",
+      "Valid larger UTF-8 observations are not confused with token overflow; separate byte cap remains"
+    ],
+    "initial_test_failure": "The first loop-test run included six imported old fixture tests and one failing assertion expecting session.close() to reject injected balance drift. Inspection showed close seals bookkeeping, not trajectory validity. The loop had already rejected drift before exposure. The test now verifies this failure record and preserves the mismatched bookkeeping without repair; importing the fixture module avoids collecting duplicate tests.",
+    "limits": "Software tests use scripted responses, synthetic databases and dummy observation counters. They do not establish actual tokenizer parity, model behavior, fee bounds or a causal effect."
+  },
+  "resources": {"api_calls":0,"api_cost_cny":0,"real_dataset_queries":0},
+  "remaining": [
+    "Authenticate task/cache inputs against private sealed reference and review receipts in prospective batch admission",
+    "Adapt native wire schemas, token rendering and guarded transport for definition/revision stages",
+    "Freeze prospective source, runtime, prompts and full accounting with verified current prices",
+    "Obtain fresh bounded paid approval and safely collect the new developmental model batch"
+  ],
+  "interpretation": "No new model evidence for or against task-interpretation drift; no improvement over strong baselines established. One task pair remains development-only.",
+  "github_remote_sync_verified": false
+}
