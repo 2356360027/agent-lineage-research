@@ -1,0 +1,125 @@
+Six-family data and comparison matrix — 2026-10-27
+Status: OFFLINE CANDIDATE VERIFIED; no new model generations in this step.
+
+Data construction
+24 development bases = 6 families x 2 structural templates x 2 database instances.
+96 confirmation candidates = 6 families x 2 DIFFERENT templates x 8 instances.
+Each base has sufficient/lossy historical-query outputs: 48 + 192 = 240 contexts.
+All are researcher-constructed formal SQL tasks. The sufficient historical
+query is an explicit synthetic positive control; it is NOT a claim about what
+a natural agent would previously have cached. No future target answer is added
+to a history result; every cached row is obtained by actually executing H.
+
+Structural split
+Entity projection:
+  development: global and per-group entity counts after non-key projection;
+  held candidate: filtering after the cache; composite rather than single keys.
+NULL aggregation:
+  development: global and grouped ordinary AVG;
+  held candidate: weighted rollup of groups; AVG DISTINCT rather than AVG.
+Scope:
+  development: disjoint time ranges and conjunction/disjunction;
+  held candidate: overlapping interval endpoints; missing joint grouping key.
+Group coverage:
+  development: requested group count and count of threshold-passing groups;
+  held candidate: tied largest groups; groups removed by HAVING rather than LIMIT.
+Join multiplicity:
+  development: semijoin entity count and entity-weight sum;
+  held candidate: anti-join membership and intersection of two memberships.
+Ranking:
+  development: global maximum IDs and maximum tie cardinality;
+  held candidate: top-k WITH ties and partitioned maxima.
+
+The conceptual families are not unseen domains. Instances within a template
+use controlled scaling/replication and are correlated; there are only 12
+confirmation structural clusters, not 96 independent semantic mechanisms.
+The pair definitions, counts, and all generated inputs are fixed before any
+of these model outputs exist. They are still called candidates because the
+complete runner, classical comparator, analysis and final model settings must
+be frozen together before starting confirmation inference.
+
+Actual verification performed
+- 120 negative cache pairs are identical across two legal database worlds.
+- Their requested current outputs differ in all 120 cases.
+- 120 sufficient-cache transforms match Q in BOTH corresponding worlds.
+- 240 Q/world values match an independent Python row/set/Fraction oracle.
+- 24 positive rules additionally checked on empty and all-NULL score fixtures
+  where applicable, plus 768 fixed-seed random legal worlds.
+- Primary keys, STRICT types, numeric bounds and foreign keys are enforced.
+- Transform column names/order and values are checked; numeric tolerance is
+  fixed at abs=1e-12, rel=1e-12. Missing values never become invented zeros.
+- All 240 public input hashes are unique. No audit/world/answer/transform code
+  is provided to the model. Exact input duplicates are rejected.
+These finite checks alone are NOT a universal-equivalence proof. Sufficient
+controls also have stated classical rules and disclosed preconditions.
+
+Full method matrix, replacing the special Day-1 M4 sharing pattern
+For each cache context:
+M1: joint labels/actions at prices 1,10,20 -> 3 physical calls.
+M2: price-visible label at prices 1,10,20 -> 3 physical calls.
+M3: one price-hidden label -> 1 call, one judgment shared across prices.
+M4: separate fresh verification of EACH corresponding M1 proposal -> 3 calls.
+M4 receives only the candidate label, not candidate action/reason/price. Its
+logical workflow is proposal+verification; sharing the stored M1 output for
+evaluation does not erase its charge. All use the same public query/cache.
+M5 always recomputes. M6 must be classical planner/rules with correct fallback,
+not the positive oracle. These deterministic baselines need no model generation.
+
+Development: 480 physical generations, with complete-base batches 200/200/80.
+Confirmation per model: 1920 physical generations, 9x200 + 120.
+Each base is kept entirely in a batch, including verifier dependencies.
+Price-only byte invariance and M2/M3 price-visibility-only invariance verified.
+Label/action order is balanced across sufficient and insufficient contexts.
+Block/random schedule uses a fixed seed, independent of results and file order.
+No development or confirmation model batch has been launched in this step.
+
+Classical baseline status
+Existing Calcite 1.40.0 HEP/Volcano code and previous dependency records were
+located. The old result is not substituted for this new task suite. A public
+schema/query/cache adapter is implemented: no original database rows, oracle
+outputs, or known transforms are included. CHECK/range/FK constraints are NOT
+yet represented in Calcite metadata and this is explicitly marked.
+The generic upstream SQL-to-relational adapter and its new execution check are
+still required. Do not call exported input JSON a completed Calcite reproduction.
+
+Pre-confirmation sample-size sensitivity
+Normal approximation for a paired binary difference uses discordance q:
+SE ~ sqrt(q / n_effective), assuming zero true difference for the width grid.
+n_effective ~ n / (1+(m-1)*rho), where m=8 bases per confirmation template.
+With n=96, q=0.25:
+  assumed rho=0:    effective n~96.0; 95% half-width~0.100; 80%-power effect~0.143.
+  assumed rho=0.10: effective n~56.5; half-width~0.130; effect~0.186.
+  assumed rho=0.25: effective n~34.9; half-width~0.166; effect~0.237.
+  assumed rho=0.50: effective n~21.3; half-width~0.212; effect~0.303.
+These are assumption-based planning approximations, not observed effect sizes,
+exact power, or a guarantee. No confirmation output was used. Keep the planned
+96 bases for now and state that small effects may remain unresolved; final
+size decision must be frozen with the main protocol, never changed after peeking.
+
+Statistics implementation
+Paired rows use the frozen expected base list; wholly missing bases cannot
+silently disappear. Unknown, invalid and missing labels remain separate and
+yield worst-case bounds on the false-acceptance difference. Hierarchical
+resampling gives equal family/template weights, then resamples bases within
+templates. Its interval is explicitly a resampling sensitivity band for these
+purposive templates, not guaranteed population coverage. An all-zero band is
+flagged and cannot justify a zero-error/equivalence assertion.
+
+Engineering history before model inference
+An offline schedule-order test found dependence on input list order; fixed by
+canonicalizing cache contexts before randomization, then all 18 tests passed.
+After candidate archive creation, review strengthened the paired scorer to
+require planned bases, including a regression for both price cells missing.
+The candidate archive's original source is unchanged; its data and sensitivity
+grid are unaffected. The current stronger scorer will be frozen in the actual
+analysis package. This archive is not represented as final preregistration.
+
+Local archive
+runtime/runs/reuse-six-family-candidate-20261027-001
+Summary SHA256: d3e36a3517ec2b0ea2d68834dccc6f5c3a12f4266b06dd6e67cf8d8f48c455a5
+Archive index SHA256: e852e84e3ea1217cffd50c862a89cc56ebc111421876c6db497a55440a839015
+24 listed files verified. Public input digests:
+  development: a9d92ea9d427058b75e20f813201c7112a83f2ec87ef601dddcd32c3e5237100
+  confirmation candidate: 5a2964adbf052bad02f586ee4b2fc6bfe18c4e3a3a95eb79b905261c66628e65
+Raw constructed databases/records remain local. Generator, tests, and summary
+are publishable; original BIRD snapshots and human responses are untouched.

@@ -1,0 +1,28 @@
+{
+  "status": "METADATA_CHECKED_NOT_DOWNLOADED_NOT_EXECUTED",
+  "selected_before_confirmatory_results": true,
+  "reason": "Different model family, 7B instruction model, ungated Apache-2.0 metadata, within local 16GB GPU and 20GB new-weight budget. Not selected based on study outcome performance.",
+  "upstream": "mistralai/Mistral-7B-Instruct-v0.3",
+  "current_upstream_revision_at_check": "c170c708c41dac9275d15a8fff4eca08d52bab71",
+  "upstream_revision_used_by_quantizer": "NOT_ESTABLISHED",
+  "artifact_repo": "bartowski/Mistral-7B-Instruct-v0.3-GGUF",
+  "artifact_revision": "61fd4167fff3ab01ee1cfe0da183fa27a944db48",
+  "artifact_is_official_upstream_release": false,
+  "filename": "Mistral-7B-Instruct-v0.3-Q5_K_M.gguf",
+  "bytes": 5136175328,
+  "sha256": "0374072546aaf1257d1e34610edb11b691730d8ef7d44b5629693a2dd8e8d472",
+  "license_metadata": "apache-2.0",
+  "gated": false,
+  "quantizer_declared_llama_cpp_version": "b2965",
+  "quantizer_declared_imatrix": true,
+  "planned_inference_runtime": "existing llama.cpp b11850, not yet tested with this artifact",
+  "compatibility_caution": "Quantizer card says no system prompt; current official upstream template accepts an initial system message. Inspect the pinned GGUF template and preserve all instruction text. Do not silently drop the system contract. This third-party quant is not asserted bit-equivalent to the current upstream revision.",
+  "remaining_checks": ["pinned-byte download and SHA256", "embedded template/metadata inspection", "bounded local format/throughput check using development-only data", "VRAM usage and exact prompt token accounting"],
+  "sources": [
+    "https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.3",
+    "https://huggingface.co/api/models/mistralai/Mistral-7B-Instruct-v0.3",
+    "https://huggingface.co/bartowski/Mistral-7B-Instruct-v0.3-GGUF",
+    "https://huggingface.co/api/models/bartowski/Mistral-7B-Instruct-v0.3-GGUF?blobs=true",
+    "https://huggingface.co/bartowski/Mistral-7B-Instruct-v0.3-GGUF/blob/61fd4167fff3ab01ee1cfe0da183fa27a944db48/Mistral-7B-Instruct-v0.3-Q5_K_M.gguf"
+  ]
+}

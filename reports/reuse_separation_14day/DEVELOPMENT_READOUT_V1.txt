@@ -1,0 +1,88 @@
+Six-family DEVELOPMENT readout — 2026-10-27
+
+480/480 new local generations, 24 bases, 12 structural templates, six families.
+No missing/invalid/truncated response, no automatic retry, no paid API.
+Frozen-source scoring repeated exactly; every actual prompt reconstructed and verified.
+These are E1 labels and E2 decisions, NOT E3 agent execution success rates.
+
+SEMANTIC LABELS: counts out of 24 negative / 24 positive caches at each price.
+Method price false-applicable negative-unknown positive-applicable
+M1  1 13/24  1/24 19/24
+M1 10 12/24  1/24 18/24
+M1 20 15/24  0/24 18/24
+M2  1  8/24  1/24 20/24
+M2 10  5/24  1/24 19/24
+M2 20  2/24  0/24 10/24
+M3  1 14/24  0/24 20/24
+M3 10 14/24  0/24 20/24
+M3 20 14/24  0/24 20/24
+M4  1 13/24  1/24 19/24
+M4 10 12/24  1/24 18/24
+M4 20 15/24  0/24 18/24
+
+LOW-PRICE ACTIONS (reuse=1, recompute=10):
+Method unsafe-reuse/24-negative useful-reuse/24-positive
+M1 9/24 17/24
+M2 8/24 20/24
+M3 14/24 20/24
+M4 13/24 19/24
+M5 0/24 0/24
+M6 0/24 18/24
+
+H1: false-applicability low-minus-high price contrast.
+M1: -0.083333; template resampling band [-0.20833333333333334, 0.0]; unresolved bounds [-0.08333333333333333, -0.041666666666666664].
+M2: +0.250000; template resampling band [0.08333333333333333, 0.4583333333333333]; unresolved bounds [0.25, 0.2916666666666667].
+M2 shows the hypothesized direction in development; M1 shows the opposite sign.
+M2 also rejects more SUFFICIENT caches at high prices. Thus lower false acceptance
+at high price is not a free improvement in semantic discrimination.
+Do not present the more favorable M2 comparison as if M1 corroborated it.
+
+H2: M3 false acceptance is 14/24, versus M2 8/24 at low price.
+The price-isolated method is worse here, with equal useful reuse (20/24).
+M3 invariance across prices is implemented sharing, not a learned property.
+
+H3: at LOW price M3 has 14 unsafe reuses, versus M1 9; useful reuse is 20 vs17.
+Over all prices M1 has 24 unsafe reuses versus M3 14, but this includes
+M1 reusing at tie/high prices despite the stated policy. That total cannot
+prove improved low-price semantic safety. M2 has 8 unsafe reuses overall.
+Controller benefits and semantic classification must remain separate.
+
+H4: M4 labels equal their M1 proposals in 144/144 cells.
+This is observable agreement, not proof of an internal anchoring mechanism.
+M4 low-price unsafe/useful=13/19; M3=14/20. No safety dominance for M3.
+M6 unsafe/useful=0/18; two additional useful reuses from M3 do not erase
+its 14 unsafe reuses. Do not call cheaper wrong decisions efficiency gains.
+Logical M4 includes proposal+verifier costs even though M1 records are shared.
+
+Classical baseline: 48 attempted contexts, 46 planned, two 60-second timeouts.
+18 cache-only rewrites, 18 snapshot matches, 342 stress checks; no value or
+column mismatch. Timeout/missing rewrites remain unknown with recompute fallback.
+This configured coverage is not the strongest theoretically possible SQL optimizer.
+The full process cost, including failed/time-limited attempts, remains in raw logs.
+
+Resource accounting:
+Physical tokens: {'prompt_tokens': 275771, 'completion_tokens': 13172, 'total_tokens': 288943}.
+Prompt token range: [510, 654] (no input truncation).
+Owned service seconds: 189.564032; cold starts [6.595505700097419, 6.613943599979393, 6.100337099982426].
+Generation HTTP seconds: 165.047545.
+New-goal totals: 512/10000 attempts; 206.825432/72000 service seconds.
+Zero new weight downloads in this run. Energy/electricity not measured.
+All three owned model services closed; no background experiment remains.
+
+Decision: keep the 14-day goal active, but do not claim the separation method works.
+Preserve this negative development result. Next: protocol/transport audit, then
+freeze held-out structured confirmation and the independently selected second model.
+No prompt tweaking solely to make M3 win. No new task mining for a positive effect.
+Independent confirmation, model-family replication, E3 and final manuscript remain.
+
+Limitations: two instances per template; purposive templates; formal Q supplied;
+explicitly solicited labels; same-family verifier; quantization; declared costs.
+Resampling bands are not population confidence or proof of zero risk.
+Label-action conflicts are checked, but all free-text justifications are not
+human-semantic-reviewed; do not infer private reasoning from a short basis string.
+
+Manifest SHA256: c1b80963517e2a0cb3524291edd80090a5e66c8610189c8f24a293c08ca5a749
+Summary SHA256: 7e44e4c821e40baea80b8b117b822233796cd32da398dce02baf10df031db6fb
+Main run: runtime/runs/reuse-development-prepared-20261027-001
+Audits: runtime/runs/reuse-development-audit-20261027-001 and -002
+Public aggregate record: configs/run_records/reuse_development_20261027.json

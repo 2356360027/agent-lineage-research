@@ -1,0 +1,98 @@
+Six-family local development protocol — 2026-10-27
+Status: fixed before outcome inspection; not confirmation preregistration.
+
+Frozen archive: runtime/runs/reuse-development-prepared-20261027-001
+Manifest SHA256: c1b80963517e2a0cb3524291edd80090a5e66c8610189c8f24a293c08ca5a749
+Candidate data index SHA256:
+e852e84e3ea1217cffd50c862a89cc56ebc111421876c6db497a55440a839015
+
+The executable input, source, decoder, schedule, baseline results and scorer
+were frozen before the first generation. This prose records that specification
+while execution is in progress; no development labels/actions have been read.
+The finished Day-1 calibration is known development evidence, not withheld.
+
+Scope
+24 development bases, six families, 12 structural templates, two instances per
+template. Two cached histories per base; three reuse prices 1/10/20 against
+recompute=10. All public information is byte-identical inside each price pair
+except the price fields. All model methods get the same correct formal Q SQL.
+M1/M2/M4 each have 144 calls; M3 has 48 calls. Total physical generations=480.
+M4 logically includes 144 proposals plus 144 verifications; its proposal is the
+same recorded M1 response and is not cost-free. Each price has its own verifier.
+Only the proposal's admissibility label enters the fresh verifier context.
+M3's label is shared over prices; no independent n or discovered price-invariance.
+M5/M6 use no model calls. No model-proposed transform is executed in E1/E2.
+
+Local execution
+Existing Qwen2.5-7B-Instruct Q5_K_M, llama.cpp b11850 on RTX 5080 16GB.
+All model shards, runtime ZIPs and extracted EXE/DLL contents are verified.
+Temperature=0, seed=20261027, context=4096, max output=256, parallel=1.
+No JSON grammar intervention, no extra warmup call, prompt cache disabled.
+Full-base randomized blocks; 200/200/80 calls. Each batch starts/stops its owned
+loopback service. Service limit 600 seconds per batch, cleanup <=15 seconds.
+Tokenize all planned inputs (including four possible verifier labels) before
+generation. Refuse overflow rather than truncate. Require actual prompt usage
+to match tokenization. Transport/count errors stop; invalid labels remain data.
+Never retry/resume an attempted batch or silently replace a failed example.
+Effect scoring is allowed only when all batches are terminal or a documented
+failure explicitly aborts the unstarted remainder. No mid-run effect stopping.
+
+Analysis denominators
+E1 price contrast: 24 negative-cache base pairs for M1, and separately 24 M2
+pairs. Primary price contrast is 1 minus 20; equal-price condition is auxiliary.
+Report false applicable, correct inapplicable, unknown, invalid, and missing.
+Unknown/invalid/missing do not count as semantic successes. Bounds reassign
+unresolved labels in both unfavorable directions. No dropped bases.
+H2: compare M3 negative-cache labels with M2's corresponding price conditions;
+low price is the principal comparison, high/tie prices are descriptive checks.
+Also retain correct positive-cache applicability to reveal indiscriminate denial.
+E2: report all 144 action cells per method, but the principal low-price safety
+denominator is 24 negative bases and useful-reuse denominator 24 positive bases.
+M3 is compared against M1/M2/M4/M5/M6, not only the weakest observed baseline.
+M4 is the strong model verifier; M6 is the classical structured comparator.
+Known action costs are declared experimental units; missing/abstain are not
+zero-cost successes. Invalid semantic output followed by controller fallback
+is safe routing, not correct semantic understanding.
+Cluster resampling gives equal family and template weights. Bands are for
+the observed purposive templates, not confidence over arbitrary agent tasks.
+Zero-width bands with zero observed errors are not proof of zero risk.
+All current results are developmental and must not become confirmation evidence.
+
+Classical comparator
+Apache Calcite 1.40.0 HEP materialized-view rules AND upstream SubstitutionVisitor,
+followed by a generic complete-bag projection substitution if neither found a
+cache-only rewrite. The fallback examines only H/Q/cache schema, never template
+identity, gold labels, base rows, or the private positive transform.
+Missing rewrite means unknown, not inapplicable. Any unsafe rewrite is scored
+as such; post-selection execution checks do not filter the proposed plans.
+Public Q field names are restored after aggregate normalization. SQLite AVG
+real-valued type is explicitly adapted. PK/nullability are represented; CHECK,
+range and FK metadata currently are not. Coverage is not optimizer completeness.
+Per planner process: 60-second timeout, 768MB JVM heap. Timeout cost is retained.
+Two negative global-AVG cases timed out; no retry or new seed. Recompute fallback.
+18/24 positive contexts accepted; 0/24 negative contexts accepted in this run.
+18 selected rewrites matched the fixed snapshot and all 342 extra checks.
+This is classical execution auditing, not E3 LLM transformation success.
+
+Engineering records preserved before model inference
+preflight-001: Java compile failed (ambiguous Path import), zero planner calls.
+preflight-002: HEP-only adapter, five accepted positive rewrites; incomplete path.
+preflight-003: added upstream SubstitutionVisitor; eight positive rewrites.
+It exposed 38 column-name mismatches in internal AVG aliases (values matched).
+Public-Q field renaming and generic bag projection added before full development.
+development-001: all 48 cases attempted; two timeouts, no rewrite execution errors,
+no stress value or column mismatch. Earlier failed/partial archives untouched.
+
+Strong-baseline and novelty boundary
+Supplying correct formal SQL to every comparator is not NL intent evaluation.
+Positive histories are researcher-constructed controls, not naturally observed
+future-aware caches. Price separation is not a mathematical safety certificate.
+If M4 or M6 matches or dominates M3, do not claim a new superior algorithm.
+If actions differ but applicability labels do not, do not claim semantic drift.
+
+References used for implementation
+https://calcite.apache.org/docs/materialized_views.html
+https://raw.githubusercontent.com/apache/calcite/calcite-1.40.0/core/src/main/java/org/apache/calcite/plan/RelOptMaterializations.java
+https://raw.githubusercontent.com/apache/calcite/calcite-1.40.0/core/src/main/java/org/apache/calcite/rel/rules/materialize/MaterializedViewRules.java
+https://aclanthology.org/2020.emnlp-main.29/
+https://github.com/ggml-org/llama.cpp/blob/b11850/tools/server/README.md
