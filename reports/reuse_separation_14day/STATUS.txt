@@ -157,3 +157,24 @@ cross-machine replication. Latest inference ledger remains4837 attempts.
 Local paper now includes both models, fixed robustness controls and actual E3
 cost limits. Remaining: full numerical traceability, E3 figure, complete local
 paper QA and final goal-requirement audit. No new inference is indicated.
+
+Reproduction release verified on GitHub:8 files, commit
+f61b0d287292761cff9cd77ccac7812378e0085f, tree
+4fa39a5e1a6cf0f6025df0224e0d0c32ef6875b5, branch experiment/reuse-evidence-20261027.
+Each blob, independently reconstructed tree and remote file inventory matched;
+branch head verified. No force push or private/manuscript upload. Local source
+4ba35856805b82bf34bf397c8b5af9c5e094a598. Receipt:
+configs/run_records/reuse_reproduction_public_snapshot_20261027.json.
+
+E3 figure checkpoint (2026-10-27)
+Actual execution figure complete locally: figures/execution-v4 with SVG/PDF,
+600dpi PNG/TIFF, source JSON and rendered QA. All864 logical cells, two models,
+six methods, all prices and all amortization choices retained. Code validates
+counts/coverage/strictly positive finite costs before drawing. Static preflight
+14PASS/0WARN/0FAIL; PNG and independently rendered PDF inspected. v1/v2 TIFF
+failures and v3 layout defect preserved; v4 fixes exports/spacing only, not data.
+FIGURE_EXECUTION_CONTRACT_V1.txt and FIGURE_EXECUTION_LEGEND_V1.txt state the
+descriptive scope. M1–M4 have no successful model-generated cache conversion;
+high final accuracy is obtained through recomputation/fallback, not useful reuse.
+No new scientific experiment or model generation. Full manuscript number
+traceability and final completion audit remain; inference budget unchanged.

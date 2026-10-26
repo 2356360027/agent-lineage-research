@@ -1,0 +1,31 @@
+Final rendered review — 2026-10-27
+
+PASS for this local-draft figure, not journal acceptance or statistical proof.
+Source preflight:14 PASS,0 WARN,0 FAIL. Python/matplotlib only; saved backend.
+PNG and independently rasterized PDF inspected. Labels/axes/legends are readable
+and do not collide; bars sum to24; no missing axes, disappearing zero-count
+categories or clipped titles. Final-correct labels distinguish answer recovery
+from successful cache conversion. All model/method/price combinations retained.
+Cost panel logarithms have strict positive finite guards; zero values are never
+added or shifted. Nearly overlapping amortization markers are deliberately
+offset horizontally; exact values remain in source JSON.
+
+PDF:518.7401733 x524.4094849 points =183 x185mm within renderer precision;
+1333 extractable text characters. SVG:139 text elements; editable text retained.
+Uncompressed TIFF fully decoded at4322 x4370 pixels and600dpi in both dimensions.
+Matplotlib3.10.6/Pillow12.0.0; independent PDF QA used Python pypdfium2 4.30.0.
+The small PDF renderer was installed in a project-isolated tools directory;
+no model/data download, inference or paid API was used.
+
+Revision history retained: v1/v2 compressed TIFF export terminated with a zero-
+byte TIFF after vector/PNG outputs. No score/data change; uncompressed TIFF
+succeeded in v3. Static validator initially misread computed dimensions and
+loop-built vector filenames; explicit dimensions/exports removed ambiguity.
+v3 visual inspection found the upper x-labels colliding with the shared legend;
+v4 increased the gap and made hatched-bar counts legible. Old versions retained.
+
+Statistics: descriptive fixed-subset counts and modeled component means only.
+No uncertainty bars or significance annotations. All864 logical cells included;
+12 bases per model, not864 independent experimental units. Multiple prices and
+cache-use counts are dependent scenarios. No image manipulation or borrowed
+artwork. The figure cannot establish general safe reuse or production latency.

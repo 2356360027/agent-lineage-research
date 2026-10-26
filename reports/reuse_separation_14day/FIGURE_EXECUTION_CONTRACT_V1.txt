@@ -1,0 +1,44 @@
+E3 figure contract — frozen before drawing, 2026-10-27
+
+Conclusion: high final correctness after recomputation is not successful cache
+conversion; the observed component-cost account establishes no model efficiency
+advantage over supplied-query recomputation on these small formal fixtures.
+
+Archetype: quantitative grid, two outcome hero panels above two cost panels.
+Backend: saved Python preference; matplotlib only. Build new panels; inherit
+only journal typography/palette conventions, not an earlier chart's statistics.
+Size: 183 x 185 mm. Editable SVG and PDF (TrueType), 600 dpi PNG/TIFF, preview,
+machine-readable source JSON, source validation and independent visual QA.
+
+a/b: Qwen/Mistral, ALL six methods x ALL three declared prices. Eighteen
+horizontal bars/model, each contains the same 24 contexts (12 base templates x
+sufficient/insufficient cache), not 24 independent semantic mechanisms. Separate
+cache-first correct, correct through recompute/fallback, incorrect final answer,
+and no final answer. Counts sum to24. Cache-first matches on insufficient caches
+must be separately checked; no such matches occur in these sealed data.
+
+c/d: same two models, six methods, all three prices and all three planned
+cache-construction amortization counts (1/10/100 uses). Y=mean modeled seconds
+per logical workflow, logarithmic, strict positive finite guard; no pseudocount.
+These are sums of measured components plus allocated cold-start/cache costs,
+not directly measured production end-to-end latency. Classical JVM startup is
+included. Tiny fixtures and a correct supplied Q favor recomputation.
+
+Field mapping (aggregate records, unchanged):
+groups[method][price].n -> denominator24
+cache_first_correct -> first successful cache-result count
+final_correct - cache_first_correct -> correct via recomputation/fallback
+n - final_correct - no_final_answer -> wrong available final-answer count
+no_final_answer -> unresolved count
+mean_modeled_total_seconds_by_cache_uses[1/10/100] -> positive seconds/cell
+All groups and every amortization field are retained in source JSON. No rows,
+methods, prices, failures or models are filtered; 432 logical cells per model.
+No uncertainty intervals or significance tests: descriptive counts/component
+means from the fixed subset, one decoding configuration, no timing replication.
+Original E1/E2 decision calls are reused and logically charged, not new trials.
+
+Reviewer risks: recovering answers via fallback is not useful reuse; output
+failures are not semantic success; zero observed errors is not universal safety;
+two test-world passes are not a proof of equivalence; declared prices differ
+from measured seconds. Do not imply production speedup or train/test improvement.
+No source artwork, microscopy, image adjustments, generated values or montage.

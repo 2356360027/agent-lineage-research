@@ -1,0 +1,35 @@
+{
+  "backend": "python",
+  "width_mm": 183,
+  "height_mm": 185,
+  "source_sha256": {
+    "reuse_e3_qwen_20261027.json": "0271edab82926ce5adba5b9584a556d7fb037c11b5d21f87ee5b64637d7b634b",
+    "reuse_e3_mistral_20261027.json": "458863b235eb58ac7e9b46343fec5764a6ed132e034db783ec26ace0e46af660"
+  },
+  "logical_cells_before": 864,
+  "logical_cells_after": 864,
+  "excluded_cells": 0,
+  "methods": [
+    "M1",
+    "M2",
+    "M3",
+    "M4",
+    "M5",
+    "M6"
+  ],
+  "prices": [
+    "1",
+    "10",
+    "20"
+  ],
+  "cache_uses": [
+    "1",
+    "10",
+    "100"
+  ],
+  "observations": "12 fixed bases/model, not864 independent tasks",
+  "statistics": "Descriptive counts and recorded component means; no error bars or tests",
+  "image_integrity": "No artwork, no image adjustments, no synthetic plotting values",
+  "validation": "Fixed counts, finite positive cost, all outcomes/prices/amortizations checked",
+  "visual_review": "See separate QA_REVIEW after rendered inspection"
+}

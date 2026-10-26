@@ -1,0 +1,26 @@
+Fig. 2 | Executed outcomes and component-cost accounting
+
+a,b Outcomes for Qwen2.5-7B-Instruct and Mistral-7B-Instruct-v0.3, respectively.
+Each bar retains 24 contexts from 12 fixed bases (one instance per held
+structural template, paired sufficient/insufficient caches). Labels give method
+and declared cache price; recompute price is10. Teal denotes a correct first
+cache result, grey a correct answer through recomputation/fallback, orange an
+incorrect available answer, and purple hatching no final answer. Right labels
+give final-correct counts. M1 jointly judges applicability/action; M2 exposes
+price before judgment and uses a controller; M3 hides price; M4 independently
+verifies a joint proposal; M5 always recomputes; M6 uses classical view rewriting
+or recomputes. M2–M4 share the deterministic controller. Failed model conversions
+are not counted as cache successes merely because fallback recovers the answer.
+c,d Mean accounted seconds per logical workflow for the same models/conditions
+(log scale). Colours indicate declared prices1/10/20; circle/square/triangle
+indicate construction amortization over1/10/100 cache uses. Slight horizontal
+offsets separate overlapping marks, not additional experimental conditions.
+The account includes recorded model requests, validation/execution and fallback,
+classical planner time, allocated cold start and amortized cache construction.
+M5 is not charged for an unused cache. Classical planner timing includes JVM
+startup. The small fixtures and correct supplied current query preclude a
+production-speedup interpretation. Counts and means are descriptive, with no
+error bars, hypothesis tests or independent timing replicates. One frozen
+decoding configuration per model was used; shared decision calls and prices
+are not independent tasks. All432 logical cells per model and all three
+amortization choices are retained. Source data are provided as a Source Data file.

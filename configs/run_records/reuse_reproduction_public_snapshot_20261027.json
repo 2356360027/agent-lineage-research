@@ -1,0 +1,67 @@
+{
+  "status": "VERIFIED_PUBLIC_SNAPSHOT",
+  "date": "2026-10-27",
+  "repository": "2356360027/agent-lineage-research",
+  "branch": "experiment/reuse-evidence-20261027",
+  "commit": "f61b0d287292761cff9cd77ccac7812378e0085f",
+  "tree": "4fa39a5e1a6cf0f6025df0224e0d0c32ef6875b5",
+  "parent": "1899f1f043e1dd00ca2970698e05b2dce969f40a",
+  "local_source_commit": "4ba35856805b82bf34bf397c8b5af9c5e094a598",
+  "files": [
+    {
+      "path": "configs/run_records/reuse_clean_reproduction_20261027.json",
+      "blob_sha": "6213da64699d6330397ded2c157e7dd99ee3e451",
+      "sha256": "2609a863f7c2946bb725c4fef0408a4547c475c350321a6b12c5eede7b7b1c76",
+      "bytes": 5222
+    },
+    {
+      "path": "configs/run_records/reuse_robustness_public_snapshot_20261027.json",
+      "blob_sha": "42fb537d8fc726602f379ddbfc6c9a7e7acb94b3",
+      "sha256": "b97cb0a28c86ecf92a74e21d060ef4bebc1e3fc360d77e9cf20d31e5f7d8e664",
+      "bytes": 1665
+    },
+    {
+      "path": "reports/reuse_separation_14day/REPRODUCTION_ENGINEERING_V1.txt",
+      "blob_sha": "715ccbc2345bb3dccd92f8bdaa32ffe5b2e02a7d",
+      "sha256": "ef3c24af766857a9111a60027ffed293971b25bfbdd6369e288ae797c8e80cde",
+      "bytes": 1647
+    },
+    {
+      "path": "reports/reuse_separation_14day/REPRODUCTION_GUIDE_V1.txt",
+      "blob_sha": "01c1d0206ee851fb3b566d3d0b3b7ca368de1967",
+      "sha256": "c317f596784be77fd7532d2158146ba8f932078f9c7fe896a7cbe3b2443e123e",
+      "bytes": 6417
+    },
+    {
+      "path": "reports/reuse_separation_14day/STATUS.txt",
+      "blob_sha": "c0a6acb8fb2cf724e73bcac3912e96cf2e15df63",
+      "sha256": "63663289c9cd47edf77b546e8092c9bbf0ca829989d72e53e99d2f40d073451a",
+      "bytes": 10581
+    },
+    {
+      "path": "scripts/export_reuse_reproduction.py",
+      "blob_sha": "53148e0e55115001f572e42c58702591965b13f0",
+      "sha256": "b5b720ae4af70398dd78d90eef0cc3d86eddf0ef22e305e6d0b6a3ea2244674f",
+      "bytes": 5042
+    },
+    {
+      "path": "scripts/reproduce_reuse_package.py",
+      "blob_sha": "9f049a9987c9c17a84703888619b44372c183946",
+      "sha256": "18acbd152710b96eb9da524a944c06bb1ff5bb6b75b3f482d23ca5e96c151e4e",
+      "bytes": 10343
+    },
+    {
+      "path": "tests/__init__.py",
+      "blob_sha": "b07fec0f96ea765d344c018e9b78133e809539d9",
+      "sha256": "84667306aceb33054f75147288952b21b3d9172a828670cdd96e3691724dfb35",
+      "bytes": 82
+    }
+  ],
+  "files_count": 8,
+  "blob_hashes_verified": true,
+  "independent_tree_reconstruction_verified": true,
+  "remote_file_inventory_verified": true,
+  "force_push": false,
+  "new_full_manuscript_included": false,
+  "raw_logs_databases_forms_weights_credentials_included": false
+}
