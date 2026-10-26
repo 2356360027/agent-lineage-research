@@ -29,8 +29,8 @@ SELF='scripts/prepare_student_club_runtime.py'
 POLICY='configs/student_club_diagnostic_policy_v1.json'
 SEEDS=(SELF,'runtime/student_club_native_batch.py','runtime/student_club_native_transport.py',
        'runtime/student_club_readonly.py','scripts/run_student_club_diagnostic.py',
-       'runtime/student_club_review_packets.py')
-VERSION='student-club-executable-runtime-bundle-v2'
+       'runtime/student_club_review_packets.py','scripts/manage_student_club_review.py')
+VERSION='student-club-executable-runtime-bundle-v3'
 LIVE_LIMITS=dict(max_calls=56,max_tool_attempts=36,max_seconds=600,outer_worker_seconds=630,
     ceiling_micro_cny=1100000,rates_micro_cny_per_token=[2,8],price_checked_date='2026-10-26')
 

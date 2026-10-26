@@ -1,0 +1,39 @@
+{
+  "date": "2026-10-26",
+  "status": "STAGED_REVIEW_GATE_TESTED_AND_FINAL_PACKAGE_PREFLIGHT_PASSED",
+  "previous_commit": "7d7b8d0",
+  "review_process": {
+    "export_requires": "Complete sealed batch cross-record replay; stopped batches cannot contribute a selected success prefix.",
+    "stage_a": "Reviewer-specific unfilled task-definition forms. No later SQL, final answer, condition mapping or other reviewer answer is distributed.",
+    "locking": "Retain supplied raw bytes even on failed validation. Permit changes only to identity and answer fields. Require complete item coverage, actual timezone-bearing date, self-reported independent judgment and declared assistance scope.",
+    "stage_b": "Generate reviewer-specific unfilled later-program forms only after both Stage A submissions are locked and their externally supplied seals match.",
+    "limitations": ["Self-reports do not verify identity or independence", "Organizational withholding is not filesystem access control", "Exact model text can reveal condition information", "No automatic semantic grading or replacement of missing human judgments"]
+  },
+  "verification": {
+    "new_synthetic_tests_passed": 6,
+    "focused_regression_tests_passed": 24,
+    "coverage": ["Blank forms only", "Both locks before Stage B", "Incomplete original retained without lock", "Model wording edits rejected", "Model-authored judgment scope requires clarification", "Duplicate reviewer codes rejected", "External seal mismatch rejected", "Stopped archive export rejected"],
+    "synthetic_reviews_are_human_evidence": false,
+    "frozen_launcher_preflight": "FROZEN_STUDENT_CLUB_PREFLIGHT_PASSED"
+  },
+  "prepared": {
+    "private_output": "runtime/runs/student-club-diagnostic-prepared-20261026-002",
+    "manifest_sha256": "0f72df5bb2e13ee830d455acc0ee42c8b838b6866a9b64bbc27888397c2b07a8",
+    "source_and_policy_files": 68,
+    "evidence_files": 77,
+    "task_pairs": 1,
+    "dependent_conditions": 12,
+    "max_calls": 56,
+    "max_readonly_tool_attempts": 36,
+    "call_horizon_seconds": 600,
+    "owned_worker_limit_seconds": 630,
+    "conditional_micro_cny_bound": 969736,
+    "client_ceiling_micro_cny": 1100000,
+    "paid_approval_requested_separately": true,
+    "paid_run_started": false,
+    "old_prepared_package_preserved": true
+  },
+  "resources": {"api_calls": 0, "api_cost_cny": 0, "real_dataset_queries": 0},
+  "github_remote_sync_verified": false,
+  "research_conclusion": "No new model effect or method advantage established. The fixed development experiment is prepared for a separately approved run; human scoring remains unfilled."
+}
