@@ -135,7 +135,17 @@ def fingerprints(typed_rows):
             "distinct_rows": len(set(rows)), "duplicate_rows": len(rows)-len(set(rows))}
 
 
-def execute_readonly(db_path, sql, limits=None):
+def execute_readonly(db_path, sql, limits=None, *, allowed_columns=None):
+    # Trusted operator policy, never an argument accepted from an agent.
+    # None preserves the legacy audit behavior; an explicit empty map denies
+    # all table reads. Frozen historical experiment sources are not changed.
+    if allowed_columns is not None:
+        if (type(allowed_columns) is not dict or any(
+                type(table) is not str or not table or type(columns) not in (list, tuple, set, frozenset)
+                or any(type(column) is not str or not column for column in columns)
+                for table, columns in allowed_columns.items())):
+            raise ValueError('Explicit table-to-column allowlist required')
+        allowed_columns = {table: frozenset(columns) for table, columns in allowed_columns.items()}
     limits = dict(LIMITS if limits is None else limits)
     db_path = Path(db_path).resolve()
     base = {"status": "NOT_STARTED", "complete": False, "rows": [],
@@ -157,8 +167,10 @@ def execute_readonly(db_path, sql, limits=None):
         # SQLite's COUNT(*) optimization emits a table read with no column/db name.
         count_only_main_read = database is None and arg2 == "" and arg1 in main_relations
         if action == sqlite3.SQLITE_READ and (database == "main" or count_only_main_read):
-            reads.add((arg1 or "", arg2 or ""))
-            return sqlite3.SQLITE_OK
+            if (allowed_columns is None or (arg1 in allowed_columns
+                    and (arg2 == "" or arg2 in allowed_columns[arg1]))):
+                reads.add((arg1 or "", arg2 or ""))
+                return sqlite3.SQLITE_OK
         if action == sqlite3.SQLITE_FUNCTION:
             name = (arg2 or arg1 or "").lower()
             funcs.add(name)

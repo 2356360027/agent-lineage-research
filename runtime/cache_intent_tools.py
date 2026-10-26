@@ -161,6 +161,10 @@ class ToolSession:
                 audit.hash_file(self.database) != self.expected_db):
             raise ValueError("Database snapshot changed, missing or has sidecars")
 
+    def _execute_sql(self, sql):
+        """Operator-overridable backend; agent arguments cannot select it."""
+        return audit.run_child(self.database, sql)
+
     def _classify(self, name, arguments):
         if type(name) is not str or type(arguments) is not dict:
             return "INVALID_REQUEST", 0
@@ -222,7 +226,7 @@ class ToolSession:
                     result = deepcopy(self.cache)  # Never recompute a missing cache.
                 else:
                     self.sql_calls += 1
-                    result = audit.run_child(self.database, arguments["sql"])
+                    result = self._execute_sql(arguments["sql"])
                 private["backend_result"] = result
                 self._check_database()
                 if result.get("complete") is True:

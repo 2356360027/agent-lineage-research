@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-26",
+  "status": "COLUMN_SCOPED_TOOL_BACKEND_TESTED_NOT_LIVE_BATCH_READY",
+  "previous_goal_turn": "PROGRESS: generated the source-bound 12-trajectory offline diagnostic draft, separating ordinary workflow from request-first and catalog-first observable definitions.",
+  "changes": [
+    "Added trusted-operator allowed_columns keyword to execute_readonly; omitted policy preserves legacy behavior, empty policy denies table reads.",
+    "Added a default SQL backend method to the existing tool environment and a scoped subclass; default delegates to the original worker.",
+    "New student-club worker fixes its allowlist in code; agent SQL arguments cannot override the policy, costs or limits."
+  ],
+  "policy": {
+    "version": "student-club-column-scope-v1",
+    "allowed": {
+      "event": ["event_id", "event_name", "event_date"],
+      "attendance": ["link_to_event", "link_to_member"],
+      "member": ["member_id", "t_shirt_size"]
+    },
+    "enforcement": "SQLite authorizer during preparation, not filtering results after execution",
+    "same_across_conditions": true,
+    "denied_sql_cost": "Admitted SQL attempts are charged 10 declared units even if column authorization denies execution; they consume a tool attempt",
+    "cache_boundary": "The SQL authorizer does not authenticate or filter an operator-provided cache. Future batch admission must bind the cache to the sealed historical count-only result; arbitrary caches are not approved."
+  },
+  "verification": {
+    "new_tests": 6,
+    "first_successful_suite": {"tests":45,"command":"python -B -X utf8 -m unittest tests.test_bird_readonly_audit tests.test_cache_route_symmetric_tools tests.test_student_club_readonly tests.test_student_club_diagnostic_design tests.test_student_club_reference tests.test_subset_cache_witnesses -q"},
+    "second_successful_suite": {"tests":49,"command":"python -B -X utf8 -m unittest tests.test_cache_intent_tools tests.test_native_symmetric_loop tests.test_native_symmetric_batch -q"},
+    "total_tests_passed": 94,
+    "initial_failure_preserved": "Initial combined sandbox run reported 45 tests with 54 setup/cleanup errors from 27 old tests using an inaccessible sandbox temp directory. New project-directory and pure tests passed. Normal local execution was approved through the tool; the unchanged combined suite then passed.",
+    "coverage": [
+      "Correct count and projected ID/size queries remain executable",
+      "Direct, wildcard, function, COUNT, WHERE, GROUP BY, ORDER BY, correlated subquery, CTE, view and UNION references to disallowed fields return DENIED with no rows",
+      "Unrelated tables, sqlite_schema, rowid, writes, pragma and attachment/extension attempts rejected",
+      "Child policy receipts and database hashes verified",
+      "All four availability/price cells retain the same scope and affordable recomputation after a rejected query; tool journals verify",
+      "Legacy default and earlier native workflow tests pass"
+    ],
+    "scope": "Synthetic local software tests, not real student records, model behavior or a security proof for arbitrary hostile databases"
+  },
+  "preserved": "No frozen historical source copy, model response, original database or existing research score was modified. Working shared source hashes changed; future batches must freeze new source rather than reuse old manifests.",
+  "resources": {"api_calls":0,"api_cost_cny":0,"real_dataset_queries":0},
+  "remaining": ["Native definition/revision events and complete runner", "Scripted end-to-end replay", "Tokenizer/rate checks and frozen fee bound", "Fresh paid approval"],
+  "github_remote_sync_verified": false
+}
