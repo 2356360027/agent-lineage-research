@@ -1,0 +1,117 @@
+{
+  "status": "CLEAN_DIRECTORY_CPU_REPRODUCTION_PASSED",
+  "date": "2026-10-27",
+  "run_directory": "runtime/runs/reuse-clean-reproduction-20261027-002",
+  "report_sha256": "d758feeffe42d9bbf30e6a16609e280ad3ad068f1b373be7d22f31a85707721f",
+  "source_commit": "6b0ef9bc4f1d9e7768e2ce1fb66eb35a99266697",
+  "source_zip_sha256": "1cd5b1e91ffb5301b79fbe490819a8b323d3c257bed80c35bda9c34c373a2401",
+  "test_modules": 10,
+  "tests_passed": 66,
+  "tests": {
+    "test_reuse_scenarios": {
+      "tests_passed": 9,
+      "log_sha256": "6f1378bf8cdaf27c4c30905a0c876d1783504b9a365d86cef8eba6c460d33843"
+    },
+    "test_reuse_protocol": {
+      "tests_passed": 4,
+      "log_sha256": "0c8063c74917a5085c8293cf9bdfef98c00e617f1e17eb9f9f3504f08bb63a87"
+    },
+    "test_reuse_statistics": {
+      "tests_passed": 5,
+      "log_sha256": "67c96bbd8db92bf2d95400acb5f4b17f4584550bdd59f5ee2930314a877f6f59"
+    },
+    "test_reuse_development": {
+      "tests_passed": 6,
+      "log_sha256": "e1a9151276944c4dcbff933ab61f36e4817a3cd977e2c86d09e10ab90fbb29ad"
+    },
+    "test_reuse_execution_protocol": {
+      "tests_passed": 10,
+      "log_sha256": "b34763415f8abdbfb017b92985250cee3f0cccee17bc465987c587057aec1691"
+    },
+    "test_reuse_readonly_execution": {
+      "tests_passed": 15,
+      "log_sha256": "47bdee3eb368e30c350a5e14979e8316d9946715fd2272912fec587105be77b9"
+    },
+    "test_reuse_mistral_transport": {
+      "tests_passed": 4,
+      "log_sha256": "05c189ac21bf5520dffa14f565be538b4087437c52584fd37f46aea9f1ceafaa"
+    },
+    "test_inspect_reuse_gguf": {
+      "tests_passed": 3,
+      "log_sha256": "77568a670426edee748ea366a5571eb05bdbfcdfd208d949c90428f139bcbc64"
+    },
+    "test_reuse_robustness": {
+      "tests_passed": 7,
+      "log_sha256": "58dabd6b610b6a78976beff296631b107d781acc72147cf44ebbfd354dd0e41a"
+    },
+    "test_reuse_robustness_scoring": {
+      "tests_passed": 3,
+      "log_sha256": "a46b08e79c7c769b4c27113524ae6504999442d83f8b2c610c441914331e63e2"
+    }
+  },
+  "suites": {
+    "main-qwen": {
+      "scientific_summary_exact": true,
+      "summary_byte_identical": true,
+      "original_summary_sha256": "f8003fb0d1a0259ca7fbe132651bca5bf617f8b2e19aaf1b0a816be873fd4c03",
+      "reproduced_summary_sha256": "f8003fb0d1a0259ca7fbe132651bca5bf617f8b2e19aaf1b0a816be873fd4c03",
+      "input_hashes_exact": true,
+      "copied_inputs_unchanged": true,
+      "allowed_difference": null
+    },
+    "main-mistral": {
+      "scientific_summary_exact": true,
+      "summary_byte_identical": true,
+      "original_summary_sha256": "5edda1b87f51dbbdf38d7611201dd8ff4f868f55a5f748248ae6645225b8b279",
+      "reproduced_summary_sha256": "5edda1b87f51dbbdf38d7611201dd8ff4f868f55a5f748248ae6645225b8b279",
+      "input_hashes_exact": true,
+      "copied_inputs_unchanged": true,
+      "allowed_difference": null
+    },
+    "e3-qwen": {
+      "scientific_summary_exact": true,
+      "summary_byte_identical": false,
+      "original_summary_sha256": "3489f05eb7c98eb6b254fd8f3c808889c4630c02ea04f92b2ac223c0a8d745cb",
+      "reproduced_summary_sha256": "401f3aeed31bbe4db4db397662430c392fdb358cd8368c982d2f132d75a5e90b",
+      "input_hashes_exact": true,
+      "copied_inputs_unchanged": true,
+      "allowed_difference": "prepared absolute path only"
+    },
+    "e3-mistral": {
+      "scientific_summary_exact": true,
+      "summary_byte_identical": false,
+      "original_summary_sha256": "b1165d7481f4c9122d3af9d0a4e222e65f1874f21ed63981e4c49dc07999b81c",
+      "reproduced_summary_sha256": "13885c45d39cfb355efd3facb9b85a1b7ede482125302fab12009c077a846908",
+      "input_hashes_exact": true,
+      "copied_inputs_unchanged": true,
+      "allowed_difference": "prepared absolute path only"
+    },
+    "robust-qwen": {
+      "scientific_summary_exact": true,
+      "summary_byte_identical": true,
+      "original_summary_sha256": "c18e1b6830295d8b7aeaee4d2bfae66d1c93d826194964f6e20453b805a720ea",
+      "reproduced_summary_sha256": "c18e1b6830295d8b7aeaee4d2bfae66d1c93d826194964f6e20453b805a720ea",
+      "input_hashes_exact": true,
+      "copied_inputs_unchanged": true,
+      "allowed_difference": null
+    },
+    "robust-mistral": {
+      "scientific_summary_exact": true,
+      "summary_byte_identical": true,
+      "original_summary_sha256": "b238b29bd35d75870f09ea25a41416a9b49fa79abb5203e9c68b0ac207691c57",
+      "reproduced_summary_sha256": "b238b29bd35d75870f09ea25a41416a9b49fa79abb5203e9c68b0ac207691c57",
+      "input_hashes_exact": true,
+      "copied_inputs_unchanged": true,
+      "allowed_difference": null
+    }
+  },
+  "original_archives_unchanged": true,
+  "new_generations": 0,
+  "paid_API_calls": 0,
+  "training": false,
+  "model_service_started": false,
+  "seconds": 129.07383150001988,
+  "limits": "Same installed Python/SQLite and machine, not an independent hardware replication. No model regeneration or rerun of the Java optimizer. E3 rechecks frozen SQL scores and recorded costs, not new timing benchmarks. Private archival copies remain local.",
+  "prior_failed_attempt": "runtime/runs/reuse-clean-reproduction-20261027-001",
+  "receipt_scope": "Hash-checked report, test logs and reproduced summaries; not independent model regeneration or another full archival rescore."
+}

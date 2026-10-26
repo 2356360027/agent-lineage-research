@@ -132,3 +132,28 @@ dependent. Mistral133 valid new responses all applicable;11 invalid. Blind
 checklist not an improvement. No more posthoc prompt rescue or extra task search.
 Pending: clean-directory reproduction, final numeric traceability, local full
 paper completion and E3 visualizations. The14-day goal is NOT complete.
+
+Robustness public sync verified:15 aggregate/code/doc files on existing branch
+experiment/reuse-evidence-20261027, commit1899f1f043e1dd00ca2970698e05b2dce969f40a,
+tree38a1c88cd2cf83e7e1142d14fab540be6236b188. Blob hashes, independent tree
+reconstruction, remote changed-file inventory and branch head all match.
+Local source commitf0e04b9eaf417294d102c993285d6d27217d41e3 retained; no force push.
+GitHub app-specific permission verified Allow all actions; global unchanged.
+No raw records, database, form, weights, secrets or new full paper published.
+Receipt:configs/run_records/reuse_robustness_public_snapshot_20261027.json.
+
+Clean reproduction checkpoint (2026-10-27)
+Attempt002 terminal PASSED; session is no longer live. New evidence is66 tests
+across10 modules and exact scientific rescoring of all6 sealed model suites.
+Original/copy inputs remain unchanged. E3's relocated absolute path is the only
+allowed summary difference. Duration129.0738315s; zero new generations/API calls.
+Attempt001 packaging failure is preserved; tests/__init__.py fixed in6b0ef9b.
+See REPRODUCTION_GUIDE_V1.txt, REPRODUCTION_ENGINEERING_V1.txt and
+configs/run_records/reuse_clean_reproduction_20261027.json.
+The public-only repository does not include raw responses and cannot itself
+reproduce their scoring without the private archives. CPU checks and figures
+from public aggregates are independently runnable. No claim of new model or
+cross-machine replication. Latest inference ledger remains4837 attempts.
+Local paper now includes both models, fixed robustness controls and actual E3
+cost limits. Remaining: full numerical traceability, E3 figure, complete local
+paper QA and final goal-requirement audit. No new inference is indicated.

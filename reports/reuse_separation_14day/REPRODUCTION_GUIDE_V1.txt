@@ -1,0 +1,98 @@
+Reproduction guide — controlled reuse study, 2026-10-27
+
+Scope and access
+This package separates public source/aggregate reproduction from private raw-
+response rescoring. A public GitHub checkout does NOT contain the six raw model
+archives. Do not describe the public-only package as independently reproducing
+every model response. The complete archives are retained locally under ignored
+runtime/runs. They are not automatically published or sent to any third party.
+
+Environment actually checked
+Windows, Python 3.13.9 (Anaconda), built-in sqlite3, on the original workstation.
+The CPU core tests and archived scoring use the Python standard library. Model
+inference originally used pinned llama.cpp b11850 and verified Q5_K_M weights;
+neither weights nor a running GPU service are needed for the commands below.
+Matplotlib and Pillow are additionally required for regenerating figure files.
+The classical optimizer was Apache Calcite 1.40.0. The rescore does not rerun
+Java or replace recorded optimizer timing. No cross-machine claim is made.
+
+Commands below assume a terminal at the repository root and a Python executable
+on PATH. On the verified Windows machine, replace python with the PowerShell
+expression & 'D:/tools/anconda/project/python.exe'. Do not append commands to cd
+on the same line. Use a NEW output directory each time; no overwrites/resume.
+
+1. Public-code checks (no model, API, network download or credentials)
+python -B -X utf8 -m unittest tests.test_reuse_scenarios tests.test_reuse_protocol tests.test_reuse_statistics tests.test_reuse_development tests.test_reuse_execution_protocol tests.test_reuse_readonly_execution tests.test_reuse_mistral_transport tests.test_inspect_reuse_gguf tests.test_reuse_robustness tests.test_reuse_robustness_scoring -v
+
+These ten modules cover 66 tests: scenario/witness/oracle consistency, price-
+only inputs and shared controllers, fixed-denominator statistics, execution
+gates and failure handling, model-specific transport, artifact inspection and
+robustness scoring. Passing them does not establish general SQL equivalence,
+model competence, historical human-review independence or universal safety.
+
+2. Public aggregate figure regeneration (no new observations)
+python -B -X utf8 scripts/plot_reuse_confirmation.py --output runtime/runs/reproduced-confirmation-figure-001
+
+Inputs: configs/run_records/reuse_confirmation_{qwen,mistral}_20261027.json.
+Outputs include PDF, editable SVG, PNG/TIFF, source_data.json and qa.json.
+The script checks sealed-run status and denominators. Its qa.json deliberately
+does not claim visual approval; inspect the new rendered output. The original
+reviewed figure is figures/confirmation-v3/ and its QA_REVIEW.txt records the
+visual check. Renderer/font differences can change image bytes without changing
+the plotted counts. Figure generation is not a rescore of private responses.
+
+3. Complete local archival CPU reproduction
+Requires ALL six prepared directories and their original audits listed in
+scripts/reproduce_reuse_package.py, plus matching aggregate run records.
+Before running, the orchestrator itself must be committed: it intentionally
+compares its bytes with the archived Git HEAD. Dirty unrelated files are not
+copied into the clean source tree. Never commit secrets to satisfy this check.
+
+python -B -X utf8 scripts/reproduce_reuse_package.py --output runtime/runs/reuse-clean-reproduction-local-003
+
+The command archives committed runtime/scripts/tests/configs into a clean local
+directory, hash-checks copies of the six private prepared archives, runs the
+ten test modules in isolated Python, and invokes the matching frozen scorer.
+The robustness scorer uses the separately hashed usage-metadata adapter
+documented in ROBUSTNESS_ANALYSIS_REPAIR_V1.txt; semantic scoring is unchanged.
+Each subprocess is bounded at 600 seconds. No inference, retries of model calls,
+model download, training, API calls or GPU service are performed. Output is
+local/private and includes raw archival copies: do not upload this directory.
+
+Expected terminal status: CLEAN_DIRECTORY_CPU_REPRODUCTION_PASSED.
+Inspect report.json and report_index.json. All six scientific summaries and
+input-hash files must match. Only the E3 top-level 'prepared' absolute directory
+is normalized. No scores, failures, tokens, timings or nested values are
+normalized. Both copied and original archival inputs are checked unchanged.
+
+4. Export a public receipt, without raw logs or responses
+python -B -X utf8 scripts/export_reuse_reproduction.py --run runtime/runs/reuse-clean-reproduction-local-003 --output runtime/runs/reuse-clean-reproduction-local-003/public-receipt.json
+
+The exporter checks the report/index, all ten test logs and six output summary
+hashes, and retains only an explicit field allowlist. It is a receipt check,
+not a second rescore. Review it before any public upload.
+
+Verified run and retained failure
+Attempt 001 stopped before tests/scoring because tests/__init__.py was absent
+from the clean archive. The failure is preserved, not erased. Commit
+6b0ef9bc4f1d9e7768e2ce1fb66eb35a99266697 adds that package marker without changing
+any experimental input or model output. Attempt 002 completed in 129.0738315
+seconds: 66 tests, six scientific summaries exact, original archives unchanged.
+Public receipt: configs/run_records/reuse_clean_reproduction_20261027.json.
+The two E3 summary byte hashes differ solely because their path changed; the
+other four are byte-identical. This is same-machine scoring reproducibility,
+not new inference, new SQL latency benchmarking, independent hardware validation
+or reproduction of external-paper performance.
+
+Scientific interpretation and remaining work
+Read CONFIRMATION_*_READOUT_V1.txt, E3_*_READOUT_V1.txt and
+ROBUSTNESS_CONCLUSION_V1.txt separately. Do not pool models, prices, repeated
+conditions or development data into independent tasks. Failure/unknown outputs
+remain in planned denominators. Full manuscript numerical traceability, E3
+visualization and final requirement audit remain separate release tasks.
+
+Public/private boundary
+Public: reviewed code, frozen plans, aggregate records, figure source aggregates,
+summary receipts. Private: raw responses, requests containing archival content,
+databases, human forms, model weights, credentials and the full local manuscript
+unless separately authorized. No API key is needed for this reproduction guide.

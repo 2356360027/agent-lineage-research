@@ -1,0 +1,25 @@
+Clean-directory reproduction engineering record
+
+Attempt001: local-only, zero generation/API/model service. Six archived run
+directories copied and hash-checked. It stopped before any test or scientific
+rescore because `python -I -m unittest discover -t CLEAN` requires an importable
+tests package. The existing working-tree test commands had relied on namespace
+discovery and had no tests/__init__.py tracked. This is a real clean-checkout
+packaging defect. Added an explicit package marker; no experimental source,
+prompt, response or scoring rule changed. Attempt001 and its exception remain
+under runtime/runs/reuse-clean-reproduction-20261027-001.
+
+A separately named attempt002 uses a newly committed code archive. It does not
+resume or overwrite001. CPU score reproduction may correct packaging failures;
+this is not an inference retry or a replacement of any failed model response.
+Original model archives remain immutable. Completion is not claimed here;
+the terminal report of the new attempt is authoritative.
+
+Terminal follow-up: attempt002 is now verified PASSED. Its source archive is
+commit6b0ef9bc4f1d9e7768e2ce1fb66eb35a99266697. All66 tests across10 modules pass;
+six scientific summaries and all input hashes match, and original/copy archives
+remain unchanged. Main and robustness summaries are byte-identical; E3 differs
+only in its top-level relocated prepared directory. Duration129.0738315s,
+zero model generations, zero paid calls, no model service. The public receipt
+is configs/run_records/reuse_clean_reproduction_20261027.json. This does not
+claim fresh inference, cross-machine replication or new timing measurements.
