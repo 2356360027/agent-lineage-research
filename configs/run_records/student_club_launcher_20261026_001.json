@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-26",
+  "status": "FROZEN_LAUNCHER_PREFLIGHT_PASSED_NOT_PAID_APPROVED",
+  "previous_commit": "b980f37",
+  "prepared": {
+    "private_output": "runtime/runs/student-club-diagnostic-prepared-20261026-001",
+    "manifest_sha256": "a48eb8b0dcb381cbc6e0e8ee5a625d5c4ab94e5228c510914c423e39fba571d2",
+    "source_and_policy_files": 56,
+    "evidence_files": 77,
+    "task_pairs": 1,
+    "dependent_conditions": 12,
+    "max_model_calls": 56,
+    "max_readonly_tool_attempts": 36,
+    "call_horizon_seconds": 600,
+    "owned_worker_limit_seconds": 630,
+    "cleanup_additional": true,
+    "conditional_micro_cny_bound": 969736,
+    "proposed_client_ceiling_micro_cny": 1100000,
+    "automatic_retry": false,
+    "paid_approval_received": false
+  },
+  "price_recheck": {
+    "source": "https://api-docs.deepseek.com/zh-cn/quick_start/pricing/",
+    "checked_date": "2026-10-26",
+    "model_alias": "deepseek-flash",
+    "advertised_version": "DeepSeek-V4.1-Flash-1017",
+    "peak_uncached_input_cny_per_million": 2,
+    "peak_output_cny_per_million": 8,
+    "provider_invoice_verified": false,
+    "provider_spending_cap_installed": false,
+    "provider_prompt_parity_verified": false
+  },
+  "verification": {
+    "new_launcher_tests": 6,
+    "combined_student_and_dependency_tests_passed": 108,
+    "inherited_owned_worker_tests_passed_separately": 9,
+    "frozen_launcher_command_result": "FROZEN_STUDENT_CLUB_PREFLIGHT_PASSED",
+    "real_provider_calls_in_tests": 0,
+    "tested_failures": ["Wrong approval", "Stale price date", "Failed source preflight", "Missing worker claim", "Unexpected worker packet", "Claim schema mismatch", "Timeout retains uncertainty and prevents rerun", "Launcher exception retained without credential in files"],
+    "archive_receipt_scope": "Parent/worker closure and hash binding only; explicitly not a completed semantic or full trace audit"
+  },
+  "resources": {"api_calls": 0, "api_cost_cny": 0, "real_dataset_queries": 0},
+  "remaining": ["Full archived API/accounting/tool audit binding", "Staged file export and Stage A lock enforcement", "Fresh bounded paid authorization and hidden local credential input"],
+  "github_remote_sync_verified": false,
+  "research_conclusion": "Launch infrastructure validated locally. No new empirical effect or method-benefit evidence."
+}

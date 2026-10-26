@@ -1,8 +1,8 @@
-"""Offline evidence/source bundle. No execute mode, credentials or HTTP calls.
+"""Offline evidence/source preparation. No credentials or HTTP calls here.
 
 Static local imports plus explicit subprocess entrypoints are included. The
 frozen verifier also rejects loaded project modules outside the copied source.
-This is a staging bundle, not a paid authorization or a finished live launcher.
+The copied launcher requires a separate explicit fixed-batch approval.
 """
 import argparse
 import ast
@@ -28,8 +28,11 @@ from scripts.run_cache_workflow import counter_for
 SELF='scripts/prepare_student_club_runtime.py'
 POLICY='configs/student_club_diagnostic_policy_v1.json'
 SEEDS=(SELF,'runtime/student_club_native_batch.py','runtime/student_club_native_transport.py',
-       'runtime/student_club_readonly.py')
-VERSION='student-club-offline-runtime-bundle-v1'
+       'runtime/student_club_readonly.py','scripts/run_student_club_diagnostic.py',
+       'runtime/student_club_review_packets.py')
+VERSION='student-club-executable-runtime-bundle-v2'
+LIVE_LIMITS=dict(max_calls=56,max_tool_attempts=36,max_seconds=600,outer_worker_seconds=630,
+    ceiling_micro_cny=1100000,rates_micro_cny_per_token=[2,8],price_checked_date='2026-10-26')
 
 
 def closure(project,seeds=SEEDS):
@@ -90,8 +93,9 @@ def verify(root,expected_sha,*,require_frozen=False):
     root=Path(root).absolute();no_links(root)
     if audit.hash_file(root/'manifest.json')!=expected_sha:raise ValueError('Manifest changed')
     m=read_json(root/'manifest.json')
-    if m['version']!=VERSION or m['status']!='OFFLINE_STAGING_NOT_AUTHORIZED':
+    if m['version']!=VERSION or m['status']!='PREPARED_NOT_AUTHORIZED':
         raise ValueError('Wrong package type')
+    if m.get('live_limits')!=LIVE_LIMITS:raise ValueError('Changed live limits')
     for directory,field in (('source','source_files'),('evidence','evidence_files'),('reference','reference_files')):
         if snapshot(root/directory)!=m[field]:raise ValueError('Bundle inventory changed: '+directory)
     if set(m['source_files'])!=set(closure(root/'source'))|{POLICY}:
@@ -120,9 +124,9 @@ def verify(root,expected_sha,*,require_frozen=False):
                 p=Path(module.__file__).resolve()
                 if not p.is_relative_to(root/'source') or p.relative_to(root/'source').as_posix() not in m['source_files']:
                     raise ValueError('Unfrozen project import')
-    return dict(status='OFFLINE_STAGING_VERIFIED',source_files=len(m['source_files']),
+    return dict(status='FROZEN_INPUT_SOURCE_VERIFIED',source_files=len(m['source_files']),
         evidence_files=len(m['evidence_files']),conditions=12,api_calls=0,database_queries=0,
-        paid_approval=False,live_launcher_present=False)
+        paid_approval=False,live_launcher_present=True)
 
 
 def prepare(project,root):
@@ -152,7 +156,7 @@ def prepare(project,root):
     audit.save_new(root/'PRIVATE_plan.json',plan)
     first=receipts(inputs,native);ns=[r['reference_input_tokens'] for r in first]
     cost=(sum(ns)+(MAX_CALLS-len(ns))*MAX_INPUT)*INPUT_RATE+MAX_CALLS*MAX_OUTPUT*OUTPUT_RATE
-    manifest=dict(version=VERSION,status='OFFLINE_STAGING_NOT_AUTHORIZED',**token_fields,
+    manifest=dict(version=VERSION,status='PREPARED_NOT_AUTHORIZED',**token_fields,
         tokenizer_sha256=audit.hash_file(assets['tokenizer']),asset_binding_sha256=ASSET_PIN,
         source_files=snapshot(root/'source'),evidence_files=snapshot(root/'evidence'),
         reference_files=snapshot(root/'reference'),input_receipt=inputs['receipt'],
@@ -160,7 +164,10 @@ def prepare(project,root):
         first_request_receipts=first,conditional_micro_cny=cost,
         python=sys.version,sqlite_version=sqlite3.sqlite_version,
         created_utc=datetime.now(timezone.utc).isoformat(),api_calls=0,
-        tokenizer_assets_external_hash_pinned=True,live_launcher_present=False,
+        tokenizer_assets_external_hash_pinned=True,live_launcher_present=True,live_limits=LIVE_LIMITS,
+        pricing_source='https://api-docs.deepseek.com/zh-cn/quick_start/pricing/',
+        model='deepseek-flash',advertised_version='DeepSeek-V4.1-Flash-1017',
+        provider_weights_verified=False,provider_prompt_parity_verified=False,
         dynamic_entrypoints_explicit=list(SEEDS),static_import_closure_not_universal_execution_proof=True)
     audit.save_new(root/'manifest.json',manifest)
     pin=audit.hash_file(root/'manifest.json');result=verify(root,pin)
