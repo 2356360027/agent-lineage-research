@@ -1,0 +1,56 @@
+{
+  "date": "2026-10-26",
+  "status": "STAGE_A_SELF_REPORTED_REVIEWS_LOCKED_STAGE_B_RELEASED_UNFILLED",
+  "supersedes_review_status_only_of": "student_club_result_20261026_002.json",
+  "prepared": "runtime/runs/student-club-diagnostic-prepared-20261026-002",
+  "manifest_sha256": "0f72df5bb2e13ee830d455acc0ee42c8b838b6866a9b64bbc27888397c2b07a8",
+  "handoff_sha256": "9834e4cf0526f987e2563895ca8e6ad8c27452a7736e131069534d086baaec7f",
+  "source_submission_sha256": "7484d4c0b75beace50d51af8de64a9118731b72c6996b6d50089962a0f86d59c",
+  "intake": {
+    "transformation": "Extracted two JSON blocks verbatim; no field edits or judgments generated.",
+    "immutable_template_fields_match": true,
+    "all_evidence_quotes_are_exact_definition_substrings": true,
+    "reviewer_provenance": "Both forms self-report independent judgment and model assistance limited to formatting without generating or modifying judgments.",
+    "human_identity_independence_verified": false,
+    "original_preserved_privately": true
+  },
+  "stage_a": {
+    "unique_initial_definitions": 8,
+    "reviewers": 2,
+    "ratings_total": 16,
+    "consistent_ratings": 16,
+    "explicit_conflict_ratings": 0,
+    "insufficient_information_ratings": 0,
+    "paired_agreement": "8/8",
+    "lock_1_sha256": "00de8b949f703f9258769bf4c4266b8ef70675b8e76236063ccaa89421d8e1b4",
+    "lock_2_sha256": "0773d83f4640480aee511e0b96a9d8c976020dbfabd16ac5b8dcd1120ee16a79"
+  },
+  "stage_b": {
+    "status": "UNFILLED_RELEASED",
+    "items_per_reviewer": 8,
+    "ratings_received": 0,
+    "seal_sha256": "54c30f564d8742df9ea56091a456b7c819dd5337939a75fea371fd9c5646d8a3"
+  },
+  "interpretation": {
+    "task_pairs": 1,
+    "dependent_conditions": 12,
+    "stage_a_finding": "Neither reviewer labeled any of the eight elicited initial definitions as conflicting with the request. This batch has not provided positive evidence for initial task-definition drift.",
+    "ordinary_arm_definitions_inferred_from_sql": false,
+    "later_program_alignment_human_review_complete": false,
+    "final_answer_correctness_established_by_this_review": false,
+    "population_no_drift_claim": false,
+    "method_increment_established": false,
+    "independent_confirmation": false
+  },
+  "backup": {
+    "path": "runtime/runs/student-club-review-20261026-001-locked-backup.zip",
+    "files_verified_by_content_hash": 32,
+    "sha256": "94f4d03d0fd1079c78dc15c604e9dd8e5d86f353fe677d70db5a407516deee9f",
+    "off_device": false,
+    "raw_uploaded": false
+  },
+  "new_model_calls": 0,
+  "new_sql_queries": 0,
+  "github_remote_sync_verified": false,
+  "next": "Each reviewer independently fills their own Stage B form; preserve original task, definition, SQL and order. No further paid batch authorized."
+}
