@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-27",
+  "status": "RESEARCH_PLAN_RESET_AND_TWO_OFFLINE_EXPERIMENTS_COMPLETED",
+  "user_authorization": "根据现有实验重新设置长期目标，尽快本地实验；时间不确定",
+  "plan": "reports/research_reset_20261027/LONG_TERM_GOAL_V2.txt",
+  "question": "Task-preserving result reuse under a verification budget; benefit must exceed strong checking plus recomputation",
+  "prior_drift_hypothesis_status": "Not established; no longer a required positive finding",
+  "timestamp_issue": "Unknown, retained with limitation; unrelated research no longer blocked",
+  "program_stress": {
+    "output": "runtime/runs/local-semantic-stress-20261027-001",
+    "summary_sha256": "53d7f3cebbeb4d496630338e08de71cd05a74763b1bbf374a2b12916458bd1d92",
+    "synthetic_worlds": 576,
+    "historical_SQL": 12,
+    "classical_exists_controls": 1,
+    "query_executions": 7488,
+    "ordinary_queries_with_counterexamples": 4,
+    "mismatched_worlds_per_ordinary_query": 23,
+    "elicited_definition_queries_with_counterexamples": 0,
+    "classical_control_mismatches": 0,
+    "scope": "Post-hoc, two members/two events, no duplicate attendance edges, same-name events allowed. Not original snapshot failures or a new LLM trial."
+  },
+  "cache_sufficiency": {
+    "output": "runtime/runs/local-cache-sufficiency-20261027-001",
+    "summary_sha256": "de6ff1b8164b17f7e25d74e897e29612d2a6efb9ac03c30e8e84658ebb4a4690",
+    "families": 5,
+    "synthetic_worlds_total": 290,
+    "lossy_families_with_identical_cache_different_answer_witness": 3,
+    "classical_sufficient_transforms": 2,
+    "classical_transform_mismatches": 0,
+    "scope": "Finite-domain synthetic formal task relations. No new algorithm claim and no natural benchmark sample."
+  },
+  "software_tests_passed": 8,
+  "new_paid_calls": 0,
+  "raw_uploaded": false,
+  "method_increment_established": false,
+  "sources_checked": [
+    {"url":"https://calcite.apache.org/docs/materialized_views.html", "scope":"Official documentation of classical view rewriting and constraints"},
+    {"url":"https://aclanthology.org/2020.emnlp-main.29/", "scope":"Published abstract and original implementation link; database test suites are prior art"},
+    {"url":"https://arxiv.org/abs/2602.16699", "scope":"v3 abstract only; cost-aware decisions already studied, not a full reproduction"}
+  ],
+  "next": "24 local first-response formal calibration calls after pinned model hashes verify; no fee, no SQL tools or model training, owned local server stopped afterward."
+}
